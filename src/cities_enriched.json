@@ -1,0 +1,529 @@
+{
+  "jaipur": {
+    "state": "rajasthan",
+    "region": "northern",
+    "category": ["metro", "heritage"],
+    "must_visit": ["Amber Fort", "Hawa Mahal", "City Palace", "Jantar Mantar", "Nahargarh Fort", "Jal Mahal"],
+    "must_try": ["Dal Baati Churma", "Ghewar", "Laal Maas", "Pyaaz Kachori", "Chai at Lassiwala", "Elephant ride at Amer", "Shopping on Johari Bazaar"],
+    "accommodation": [],
+    "mode_of_travel": ["auto", "ola/uber", "city_bus"],
+    "ideal_season": "winter",
+    "ideal_stay": "3-4 days",
+    "rating": 5,
+    "notes": [
+      "The pink city really earns its name at dusk when the sandstone turns gold — Amber Fort at sunrise is worth the early wake-up call.",
+      "Johari Bazaar is absolute chaos and I loved every second of it — bargaining for blue pottery and silver jewellery is half the fun.",
+      "Auto-rickshaw drivers will try every trick in the book — settle the price before you get in, always."
+    ]
+  },
+  "chittorgarh": {
+    "state": "rajasthan",
+    "region": "northern",
+    "category": ["heritage"],
+    "must_visit": ["Chittorgarh Fort", "Vijay Stambha", "Kirti Stambha", "Padmini Palace", "Meera Temple"],
+    "must_try": ["Dal Baati Churma", "Mawa Kachori", "Cycling around the fort", "Sunset at Vijay Stambha", "Local bazaar walk"],
+    "accommodation": [],
+    "mode_of_travel": ["auto", "private_taxi"],
+    "ideal_season": "winter",
+    "ideal_stay": "1-2 days",
+    "rating": 4,
+    "notes": [
+      "The fort is massive — bigger than most Indian cities — and the weight of history hits you the moment you pass through the first gate.",
+      "Most tourists skip Chittorgarh for Udaipur but honestly the stories of Rani Padmini and Maharana Pratap make this the more emotionally resonant stop.",
+      "Hire a local guide, not a tourist agency one — the difference in storytelling quality is night and day."
+    ]
+  },
+  "udaipur": {
+    "state": "rajasthan",
+    "region": "northern",
+    "category": ["heritage"],
+    "must_visit": ["Lake Pichola", "City Palace", "Jag Mandir", "Saheliyon ki Bari", "Fateh Sagar Lake", "Jagdish Temple"],
+    "must_try": ["Dal Baati Churma", "Mawa Kachori", "Boat ride on Lake Pichola", "Rooftop dinner overlooking the lake", "Puppet show", "Bagore Ki Haveli evening show"],
+    "accommodation": [],
+    "mode_of_travel": ["auto", "ola/uber", "bike_rental"],
+    "ideal_season": "winter",
+    "ideal_stay": "3-4 days",
+    "rating": 5,
+    "notes": [
+      "Every rooftop restaurant in the old city has a view that makes you feel like you're in a painting — I didn't want to leave.",
+      "Rent a scooter for a day, drive around Fateh Sagar in the evening, stop for corn on the lakeside — perfection.",
+      "Monsoon Udaipur is secretly magical if you don't mind some rain — the hills turn green and the lakes fill up spectacularly."
+    ]
+  },
+  "kumbhalgarh": {
+    "state": "rajasthan",
+    "region": "northern",
+    "category": ["heritage", "adventure"],
+    "must_visit": ["Kumbhalgarh Fort", "The Great Wall of India (fort walls)", "Badal Mahal", "Kumbhalgarh Wildlife Sanctuary", "Neelkanth Mahadev Temple"],
+    "must_try": ["Dal Baati at a dhaba", "Jeep safari in wildlife sanctuary", "Sunrise from the fort battlements", "Trek along the fort walls"],
+    "accommodation": [],
+    "mode_of_travel": ["private_taxi"],
+    "ideal_season": "winter",
+    "ideal_stay": "1-2 days",
+    "rating": 4,
+    "notes": [
+      "Standing on those 36-kilometre walls at sunrise with mist rolling through the Aravalli valleys — this is the image that stays with you long after you leave Rajasthan.",
+      "It's a day-trip from Udaipur for most but staying overnight in the forest means you get the fort completely to yourself at dawn.",
+      "The wildlife sanctuary is underrated — sloth bears and leopards live here and the forest drive is genuinely thrilling."
+    ]
+  },
+  "ahemdabad": {
+    "state": "gujarat",
+    "region": "western",
+    "category": ["metro", "heritage"],
+    "must_visit": ["Sabarmati Ashram", "Adalaj Stepwell", "Sidi Saiyyed Mosque", "Calico Museum of Textiles", "Kankaria Lake", "Hutheesing Jain Temple"],
+    "must_try": ["Thali at a traditional Gujarati restaurant", "Fafda-Jalebi for breakfast", "Khaman Dhokla", "Undhiyu", "Heritage walk in the old walled city", "Riverfront evening walk"],
+    "accommodation": [],
+    "mode_of_travel": ["metro", "auto", "ola/uber", "city_bus"],
+    "ideal_season": "winter",
+    "ideal_stay": "2-3 days",
+    "rating": 4,
+    "notes": [
+      "The pol houses of the old city are a labyrinth of carved wooden facades and hidden courtyards — the UNESCO heritage walk is legitimately one of India's best urban walks.",
+      "Gujarati thali here is not just food, it's a philosophy — unlimited refills, everything sweet-salty-spicy at once, and you will absolutely overeat.",
+      "Traffic is a nightmare but the metro has made getting around surprisingly easy now."
+    ]
+  },
+  "kevadiya": {
+    "state": "gujarat",
+    "region": "western",
+    "category": ["heritage"],
+    "must_visit": ["Statue of Unity", "Valley of Flowers", "Cactus Garden", "Butterfly Garden", "Zarwani Waterfall", "Jungle Safari"],
+    "must_try": ["Viewing deck at the Statue of Unity", "Seaplane experience", "Local tribal cuisine", "Tent resort stay"],
+    "accommodation": [],
+    "mode_of_travel": ["private_taxi"],
+    "ideal_season": "winter",
+    "ideal_stay": "1-2 days",
+    "rating": 3,
+    "notes": [
+      "The statue is genuinely staggering in scale — nothing prepares you for how enormous it is until you're standing at the base looking up.",
+      "Beyond the statue, the surrounding eco-tourism zone is well-designed and surprisingly green — not the dusty construction-site vibe I expected.",
+      "It's a government project so it's all very organised and a bit theme-park-y, but worth a day trip from Vadodara or Surat."
+    ]
+  },
+  "surat": {
+    "state": "gujarat",
+    "region": "western",
+    "category": ["metro"],
+    "must_visit": ["Surat Castle", "Dutch Cemetery", "Sardar Patel Museum", "Dumas Beach", "Swaminarayan Temple", "Gopi Talav"],
+    "must_try": ["Surti Locho", "Ghari Mithai", "Undhiyu", "Ponk (winter season)", "Sev Khamani", "Diamond industry tour"],
+    "accommodation": [],
+    "mode_of_travel": ["auto", "ola/uber", "city_bus"],
+    "ideal_season": "winter",
+    "ideal_stay": "1-2 days",
+    "rating": 3,
+    "notes": [
+      "Surat is primarily a food city — if you're not eating every two hours you're doing it wrong.",
+      "The textile and diamond markets are fascinating to walk through even if you're not buying — the scale of trade happening in narrow lanes is mind-boggling.",
+      "Not a typical tourist destination but has a certain unpretentious energy that's refreshing after Rajasthan's tourism machinery."
+    ]
+  },
+  "vadodara": {
+    "state": "gujarat",
+    "region": "western",
+    "category": ["heritage"],
+    "must_visit": ["Laxmi Vilas Palace", "Sayaji Bagh (Kamati Baug)", "Maharaja Fateh Singh Museum", "EME Temple", "Champaner-Pavagadh"],
+    "must_try": ["Sev Usal", "Dabeli", "Surti Undhiyu", "Baroda Museum visit", "Navratri garba (if in season)"],
+    "accommodation": [],
+    "mode_of_travel": ["auto", "ola/uber"],
+    "ideal_season": "winter",
+    "ideal_stay": "1-2 days",
+    "rating": 3,
+    "notes": [
+      "Laxmi Vilas Palace is four times the size of Buckingham Palace and still a royal residence — that alone makes Vadodara worth a stop.",
+      "The Baroda Museum inside the park is one of those old colonial-era institutions where time has stopped in the best possible way.",
+      "Day trip to Champaner-Pavagadh is essential — a UNESCO site that most tourists completely skip."
+    ]
+  },
+  "somnath": {
+    "state": "gujarat",
+    "region": "western",
+    "category": ["pilgrimage", "coastal"],
+    "must_visit": ["Somnath Temple", "Triveni Sangam", "Bhalka Tirth", "Dehotsarg Tirth", "Somnath Beach"],
+    "must_try": ["Evening aarti at the temple", "Prabhavati Prasad", "Seafood at Veraval harbour", "Sunset at the arrow pillar (baan stambh)", "Morning darshan at 7am"],
+    "accommodation": [],
+    "mode_of_travel": ["auto", "private_taxi"],
+    "ideal_season": "winter",
+    "ideal_stay": "1-2 days",
+    "rating": 4,
+    "notes": [
+      "The arrow pillar at the ocean edge — pointing into the sea with 'there is no land between here and Antarctica' — gave me chills I didn't expect from a pilgrimage site.",
+      "The evening sound and light show is surprisingly well-produced and puts the temple's history of destruction and rebuilding into stark relief.",
+      "Very crowded on weekends and festival days — arrive on a Tuesday morning for a completely different experience."
+    ]
+  },
+  "dwarka": {
+    "state": "gujarat",
+    "region": "western",
+    "category": ["pilgrimage", "coastal"],
+    "must_visit": ["Dwarkadhish Temple", "Bet Dwarka", "Nageshwar Jyotirlinga", "Rukmini Temple", "Lighthouse Beach"],
+    "must_try": ["Morning aarti at Dwarkadhish", "Boat trip to Bet Dwarka", "Panchkui well visit", "Sudarshan Chakra darshan from outside", "Seafood on the harbour"],
+    "accommodation": [],
+    "mode_of_travel": ["auto", "private_taxi"],
+    "ideal_season": "winter",
+    "ideal_stay": "2-3 days",
+    "rating": 4,
+    "notes": [
+      "Dwarka has a mythological weight that very few places carry — standing by the sea knowing this was supposedly Krishna's kingdom is unexpectedly moving even for a non-devotee.",
+      "Bet Dwarka island by boat is the more intimate part of the pilgrimage — the lanes of the island feel genuinely ancient.",
+      "The town itself is small and manageable unlike the chaos of most pilgrimage towns — easier to be present and unhurried here."
+    ]
+  },
+  "rajkot": {
+    "state": "gujarat",
+    "region": "western",
+    "category": ["metro"],
+    "must_visit": ["Watson Museum", "Jubilee Garden", "Rotary Doll Museum", "Kaba Gandhi No Delo", "Rajkumar College"],
+    "must_try": ["Sev Khamani", "Chevdo", "Bhajiya at roadside stalls", "Gujarati thali", "Visit to Gondal (day trip)"],
+    "accommodation": [],
+    "mode_of_travel": ["auto", "ola/uber"],
+    "ideal_season": "winter",
+    "ideal_stay": "1-2 days",
+    "rating": 3,
+    "notes": [
+      "Rajkot is Gandhi's childhood city and the museum there does a good job of showing the domestic side of his early life — intimate rather than monumental.",
+      "Saurashtra's business hub isn't glamorous but is a useful base for exploring the Kathiawar peninsula.",
+      "Watson Museum is genuinely one of the better colonial-era district museums in India — worth an hour of your time."
+    ]
+  },
+  "bikaner": {
+    "state": "rajasthan",
+    "region": "northern",
+    "category": ["heritage", "desert"],
+    "must_visit": ["Junagarh Fort", "Karni Mata Temple (Deshnoke)", "Lalgarh Palace", "Bhandasar Jain Temple", "Ganga Government Museum"],
+    "must_try": ["Bikaneri Bhujia", "Rasgulla (local version)", "Camel safari", "Camel breeding farm visit", "Kote Gate bazaar walk"],
+    "accommodation": [],
+    "mode_of_travel": ["auto", "private_taxi"],
+    "ideal_season": "winter",
+    "ideal_stay": "1-2 days",
+    "rating": 4,
+    "notes": [
+      "Junagarh Fort is the real sleeper hit of Rajasthan — almost no tourists, insanely intricate interiors, and zero commercialisation.",
+      "The Rat Temple at Deshnoke is either the most disturbing or most fascinating thing you'll see in India — go early when the rats are most active.",
+      "Bikaneri bhujia from the original Haldiram's in town tastes completely different from anything you get in a packet — transformative."
+    ]
+  },
+  "sam": {
+    "state": "rajasthan",
+    "region": "northern",
+    "category": ["desert", "adventure"],
+    "must_visit": ["Sam Sand Dunes", "Sunset point at the dunes", "Desert Camp", "Stargazing spot", "Camel safaris"],
+    "must_try": ["Camel ride at sunset", "Overnight desert camp stay", "Folk music and dance performance at camp", "Sleeping under open sky", "Rajasthani dal baati at camp"],
+    "accommodation": [],
+    "mode_of_travel": ["private_taxi"],
+    "ideal_season": "winter",
+    "ideal_stay": "1-2 days",
+    "rating": 4,
+    "notes": [
+      "The silence of the Sam dunes at 5am, before the camel touts arrive, is one of those rare moments that makes you understand why people travel.",
+      "Don't skip the overnight camp — watching the Milky Way from a Thar Desert dune is not something you can simulate anywhere else in India.",
+      "Avoid the peak tourist months of December-January if you want any solitude — the dunes get alarmingly crowded otherwise."
+    ]
+  },
+  "jaisalmer": {
+    "state": "rajasthan",
+    "region": "northern",
+    "category": ["heritage", "desert"],
+    "must_visit": ["Jaisalmer Fort (Sonar Qila)", "Patwon Ki Haveli", "Salim Singh Ki Haveli", "Gadisar Lake", "Sam Sand Dunes"],
+    "must_try": ["Ker Sangri", "Mirchi Bada", "Rooftop chai overlooking the fort", "Desert jeep safari", "Camel trek to village", "Sunset at the dunes"],
+    "accommodation": [],
+    "mode_of_travel": ["auto", "bike_rental", "private_taxi"],
+    "ideal_season": "winter",
+    "ideal_stay": "2-3 days",
+    "rating": 5,
+    "notes": [
+      "Jaisalmer fort is a living fort — people still live, cook and run shops inside — and that makes it feel like a time machine rather than a museum.",
+      "The havelis here are the finest examples of sandstone carving you'll ever see, and most of the tourists walk right past them to get to the dunes.",
+      "Rent a bike and drive to the desert villages beyond Sam — that's where the real Rajasthan lives, not in the camel selfie zone."
+    ]
+  },
+  "jodhpur": {
+    "state": "rajasthan",
+    "region": "northern",
+    "category": ["heritage"],
+    "must_visit": ["Mehrangarh Fort", "Jaswant Thada", "Umaid Bhawan Palace", "Ghanta Ghar (Clock Tower)", "Mandore Gardens"],
+    "must_try": ["Makhaniya Lassi", "Mirchi Vada", "Mawa Kachori", "Blue city walk in old town", "Mehrangarh sound and light show", "Breakfast at Shri Mishrilal Hotel"],
+    "accommodation": [],
+    "mode_of_travel": ["auto", "ola/uber", "bike_rental"],
+    "ideal_season": "winter",
+    "ideal_stay": "2-3 days",
+    "rating": 5,
+    "notes": [
+      "Mehrangarh is the most imposing fort in India — period. Standing at the top looking over the blue city is one of those views that rewires your brain.",
+      "The clock tower market at 8am, buying spices and sipping chai while the city wakes up — that's the real Jodhpur that Instagram misses.",
+      "The blue city is less uniformly blue than photos suggest but wandering those narrow lanes in the morning light is still completely magical."
+    ]
+  },
+  "ajmer-pushkar": {
+    "state": "rajasthan",
+    "region": "northern",
+    "category": ["pilgrimage"],
+    "must_visit": ["Dargah Sharif of Moinuddin Chishti", "Pushkar Lake", "Brahma Temple", "Ana Sagar Lake", "Taragarh Fort", "Savitri Mata Temple"],
+    "must_try": ["Pushkar malpua", "Lassi at a lakeside stall", "Sunset aarti at Pushkar Ghat", "Sufi qawwali at the Dargah", "Camel Fair (if in season)", "Shopping on Pushkar's main bazaar"],
+    "accommodation": [],
+    "mode_of_travel": ["auto", "private_taxi"],
+    "ideal_season": "winter",
+    "ideal_stay": "2-3 days",
+    "rating": 4,
+    "notes": [
+      "Ajmer's Dargah is one of the most powerful religious experiences in India regardless of your faith — the qawwali on Thursday nights is something else entirely.",
+      "Pushkar is Rajasthan's hippie town and the contrast with Ajmer's Islamic spiritual gravity just 11 km away is one of India's great juxtapositions.",
+      "The camel fair in November is absolute madness and absolutely worth planning your entire Rajasthan trip around."
+    ]
+  },
+  "ahmedabad-gandhinagar": {
+    "state": "gujarat",
+    "region": "western",
+    "category": ["metro", "heritage"],
+    "must_visit": ["Sabarmati Ashram", "Adalaj Stepwell", "GIFT City", "Akshardham Temple Gandhinagar", "Sidi Saiyyed Mosque", "Science City Ahmedabad"],
+    "must_try": ["Gujarati thali", "Fafda-Jalebi breakfast", "Khaman and Khandvi", "Heritage walk in pol area", "Kite festival experience (January)", "Manek Chowk night food market"],
+    "accommodation": [],
+    "mode_of_travel": ["metro", "auto", "ola/uber", "city_bus"],
+    "ideal_season": "winter",
+    "ideal_stay": "3-4 days",
+    "rating": 4,
+    "notes": [
+      "The UNESCO heritage walk through Ahmedabad's old city pols is genuinely one of the finest urban heritage experiences in all of India.",
+      "Gandhinagar is that rare Indian state capital that actually feels planned — clean, green, and oddly calming after Ahmedabad's intensity.",
+      "Manek Chowk transforms from a jewellery market by day to a street food paradise by night — don't make dinner plans, just go there."
+    ]
+  },
+  "indore": {
+    "state": "madhya_pradesh",
+    "region": "central",
+    "category": ["metro"],
+    "must_visit": ["Rajwada Palace", "Lal Bagh Palace", "Kanch Mandir", "Chappan Dukan (56 Shops)", "Central Museum", "Patalpani Waterfall"],
+    "must_try": ["Indori Poha with sev and jalebi", "Garadu chaat", "Sabudana khichdi", "Bhutte ka kees", "Sarafa Bazaar night food walk", "Chappan Dukan street food crawl"],
+    "accommodation": [],
+    "mode_of_travel": ["auto", "ola/uber", "city_bus"],
+    "ideal_season": "winter",
+    "ideal_stay": "2-3 days",
+    "rating": 4,
+    "notes": [
+      "Indore's Sarafa Bazaar at midnight — a jewellery market by day that becomes India's best night food market — is the most unique dining experience I've had in Central India.",
+      "The city is consistently ranked India's cleanest for a reason — Indori pride in their city is tangible and infectious.",
+      "Come hungry and plan no fixed itinerary — the best Indore experiences happen when you follow your nose through the lanes."
+    ]
+  },
+  "omkareshwar": {
+    "state": "madhya_pradesh",
+    "region": "central",
+    "category": ["pilgrimage"],
+    "must_visit": ["Omkareshwar Jyotirlinga Temple", "Mamleshwar Temple", "Island circumambulation (parikrama)", "Satmatrika Temple", "Narmada River ghats"],
+    "must_try": ["Morning aarti at the temple", "Boat ride on Narmada", "Narmada parikrama on foot", "Prasad thali", "Sunset meditation at the ghat"],
+    "accommodation": [],
+    "mode_of_travel": ["auto", "private_taxi"],
+    "ideal_season": "winter",
+    "ideal_stay": "1-2 days",
+    "rating": 4,
+    "notes": [
+      "The island itself is shaped like the OM symbol — something about knowing that as you walk the parikrama path above the Narmada gorge makes the whole experience quite otherworldly.",
+      "Far less crowded than Ujjain but just as spiritually charged — this is where you come if you want Narmada darshan without the tourist machinery.",
+      "The boat ride on the Narmada between the two temples at dawn, when the mist is still on the water, is genuinely serene."
+    ]
+  },
+  "nashik": {
+    "state": "maharashtra",
+    "region": "western",
+    "category": ["pilgrimage"],
+    "must_visit": ["Trimbakeshwar Temple", "Panchvati (Sita Gufa, Kalaram Temple)", "Pandavleni Caves", "Nashik wineries (Sula, York)", "Ramkund"],
+    "must_try": ["Misal Pav", "Sabudana vada", "Wine tasting at Sula Vineyards", "Kumbh Mela darshan (if in cycle)", "Grape-stomping experience (February)", "Trimbakeshwar aarti"],
+    "accommodation": [],
+    "mode_of_travel": ["auto", "ola/uber", "private_taxi"],
+    "ideal_season": "post_monsoon",
+    "ideal_stay": "2-3 days",
+    "rating": 4,
+    "notes": [
+      "The bizarre combination of being a major Hindu pilgrimage town AND India's wine capital produces a uniquely schizophrenic energy — I love it.",
+      "Sula Vineyards at harvest time in February is legitimately world-class and totally unexpected in India's interior.",
+      "Trimbakeshwar has some of the most ornate temple architecture in Maharashtra and is always less mobbed than it deserves to be."
+    ]
+  },
+  "shirdi": {
+    "state": "maharashtra",
+    "region": "western",
+    "category": ["pilgrimage"],
+    "must_visit": ["Sai Baba Samadhi Mandir", "Dwarkamai Masjid", "Chavadi", "Gurusthan", "Shani Shingnapur (day trip)"],
+    "must_try": ["Temple prasad", "Breakfast at the prasadalaya", "Early morning darshan queue", "Palki procession", "Shej aarti"],
+    "accommodation": [],
+    "mode_of_travel": ["auto", "private_taxi"],
+    "ideal_season": "year_round",
+    "ideal_stay": "1-2 days",
+    "rating": 3,
+    "notes": [
+      "The devotional energy here is completely overwhelming in a way that's hard to prepare for — tens of thousands of people per day and yet the atmosphere is strangely calm.",
+      "Spend the night and catch the early morning Kakad aarti at 4:30am — the experience when the temple is half-lit and the bhajans echo off the stone is transformative.",
+      "The commercial zone around the temple is aggressively tacky — keep your eyes forward and walk straight to the complex."
+    ]
+  },
+  "sambhajinagar": {
+    "state": "maharashtra",
+    "region": "western",
+    "category": ["heritage"],
+    "must_visit": ["Ellora Caves", "Ajanta Caves", "Bibi Ka Maqbara", "Daulatabad Fort", "Panchakki"],
+    "must_try": ["Naan Qalia (Mughal-era mutton dish)", "Biryani at old city restaurants", "Full day at Ellora", "Sunrise at Ajanta", "Daulatabad fort climb"],
+    "accommodation": [],
+    "mode_of_travel": ["auto", "private_taxi"],
+    "ideal_season": "winter",
+    "ideal_stay": "3-4 days",
+    "rating": 5,
+    "notes": [
+      "Ellora's Kailasa Temple — carved downward from a single rock — is architecturally the most mind-bending structure I have ever stood inside.",
+      "Ajanta needs a dawn arrival; the painted caves in early light before the tourist buses arrive are exactly why people call this a world wonder.",
+      "Budget three full days minimum — Ellora, Ajanta, and Daulatabad each deserve a dedicated day and most tourists catastrophically underestimate this."
+    ]
+  },
+  "pune": {
+    "state": "maharashtra",
+    "region": "western",
+    "category": ["metro", "heritage", "ease_of_work"],
+    "must_visit": ["Shaniwar Wada", "Aga Khan Palace", "Sinhagad Fort", "Osho International Meditation Resort", "Pataleshwar Cave Temple", "Dagdusheth Halwai Ganapati"],
+    "must_try": ["Misal Pav", "Vada Pav", "Pune Special Thali", "Koregaon Park café hopping", "Trekking to Sinhagad", "Pune FC football match (if in season)"],
+    "accommodation": [],
+    "mode_of_travel": ["auto", "ola/uber", "city_bus", "bike_rental"],
+    "ideal_season": "winter",
+    "ideal_stay": "3-4 days",
+    "rating": 4,
+    "notes": [
+      "Pune is one of the most liveable cities in India — the Sahyadri backdrop, the student energy, the café culture and the genuinely good weather makes you want to just stay.",
+      "Sinhagad at 5am before the weekend crowds hit — misty, silent, with tea and bhurji at the top — is one of Maharashtra's perfect mornings.",
+      "The city has gentrified rapidly but the old Peth areas still feel like 18th-century Maratha pulse — walk through Kasba and Mandai market."
+    ]
+  },
+  "mumbai": {
+    "state": "maharashtra",
+    "region": "western",
+    "category": ["metro", "coastal", "ease_of_work"],
+    "must_visit": ["Gateway of India", "Marine Drive", "Elephanta Caves", "Dharavi", "Chhatrapati Shivaji Maharaj Terminus (CST)", "Bandra-Worli Sea Link"],
+    "must_try": ["Vada Pav at Kirti College", "Pav Bhaji at Juhu Beach", "Seafood at Gajalee or Trishna", "Local train experience", "Dharavi slum walk", "Sanjay Gandhi NP leopard safari", "Chowpatty beach bhel"],
+    "accommodation": [],
+    "mode_of_travel": ["metro", "city_bus", "auto", "ola/uber"],
+    "ideal_season": "winter",
+    "ideal_stay": "3-4 days",
+    "rating": 5,
+    "notes": [
+      "Mumbai is the only Indian city where the local train at rush hour feels like a rite of passage rather than an ordeal — do it at least once, it will teach you something.",
+      "Marine Drive at 6am, watching the city wake up over the Arabian Sea with a cutting chai from a nearby tapri — this is the real Mumbai.",
+      "The city never stops, never sleeps, never apologises for being itself — exhausting and completely intoxicating in equal measure."
+    ]
+  },
+  "goa": {
+    "state": "goa",
+    "region": "western",
+    "category": ["coastal", "backpacker", "heritage"],
+    "must_visit": ["Calangute and Baga Beach", "Palolem Beach", "Basilica of Bom Jesus", "Se Cathedral", "Dudhsagar Falls", "Fort Aguada"],
+    "must_try": ["Fish curry rice", "Xacuti", "Bebinca", "Feni cocktail", "Cashew feni tasting", "Beach shack breakfast", "Spice plantation tour", "Saturday Night Market"],
+    "accommodation": [],
+    "mode_of_travel": ["bike_rental", "ola/uber"],
+    "ideal_season": "winter",
+    "ideal_stay": "1 week",
+    "rating": 5,
+    "notes": [
+      "South Goa is a completely different universe from North Goa — if your image of Goa is Baga-beach chaos, drive south and recalibrate entirely.",
+      "Rent a bike, ignore the beach shack raves, and just ride through the inland villages of Ponda and Divar island — that's where the real Goa magic lives.",
+      "Dudhsagar in monsoon is worth the muddy jeep trek — the waterfall in full force is one of those absurdly beautiful things."
+    ]
+  },
+  "gwalior": {
+    "state": "madhya_pradesh",
+    "region": "central",
+    "category": ["heritage"],
+    "must_visit": ["Gwalior Fort", "Man Singh Palace", "Jai Vilas Palace", "Tansen's Tomb", "Sas Bahu Temples", "Gopachal Parvat (Jain rock sculptures)"],
+    "must_try": ["Gwalior Peda", "Dal Tadka at local dhabas", "Evening sound and light show at the fort", "Tansen Music Festival (if in season)", "Cycling through the old city"],
+    "accommodation": [],
+    "mode_of_travel": ["auto", "ola/uber"],
+    "ideal_season": "winter",
+    "ideal_stay": "1-2 days",
+    "rating": 4,
+    "notes": [
+      "Gwalior Fort is one of the most underrated forts in India — it sits on a sheer rock plateau above the city and the Man Singh Palace interior is extraordinary.",
+      "The Jain rock sculptures at Gopachal — massive figures carved directly into the cliff face — are completely overlooked by tourists and utterly haunting.",
+      "Jai Vilas Palace has one of the strangest Durbar halls in India: two of the world's largest chandeliers, and a silver toy train that served drinks at dinner."
+    ]
+  },
+  "nagpur": {
+    "state": "maharashtra",
+    "region": "central",
+    "category": ["metro"],
+    "must_visit": ["Deekshabhoomi", "Dragon Palace Buddhist Temple", "Ambazari Lake", "Sitabuldi Fort", "Zero Mile Stone", "Tadoba Tiger Reserve (day trip)"],
+    "must_try": ["Saoji mutton curry", "Tarri Poha", "Nagpuri oranges", "Sabudana khichdi", "Tadoba safari", "Ambedkar Memorial visit"],
+    "accommodation": [],
+    "mode_of_travel": ["auto", "ola/uber"],
+    "ideal_season": "winter",
+    "ideal_stay": "2-3 days",
+    "rating": 3,
+    "notes": [
+      "Nagpur is India's geographic centre and it has a certain unhurried self-confidence that bigger cities don't — Deekshabhoomi alone is worth the stop.",
+      "Saoji food is Nagpur's best-kept secret — the mutton is slow-cooked in a masala blend unique to the Saoji community and it is incendiary in the best way.",
+      "Tadoba is consistently one of the best tiger sighting destinations in India — if you're in Nagpur, blocking a morning for a safari is non-negotiable."
+    ]
+  },
+  "bhopal": {
+    "state": "madhya_pradesh",
+    "region": "central",
+    "category": ["metro", "heritage"],
+    "must_visit": ["Bhimbetka Rock Shelters", "Sanchi Stupa", "Upper Lake (Bada Talab)", "Van Vihar National Park", "Taj-ul-Masajid", "Bharat Bhavan"],
+    "must_try": ["Bhopal biryani", "Seekh kabab at Chatori Gali", "Shahi korma", "Boat ride on Upper Lake", "Bhimbetka half-day trip", "Old city street food walk"],
+    "accommodation": [],
+    "mode_of_travel": ["auto", "ola/uber", "city_bus"],
+    "ideal_season": "winter",
+    "ideal_stay": "2-3 days",
+    "rating": 4,
+    "notes": [
+      "Bhimbetka's 30,000-year-old rock paintings are genuinely among the most important art sites on earth and you can walk right up to them — the lack of crowds feels almost irresponsible.",
+      "Bhopal's dual personality — a modern state capital sitting beside one of India's oldest cities — gives it a layered quality that rewards slow exploration.",
+      "The Nawabi food culture here is seriously underrated; the Old City restaurants serve Mughal-era preparations that have been quietly perfected over generations."
+    ]
+  },
+  "orchha": {
+    "state": "madhya_pradesh",
+    "region": "central",
+    "category": ["heritage"],
+    "must_visit": ["Orchha Fort Complex", "Raja Ram Temple", "Chaturbhuj Temple", "Laxminarayan Temple (murals)", "Jahangir Mahal", "Orchha cenotaphs on Betwa river"],
+    "must_try": ["Peda at the temple", "Betwa river boat ride", "Sunrise at the cenotaphs", "Cycling between temples", "Sunset from the fort ramparts"],
+    "accommodation": [],
+    "mode_of_travel": ["bike_rental", "private_taxi"],
+    "ideal_season": "winter",
+    "ideal_stay": "1-2 days",
+    "rating": 5,
+    "notes": [
+      "Orchha is one of those rare places that feels completely frozen in time — 17th-century cenotaphs standing in the river with vultures overhead and almost no other tourists.",
+      "The Raja Ram Temple is the only place in India where Lord Ram is worshipped as a king rather than a god and carries a unique military tradition — fascinating.",
+      "Stay overnight to get the town to yourself after the day-trippers leave — the morning light on the Betwa ghats is extraordinary."
+    ]
+  },
+  "jhansi": {
+    "state": "madhya_pradesh",
+    "region": "central",
+    "category": ["heritage"],
+    "must_visit": ["Jhansi Fort", "Rani Mahal", "Government Museum", "Shiv Mandir Khandagiri", "St. Jude's Shrine"],
+    "must_try": ["Bedai-kachori breakfast", "Tehri (saffron rice)", "Jhansi ki Rani son et lumière show", "Local bazaar walk", "Day trip to Orchha"],
+    "accommodation": [],
+    "mode_of_travel": ["auto", "private_taxi"],
+    "ideal_season": "winter",
+    "ideal_stay": "1-2 days",
+    "rating": 3,
+    "notes": [
+      "Jhansi is primarily a gateway city rather than a destination but the fort carries genuine weight — standing where Lakshmibai made her last stand is powerful.",
+      "Most people rush through on the way to Orchha or Khajuraho but the Government Museum has an excellent collection of local sculpture worth an hour.",
+      "The town's Bundeli food — particularly the tehri and bedai — is distinct from both UP and MP cuisines and should not be missed."
+    ]
+  },
+  "khajurao": {
+    "state": "madhya_pradesh",
+    "region": "central",
+    "category": ["heritage"],
+    "must_visit": ["Western Temple Group (Kandariya Mahadeva)", "Eastern Temple Group", "Southern Group", "Archaeological Museum", "Raneh Falls (day trip)", "Ken Gharial Sanctuary"],
+    "must_try": ["Sound and light show at Western Temples", "Cycling between temple groups", "Sunrise at Kandariya Mahadeva", "Tribal art shopping", "Local thali at dhabas"],
+    "accommodation": [],
+    "mode_of_travel": ["bike_rental", "private_taxi"],
+    "ideal_season": "winter",
+    "ideal_stay": "2-3 days",
+    "rating": 5,
+    "notes": [
+      "The sculptures here are not what the internet's obsession with the erotic panels suggests — the temple complexes are among the finest examples of Chandela architecture and the cosmic iconography is genuinely complex.",
+      "Most tourists do a three-hour walk and leave — rent a cycle, slow down, and spend a full day in the western group alone, it rewards patience enormously.",
+      "Raneh Falls nearby — red and grey volcanic gorge cut by the Ken river — is one of Madhya Pradesh's best kept natural secrets."
+    ]
+  }
+}
