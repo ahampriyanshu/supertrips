@@ -70,14 +70,14 @@
       {
         "city": "Udaipur",
         "dur": "3 Days",
-        "lat": 27.72297,
-        "lng": 75.47178
+        "lat": 24.5854,
+        "lng": 73.7125
       },
       {
         "city": "Kumbhalgarh",
         "dur": "1 Day",
-        "lat": 26.24918,
-        "lng": 77.40786
+        "lat": 25.1473,
+        "lng": 73.5858
       },
       {
         "city": "Ahemdabad",
@@ -88,14 +88,14 @@
       {
         "city": "Kevadiya",
         "dur": "1 Day",
-        "lat": 13.1147,
-        "lng": 80.10981
+        "lat": 21.838,
+        "lng": 73.7193
       },
       {
         "city": "Surat",
         "dur": "1 Day",
-        "lat": 27.5035,
-        "lng": 77.67215
+        "lat": 21.1702,
+        "lng": 72.8311
       },
       {
         "city": "Vadodara",
@@ -106,7 +106,7 @@
       {
         "city": "Somnath",
         "dur": "1 Day",
-        "lat": 20.8880,
+        "lat": 20.888,
         "lng": 70.4012
       },
       {
@@ -171,8 +171,8 @@
       {
         "city": "Banihar & Qazigund",
         "dur": "1 Day",
-        "lat": 22.10133,
-        "lng": 80.54967
+        "lat": 33.5167,
+        "lng": 75.2005
       },
       {
         "city": "Srinagar",
@@ -183,8 +183,8 @@
       {
         "city": "Gulmarg",
         "dur": "1 Day",
-        "lat": 17.33583,
-        "lng": 76.83757
+        "lat": 34.0485,
+        "lng": 74.3806
       },
       {
         "city": "Kargil",
@@ -201,14 +201,14 @@
       {
         "city": "Keylong",
         "dur": "1 Day",
-        "lat": 28.16951,
-        "lng": 94.8006
+        "lat": 32.5681,
+        "lng": 77.0241
       },
       {
         "city": "Manali",
         "dur": "3 Days",
-        "lat": 13.16667,
-        "lng": 80.26667
+        "lat": 32.2396,
+        "lng": 77.1887
       },
       {
         "city": "Kullu",
@@ -248,8 +248,8 @@
       {
         "city": "Sam",
         "dur": "2 Days",
-        "lat": 26.91763,
-        "lng": 70.90387
+        "lat": 26.889,
+        "lng": 70.7158
       },
       {
         "city": "Jaisalmer",
@@ -284,8 +284,8 @@
       {
         "city": "Omkareshwar",
         "dur": "1 Day",
-        "lat": 13.49112,
-        "lng": 75.06646
+        "lat": 22.2334,
+        "lng": 76.1512
       },
       {
         "city": "Nashik",
@@ -302,8 +302,8 @@
       {
         "city": "Sambhajinagar",
         "dur": "1 Week",
-        "lat": 11.92312,
-        "lng": 76.93949
+        "lat": 19.8762,
+        "lng": 75.3433
       },
       {
         "city": "Pune",
@@ -362,8 +362,8 @@
       {
         "city": "Ooty",
         "dur": "4 Days",
-        "lat": 10.77378,
-        "lng": 79.41875
+        "lat": 11.4102,
+        "lng": 76.695
       },
       {
         "city": "Mysore",
@@ -374,8 +374,8 @@
       {
         "city": "Bengalauru",
         "dur": "2 Weeks",
-        "lat": 12.91723,
-        "lng": 74.85603
+        "lat": 12.9716,
+        "lng": 77.5946
       },
       {
         "city": "Gurugram",
@@ -397,20 +397,20 @@
       {
         "city": "Banglore",
         "dur": "3 Days",
-        "lat": 12.91723,
-        "lng": 74.85603
+        "lat": 12.9716,
+        "lng": 77.5946
       },
       {
         "city": "Wayanad",
         "dur": "1 Week",
-        "lat": 9.07277,
-        "lng": 77.34152
+        "lat": 11.6854,
+        "lng": 76.132
       },
       {
         "city": "Banglore",
         "dur": "3 Days",
-        "lat": 12.91723,
-        "lng": 74.85603
+        "lat": 12.9716,
+        "lng": 77.5946
       },
       {
         "city": "Rameshwaram",
@@ -445,8 +445,8 @@
       {
         "city": "Dawki",
         "dur": "2 Days",
-        "lat": 25.56892,
-        "lng": 91.88313
+        "lat": 25.1969,
+        "lng": 92.0183
       },
       {
         "city": "Silchar",
@@ -499,8 +499,8 @@
       {
         "city": "Pelling",
         "dur": "4 Days",
-        "lat": 11.36552,
-        "lng": 76.78442
+        "lat": 27.2946,
+        "lng": 88.6008
       },
       {
         "city": "Gangtok",
@@ -618,14 +618,14 @@
       {
         "city": "Sonmarg",
         "dur": "1 Day",
-        "lat": 17.83841,
-        "lng": 76.62331
+        "lat": 34.3027,
+        "lng": 75.2948
       },
       {
         "city": "Baltal",
         "dur": "1 Day",
-        "lat": 17.99113,
-        "lng": 74.43177
+        "lat": 34.2139,
+        "lng": 75.4767
       },
       {
         "city": "Srinagar",
@@ -713,8 +713,8 @@
       {
         "city": "Deoghar",
         "dur": "1 Day",
-        "lat": 21.53827,
-        "lng": 84.73337
+        "lat": 24.4802,
+        "lng": 86.6919
       },
       {
         "city": "Kolkata",
@@ -731,8 +731,8 @@
       {
         "city": "Kharagpur",
         "dur": "1 Day",
-        "lat": 25.12446,
-        "lng": 86.55578
+        "lat": 22.3297,
+        "lng": 87.3236
       },
       {
         "city": "Cuttak",
@@ -749,8 +749,8 @@
       {
         "city": "Araku",
         "dur": "1 Day",
-        "lat": 17.68009,
-        "lng": 83.20161
+        "lat": 18.327,
+        "lng": 82.8756
       },
       {
         "city": "Hyderabad",
@@ -803,8 +803,8 @@
       {
         "city": "Kodaikannal",
         "dur": "1 Week",
-        "lat": 19.62425,
-        "lng": 84.94075
+        "lat": 10.2381,
+        "lng": 77.4892
       },
       {
         "city": "Poombarai",
@@ -845,8 +845,8 @@
       {
         "city": "Palakkad",
         "dur": "1 Day",
-        "lat": 12.9535,
-        "lng": 80.2572
+        "lat": 10.7867,
+        "lng": 76.6548
       },
       {
         "city": "Coimbatore",
@@ -940,8 +940,8 @@
       {
         "city": "Surat",
         "dur": "2 Days",
-        "lat": 27.5035,
-        "lng": 77.67215
+        "lat": 21.1702,
+        "lng": 72.8311
       },
       {
         "city": "Mumbai",
@@ -1059,8 +1059,8 @@
       {
         "city": "Bir",
         "dur": "5 Days",
-        "lat": 13.59723,
-        "lng": 75.97167
+        "lat": 32.0409,
+        "lng": 76.7187
       },
       {
         "city": "Gurugram",
@@ -1088,8 +1088,8 @@
       {
         "city": "Wayanad(Vyithri)",
         "dur": "3 Days",
-        "lat": 9.07277,
-        "lng": 77.34152
+        "lat": 11.6854,
+        "lng": 76.132
       },
       {
         "city": "Bengaluru",
@@ -1106,8 +1106,8 @@
       {
         "city": "Mahabalipuram",
         "dur": "1 Day",
-        "lat": 11.98231,
-        "lng": 78.24796
+        "lat": 12.6267,
+        "lng": 80.1927
       },
       {
         "city": "Thanjavur",
@@ -1154,8 +1154,8 @@
       {
         "city": "Mayapur",
         "dur": "1 Day",
-        "lat": 11.2453,
-        "lng": 77.50066
+        "lat": 23.4167,
+        "lng": 88.4
       },
       {
         "city": "Mirik",

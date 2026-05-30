@@ -138,8 +138,6 @@ export default function App() {
           </div>
         </div>
       </div>
-
-      <div style={styles.footer}>SuperTrips · India · All regions covered</div>
-    </div>
+      </div>
   );
 }

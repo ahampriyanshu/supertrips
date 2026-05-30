@@ -44,7 +44,8 @@ function CityFocuser({ position }) {
 
 function MapColumn({ positions, activePosition }) {
   return (
-    <div style={{ width: '40%', flexShrink: 0, position: 'relative' }}>
+    <div style={{ width: '40%', flexShrink: 0, position: 'relative', padding: '1.25rem', background: '#f5f0e8' }}>
+      <div style={{ height: '100%', borderRadius: 8, overflow: 'hidden', border: '1px solid #e0d8cc', boxShadow: '0 2px 16px rgba(26,18,8,0.06)' }}>
       <MapContainer
         center={[20.5937, 78.9629]}
         zoom={5}
@@ -68,6 +69,7 @@ function MapColumn({ positions, activePosition }) {
           <Marker position={activePosition} />
         )}
       </MapContainer>
+      </div>
     </div>
   );
 }

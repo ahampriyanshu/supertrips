@@ -1,0 +1,116 @@
+<h2>TripDetails — Layout Direction</h2>
+<p class="subtitle">All options use the same design language as the index page (dark hero, cream background, Georgia serif, gold accent). Which structure feels right for the detail view?</p>
+
+<style>
+  .mock-page { background: #f5f0e8; border-radius: 6px; overflow: hidden; font-family: Georgia, serif; border: 1px solid #ddd; }
+  .mock-hero { background: #1a1208; color: #f5f0e8; padding: 14px 18px; }
+  .mock-hero-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #c9962a; margin-bottom: 4px; font-family: sans-serif; }
+  .mock-hero-title { font-size: 16px; font-weight: 700; margin-bottom: 3px; }
+  .mock-hero-meta { font-size: 9px; color: #a09888; font-family: sans-serif; }
+  .mock-back { font-size: 8px; letter-spacing: 1.5px; text-transform: uppercase; color: #c9962a; margin-bottom: 6px; font-family: sans-serif; }
+  .mock-body { padding: 12px; }
+  .mock-map { background: #c8d8c0; border-radius: 3px; border: 1px solid #b0c4aa; display: flex; align-items: center; justify-content: center; font-size: 9px; color: #4a6a40; font-family: sans-serif; }
+  .mock-timeline { background: #faf7f2; border: 1px solid #e0d8cc; border-radius: 3px; padding: 8px; }
+  .mock-tl-label { font-size: 7px; letter-spacing: 2px; text-transform: uppercase; color: #8a7a65; margin-bottom: 6px; font-family: sans-serif; border-bottom: 1px solid #e0d8cc; padding-bottom: 4px; }
+  .mock-tl-item { display: flex; align-items: flex-start; gap: 6px; margin-bottom: 5px; }
+  .mock-tl-dot { width: 7px; height: 7px; border-radius: 50%; border: 1.5px solid #c9962a; background: #faf7f2; flex-shrink: 0; margin-top: 2px; }
+  .mock-tl-line { position: absolute; left: 3px; top: 8px; width: 1px; height: calc(100% + 5px); background: #e0c87a; }
+  .mock-tl-city { font-size: 10px; font-weight: 700; color: #1a1208; }
+  .mock-tl-dur { font-size: 8px; color: #8a7a65; font-family: sans-serif; background: rgba(201,150,42,0.1); padding: 1px 5px; border-radius: 10px; display: inline-block; margin-top: 1px; }
+  .mock-tl-wrap { position: relative; padding-left: 10px; border-left: 1px dashed #c9962a; }
+</style>
+
+<div class="cards" style="grid-template-columns: repeat(3, 1fr);">
+
+  <!-- Option A -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 12px; background: #1e1e2e;">
+      <div class="mock-page">
+        <div class="mock-hero">
+          <div class="mock-back">← Back to all trips</div>
+          <div class="mock-hero-label">SuperTrip 02</div>
+          <div class="mock-hero-title">Rajasthan & Gujarat</div>
+          <div class="mock-hero-meta">13 Stops · 22+ Days on the road</div>
+        </div>
+        <div class="mock-body" style="display: grid; grid-template-columns: 1fr 1.4fr; gap: 8px;">
+          <div class="mock-timeline" style="height: 120px; overflow: hidden;">
+            <div class="mock-tl-label">Route Itinerary</div>
+            <div class="mock-tl-wrap">
+              <div class="mock-tl-item"><span class="mock-tl-dot"></span><div><div class="mock-tl-city">Delhi</div><div class="mock-tl-dur">2 Days</div></div></div>
+              <div class="mock-tl-item"><span class="mock-tl-dot"></span><div><div class="mock-tl-city">Jaipur</div><div class="mock-tl-dur">3 Days</div></div></div>
+              <div class="mock-tl-item"><span class="mock-tl-dot"></span><div><div class="mock-tl-city">Udaipur</div><div class="mock-tl-dur">3 Days</div></div></div>
+            </div>
+          </div>
+          <div class="mock-map" style="height: 120px;">🗺 Map</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Hero + Side-by-Side</h3>
+      <p>Dark hero header with back button & trip stats. Timeline left, map right. Closest to current — just properly styled.</p>
+    </div>
+  </div>
+
+  <!-- Option B -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 12px; background: #1e1e2e;">
+      <div class="mock-page">
+        <div class="mock-hero" style="padding-bottom: 0;">
+          <div class="mock-back">← Back to all trips</div>
+          <div class="mock-hero-label">SuperTrip 02</div>
+          <div class="mock-hero-title">Rajasthan & Gujarat</div>
+          <div class="mock-hero-meta" style="padding-bottom: 10px;">13 Stops · 22+ Days</div>
+        </div>
+        <div class="mock-map" style="height: 90px; border-radius: 0; border-left: none; border-right: none;">🗺 Full-Width Map</div>
+        <div class="mock-body" style="padding-top: 8px;">
+          <div class="mock-tl-label" style="font-family: sans-serif; font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: #8a7a65; margin-bottom: 6px;">Route Itinerary</div>
+          <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+            <div style="background: #faf7f2; border: 1px solid #e0d8cc; border-radius: 3px; padding: 4px 7px; font-size: 8px;">Delhi <span style="color:#c9962a">2d</span></div>
+            <div style="background: #faf7f2; border: 1px solid #e0d8cc; border-radius: 3px; padding: 4px 7px; font-size: 8px;">Jaipur <span style="color:#c9962a">3d</span></div>
+            <div style="background: #faf7f2; border: 1px solid #e0d8cc; border-radius: 3px; padding: 4px 7px; font-size: 8px;">Udaipur <span style="color:#c9962a">3d</span></div>
+            <div style="background: #faf7f2; border: 1px solid #e0d8cc; border-radius: 3px; padding: 4px 7px; font-size: 8px; color: #c9962a;">+10 more…</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Hero + Map Banner + Chips</h3>
+      <p>Dark hero, then a full-width map banner below it, then a horizontal chip-strip showing all stops underneath.</p>
+    </div>
+  </div>
+
+  <!-- Option C -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 12px; background: #1e1e2e;">
+      <div class="mock-page">
+        <div class="mock-hero">
+          <div class="mock-back">← Back to all trips</div>
+          <div class="mock-hero-label">SuperTrip 02</div>
+          <div class="mock-hero-title">Rajasthan & Gujarat</div>
+          <div style="display:flex; gap:10px; margin-top:6px;">
+            <div style="font-size:8px;color:#6a6055;font-family:sans-serif;"><span style="font-size:12px;color:#c9962a;font-family:Georgia,serif;">13</span><br>Stops</div>
+            <div style="font-size:8px;color:#6a6055;font-family:sans-serif;"><span style="font-size:12px;color:#c9962a;font-family:Georgia,serif;">22+</span><br>Days</div>
+          </div>
+        </div>
+        <div class="mock-body" style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 8px;">
+          <div class="mock-map" style="height: 130px;">🗺 Map</div>
+          <div class="mock-timeline" style="height: 130px; overflow: hidden;">
+            <div class="mock-tl-label">Route</div>
+            <div class="mock-tl-wrap">
+              <div class="mock-tl-item"><span class="mock-tl-dot"></span><div><div class="mock-tl-city">Delhi</div><div class="mock-tl-dur">2 Days</div></div></div>
+              <div class="mock-tl-item"><span class="mock-tl-dot"></span><div><div class="mock-tl-city">Jaipur</div><div class="mock-tl-dur">3 Days</div></div></div>
+              <div class="mock-tl-item"><span class="mock-tl-dot"></span><div><div class="mock-tl-city">Udaipur</div><div class="mock-tl-dur">3 Days</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Hero + Map Left, Timeline Right</h3>
+      <p>Same hero, but map on the left (larger) and the scrollable timeline on the right. Feels more map-first.</p>
+    </div>
+  </div>
+
+</div>
+
+<p class="subtitle" style="margin-top: 1.5rem; text-align: center;">Click to select your preferred layout, then reply in the terminal.</p>

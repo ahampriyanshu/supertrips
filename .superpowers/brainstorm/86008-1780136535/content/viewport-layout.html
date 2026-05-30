@@ -1,0 +1,212 @@
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .page-frame {
+    background: #f5f0e8;
+    font-family: 'DM Sans', 'Segoe UI', sans-serif;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    max-width: 860px;
+    margin: 0 auto;
+    /* Simulate a fixed viewport — fixed height, nothing overflows */
+    display: flex;
+    flex-direction: column;
+    height: 520px;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: #1a1208;
+    color: #f5f0e8;
+    padding: 10px 20px 12px;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .header-pattern { position: absolute; inset: 0; background-image: repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(201,150,42,0.04) 40px, rgba(201,150,42,0.04) 41px); }
+  .header-inner { position: relative; display: flex; align-items: center; gap: 1rem; }
+  .back { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: #c9962a; cursor: pointer; flex-shrink: 0; }
+  .divider-v { width: 1px; height: 28px; background: #3a3020; flex-shrink: 0; }
+  .trip-num { font-size: 8px; letter-spacing: 3px; text-transform: uppercase; color: #c9962a; }
+  .trip-title { font-family: Georgia, serif; font-size: 1.1rem; font-weight: 700; line-height: 1; }
+  .trip-title em { font-style: italic; color: #c9962a; }
+  .header-stats { display: flex; gap: 1.2rem; margin-left: auto; }
+  .stat-n { font-family: Georgia, serif; font-size: 1rem; color: #c9962a; line-height: 1; }
+  .stat-l { font-size: 7px; letter-spacing: 1.5px; text-transform: uppercase; color: #6a6055; margin-top: 1px; }
+
+  /* ── MAIN SPLIT ── */
+  .main {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+  }
+
+  /* Map — 40% */
+  .map-col {
+    width: 40%;
+    background: #c8d5c0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 6px;
+    border-right: 1px solid #b8cbb0;
+    flex-shrink: 0;
+    position: relative;
+  }
+  .map-badge { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: #4a6040; }
+  .pin { font-size: 1.4rem; }
+  .map-city-label { font-size: 9px; color: #1a3a10; background: rgba(255,255,255,0.6); padding: 3px 8px; border-radius: 10px; }
+
+  /* Detail — 60% */
+  .detail-col {
+    flex: 1;
+    background: #faf7f2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 6px;
+    padding: 2rem;
+    border-right: 1px solid #e0d8cc;
+  }
+  .city-counter { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #8a7a65; }
+  .city-name { font-family: Georgia, serif; font-size: 2.2rem; font-weight: 700; color: #1a1208; line-height: 1; }
+  .city-dur { font-size: 11px; color: #6a6055; background: rgba(201,150,42,0.12); padding: 4px 14px; border-radius: 20px; margin-top: 4px; display: inline-block; }
+  .detail-placeholder { margin-top: 1rem; font-size: 10px; color: #b0a090; letter-spacing: 1px; text-transform: uppercase; border: 1px dashed #d0c8bc; padding: 10px 20px; border-radius: 4px; }
+  .scroll-hint { margin-top: 1.5rem; display: flex; flex-direction: column; align-items: center; gap: 3px; }
+  .scroll-arrow { font-size: 10px; color: #c9962a; animation: none; }
+  .scroll-text { font-size: 8px; letter-spacing: 1.5px; text-transform: uppercase; color: #a09080; }
+
+  /* ── FOOTER STRIP ── */
+  .footer {
+    background: #1a1208;
+    flex-shrink: 0;
+    padding: 8px 20px;
+    overflow: hidden;
+    position: relative;
+  }
+  .footer::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0; width: 40px;
+    background: linear-gradient(to right, #1a1208, transparent);
+    z-index: 2; pointer-events: none;
+  }
+  .footer::after {
+    content: '';
+    position: absolute; right: 0; top: 0; bottom: 0; width: 40px;
+    background: linear-gradient(to left, #1a1208, transparent);
+    z-index: 2; pointer-events: none;
+  }
+  .footer-track {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    /* Shifted to center the active city */
+    transform: translateX(-60px);
+    transition: transform 0.4s cubic-bezier(.4,0,.2,1);
+  }
+  .footer-stop {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex-shrink: 0;
+  }
+  .footer-city {
+    font-size: 9px;
+    letter-spacing: 0.5px;
+    color: #4a4030;
+    white-space: nowrap;
+    padding: 3px 6px;
+    border-radius: 3px;
+    transition: color 0.3s, background 0.3s;
+  }
+  .footer-city.active {
+    color: #f5f0e8;
+    background: rgba(201,150,42,0.2);
+    font-weight: 600;
+  }
+  .footer-dot {
+    width: 3px; height: 3px; border-radius: 50%;
+    background: #3a3020; margin: 0 3px; flex-shrink: 0;
+  }
+  .footer-dot.active { background: #c9962a; }
+</style>
+
+<div class="section" style="margin-bottom: 1rem;">
+  <h2>Viewport-Locked Layout</h2>
+  <p class="subtitle">The page never scrolls. Scrolling up/down cycles through cities. Map stays fixed on the left, city detail on the right, footer strip glides to keep the active city centred.</p>
+</div>
+
+<div class="mockup">
+  <div class="mockup-header">Full-Viewport Detail Page</div>
+  <div class="mockup-body" style="padding: 0;">
+    <div class="page-frame">
+
+      <!-- HEADER -->
+      <div class="header">
+        <div class="header-pattern"></div>
+        <div class="header-inner">
+          <span class="back">← All trips</span>
+          <div class="divider-v"></div>
+          <div>
+            <div class="trip-num">SuperTrip 02</div>
+            <div class="trip-title">Rajasthan & <em>Gujarat</em></div>
+          </div>
+          <div class="header-stats">
+            <div><div class="stat-n">13</div><div class="stat-l">Stops</div></div>
+            <div><div class="stat-n">22+</div><div class="stat-l">Days</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MAIN SPLIT -->
+      <div class="main">
+        <!-- 40% Map -->
+        <div class="map-col">
+          <div class="map-badge">Map</div>
+          <div class="pin">📍</div>
+          <div class="map-city-label">Udaipur highlighted</div>
+          <div style="font-size:7px;color:#6a8060;letter-spacing:1px;margin-top:8px;">route polyline visible</div>
+        </div>
+
+        <!-- 60% Detail -->
+        <div class="detail-col">
+          <div class="city-counter">City 4 of 13</div>
+          <div class="city-name">Udaipur</div>
+          <div class="city-dur">Stay: 3 Days</div>
+          <div class="detail-placeholder">City details — Phase 2</div>
+          <div class="scroll-hint">
+            <div class="scroll-arrow">↑ ↓</div>
+            <div class="scroll-text">Scroll to navigate cities</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOOTER STRIP -->
+      <div class="footer">
+        <div class="footer-track">
+          <div class="footer-stop"><span class="footer-city">Delhi</span><span class="footer-dot"></span></div>
+          <div class="footer-stop"><span class="footer-city">Jaipur</span><span class="footer-dot"></span></div>
+          <div class="footer-stop"><span class="footer-city">Chittorgarh</span><span class="footer-dot"></span></div>
+          <div class="footer-stop"><span class="footer-city active">Udaipur</span><span class="footer-dot active"></span></div>
+          <div class="footer-stop"><span class="footer-city">Kumbhalgarh</span><span class="footer-dot"></span></div>
+          <div class="footer-stop"><span class="footer-city">Ahmedabad</span><span class="footer-dot"></span></div>
+          <div class="footer-stop"><span class="footer-city">Kevadiya</span><span class="footer-dot"></span></div>
+          <div class="footer-stop"><span class="footer-city">Surat</span><span class="footer-dot"></span></div>
+          <div class="footer-stop"><span class="footer-city">Vadodara</span><span class="footer-dot"></span></div>
+          <div class="footer-stop"><span class="footer-city">Somnath</span><span class="footer-dot"></span></div>
+          <div class="footer-stop"><span class="footer-city">Dwarka</span><span class="footer-dot"></span></div>
+          <div class="footer-stop"><span class="footer-city">Rajkot</span><span class="footer-dot"></span></div>
+          <div class="footer-stop"><span class="footer-city">Delhi</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<p class="subtitle" style="margin-top: 1.5rem; text-align: center;">
+  Active city is centred in the footer strip as you scroll through. Does this match your vision? Reply in the terminal.
+</p>

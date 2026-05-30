@@ -1,0 +1,176 @@
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .page-frame {
+    background: #f5f0e8;
+    font-family: 'DM Sans', 'Segoe UI', sans-serif;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    height: 520px;
+  }
+
+  .header {
+    background: #1a1208;
+    color: #f5f0e8;
+    padding: 10px 20px 12px;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .header-pattern { position: absolute; inset: 0; background-image: repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(201,150,42,0.04) 40px, rgba(201,150,42,0.04) 41px); }
+  .header-inner { position: relative; display: flex; align-items: center; gap: 1rem; }
+  .back { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: #c9962a; flex-shrink: 0; }
+  .divider-v { width: 1px; height: 28px; background: #3a3020; flex-shrink: 0; }
+  .trip-num { font-size: 8px; letter-spacing: 3px; text-transform: uppercase; color: #c9962a; }
+  .trip-title { font-family: Georgia, serif; font-size: 1.1rem; font-weight: 700; }
+  .trip-title em { font-style: italic; color: #c9962a; }
+  .header-stats { display: flex; gap: 1.2rem; margin-left: auto; }
+  .stat-n { font-family: Georgia, serif; font-size: 1rem; color: #c9962a; }
+  .stat-l { font-size: 7px; letter-spacing: 1.5px; text-transform: uppercase; color: #6a6055; }
+
+  .main { flex: 1; display: flex; overflow: hidden; }
+
+  .map-col {
+    width: 40%;
+    background: #c8d5c0;
+    display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 6px;
+    border-right: 1px solid #b8cbb0;
+    flex-shrink: 0;
+  }
+  .map-badge { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: #4a6040; }
+  .map-city-label { font-size: 9px; color: #1a3a10; background: rgba(255,255,255,0.6); padding: 3px 8px; border-radius: 10px; }
+
+  .detail-col {
+    flex: 1;
+    background: #faf7f2;
+    display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 6px;
+    padding: 2rem;
+  }
+  .city-counter { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #8a7a65; }
+  .city-name { font-family: Georgia, serif; font-size: 2.2rem; font-weight: 700; color: #1a1208; }
+  .city-dur { font-size: 11px; color: #6a6055; background: rgba(201,150,42,0.12); padding: 4px 14px; border-radius: 20px; margin-top: 4px; display: inline-block; }
+  .detail-placeholder { margin-top: 1rem; font-size: 10px; color: #b0a090; letter-spacing: 1px; text-transform: uppercase; border: 1px dashed #d0c8bc; padding: 10px 20px; border-radius: 4px; }
+  .scroll-hint { margin-top: 1.5rem; display: flex; flex-direction: column; align-items: center; gap: 3px; }
+  .scroll-text { font-size: 8px; letter-spacing: 1.5px; text-transform: uppercase; color: #a09080; }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: #1a1208;
+    flex-shrink: 0;
+    padding: 10px 0;
+    overflow: hidden;
+    position: relative;
+  }
+  /* Fade edges */
+  .footer::before, .footer::after {
+    content: '';
+    position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; pointer-events: none;
+  }
+  .footer::before { left: 0; background: linear-gradient(to right, #1a1208 40%, transparent); }
+  .footer::after  { right: 0; background: linear-gradient(to left,  #1a1208 40%, transparent); }
+
+  /* The tape: centred, only a window of cities visible */
+  .footer-tape {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    padding: 0 20px;
+  }
+
+  .fc {
+    font-size: 10px;
+    white-space: nowrap;
+    padding: 4px 14px;
+    border-radius: 3px;
+    transition: all 0.35s ease;
+    letter-spacing: 0.3px;
+    flex-shrink: 0;
+  }
+  /* Visited — left side, dimming out */
+  .fc.far-past  { color: #2e2418; font-size: 8px; }
+  .fc.past      { color: #4a3c28; font-size: 9px; }
+  .fc.prev      { color: #7a6a50; }
+  /* Active */
+  .fc.active    {
+    color: #f5f0e8;
+    background: rgba(201,150,42,0.18);
+    font-weight: 600;
+    font-size: 12px;
+    padding: 5px 16px;
+    border-radius: 4px;
+    box-shadow: 0 0 0 1px rgba(201,150,42,0.25);
+  }
+  /* Upcoming — right side, dimming out */
+  .fc.next      { color: #7a6a50; }
+  .fc.future    { color: #4a3c28; font-size: 9px; }
+  .fc.far-future{ color: #2e2418; font-size: 8px; }
+</style>
+
+<div class="section" style="margin-bottom: 1rem;">
+  <h2>Footer — Tape Style</h2>
+  <p class="subtitle">No dots. A narrow window of cities: 2–3 visited on the left (fading out), current in the centre, 2–3 upcoming on the right (fading out). The tape glides as you scroll.</p>
+</div>
+
+<div class="mockup">
+  <div class="mockup-header">Active city: Udaipur (4 of 13)</div>
+  <div class="mockup-body" style="padding: 0;">
+    <div class="page-frame">
+
+      <div class="header">
+        <div class="header-pattern"></div>
+        <div class="header-inner">
+          <span class="back">← All trips</span>
+          <div class="divider-v"></div>
+          <div>
+            <div class="trip-num">SuperTrip 02</div>
+            <div class="trip-title">Rajasthan & <em>Gujarat</em></div>
+          </div>
+          <div class="header-stats">
+            <div><div class="stat-n">13</div><div class="stat-l">Stops</div></div>
+            <div><div class="stat-n">22+</div><div class="stat-l">Days</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="main">
+        <div class="map-col">
+          <div class="map-badge">Map</div>
+          <div style="font-size:1.4rem;">📍</div>
+          <div class="map-city-label">Udaipur</div>
+        </div>
+        <div class="detail-col">
+          <div class="city-counter">City 4 of 13</div>
+          <div class="city-name">Udaipur</div>
+          <div class="city-dur">Stay: 3 Days</div>
+          <div class="detail-placeholder">City details — Phase 2</div>
+          <div class="scroll-hint">
+            <div style="font-size:11px;color:#c9962a;">↑ ↓</div>
+            <div class="scroll-text">Scroll to navigate cities</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOOTER TAPE — showing window around active city -->
+      <div class="footer">
+        <div class="footer-tape">
+          <span class="fc far-past">Delhi</span>
+          <span class="fc past">Jaipur</span>
+          <span class="fc prev">Chittorgarh</span>
+          <span class="fc active">Udaipur</span>
+          <span class="fc next">Kumbhalgarh</span>
+          <span class="fc future">Ahmedabad</span>
+          <span class="fc far-future">Kevadiya</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<p class="subtitle" style="margin-top: 1.5rem; text-align: center;">No bullets, tape-style window, edges fade to black. Does this feel right?</p>

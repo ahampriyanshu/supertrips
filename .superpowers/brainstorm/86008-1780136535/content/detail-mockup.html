@@ -1,0 +1,118 @@
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  .page { background: #f5f0e8; font-family: 'DM Sans', 'Segoe UI', sans-serif; border-radius: 6px; overflow: hidden; border: 1px solid #ccc; max-width: 900px; margin: 0 auto; }
+
+  /* HERO */
+  .hero { background: #1a1208; color: #f5f0e8; padding: 1.5rem 2rem 1.8rem; position: relative; overflow: hidden; }
+  .hero-pattern { position: absolute; inset: 0; background-image: repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(201,150,42,0.04) 40px, rgba(201,150,42,0.04) 41px); }
+  .hero-inner { position: relative; }
+  .back-btn { display: inline-flex; align-items: center; gap: 5px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #c9962a; margin-bottom: 1rem; cursor: pointer; }
+  .back-btn::before { content: '←'; }
+  .trip-num { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #c9962a; margin-bottom: 0.4rem; }
+  .trip-name { font-family: Georgia, 'Times New Roman', serif; font-size: 2rem; font-weight: 700; line-height: 1.1; margin-bottom: 0.4rem; }
+  .trip-name em { font-style: italic; color: #c9962a; }
+  .hero-stats { display: flex; gap: 2rem; margin-top: 0.9rem; }
+  .stat-n { font-family: Georgia, serif; font-size: 1.4rem; color: #c9962a; line-height: 1; }
+  .stat-l { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: #6a6055; margin-top: 2px; }
+
+  /* BODY */
+  .body { display: grid; grid-template-columns: 1.6fr 1fr; gap: 0; }
+
+  /* MAP */
+  .map-pane { background: #c8d5c0; position: relative; min-height: 500px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px; border-right: 1px solid #e0d8cc; }
+  .map-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #4a6040; }
+  .map-dots { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+  .map-dot-row { display: flex; align-items: center; gap: 6px; }
+  .map-dot { width: 8px; height: 8px; border-radius: 50%; background: #c9962a; border: 1.5px solid #fff; }
+  .map-line { width: 1px; height: 20px; background: #c9962a; opacity: 0.7; }
+
+  /* TIMELINE */
+  .tl-pane { background: #faf7f2; padding: 1.5rem; overflow-y: auto; max-height: 500px; }
+  .tl-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #8a7a65; margin-bottom: 1.2rem; border-bottom: 1px solid #e0d8cc; padding-bottom: 0.8rem; }
+  .tl-wrap { padding-left: 1.4rem; border-left: 1px dashed #c9962a; margin-left: 5px; }
+  .tl-item { margin-bottom: 1.2rem; position: relative; }
+  .tl-dot { position: absolute; left: -1.8rem; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: #faf7f2; border: 2px solid #c9962a; }
+  .tl-city { font-family: Georgia, serif; font-size: 1rem; font-weight: 700; color: #1a1208; margin-bottom: 3px; }
+  .tl-dur { font-size: 9px; color: #6a6055; background: rgba(201,150,42,0.1); padding: 2px 8px; border-radius: 10px; display: inline-block; letter-spacing: 0.3px; }
+
+  /* FOOTER STRIP */
+  .footer-strip { background: #1a1208; padding: 0.8rem 2rem; }
+  .route-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .route-city { font-size: 9px; color: #6a6055; letter-spacing: 0.5px; }
+  .route-dot { width: 3px; height: 3px; border-radius: 50%; background: #c9962a; flex-shrink: 0; }
+</style>
+
+<div class="section" style="margin-bottom: 1rem;">
+  <h2>Option C — Detailed Mockup</h2>
+  <p class="subtitle">Hero header matches the index page exactly. Map-first layout on the left, scrollable timeline on the right.</p>
+</div>
+
+<div class="mockup">
+  <div class="mockup-header">SuperTrip Detail Page — Preview</div>
+  <div class="mockup-body" style="padding: 0;">
+    <div class="page">
+      <!-- HERO -->
+      <div class="hero">
+        <div class="hero-pattern"></div>
+        <div class="hero-inner">
+          <div class="back-btn"> Back to all trips</div>
+          <div class="trip-num">SuperTrip 02</div>
+          <div class="trip-name">Rajasthan & <em>Gujarat</em></div>
+          <div class="hero-stats">
+            <div><div class="stat-n">13</div><div class="stat-l">Stops</div></div>
+            <div><div class="stat-n">22+</div><div class="stat-l">Days on the road</div></div>
+            <div><div class="stat-n">5</div><div class="stat-l">States</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MAP + TIMELINE -->
+      <div class="body">
+        <div class="map-pane">
+          <div class="map-label">Interactive Map</div>
+          <div class="map-dots">
+            <div class="map-dot-row"><div class="map-dot"></div><span style="font-size:8px;color:#4a6040">Delhi</span></div>
+            <div class="map-line"></div>
+            <div class="map-dot-row"><div class="map-dot"></div><span style="font-size:8px;color:#4a6040">Jaipur</span></div>
+            <div class="map-line"></div>
+            <div class="map-dot-row"><div class="map-dot"></div><span style="font-size:8px;color:#4a6040">Udaipur</span></div>
+            <div class="map-line"></div>
+            <div class="map-dot-row"><div class="map-dot"></div><span style="font-size:8px;color:#4a6040">Ahmedabad</span></div>
+            <div class="map-line"></div>
+            <div class="map-dot-row"><div class="map-dot"></div><span style="font-size:8px;color:#4a6040">Surat → Dwarka…</span></div>
+          </div>
+          <div style="font-size:8px;color:#6a8060;margin-top:12px;letter-spacing:1px;">Leaflet map renders here</div>
+        </div>
+
+        <div class="tl-pane">
+          <div class="tl-label">Route Itinerary</div>
+          <div class="tl-wrap">
+            <div class="tl-item"><div class="tl-dot"></div><div class="tl-city">Delhi</div><div class="tl-dur">2 Days</div></div>
+            <div class="tl-item"><div class="tl-dot"></div><div class="tl-city">Jaipur</div><div class="tl-dur">3 Days</div></div>
+            <div class="tl-item"><div class="tl-dot"></div><div class="tl-city">Chittorgarh</div><div class="tl-dur">1 Day</div></div>
+            <div class="tl-item"><div class="tl-dot"></div><div class="tl-city">Udaipur</div><div class="tl-dur">3 Days</div></div>
+            <div class="tl-item"><div class="tl-dot"></div><div class="tl-city">Kumbhalgarh</div><div class="tl-dur">1 Day</div></div>
+            <div class="tl-item"><div class="tl-dot"></div><div class="tl-city">Ahmedabad</div><div class="tl-dur">3 Days</div></div>
+            <div class="tl-item"><div class="tl-dot"></div><div class="tl-city">Kevadiya</div><div class="tl-dur">1 Day</div></div>
+            <div class="tl-item"><div class="tl-dot"></div><div class="tl-city">Surat</div><div class="tl-dur">1 Day</div></div>
+            <div class="tl-item" style="margin-bottom:0;"><div class="tl-dot"></div><div class="tl-city">Vadodara</div><div class="tl-dur">1 Day</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROUTE STRIP FOOTER -->
+      <div class="footer-strip">
+        <div class="route-row">
+          <span class="route-city">Delhi</span><span class="route-dot"></span>
+          <span class="route-city">Jaipur</span><span class="route-dot"></span>
+          <span class="route-city">Chittorgarh</span><span class="route-dot"></span>
+          <span class="route-city">Udaipur</span><span class="route-dot"></span>
+          <span class="route-city">Ahmedabad</span><span class="route-dot"></span>
+          <span class="route-city" style="color:#c9962a;">+8 more</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p class="subtitle" style="margin-top: 1.5rem; text-align: center;">Does this look right? Reply in the terminal — any changes to the hero, proportions, or timeline style?</p>
