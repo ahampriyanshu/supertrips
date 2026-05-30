@@ -36,6 +36,36 @@ export default function TripDetails({ trip, index, onBack }) {
   const totalDays = Math.round(cities.reduce((s, c) => s + parseDays(c.dur), 0));
   const activeCity = cities[currentIndex];
 
+  const lastScrollTime = useRef(0);
+
+  const advance = useCallback((dir) => {
+    setCurrentIndex(i => Math.max(0, Math.min(cities.length - 1, i + dir)));
+  }, [cities.length]);
+
+  useEffect(() => {
+    const COOLDOWN = 500;
+
+    const onWheel = (e) => {
+      e.preventDefault();
+      const now = Date.now();
+      if (now - lastScrollTime.current < COOLDOWN) return;
+      lastScrollTime.current = now;
+      advance(e.deltaY > 0 ? 1 : -1);
+    };
+
+    const onKey = (e) => {
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') advance(1);
+      if (e.key === 'ArrowUp'   || e.key === 'ArrowLeft')  advance(-1);
+    };
+
+    document.addEventListener('wheel', onWheel, { passive: false });
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('wheel', onWheel);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [advance]);
+
   return (
     <div style={{
       position: 'fixed', inset: 0,
