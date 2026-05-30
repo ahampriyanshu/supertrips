@@ -90,11 +90,10 @@ function DetailColumn({ city, cityIndex, total }) {
 
   return (
     <div style={{
-      flex: 1, background: '#faf7f2',
+      flex: 1, background: '#f5f0e8',
       display: 'flex', flexDirection: 'column',
       alignItems: 'center', justifyContent: 'center',
       padding: '2rem', gap: '0.75rem',
-      borderLeft: '1px solid #e0d8cc',
       transition: 'opacity 0.15s ease',
       opacity: visible ? 1 : 0,
     }}>
@@ -188,21 +187,21 @@ export default function TripDetails({ trip, index, onBack }) {
   const totalDays = Math.round(cities.reduce((s, c) => s + parseDays(c.dur), 0));
   const activeCity = cities[currentIndex];
 
-  const lastScrollTime = useRef(0);
-
   const advance = useCallback((dir) => {
     setCurrentIndex(i => Math.max(0, Math.min(cities.length - 1, i + dir)));
   }, [cities.length]);
 
   useEffect(() => {
-    const COOLDOWN = 500;
+    const accumulated = { value: 0 };
+    const THRESHOLD = 700;
 
     const onWheel = (e) => {
       e.preventDefault();
-      const now = Date.now();
-      if (now - lastScrollTime.current < COOLDOWN) return;
-      lastScrollTime.current = now;
-      advance(e.deltaY > 0 ? 1 : -1);
+      accumulated.value += e.deltaY;
+      if (Math.abs(accumulated.value) >= THRESHOLD) {
+        advance(accumulated.value > 0 ? 1 : -1);
+        accumulated.value = 0;
+      }
     };
 
     const onKey = (e) => {
