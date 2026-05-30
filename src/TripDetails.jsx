@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { MapContainer, TileLayer, Marker, Polyline, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import icon from 'leaflet/dist/images/marker-icon.png';
@@ -8,13 +8,6 @@ import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 const DefaultIcon = L.icon({ iconUrl: icon, shadowUrl: iconShadow, iconSize: [25, 41], iconAnchor: [12, 41] });
 L.Marker.prototype.options.icon = DefaultIcon;
 
-function parseDays(dur) {
-  const d = dur.toLowerCase();
-  if (d.includes('month')) return parseFloat(d) * 30;
-  if (d.includes('week'))  return parseFloat(d) * 7;
-  if (d.includes('½') || d.includes('0.5')) return 0.5;
-  return parseFloat(d) || 1;
-}
 
 // Fits the full route on first render only
 function BoundsInit({ positions }) {
@@ -78,12 +71,12 @@ function DetailColumn({ city, cityIndex, total }) {
   const [displayed, setDisplayed] = useState({ city, cityIndex });
 
   useEffect(() => {
-    setVisible(false);
-    const t = setTimeout(() => {
+    const hide = setTimeout(() => setVisible(false), 0);
+    const show = setTimeout(() => {
       setDisplayed({ city, cityIndex });
       setVisible(true);
     }, 150);
-    return () => clearTimeout(t);
+    return () => { clearTimeout(hide); clearTimeout(show); };
   }, [city, cityIndex]);
 
   const { city: c, cityIndex: ci } = displayed;
@@ -113,7 +106,7 @@ function DetailColumn({ city, cityIndex, total }) {
     </div>
   );
 }
-function FooterTape({ cities, currentIndex }) {
+function FooterTape({ cities, currentIndex, onPrev, onNext }) {
   const tapeRef = useRef(null);
   const cityRefs = useRef([]);
 
@@ -121,7 +114,6 @@ function FooterTape({ cities, currentIndex }) {
     const tape = tapeRef.current;
     const activeEl = cityRefs.current[currentIndex];
     if (!tape || !activeEl) return;
-
     const container = tape.parentElement;
     const containerWidth = container.offsetWidth;
     const offset = activeEl.offsetLeft - containerWidth / 2 + activeEl.offsetWidth / 2;
@@ -130,61 +122,82 @@ function FooterTape({ cities, currentIndex }) {
 
   return (
     <div style={{
-      height: 42, background: '#1a1208', flexShrink: 0,
-      overflow: 'hidden', position: 'relative',
+      height: 46, background: '#1a1208', flexShrink: 0,
+      display: 'flex', alignItems: 'center',
     }}>
-      {/* Left fade */}
-      <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 100, background: 'linear-gradient(to right, #1a1208 40%, transparent)', zIndex: 2, pointerEvents: 'none' }} />
-      {/* Right fade */}
-      <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 100, background: 'linear-gradient(to left, #1a1208 40%, transparent)', zIndex: 2, pointerEvents: 'none' }} />
+      {/* City navigation */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0 1rem', flexShrink: 0 }}>
+        <button onClick={onPrev} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, display: 'flex', alignItems: 'center', opacity: currentIndex === 0 ? 0.2 : 1 }}>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M9 11L5 7L9 3" stroke="#c9962a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+        <div style={{ fontFamily: 'Georgia, serif', lineHeight: 1, minWidth: 36, textAlign: 'center' }}>
+          <span style={{ fontSize: '0.95rem', color: '#c9962a' }}>{currentIndex + 1}</span>
+          <span style={{ fontSize: '0.7rem', color: '#3a3020', margin: '0 2px' }}>/</span>
+          <span style={{ fontSize: '0.75rem', color: '#6a6055' }}>{cities.length}</span>
+        </div>
+        <button onClick={onNext} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, display: 'flex', alignItems: 'center', opacity: currentIndex === cities.length - 1 ? 0.2 : 1 }}>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M5 3L9 7L5 11" stroke="#c9962a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+      </div>
 
-      {/* Tape row */}
-      <div
-        ref={tapeRef}
-        style={{
-          display: 'flex', alignItems: 'center', height: '100%',
-          transition: 'transform 0.35s cubic-bezier(.4,0,.2,1)',
-          willChange: 'transform',
-        }}
-      >
-        {cities.map((city, i) => {
-          const dist = Math.abs(i - currentIndex);
-          const isActive = dist === 0;
-          const opacity = isActive ? 1 : dist === 1 ? 0.55 : dist === 2 ? 0.3 : 0.12;
-          const fontSize = isActive ? 12 : dist === 1 ? 10 : 9;
+      {/* Divider */}
+      <div style={{ width: 1, height: 22, background: '#3a3020', flexShrink: 0 }} />
 
-          return (
-            <span
-              key={i}
-              ref={el => cityRefs.current[i] = el}
-              style={{
-                padding: isActive ? '4px 14px' : '3px 10px',
-                background: isActive ? 'rgba(201,150,42,0.18)' : 'transparent',
-                borderRadius: 4,
-                fontSize,
-                fontWeight: isActive ? 600 : 400,
-                color: '#f5f0e8',
-                opacity,
-                letterSpacing: isActive ? 0.3 : 0.2,
-                whiteSpace: 'nowrap',
-                flexShrink: 0,
-                transition: 'opacity 0.35s ease, font-size 0.35s ease, padding 0.35s ease, background 0.35s ease',
-              }}
-            >
-              {city.city}
-            </span>
-          );
-        })}
+      {/* City tape */}
+      <div style={{ flex: 1, overflow: 'hidden', position: 'relative', height: '100%' }}>
+        {/* Left fade */}
+        <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 60, background: 'linear-gradient(to right, #1a1208 40%, transparent)', zIndex: 2, pointerEvents: 'none' }} />
+        {/* Right fade */}
+        <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 60, background: 'linear-gradient(to left, #1a1208 40%, transparent)', zIndex: 2, pointerEvents: 'none' }} />
+
+        <div
+          ref={tapeRef}
+          style={{
+            display: 'flex', alignItems: 'center', height: '100%',
+            transition: 'transform 0.35s cubic-bezier(.4,0,.2,1)',
+            willChange: 'transform',
+          }}
+        >
+          {cities.map((city, i) => {
+            const dist = Math.abs(i - currentIndex);
+            const isActive = dist === 0;
+            const opacity = isActive ? 1 : dist === 1 ? 0.55 : dist === 2 ? 0.3 : 0.12;
+            const fontSize = isActive ? 12 : dist === 1 ? 10 : 9;
+
+            return (
+              <span
+                key={i}
+                ref={el => cityRefs.current[i] = el}
+                style={{
+                  padding: '3px 10px',
+                  fontSize,
+                  fontWeight: isActive ? 600 : 400,
+                  color: isActive ? '#c9962a' : '#f5f0e8',
+                  opacity,
+                  letterSpacing: isActive ? 0.3 : 0.2,
+                  whiteSpace: 'nowrap',
+                  flexShrink: 0,
+                  transition: 'opacity 0.35s ease, font-size 0.35s ease, color 0.35s ease',
+                }}
+              >
+                {city.city}
+              </span>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
 }
 
-export default function TripDetails({ trip, index, onBack }) {
+export default function TripDetails({ trip, index, totalTrips, onBack, onPrevTrip, onNextTrip }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const cities = trip.cities;
-  const totalDays = Math.round(cities.reduce((s, c) => s + parseDays(c.dur), 0));
   const activeCity = cities[currentIndex];
 
   const advance = useCallback((dir) => {
@@ -192,16 +205,17 @@ export default function TripDetails({ trip, index, onBack }) {
   }, [cities.length]);
 
   useEffect(() => {
-    const accumulated = { value: 0 };
-    const THRESHOLD = 700;
+    const cooldown = { active: false, timer: null };
 
     const onWheel = (e) => {
       e.preventDefault();
-      accumulated.value += e.deltaY;
-      if (Math.abs(accumulated.value) >= THRESHOLD) {
-        advance(accumulated.value > 0 ? 1 : -1);
-        accumulated.value = 0;
-      }
+      // Reset the gesture-end timer on every event
+      clearTimeout(cooldown.timer);
+      cooldown.timer = setTimeout(() => { cooldown.active = false; }, 250);
+      // Fire only once per gesture (first event wins)
+      if (cooldown.active) return;
+      cooldown.active = true;
+      advance(e.deltaY > 0 ? 1 : -1);
     };
 
     const onKey = (e) => {
@@ -212,6 +226,7 @@ export default function TripDetails({ trip, index, onBack }) {
     document.addEventListener('wheel', onWheel, { passive: false });
     document.addEventListener('keydown', onKey);
     return () => {
+      clearTimeout(cooldown.timer);
       document.removeEventListener('wheel', onWheel);
       document.removeEventListener('keydown', onKey);
     };
@@ -252,26 +267,26 @@ export default function TripDetails({ trip, index, onBack }) {
             SuperTrip {String(index + 1).padStart(2, '0')}
           </div>
           <div style={{ fontFamily: 'Georgia, serif', fontSize: '1.1rem', fontWeight: 700 }}>
-            {cities.length} stops · {totalDays}+ days
+            {cities.length} stops · {trip.distanceKm.toLocaleString()} km
           </div>
         </div>
 
         {/* Vertical divider */}
         <div style={{ width: 1, height: 32, background: '#3a3020', flexShrink: 0, position: 'relative' }} />
 
-        {/* Navigation panel: prev / x of y / next */}
+        {/* Navigation panel: prev / trip x of total / next — wraps around */}
         <div style={{ position: 'relative', display: 'flex', alignItems: 'center', gap: '0.6rem', flexShrink: 0 }}>
-          <button onClick={() => advance(-1)} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, display: 'flex', alignItems: 'center', opacity: currentIndex === 0 ? 0.2 : 1 }}>
+          <button onClick={onPrevTrip} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, display: 'flex', alignItems: 'center' }}>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M10 12L6 8L10 4" stroke="#c9962a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </button>
           <div style={{ fontFamily: 'Georgia, serif', textAlign: 'center', lineHeight: 1 }}>
-            <span style={{ fontSize: '1.1rem', color: '#c9962a' }}>{currentIndex + 1}</span>
+            <span style={{ fontSize: '1.1rem', color: '#c9962a' }}>{index + 1}</span>
             <span style={{ fontSize: '0.75rem', color: '#3a3020', margin: '0 3px' }}>/</span>
-            <span style={{ fontSize: '0.85rem', color: '#6a6055' }}>{cities.length}</span>
+            <span style={{ fontSize: '0.85rem', color: '#6a6055' }}>{totalTrips}</span>
           </div>
-          <button onClick={() => advance(1)} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, display: 'flex', alignItems: 'center', opacity: currentIndex === cities.length - 1 ? 0.2 : 1 }}>
+          <button onClick={onNextTrip} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, display: 'flex', alignItems: 'center' }}>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M6 4L10 8L6 12" stroke="#c9962a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
@@ -289,7 +304,7 @@ export default function TripDetails({ trip, index, onBack }) {
       </div>
 
       {/* ── FOOTER TAPE ── */}
-      <FooterTape cities={cities} currentIndex={currentIndex} />
+      <FooterTape cities={cities} currentIndex={currentIndex} onPrev={() => advance(-1)} onNext={() => advance(1)} />
     </div>
   );
 }
