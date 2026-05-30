@@ -75,7 +75,6 @@ export default function App() {
           key={selectedTripIndex}
           trip={TRIPS[selectedTripIndex]}
           index={selectedTripIndex}
-          totalTrips={TRIPS.length}
           onBack={() => setSelectedTripIndex(null)}
           onPrevTrip={() => setSelectedTripIndex(i => (i - 1 + TRIPS.length) % TRIPS.length)}
           onNextTrip={() => setSelectedTripIndex(i => (i + 1) % TRIPS.length)}

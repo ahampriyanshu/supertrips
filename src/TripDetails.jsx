@@ -46,10 +46,19 @@ function MapColumn({ positions, activePosition }) {
         zoomControl={false}
         style={{ height: '100%', width: '100%', background: '#eae8e0' }}
       >
-        <TileLayer
-          attribution='&copy; OpenStreetMap contributors'
-          url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
-        />
+        {import.meta.env.VITE_MAPPLS_KEY ? (
+          // MapmyIndia tiles — Survey of India boundaries (correct for India)
+          <TileLayer
+            attribution='&copy; <a href="https://www.mappls.com/">MapmyIndia</a>'
+            url={`https://apis.mappls.com/advancedmaps/v1/${import.meta.env.VITE_MAPPLS_KEY}/still_map/{z}/{x}/{y}.png`}
+          />
+        ) : (
+          // Fallback — uses international boundaries (PoK shown as Pakistan)
+          <TileLayer
+            attribution='&copy; OpenStreetMap contributors'
+            url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
+          />
+        )}
         <BoundsInit positions={positions} />
         {activePosition && <CityFocuser position={activePosition} />}
         {positions.length > 1 && (
@@ -194,41 +203,101 @@ function FooterTape({ cities, currentIndex, onPrev, onNext }) {
   );
 }
 
-export default function TripDetails({ trip, index, totalTrips, onBack, onPrevTrip, onNextTrip }) {
+export default function TripDetails({ trip, index, onBack, onPrevTrip, onNextTrip }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const cities = trip.cities;
   const activeCity = cities[currentIndex];
+  const totalDays = Math.round(cities.reduce((s, c) => {
+    const d = c.dur.toLowerCase();
+    if (d.includes('month')) return s + parseFloat(d) * 30;
+    if (d.includes('week'))  return s + parseFloat(d) * 7;
+    if (d.includes('½') || d.includes('0.5')) return s + 0.5;
+    return s + (parseFloat(d) || 1);
+  }, 0));
 
   const advance = useCallback((dir) => {
     setCurrentIndex(i => Math.max(0, Math.min(cities.length - 1, i + dir)));
   }, [cities.length]);
 
+  // Keep trip-nav callbacks in refs so the wheel effect never needs to re-register
+  const prevTripRef = useRef(onPrevTrip);
+  const nextTripRef = useRef(onNextTrip);
+  useEffect(() => { prevTripRef.current = onPrevTrip; }, [onPrevTrip]);
+  useEffect(() => { nextTripRef.current = onNextTrip; }, [onNextTrip]);
+
   useEffect(() => {
-    const cooldown = { active: false, timer: null };
+    // ── Vertical wheel → city navigation ──────────────────────────────────
+    // Accumulate delta, fire once per THRESHOLD pixels, then subtract (not
+    // reset) so rapid deliberate scrolls chain naturally while a single
+    // momentum flick is proportional but not unlimited.
+    let acc = 0;
+    let idleTimer = null;
+    const THRESHOLD = 400; // ~one mouse-wheel notch
 
     const onWheel = (e) => {
       e.preventDefault();
-      // Reset the gesture-end timer on every event
-      clearTimeout(cooldown.timer);
-      cooldown.timer = setTimeout(() => { cooldown.active = false; }, 250);
-      // Fire only once per gesture (first event wins)
-      if (cooldown.active) return;
-      cooldown.active = true;
-      advance(e.deltaY > 0 ? 1 : -1);
+      acc += e.deltaY;
+
+      // Clear acc when scrolling truly stops (no new events for 200ms)
+      clearTimeout(idleTimer);
+      idleTimer = setTimeout(() => { acc = 0; }, 200);
+
+      while (Math.abs(acc) >= THRESHOLD) {
+        advance(acc > 0 ? 1 : -1);
+        acc -= acc > 0 ? THRESHOLD : -THRESHOLD;
+      }
     };
 
+    // ── Horizontal pointer swipe → trip navigation ─────────────────────────
+    // Uses pointer events instead of deltaX because browsers intercept
+    // horizontal trackpad gestures for history navigation before wheel fires.
+    let swipeStart = null;
+
+    const onPointerDown = (e) => {
+      if (e.button !== undefined && e.button !== 0) return;
+      swipeStart = { x: e.clientX, y: e.clientY, t: Date.now() };
+    };
+
+    const onPointerUp = (e) => {
+      if (!swipeStart) return;
+      const dx = e.clientX - swipeStart.x;
+      const dy = e.clientY - swipeStart.y;
+      const dt = Date.now() - swipeStart.t;
+      swipeStart = null;
+
+      const absX = Math.abs(dx);
+      const absY = Math.abs(dy);
+
+      // Clear horizontal swipe: fast, wide, and X dominates Y by 2:1
+      if (dt < 500 && absX > 60 && absX > absY * 2) {
+        dx > 0 ? prevTripRef.current() : nextTripRef.current();
+      }
+    };
+
+    const onPointerCancel = () => { swipeStart = null; };
+
+    // ── Keyboard ───────────────────────────────────────────────────────────
     const onKey = (e) => {
-      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') advance(1);
-      if (e.key === 'ArrowUp'   || e.key === 'ArrowLeft')  advance(-1);
+      if (e.key === 'ArrowDown')  advance(1);
+      if (e.key === 'ArrowUp')    advance(-1);
+      if (e.key === 'ArrowRight') nextTripRef.current();
+      if (e.key === 'ArrowLeft')  prevTripRef.current();
     };
 
-    document.addEventListener('wheel', onWheel, { passive: false });
-    document.addEventListener('keydown', onKey);
+    document.addEventListener('wheel',        onWheel,       { passive: false });
+    document.addEventListener('pointerdown',  onPointerDown);
+    document.addEventListener('pointerup',    onPointerUp);
+    document.addEventListener('pointercancel',onPointerCancel);
+    document.addEventListener('keydown',      onKey);
+
     return () => {
-      clearTimeout(cooldown.timer);
-      document.removeEventListener('wheel', onWheel);
-      document.removeEventListener('keydown', onKey);
+      clearTimeout(idleTimer);
+      document.removeEventListener('wheel',        onWheel);
+      document.removeEventListener('pointerdown',  onPointerDown);
+      document.removeEventListener('pointerup',    onPointerUp);
+      document.removeEventListener('pointercancel',onPointerCancel);
+      document.removeEventListener('keydown',      onKey);
     };
   }, [advance]);
 
@@ -261,30 +330,25 @@ export default function TripDetails({ trip, index, totalTrips, onBack, onPrevTri
         {/* Vertical divider */}
         <div style={{ width: 1, height: 32, background: '#3a3020', flexShrink: 0, position: 'relative' }} />
 
-        {/* Trip label + name */}
+        {/* Trip name + meta */}
         <div style={{ position: 'relative', flex: 1, minWidth: 0 }}>
-          <div style={{ fontSize: 9, letterSpacing: 3, textTransform: 'uppercase', color: '#c9962a', marginBottom: 2 }}>
-            SuperTrip {String(index + 1).padStart(2, '0')}
+          <div style={{ fontFamily: 'Georgia, serif', fontSize: '1.1rem', fontWeight: 700, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', lineHeight: 1.1 }}>
+            {trip.name}
           </div>
-          <div style={{ fontFamily: 'Georgia, serif', fontSize: '1.1rem', fontWeight: 700 }}>
-            {cities.length} stops · {trip.distanceKm.toLocaleString()} km
+          <div style={{ fontSize: 11, color: '#a09888', marginTop: 4 }}>
+            {totalDays}+ days · {cities.length} stops · {trip.distanceKm.toLocaleString()} km
           </div>
         </div>
 
-        {/* Vertical divider */}
-        <div style={{ width: 1, height: 32, background: '#3a3020', flexShrink: 0, position: 'relative' }} />
-
-        {/* Navigation panel: prev / trip x of total / next — wraps around */}
-        <div style={{ position: 'relative', display: 'flex', alignItems: 'center', gap: '0.6rem', flexShrink: 0 }}>
+        {/* Navigation panel: prev / SuperTrip N / next */}
+        <div style={{ position: 'relative', display: 'flex', alignItems: 'center', gap: '0.5rem', flexShrink: 0 }}>
           <button onClick={onPrevTrip} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, display: 'flex', alignItems: 'center' }}>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M10 12L6 8L10 4" stroke="#c9962a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </button>
-          <div style={{ fontFamily: 'Georgia, serif', textAlign: 'center', lineHeight: 1 }}>
-            <span style={{ fontSize: '1.1rem', color: '#c9962a' }}>{index + 1}</span>
-            <span style={{ fontSize: '0.75rem', color: '#3a3020', margin: '0 3px' }}>/</span>
-            <span style={{ fontSize: '0.85rem', color: '#6a6055' }}>{totalTrips}</span>
+          <div style={{ textAlign: 'center', lineHeight: 1.1, whiteSpace: 'nowrap', fontFamily: "Georgia, 'Times New Roman', serif", fontSize: '1.1rem', fontWeight: 700, color: '#f5f0e8' }}>
+            Super<em style={{ fontStyle: 'italic', color: '#c9962a' }}>Trip </em>{index + 1}
           </div>
           <button onClick={onNextTrip} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, display: 'flex', alignItems: 'center' }}>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
