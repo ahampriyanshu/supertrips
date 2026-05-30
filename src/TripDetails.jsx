@@ -16,9 +16,60 @@ function parseDays(dur) {
   return parseFloat(d) || 1;
 }
 
-// Placeholder sub-components — replaced in later tasks
-function MapColumn() {
-  return <div style={{ width: '40%', background: '#c8d5c0', flexShrink: 0 }} />;
+// Fits the full route on first render only
+function BoundsInit({ positions }) {
+  const map = useMap();
+  const done = useRef(false);
+  useEffect(() => {
+    if (done.current || positions.length === 0) return;
+    map.fitBounds(L.latLngBounds(positions), { padding: [50, 50] });
+    done.current = true;
+  }, [positions, map]);
+  return null;
+}
+
+// Pans smoothly to the active city whenever it changes
+function CityFocuser({ position }) {
+  const map = useMap();
+  const prev = useRef(null);
+  useEffect(() => {
+    if (!position) return;
+    const key = position.join(',');
+    if (prev.current === key) return;
+    prev.current = key;
+    map.panTo(position, { animate: true, duration: 0.5 });
+  }, [position, map]);
+  return null;
+}
+
+function MapColumn({ positions, activePosition }) {
+  return (
+    <div style={{ width: '40%', flexShrink: 0, position: 'relative' }}>
+      <MapContainer
+        center={[20.5937, 78.9629]}
+        zoom={5}
+        scrollWheelZoom={false}
+        zoomControl={false}
+        style={{ height: '100%', width: '100%', background: '#eae8e0' }}
+      >
+        <TileLayer
+          attribution='&copy; OpenStreetMap contributors'
+          url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
+        />
+        <BoundsInit positions={positions} />
+        {activePosition && <CityFocuser position={activePosition} />}
+        {positions.length > 1 && (
+          <Polyline
+            positions={positions}
+            pathOptions={{ color: '#c9962a', weight: 3, opacity: 0.7, dashArray: '6, 14' }}
+          />
+        )}
+        {activePosition && (
+          <Marker position={activePosition} />
+        )}
+      </MapContainer>
+    </div>
+  );
 }
 function DetailColumn({ city }) {
   return <div style={{ flex: 1, background: '#faf7f2', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -123,7 +174,10 @@ export default function TripDetails({ trip, index, onBack }) {
 
       {/* ── MAIN SPLIT ── */}
       <div style={{ flex: 1, display: 'flex', overflow: 'hidden' }}>
-        <MapColumn />
+        <MapColumn
+          positions={cities.filter(c => c.lat && c.lng).map(c => [c.lat, c.lng])}
+          activePosition={activeCity?.lat && activeCity?.lng ? [activeCity.lat, activeCity.lng] : null}
+        />
         <DetailColumn city={activeCity} />
       </div>
 
