@@ -1,6 +1,6 @@
 [
   {
-    "name": "SuperTrip 1",
+    "name": "Braj, Kashi & Kalinga",
     "cities": [
       {
         "city": "Gurugram",
@@ -47,7 +47,7 @@
     ]
   },
   {
-    "name": "SuperTrip 2",
+    "name": "Mewar & Saurashtra",
     "cities": [
       {
         "city": "Delhi",
@@ -130,7 +130,7 @@
     ]
   },
   {
-    "name": "SuperTrip 3",
+    "name": "Punjab, Jammu & Kashmir",
     "cities": [
       {
         "city": "Ludhiana",
@@ -231,7 +231,7 @@
     ]
   },
   {
-    "name": "SuperTrip 4",
+    "name": "Thar, Deccan & Alleppey",
     "cities": [
       {
         "city": "Gurugram",
@@ -386,7 +386,7 @@
     ]
   },
   {
-    "name": "SuperTrip 5",
+    "name": "Wayanad, Northeast & Sikkim",
     "cities": [
       {
         "city": "Gurugram",
@@ -541,7 +541,7 @@
     ]
   },
   {
-    "name": "SuperTrip 6",
+    "name": "Deccan, Rayalaseema & Kashmir",
     "cities": [
       {
         "city": "Gurugram",
@@ -654,7 +654,7 @@
     ]
   },
   {
-    "name": "SuperTrip 7",
+    "name": "Bundelkhand, Puravanchal & Munnar",
     "cities": [
       {
         "city": "Gurugram",
@@ -869,7 +869,7 @@
     ]
   },
   {
-    "name": "SuperTrip 8",
+    "name": "Vidarbha, Konkan & Kutch",
     "cities": [
       {
         "city": "Delhi",
@@ -958,7 +958,7 @@
     ]
   },
   {
-    "name": "SuperTrip 9",
+    "name": "Coastal Karnataka, Kozhikode & Himachal",
     "cities": [
       {
         "city": "Gurugram",
@@ -1071,7 +1071,7 @@
     ]
   },
   {
-    "name": "SuperTrip 10",
+    "name": "Coromandel, Kochi & Bengal",
     "cities": [
       {
         "city": "Gurugram",

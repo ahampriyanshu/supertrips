@@ -28,7 +28,6 @@ const styles = {
   heroStatN: { fontFamily: "Georgia, serif", fontSize: "2rem", color: "#c9962a", lineHeight: 1 },
   heroStatL: { fontSize: 11, letterSpacing: 1.5, textTransform: "uppercase", color: "#6a6055", marginTop: 3 },
   section: { maxWidth: 720, margin: "0 auto", padding: "2rem" },
-  sectionLabel: { fontSize: 11, letterSpacing: 3, textTransform: "uppercase", color: "#8a7a65", marginBottom: "1.5rem" },
   card: (open) => ({
     background: "#faf7f2", border: `1px solid ${open ? "#c9962a" : "#e0d8cc"}`,
     borderRadius: 4, marginBottom: 12, overflow: "hidden", cursor: "pointer",
@@ -108,7 +107,7 @@ export default function App() {
             Super<em style={styles.heroTitleEm}>Trips</em>
           </h1>
           <p style={styles.heroSub}>
-            Ten epic journeys across the length and breadth of India — from the deserts of Rajasthan to the hills of Arunachal, from the backwaters of Kerala to the ghats of Varanasi.
+            Routes from remote work, slow travel, and ordinary days across India. Kept as notes from the road, and shared in case they help someone plan their own journey.
           </p>
           <div style={styles.heroStats}>
             {[["10", "Trips"], [totalCities, "Unique cities"], [totalStops, "Total stops"], [`${totalDays}+`, "Days on the road"]].map(([n, l]) => (
@@ -122,7 +121,6 @@ export default function App() {
       </div>
 
       <div style={styles.section}>
-        <div style={styles.sectionLabel}>All Supertrips — Select to view map & itinerary</div>
         {TRIPS.map((trip, i) => <TripCard key={i} trip={trip} index={i} onSelect={() => setSelectedTripIndex(i)} />)}
       </div>
 

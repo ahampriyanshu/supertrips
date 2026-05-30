@@ -236,13 +236,11 @@ export default function TripDetails({ trip, index, onBack }) {
           backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(201,150,42,0.04) 40px, rgba(201,150,42,0.04) 41px)',
         }} />
 
-        {/* Back button */}
-        <button onClick={onBack} style={{
-          position: 'relative', background: 'none', border: 'none', cursor: 'pointer',
-          color: '#c9962a', fontSize: 10, letterSpacing: 2, textTransform: 'uppercase',
-          fontFamily: 'inherit', fontWeight: 600, flexShrink: 0, padding: 0,
-        }}>
-          ← All trips
+        {/* Back — SVG arrow only */}
+        <button onClick={onBack} style={{ position: 'relative', background: 'none', border: 'none', cursor: 'pointer', padding: 0, display: 'flex', alignItems: 'center', flexShrink: 0 }}>
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <path d="M14 17L8 11L14 5" stroke="#c9962a" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
         </button>
 
         {/* Vertical divider */}
@@ -253,22 +251,31 @@ export default function TripDetails({ trip, index, onBack }) {
           <div style={{ fontSize: 9, letterSpacing: 3, textTransform: 'uppercase', color: '#c9962a', marginBottom: 2 }}>
             SuperTrip {String(index + 1).padStart(2, '0')}
           </div>
-          <div style={{ fontFamily: 'Georgia, serif', fontSize: '1.15rem', fontWeight: 700, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-            {trip.name}
+          <div style={{ fontFamily: 'Georgia, serif', fontSize: '1.1rem', fontWeight: 700 }}>
+            {cities.length} stops · {totalDays}+ days
           </div>
         </div>
 
-        {/* Stats */}
-        <div style={{ display: 'flex', gap: '1.5rem', flexShrink: 0, position: 'relative' }}>
-          {[
-            [cities.length, 'Stops'],
-            [`${totalDays}+`, 'Days'],
-          ].map(([n, l]) => (
-            <div key={l} style={{ textAlign: 'right' }}>
-              <div style={{ fontFamily: 'Georgia, serif', fontSize: '1.1rem', color: '#c9962a', lineHeight: 1 }}>{n}</div>
-              <div style={{ fontSize: 8, letterSpacing: 1.5, textTransform: 'uppercase', color: '#6a6055', marginTop: 2 }}>{l}</div>
-            </div>
-          ))}
+        {/* Vertical divider */}
+        <div style={{ width: 1, height: 32, background: '#3a3020', flexShrink: 0, position: 'relative' }} />
+
+        {/* Navigation panel: prev / x of y / next */}
+        <div style={{ position: 'relative', display: 'flex', alignItems: 'center', gap: '0.6rem', flexShrink: 0 }}>
+          <button onClick={() => advance(-1)} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, display: 'flex', alignItems: 'center', opacity: currentIndex === 0 ? 0.2 : 1 }}>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M10 12L6 8L10 4" stroke="#c9962a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+          <div style={{ fontFamily: 'Georgia, serif', textAlign: 'center', lineHeight: 1 }}>
+            <span style={{ fontSize: '1.1rem', color: '#c9962a' }}>{currentIndex + 1}</span>
+            <span style={{ fontSize: '0.75rem', color: '#3a3020', margin: '0 3px' }}>/</span>
+            <span style={{ fontSize: '0.85rem', color: '#6a6055' }}>{cities.length}</span>
+          </div>
+          <button onClick={() => advance(1)} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, display: 'flex', alignItems: 'center', opacity: currentIndex === cities.length - 1 ? 0.2 : 1 }}>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4L10 8L6 12" stroke="#c9962a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
         </div>
       </div>
 
