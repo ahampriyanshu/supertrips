@@ -49,7 +49,6 @@ function TripCard({ trip, index, onSelect }) {
           <div style={styles.tripName}>SuperTrip {index + 1} — {trip.name}</div>
           <div style={styles.tripMeta}>{trip.cities.length} stops</div>
         </div>
-        <div style={styles.arrow}>›</div>
       </div>
 
       <div style={styles.routeStrip} className="hide-scroll">
