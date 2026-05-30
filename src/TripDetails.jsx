@@ -112,8 +112,71 @@ function DetailColumn({ city, cityIndex, total }) {
     </div>
   );
 }
-function FooterTape() {
-  return <div style={{ height: 38, background: '#1a1208' }} />;
+function FooterTape({ cities, currentIndex }) {
+  const tapeRef = useRef(null);
+  const cityRefs = useRef([]);
+
+  useEffect(() => {
+    const tape = tapeRef.current;
+    const activeEl = cityRefs.current[currentIndex];
+    if (!tape || !activeEl) return;
+
+    const container = tape.parentElement;
+    const containerWidth = container.offsetWidth;
+    const offset = activeEl.offsetLeft - containerWidth / 2 + activeEl.offsetWidth / 2;
+    tape.style.transform = `translateX(${-offset}px)`;
+  }, [currentIndex]);
+
+  return (
+    <div style={{
+      height: 42, background: '#1a1208', flexShrink: 0,
+      overflow: 'hidden', position: 'relative',
+    }}>
+      {/* Left fade */}
+      <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 100, background: 'linear-gradient(to right, #1a1208 40%, transparent)', zIndex: 2, pointerEvents: 'none' }} />
+      {/* Right fade */}
+      <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 100, background: 'linear-gradient(to left, #1a1208 40%, transparent)', zIndex: 2, pointerEvents: 'none' }} />
+
+      {/* Tape row */}
+      <div
+        ref={tapeRef}
+        style={{
+          display: 'flex', alignItems: 'center', height: '100%',
+          transition: 'transform 0.35s cubic-bezier(.4,0,.2,1)',
+          willChange: 'transform',
+        }}
+      >
+        {cities.map((city, i) => {
+          const dist = Math.abs(i - currentIndex);
+          const isActive = dist === 0;
+          const opacity = isActive ? 1 : dist === 1 ? 0.55 : dist === 2 ? 0.3 : 0.12;
+          const fontSize = isActive ? 12 : dist === 1 ? 10 : 9;
+
+          return (
+            <span
+              key={i}
+              ref={el => cityRefs.current[i] = el}
+              style={{
+                padding: isActive ? '4px 14px' : '3px 10px',
+                background: isActive ? 'rgba(201,150,42,0.18)' : 'transparent',
+                borderRadius: 4,
+                fontSize,
+                fontWeight: isActive ? 600 : 400,
+                color: '#f5f0e8',
+                opacity,
+                letterSpacing: isActive ? 0.3 : 0.2,
+                whiteSpace: 'nowrap',
+                flexShrink: 0,
+                transition: 'opacity 0.35s ease, font-size 0.35s ease, padding 0.35s ease, background 0.35s ease',
+              }}
+            >
+              {city.city}
+            </span>
+          );
+        })}
+      </div>
+    </div>
+  );
 }
 
 export default function TripDetails({ trip, index, onBack }) {
@@ -218,7 +281,7 @@ export default function TripDetails({ trip, index, onBack }) {
       </div>
 
       {/* ── FOOTER TAPE ── */}
-      <FooterTape />
+      <FooterTape cities={cities} currentIndex={currentIndex} />
     </div>
   );
 }
