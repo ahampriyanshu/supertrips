@@ -1,0 +1,824 @@
+[
+  {
+    "name": "SuperTrip 1",
+    "cities": [
+      {
+        "city": "Gurugram",
+        "dur": "2 Weeks"
+      },
+      {
+        "city": "Mathura",
+        "dur": "2 Days"
+      },
+      {
+        "city": "Agra",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Varanasi",
+        "dur": "3 Days"
+      },
+      {
+        "city": "Kolkata",
+        "dur": "2 Days"
+      },
+      {
+        "city": "Puri & Konark",
+        "dur": "2 Days"
+      },
+      {
+        "city": "Noida",
+        "dur": "2 Days"
+      },
+      {
+        "city": "Delhi",
+        "dur": "1 Week"
+      }
+    ]
+  },
+  {
+    "name": "SuperTrip 2",
+    "cities": [
+      {
+        "city": "Delhi",
+        "dur": "2 Day"
+      },
+      {
+        "city": "Jaipur",
+        "dur": "3 Days"
+      },
+      {
+        "city": "Chittorgarh",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Udaipur",
+        "dur": "3 Days"
+      },
+      {
+        "city": "Kumbhalgarh",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Ahemdabad",
+        "dur": "3 Days"
+      },
+      {
+        "city": "Kevadiya",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Surat",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Vadodara",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Somnath",
+        "dur": "2 Days"
+      },
+      {
+        "city": "Dwarka",
+        "dur": "2 Days"
+      },
+      {
+        "city": "Rajkot",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Delhi",
+        "dur": "2 Days"
+      }
+    ]
+  },
+  {
+    "name": "SuperTrip 3",
+    "cities": [
+      {
+        "city": "Ludhiana",
+        "dur": "1 Month"
+      },
+      {
+        "city": "Jalandhar",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Amritsar",
+        "dur": "2 Days"
+      },
+      {
+        "city": "Pathankot",
+        "dur": "0.5 Day"
+      },
+      {
+        "city": "Katra",
+        "dur": "2 Days"
+      },
+      {
+        "city": "Jammu",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Banihar & Qazigund",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Srinagar",
+        "dur": "3 Days"
+      },
+      {
+        "city": "Gulmarg",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Kargil",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Leh",
+        "dur": "3 Days"
+      },
+      {
+        "city": "Keylong",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Manali",
+        "dur": "3 Days"
+      },
+      {
+        "city": "Kullu",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Chandigarh",
+        "dur": "3 Days"
+      },
+      {
+        "city": "Ludhiana",
+        "dur": "2 Months"
+      }
+    ]
+  },
+  {
+    "name": "SuperTrip 4",
+    "cities": [
+      {
+        "city": "Gurugram",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Bikaner",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Sam",
+        "dur": "2 Days"
+      },
+      {
+        "city": "Jaisalmer",
+        "dur": "4 Days"
+      },
+      {
+        "city": "Jodhpur",
+        "dur": "4 Days"
+      },
+      {
+        "city": "Ajmer & Pushkar",
+        "dur": "2 Days"
+      },
+      {
+        "city": "Ahmedabad & Gandhinagar",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Indore",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Omkareshwar",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Nashik",
+        "dur": "2 Days"
+      },
+      {
+        "city": "Shirdi",
+        "dur": "2 Days"
+      },
+      {
+        "city": "Sambhajinagar",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Pune",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Mumbai",
+        "dur": "2 Weeks"
+      },
+      {
+        "city": "Goa",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Kochi",
+        "dur": "3 Days"
+      },
+      {
+        "city": "Allepey",
+        "dur": "2 Day"
+      },
+      {
+        "city": "Varkala",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Trivandrum",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Vagamon",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Coimbatore",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Ooty",
+        "dur": "4 Days"
+      },
+      {
+        "city": "Mysore",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Bengalauru",
+        "dur": "2 Weeks"
+      },
+      {
+        "city": "Gurugram",
+        "dur": "4 Weeks"
+      }
+    ]
+  },
+  {
+    "name": "SuperTrip 5",
+    "cities": [
+      {
+        "city": "Gurugram",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Banglore",
+        "dur": "3 Days"
+      },
+      {
+        "city": "Wayanad",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Banglore",
+        "dur": "3 Days"
+      },
+      {
+        "city": "Rameshwaram",
+        "dur": "2 Days"
+      },
+      {
+        "city": "Madurai",
+        "dur": "3 Days"
+      },
+      {
+        "city": "Coimbatore",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Guwahati",
+        "dur": "3 Days"
+      },
+      {
+        "city": "Shillong",
+        "dur": "3 Days"
+      },
+      {
+        "city": "Dawki",
+        "dur": "2 Days"
+      },
+      {
+        "city": "Silchar",
+        "dur": "2 Days"
+      },
+      {
+        "city": "Dimapur",
+        "dur": "3 Days"
+      },
+      {
+        "city": "Kohima",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Tinsukia",
+        "dur": "2 Days"
+      },
+      {
+        "city": "Itanagar",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Tawang",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Guwahati",
+        "dur": "2 Days"
+      },
+      {
+        "city": "Darjeeling",
+        "dur": "5 Days"
+      },
+      {
+        "city": "Pelling",
+        "dur": "4 Days"
+      },
+      {
+        "city": "Gangtok",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Siliguri",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Kolkata",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Varanasi",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Gurugram",
+        "dur": "3 Weeks"
+      },
+      {
+        "city": "Noida",
+        "dur": "1 Month"
+      }
+    ]
+  },
+  {
+    "name": "SuperTrip 6",
+    "cities": [
+      {
+        "city": "Gurugram",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Bengaluru",
+        "dur": "2 Weeks"
+      },
+      {
+        "city": "Kanchipuram",
+        "dur": "2 Days"
+      },
+      {
+        "city": "Tirupati",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Srisailam",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Hyderabad",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Bengaluru",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Shivamogga",
+        "dur": "3 Days"
+      },
+      {
+        "city": "Bengaluru",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Pondicherry",
+        "dur": "5 Days"
+      },
+      {
+        "city": "Chennai",
+        "dur": "3 Days"
+      },
+      {
+        "city": "Srinagar",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Sonmarg",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Baltal",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Srinagar",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Banihal & Udhampur",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Ludhiana",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Gurugram",
+        "dur": "2 Weeks"
+      }
+    ]
+  },
+  {
+    "name": "SuperTrip 7",
+    "cities": [
+      {
+        "city": "Gurugram",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Orchha",
+        "dur": "2 Days"
+      },
+      {
+        "city": "Jhansi",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Khajurao",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Prayagraj",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Ayodhya",
+        "dur": "2 Days"
+      },
+      {
+        "city": "Lukhnow",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Varanasi",
+        "dur": "2 Days"
+      },
+      {
+        "city": "Bodh Gaya",
+        "dur": "2 Days"
+      },
+      {
+        "city": "Deoghar",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Kolkata",
+        "dur": "2 Weeks"
+      },
+      {
+        "city": "Digha",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Kharagpur",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Cuttak",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Vishakhapatnam",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Araku",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Hyderabad",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Bengaluru",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Mysore",
+        "dur": "2 Days"
+      },
+      {
+        "city": "Coorg",
+        "dur": "2 Days"
+      },
+      {
+        "city": "Chikkmanglore",
+        "dur": "3 Days"
+      },
+      {
+        "city": "Hampi",
+        "dur": "2 Days"
+      },
+      {
+        "city": "Bengaluru",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Mudurai",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Kodaikannal",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Poombarai",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Theni",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Munnar",
+        "dur": "3 Days"
+      },
+      {
+        "city": "Trivandrum",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Bengaluru",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Thrissur",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Palakkad",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Coimbatore",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Bengaluru",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Gurugram",
+        "dur": "1 Week"
+      }
+    ]
+  },
+  {
+    "name": "SuperTrip 8",
+    "cities": [
+      {
+        "city": "Delhi",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Bengaluru",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Gwalior",
+        "dur": "3 Days"
+      },
+      {
+        "city": "Nagpur",
+        "dur": "4 Days"
+      },
+      {
+        "city": "Hyderabad",
+        "dur": "2 Week"
+      },
+      {
+        "city": "Bengaluru",
+        "dur": "3 Weeks"
+      },
+      {
+        "city": "Gokarna",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Goa",
+        "dur": "2 Weeks"
+      },
+      {
+        "city": "Ahemdabad",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Bhuj",
+        "dur": "2 Days"
+      },
+      {
+        "city": "Kutchh",
+        "dur": "5 Days"
+      },
+      {
+        "city": "Surat",
+        "dur": "2 Days"
+      },
+      {
+        "city": "Mumbai",
+        "dur": "1 Month"
+      },
+      {
+        "city": "Gurugram",
+        "dur": "4 Months"
+      }
+    ]
+  },
+  {
+    "name": "SuperTrip 9",
+    "cities": [
+      {
+        "city": "Gurugram",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Bengaluru",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Delhi",
+        "dur": "2 Days"
+      },
+      {
+        "city": "Bhopal",
+        "dur": "2 Days"
+      },
+      {
+        "city": "Hyderabad",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Bengaluru",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Gokarna",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Udupi",
+        "dur": "2 Days"
+      },
+      {
+        "city": "Manglore",
+        "dur": "2 Days"
+      },
+      {
+        "city": "Kannur",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Kozhikode",
+        "dur": "2 Days"
+      },
+      {
+        "city": "Bengaluru",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Gurugram",
+        "dur": "2 Weeks"
+      },
+      {
+        "city": "Amristar",
+        "dur": "3 Days"
+      },
+      {
+        "city": "Dalhouisie",
+        "dur": "3 Days"
+      },
+      {
+        "city": "Dharamshala & Mcleond Gang",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Bir",
+        "dur": "5 Days"
+      },
+      {
+        "city": "Gurugram",
+        "dur": "2 Weeks"
+      }
+    ]
+  },
+  {
+    "name": "SuperTrip 10",
+    "cities": [
+      {
+        "city": "Gurugram",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Bengaluru",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Wayanad(Vyithri)",
+        "dur": "3 Days"
+      },
+      {
+        "city": "Bengaluru",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Chennai",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Mahabalipuram",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Thanjavur",
+        "dur": "2 Days"
+      },
+      {
+        "city": "Tiruchirappalli",
+        "dur": "2 Days"
+      },
+      {
+        "city": "Kanyakumari",
+        "dur": "2 Days"
+      },
+      {
+        "city": "Kochi",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Kozhikode",
+        "dur": "2 Days"
+      },
+      {
+        "city": "Bengaluru",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Kolkata",
+        "dur": "2 Months"
+      },
+      {
+        "city": "Mayapur",
+        "dur": "1 Day"
+      },
+      {
+        "city": "Kurseong",
+        "dur": "2 Days"
+      },
+      {
+        "city": "Ghoom",
+        "dur": "2 Days"
+      },
+      {
+        "city": "Darjeeling",
+        "dur": "2 Days"
+      },
+      {
+        "city": "Kalimpong",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Kolkata",
+        "dur": "3 Days"
+      },
+      {
+        "city": "Patna",
+        "dur": "1 Week"
+      },
+      {
+        "city": "Gurugram",
+        "dur": "1 Month"
+      }
+    ]
+  }
+]
