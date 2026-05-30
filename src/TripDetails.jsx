@@ -71,10 +71,46 @@ function MapColumn({ positions, activePosition }) {
     </div>
   );
 }
-function DetailColumn({ city }) {
-  return <div style={{ flex: 1, background: '#faf7f2', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-    <span style={{ fontFamily: 'Georgia, serif', fontSize: '2rem', color: '#1a1208' }}>{city?.city}</span>
-  </div>;
+function DetailColumn({ city, cityIndex, total }) {
+  const [visible, setVisible] = useState(true);
+  const [displayed, setDisplayed] = useState({ city, cityIndex });
+
+  useEffect(() => {
+    setVisible(false);
+    const t = setTimeout(() => {
+      setDisplayed({ city, cityIndex });
+      setVisible(true);
+    }, 150);
+    return () => clearTimeout(t);
+  }, [city, cityIndex]);
+
+  const { city: c, cityIndex: ci } = displayed;
+
+  return (
+    <div style={{
+      flex: 1, background: '#faf7f2',
+      display: 'flex', flexDirection: 'column',
+      alignItems: 'center', justifyContent: 'center',
+      padding: '2rem', gap: '0.75rem',
+      borderLeft: '1px solid #e0d8cc',
+      transition: 'opacity 0.15s ease',
+      opacity: visible ? 1 : 0,
+    }}>
+      <div style={{ fontSize: 10, letterSpacing: 2.5, textTransform: 'uppercase', color: '#8a7a65' }}>
+        City {ci + 1} of {total}
+      </div>
+      <div style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 700, color: '#1a1208', textAlign: 'center', lineHeight: 1.1 }}>
+        {c?.city}
+      </div>
+      <div style={{ fontSize: 12, color: '#6a6055', background: 'rgba(201,150,42,0.12)', padding: '5px 16px', borderRadius: 20, letterSpacing: 0.5 }}>
+        Stay: {c?.dur}
+      </div>
+      <div style={{ marginTop: '2.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4, opacity: 0.4 }}>
+        <div style={{ fontSize: 18, color: '#c9962a', lineHeight: 1 }}>↕</div>
+        <div style={{ fontSize: 9, letterSpacing: 2, textTransform: 'uppercase', color: '#8a7a65' }}>Scroll to navigate</div>
+      </div>
+    </div>
+  );
 }
 function FooterTape() {
   return <div style={{ height: 38, background: '#1a1208' }} />;
@@ -178,7 +214,7 @@ export default function TripDetails({ trip, index, onBack }) {
           positions={cities.filter(c => c.lat && c.lng).map(c => [c.lat, c.lng])}
           activePosition={activeCity?.lat && activeCity?.lng ? [activeCity.lat, activeCity.lng] : null}
         />
-        <DetailColumn city={activeCity} />
+        <DetailColumn city={activeCity} cityIndex={currentIndex} total={cities.length} />
       </div>
 
       {/* ── FOOTER TAPE ── */}
