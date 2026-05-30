@@ -1,6 +1,6 @@
 import React from 'react';
 import { MapPin, Calendar, Compass } from 'lucide-react';
-import tripData from '../data.json';
+import { RAW_TRIPS as tripData } from '../data.js';
 
 export default function Stats() {
   const totalCities = tripData.length;

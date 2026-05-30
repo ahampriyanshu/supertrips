@@ -1,7 +1,7 @@
 import React from 'react';
 import { MapContainer, TileLayer, Marker, Popup, Polyline } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import tripData from '../data.json';
+import { RAW_TRIPS as tripData } from '../data.js';
 import L from 'leaflet';
 
 // Fix for default marker icons in react-leaflet

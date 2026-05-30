@@ -3,11 +3,119 @@ import { MapContainer, TileLayer, Marker, Polyline, useMap } from 'react-leaflet
 import L from 'leaflet';
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+import { CITIES as CITIES_DATA } from './data.js';
 
 // Fix Leaflet default icon
 const DefaultIcon = L.icon({ iconUrl: icon, shadowUrl: iconShadow, iconSize: [25, 41], iconAnchor: [12, 41] });
 L.Marker.prototype.options.icon = DefaultIcon;
 
+// city display name → enrichment data (first match wins for duplicates)
+const CITY_ENRICHMENT = Object.values(CITIES_DATA).reduce((acc, entry) => {
+  if (!acc[entry.city]) acc[entry.city] = entry;
+  return acc;
+}, {});
+
+function fmt(s) {
+  if (!s) return '';
+  return String(s).replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+}
+
+function Stars({ n }) {
+  return (
+    <span style={{ display: 'flex', gap: 2 }}>
+      {[1, 2, 3, 4, 5].map(i => (
+        <span key={i} style={{ color: i <= n ? '#c9962a' : '#3a3020', fontSize: 13, lineHeight: 1 }}>★</span>
+      ))}
+    </span>
+  );
+}
+
+function InfoBadge({ label, value }) {
+  return (
+    <div style={{ background: '#faf7f2', border: '1px solid #e0d8cc', borderRadius: 4, padding: '5px 12px' }}>
+      <div style={{ fontSize: 9, letterSpacing: 1.5, textTransform: 'uppercase', color: '#8a7a65' }}>{label}</div>
+      <div style={{ fontSize: 13, fontWeight: 500, color: '#1a1208', marginTop: 1 }}>{value}</div>
+    </div>
+  );
+}
+
+function WikipediaIcon() {
+  return (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.6"/>
+      <path d="M8 9l1.5 6L11.5 11l2 4L15 9" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  );
+}
+
+function ChatGPTIcon() {
+  return (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M22.28 9.82a5.98 5.98 0 0 0-.52-4.91 6.05 6.05 0 0 0-6.51-2.9 6.07 6.07 0 0 0-4.55-2.02 6.06 6.06 0 0 0-5.82 4.2 5.98 5.98 0 0 0-4 2.9 6.05 6.05 0 0 0 .74 7.1 5.98 5.98 0 0 0 .52 4.9 6.05 6.05 0 0 0 6.51 2.9 6.07 6.07 0 0 0 4.55 2.02 6.06 6.06 0 0 0 5.77-4.2 5.98 5.98 0 0 0 4-2.9 6.05 6.05 0 0 0-.7-7.09zm-9.02 12.6a4.48 4.48 0 0 1-2.88-1.04l.14-.08 4.78-2.76a.8.8 0 0 0 .39-.68V11.2l2.02 1.17a.07.07 0 0 1 .04.05v5.58a4.5 4.5 0 0 1-4.49 4.42zm-9.66-4.12a4.47 4.47 0 0 1-.53-3.01l.14.08 4.78 2.76a.77.77 0 0 0 .78 0l5.84-3.37v2.33a.08.08 0 0 1-.03.06L9.74 19.9a4.5 4.5 0 0 1-6.14-1.6zM2.34 7.9a4.48 4.48 0 0 1 2.37-1.97v5.6a.77.77 0 0 0 .39.68l5.81 3.35-2.02 1.17a.08.08 0 0 1-.07 0L4.04 14.1A4.5 4.5 0 0 1 2.34 7.9zm16.6 3.86-5.82-3.35 2.02-1.17a.08.08 0 0 1 .07 0l4.83 2.79a4.5 4.5 0 0 1-.68 8.1v-5.68a.79.79 0 0 0-.41-.69zm2.01-3.03-.14-.09-4.77-2.78a.78.78 0 0 0-.79 0L9.41 9.23V6.9a.07.07 0 0 1 .03-.06l4.83-2.79a4.5 4.5 0 0 1 6.68 4.68zM8.31 12.86l-2.02-1.16a.08.08 0 0 1-.04-.06V6.07a4.5 4.5 0 0 1 7.38-3.45l-.14.08-4.78 2.76a.79.79 0 0 0-.4.68v.01zm1.1-2.37 2.6-1.5 2.6 1.5v3l-2.6 1.5-2.6-1.5v-3z"/>
+    </svg>
+  );
+}
+
+function ClaudeIcon() {
+  return (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M13.8 3.5h3.6L10 20.5H6.4zm-3.6 0h3.6L6.4 20.5H2.8zM17.4 3.5H21l-7.4 17H10z" opacity=".9"/>
+    </svg>
+  );
+}
+
+function ExternalLinks({ cityName }) {
+  const q = encodeURIComponent(`Tell me about ${cityName}, India`);
+  const links = [
+    { href: `https://en.wikipedia.org/wiki/${encodeURIComponent(cityName)}`, label: 'Wikipedia', Icon: WikipediaIcon },
+    { href: `https://chatgpt.com/?q=${q}`, label: 'ChatGPT', Icon: ChatGPTIcon },
+    { href: `https://claude.ai/new?q=${q}`, label: 'Claude', Icon: ClaudeIcon },
+  ];
+  return (
+    <div style={{ display: 'flex', gap: 6, marginBottom: '0.85rem' }}>
+      {links.map(({ href, label, Icon }) => (
+        <a
+          key={label}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          title={label}
+          style={{
+            display: 'flex', alignItems: 'center', gap: 5,
+            padding: '4px 10px', borderRadius: 4,
+            border: '1px solid #d8d0c4', background: '#faf7f2',
+            color: '#6a5a48', textDecoration: 'none',
+            fontSize: 11, letterSpacing: 0.2,
+            transition: 'border-color 0.15s, color 0.15s',
+          }}
+          onMouseEnter={e => { e.currentTarget.style.borderColor = '#c9962a'; e.currentTarget.style.color = '#c9962a'; }}
+          onMouseLeave={e => { e.currentTarget.style.borderColor = '#d8d0c4'; e.currentTarget.style.color = '#6a5a48'; }}
+        >
+          <Icon />
+          {label}
+        </a>
+      ))}
+    </div>
+  );
+}
+
+function BulletList({ title, items }) {
+  return (
+    <div>
+      <div style={{ fontSize: 10, letterSpacing: 1.5, textTransform: 'uppercase', color: '#8a7a65', marginBottom: 7 }}>
+        {title}
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
+        {items.slice(0, 6).map((item, i) => (
+          <div key={i} style={{ display: 'flex', gap: 7, fontSize: 12.5, color: '#2e2416', lineHeight: 1.4 }}>
+            <span style={{ color: '#c9962a', flexShrink: 0, marginTop: 2, fontSize: 9 }}>▸</span>
+            <span>{item}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 // Fits the full route on first render only
 function BoundsInit({ positions }) {
@@ -47,13 +155,11 @@ function MapColumn({ positions, activePosition }) {
         style={{ height: '100%', width: '100%', background: '#eae8e0' }}
       >
         {import.meta.env.VITE_MAPPLS_KEY ? (
-          // MapmyIndia tiles — Survey of India boundaries (correct for India)
           <TileLayer
             attribution='&copy; <a href="https://www.mappls.com/">MapmyIndia</a>'
             url={`https://apis.mappls.com/advancedmaps/v1/${import.meta.env.VITE_MAPPLS_KEY}/still_map/{z}/{x}/{y}.png`}
           />
         ) : (
-          // Fallback — uses international boundaries (PoK shown as Pakistan)
           <TileLayer
             attribution='&copy; OpenStreetMap contributors'
             url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
@@ -108,32 +214,118 @@ function DetailColumn({ city, cityIndex, total }) {
   }, [city, cityIndex]);
 
   const { city: c, cityIndex: ci } = displayed;
+  const data = c ? CITY_ENRICHMENT[c.city] : null;
 
   return (
-    <div style={{
-      flex: 1, background: '#f5f0e8',
-      display: 'flex', flexDirection: 'column',
-      alignItems: 'center', justifyContent: 'center',
-      padding: '2rem', gap: '0.75rem',
-      transition: 'opacity 0.15s ease',
-      opacity: visible ? 1 : 0,
-    }}>
-      <div style={{ fontSize: 10, letterSpacing: 2.5, textTransform: 'uppercase', color: '#8a7a65' }}>
-        City {ci + 1} of {total}
-      </div>
-      <div style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 700, color: '#1a1208', textAlign: 'center', lineHeight: 1.1 }}>
-        {c?.city}
-      </div>
-      <div style={{ fontSize: 12, color: '#6a6055', background: 'rgba(201,150,42,0.12)', padding: '5px 16px', borderRadius: 20, letterSpacing: 0.5 }}>
-        Stay: {c?.dur}
-      </div>
-      <div style={{ marginTop: '2.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4, opacity: 0.4 }}>
-        <div style={{ fontSize: 18, color: '#c9962a', lineHeight: 1 }}>↕</div>
-        <div style={{ fontSize: 9, letterSpacing: 2, textTransform: 'uppercase', color: '#8a7a65' }}>Scroll to navigate</div>
+    <div
+      data-detail-scroll=""
+      style={{
+        flex: 1, overflowY: 'auto', background: '#f5f0e8',
+        transition: 'opacity 0.15s ease', opacity: visible ? 1 : 0,
+      }}
+    >
+      <div style={{ padding: '1.75rem 2rem 2.5rem' }}>
+
+        {/* City name + rating */}
+        <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '1rem', marginBottom: '0.35rem' }}>
+          <div style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(1.8rem, 3vw, 2.4rem)', fontWeight: 700, lineHeight: 1.1, color: '#1a1208' }}>
+            {c?.city}
+          </div>
+          {data && <Stars n={data.rating} />}
+        </div>
+
+        {/* State · region */}
+        {data && (
+          <div style={{ fontSize: 11, color: '#8a7a65', letterSpacing: 1, textTransform: 'uppercase', marginBottom: '0.9rem' }}>
+            {fmt(data.state)} &middot; {fmt(data.region)}
+          </div>
+        )}
+
+        {/* External links */}
+        {c && <ExternalLinks cityName={c.city} />}
+
+        {/* Category chips */}
+        {data && data.category.length > 0 && (
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 5, marginBottom: '1rem' }}>
+            {data.category.map(cat => (
+              <span key={cat} style={{
+                fontSize: 10, letterSpacing: 0.4, textTransform: 'uppercase',
+                padding: '3px 10px', borderRadius: 20,
+                background: 'rgba(201,150,42,0.1)', color: '#7a6a55',
+                border: '1px solid rgba(201,150,42,0.22)',
+              }}>
+                {fmt(cat)}
+              </span>
+            ))}
+          </div>
+        )}
+
+        {/* Stay badges */}
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: '1.25rem' }}>
+          {c?.dur && <InfoBadge label="stayed" value={c.dur} />}
+          {data?.ideal_stay && <InfoBadge label="ideal stay" value={data.ideal_stay} />}
+          {data?.ideal_season && <InfoBadge label="best time" value={fmt(data.ideal_season)} />}
+        </div>
+
+        {/* Divider */}
+        <div style={{ height: 1, background: '#e0d8cc', marginBottom: '1.25rem' }} />
+
+        {/* Must Visit + Must Try */}
+        {data && (data.must_visit?.length > 0 || data.must_try?.length > 0) && (
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', marginBottom: '1.25rem' }}>
+            {data.must_visit?.length > 0 && <BulletList title="Must Visit" items={data.must_visit} />}
+            {data.must_try?.length > 0 && <BulletList title="Must Try" items={data.must_try} />}
+          </div>
+        )}
+
+        {/* Getting Around */}
+        {data?.mode_of_travel?.length > 0 && (
+          <div style={{ marginBottom: '1.25rem' }}>
+            <div style={{ fontSize: 10, letterSpacing: 1.5, textTransform: 'uppercase', color: '#8a7a65', marginBottom: 7 }}>
+              Getting Around
+            </div>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 5 }}>
+              {data.mode_of_travel.map(m => (
+                <span key={m} style={{
+                  fontSize: 11, padding: '4px 11px', borderRadius: 4,
+                  background: '#1a1208', color: '#a09888', letterSpacing: 0.2,
+                }}>
+                  {fmt(m)}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Notes */}
+        {data?.notes?.length > 0 && (
+          <>
+            <div style={{ height: 1, background: '#e0d8cc', marginBottom: '1.25rem' }} />
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
+              {data.notes.map((note, i) => (
+                <p key={i} style={{
+                  fontFamily: 'Georgia, serif', fontStyle: 'italic',
+                  fontSize: 13, color: '#6a5a48', lineHeight: 1.8, margin: 0,
+                }}>
+                  &ldquo;{note}&rdquo;
+                </p>
+              ))}
+            </div>
+          </>
+        )}
+
+        {/* Fallback when no enrichment data */}
+        {!data && (
+          <div style={{ color: '#8a7a65', fontSize: 13 }}>
+            City {ci + 1} of {total}
+          </div>
+        )}
+
       </div>
     </div>
   );
 }
+
 function FooterTape({ cities, currentIndex, onPrev, onNext }) {
   const tapeRef = useRef(null);
   const cityRefs = useRef([]);
@@ -177,9 +369,7 @@ function FooterTape({ cities, currentIndex, onPrev, onNext }) {
 
       {/* City tape */}
       <div style={{ flex: 1, overflow: 'hidden', position: 'relative', height: '100%' }}>
-        {/* Left fade */}
         <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 72, background: 'linear-gradient(to right, #1a1208 40%, transparent)', zIndex: 2, pointerEvents: 'none' }} />
-        {/* Right fade */}
         <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 72, background: 'linear-gradient(to left, #1a1208 40%, transparent)', zIndex: 2, pointerEvents: 'none' }} />
 
         <div
@@ -231,12 +421,9 @@ export default function TripDetails({ trip, index, initialCityIndex = 0, onBack,
   const activeCity = cities[currentIndex];
   const totalDuration = formatDuration(cities.reduce((s, c) => s + parseDurationDays(c.dur), 0));
 
-  // Ref mirrors currentIndex so advance() always reads the latest value without
-  // needing to re-register event listeners every time the index changes.
   const currentIndexRef = useRef(initialCityIndex);
   useEffect(() => { currentIndexRef.current = currentIndex; }, [currentIndex]);
 
-  // Keep trip-nav callbacks in refs so the wheel effect never needs to re-register
   const prevTripRef = useRef(onPrevTrip);
   const nextTripRef = useRef(onNextTrip);
   useEffect(() => { prevTripRef.current = onPrevTrip; }, [onPrevTrip]);
@@ -245,11 +432,11 @@ export default function TripDetails({ trip, index, initialCityIndex = 0, onBack,
   const advance = useCallback((dir) => {
     const next = currentIndexRef.current + dir;
     if (next < 0) {
-      prevTripRef.current(true); // fromEnd=true → land on last city of prev trip
+      prevTripRef.current(true);
       return;
     }
     if (next >= cities.length) {
-      nextTripRef.current();     // land on first city of next trip
+      nextTripRef.current();
       return;
     }
     currentIndexRef.current = next;
@@ -257,19 +444,16 @@ export default function TripDetails({ trip, index, initialCityIndex = 0, onBack,
   }, [cities.length]);
 
   useEffect(() => {
-    // ── Vertical wheel → city navigation ──────────────────────────────────
-    // Accumulate delta, fire once per THRESHOLD pixels, then subtract (not
-    // reset) so rapid deliberate scrolls chain naturally while a single
-    // momentum flick is proportional but not unlimited.
     let acc = 0;
     let idleTimer = null;
-    const THRESHOLD = 400; // ~one mouse-wheel notch
+    const THRESHOLD = 400;
 
     const onWheel = (e) => {
+      // Let the detail column scroll its own content naturally
+      if (e.target.closest('[data-detail-scroll]')) return;
       e.preventDefault();
       acc += e.deltaY;
 
-      // Clear acc when scrolling truly stops (no new events for 200ms)
       clearTimeout(idleTimer);
       idleTimer = setTimeout(() => { acc = 0; }, 200);
 
@@ -279,9 +463,6 @@ export default function TripDetails({ trip, index, initialCityIndex = 0, onBack,
       }
     };
 
-    // ── Horizontal pointer swipe → trip navigation ─────────────────────────
-    // Uses pointer events instead of deltaX because browsers intercept
-    // horizontal trackpad gestures for history navigation before wheel fires.
     let swipeStart = null;
 
     const onPointerDown = (e) => {
@@ -299,7 +480,6 @@ export default function TripDetails({ trip, index, initialCityIndex = 0, onBack,
       const absX = Math.abs(dx);
       const absY = Math.abs(dy);
 
-      // Clear horizontal swipe: fast, wide, and X dominates Y by 2:1
       if (dt < 500 && absX > 60 && absX > absY * 2) {
         dx > 0 ? prevTripRef.current() : nextTripRef.current();
       }
@@ -307,7 +487,6 @@ export default function TripDetails({ trip, index, initialCityIndex = 0, onBack,
 
     const onPointerCancel = () => { swipeStart = null; };
 
-    // ── Keyboard ───────────────────────────────────────────────────────────
     const onKey = (e) => {
       if (e.key === 'ArrowDown')  advance(1);
       if (e.key === 'ArrowUp')    advance(-1);
@@ -315,19 +494,19 @@ export default function TripDetails({ trip, index, initialCityIndex = 0, onBack,
       if (e.key === 'ArrowLeft')  prevTripRef.current();
     };
 
-    document.addEventListener('wheel',        onWheel,       { passive: false });
-    document.addEventListener('pointerdown',  onPointerDown);
-    document.addEventListener('pointerup',    onPointerUp);
-    document.addEventListener('pointercancel',onPointerCancel);
-    document.addEventListener('keydown',      onKey);
+    document.addEventListener('wheel',         onWheel,       { passive: false });
+    document.addEventListener('pointerdown',   onPointerDown);
+    document.addEventListener('pointerup',     onPointerUp);
+    document.addEventListener('pointercancel', onPointerCancel);
+    document.addEventListener('keydown',       onKey);
 
     return () => {
       clearTimeout(idleTimer);
-      document.removeEventListener('wheel',        onWheel);
-      document.removeEventListener('pointerdown',  onPointerDown);
-      document.removeEventListener('pointerup',    onPointerUp);
-      document.removeEventListener('pointercancel',onPointerCancel);
-      document.removeEventListener('keydown',      onKey);
+      document.removeEventListener('wheel',         onWheel);
+      document.removeEventListener('pointerdown',   onPointerDown);
+      document.removeEventListener('pointerup',     onPointerUp);
+      document.removeEventListener('pointercancel', onPointerCancel);
+      document.removeEventListener('keydown',       onKey);
     };
   }, [advance]);
 
@@ -344,23 +523,19 @@ export default function TripDetails({ trip, index, initialCityIndex = 0, onBack,
         padding: '0 2rem', height: 68, display: 'flex', alignItems: 'center',
         gap: '1.25rem', position: 'relative', overflow: 'hidden',
       }}>
-        {/* diagonal pattern overlay */}
         <div style={{
           position: 'absolute', inset: 0, pointerEvents: 'none',
           backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(201,150,42,0.04) 40px, rgba(201,150,42,0.04) 41px)',
         }} />
 
-        {/* Back — SVG arrow only */}
         <button onClick={onBack} style={{ position: 'relative', background: 'none', border: 'none', cursor: 'pointer', padding: 0, display: 'flex', alignItems: 'center', flexShrink: 0 }}>
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
             <path d="M14 17L8 11L14 5" stroke="#c9962a" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </button>
 
-        {/* Vertical divider */}
         <div style={{ width: 1, height: 32, background: '#3a3020', flexShrink: 0, position: 'relative' }} />
 
-        {/* Trip name + meta */}
         <div style={{ position: 'relative', flex: 1, minWidth: 0 }}>
           <div style={{ fontFamily: 'Georgia, serif', fontSize: '1.1rem', fontWeight: 700, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', lineHeight: 1.1 }}>
             {trip.name}
@@ -370,7 +545,6 @@ export default function TripDetails({ trip, index, initialCityIndex = 0, onBack,
           </div>
         </div>
 
-        {/* Navigation panel: prev / SuperTrip N / next */}
         <div style={{ position: 'relative', display: 'flex', alignItems: 'center', gap: '0.5rem', flexShrink: 0 }}>
           <button onClick={onPrevTrip} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, display: 'flex', alignItems: 'center' }}>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">

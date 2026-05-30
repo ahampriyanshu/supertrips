@@ -1,5 +1,5 @@
 import React from 'react';
-import tripData from '../data.json';
+import { RAW_TRIPS as tripData } from '../data.js';
 import { Briefcase } from 'lucide-react';
 
 export default function Timeline() {
