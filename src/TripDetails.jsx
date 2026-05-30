@@ -75,6 +75,25 @@ function MapColumn({ positions, activePosition }) {
     </div>
   );
 }
+
+function parseDurationDays(duration) {
+  const d = duration.toLowerCase();
+  if (d.includes('month')) return parseFloat(d) * 30;
+  if (d.includes('week')) return parseFloat(d) * 7;
+  if (d.includes('½') || d.includes('0.5')) return 0.5;
+  return parseFloat(d) || 1;
+}
+
+function formatUnit(value, unit) {
+  return `${value} ${unit}${value === 1 ? '' : 's'}`;
+}
+
+function formatDuration(days) {
+  if (days >= 30) return formatUnit(Math.round(days / 30), 'month');
+  if (days >= 7) return formatUnit(Math.round(days / 7), 'week');
+  return formatUnit(Math.round(days), 'day');
+}
+
 function DetailColumn({ city, cityIndex, total }) {
   const [visible, setVisible] = useState(true);
   const [displayed, setDisplayed] = useState({ city, cityIndex });
@@ -131,37 +150,37 @@ function FooterTape({ cities, currentIndex, onPrev, onNext }) {
 
   return (
     <div style={{
-      height: 46, background: '#1a1208', flexShrink: 0,
+      height: 72, background: '#1a1208', flexShrink: 0,
       display: 'flex', alignItems: 'center',
     }}>
-      {/* City navigation */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0 1rem', flexShrink: 0 }}>
-        <button onClick={onPrev} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, display: 'flex', alignItems: 'center', opacity: currentIndex === 0 ? 0.2 : 1 }}>
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-            <path d="M9 11L5 7L9 3" stroke="#c9962a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      {/* City navigation — left panel */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0 1.25rem', flexShrink: 0 }}>
+        <button onClick={onPrev} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4, display: 'flex', alignItems: 'center', opacity: currentIndex === 0 ? 0.2 : 1, transition: 'opacity 0.2s' }}>
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M11 14L6 9L11 4" stroke="#c9962a" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </button>
-        <div style={{ fontFamily: 'Georgia, serif', lineHeight: 1, minWidth: 36, textAlign: 'center' }}>
-          <span style={{ fontSize: '0.95rem', color: '#c9962a' }}>{currentIndex + 1}</span>
-          <span style={{ fontSize: '0.7rem', color: '#3a3020', margin: '0 2px' }}>/</span>
-          <span style={{ fontSize: '0.75rem', color: '#6a6055' }}>{cities.length}</span>
+        <div style={{ fontFamily: 'Georgia, serif', lineHeight: 1, minWidth: 42, textAlign: 'center' }}>
+          <span style={{ fontSize: '1.2rem', color: '#c9962a' }}>{currentIndex + 1}</span>
+          <span style={{ fontSize: '0.8rem', color: '#3a3020', margin: '0 3px' }}>/</span>
+          <span style={{ fontSize: '0.85rem', color: '#6a6055' }}>{cities.length}</span>
         </div>
-        <button onClick={onNext} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, display: 'flex', alignItems: 'center', opacity: currentIndex === cities.length - 1 ? 0.2 : 1 }}>
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-            <path d="M5 3L9 7L5 11" stroke="#c9962a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <button onClick={onNext} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4, display: 'flex', alignItems: 'center', opacity: currentIndex === cities.length - 1 ? 0.2 : 1, transition: 'opacity 0.2s' }}>
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M7 4L12 9L7 14" stroke="#c9962a" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </button>
       </div>
 
       {/* Divider */}
-      <div style={{ width: 1, height: 22, background: '#3a3020', flexShrink: 0 }} />
+      <div style={{ width: 1, height: 32, background: '#3a3020', flexShrink: 0 }} />
 
       {/* City tape */}
       <div style={{ flex: 1, overflow: 'hidden', position: 'relative', height: '100%' }}>
         {/* Left fade */}
-        <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 60, background: 'linear-gradient(to right, #1a1208 40%, transparent)', zIndex: 2, pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 72, background: 'linear-gradient(to right, #1a1208 40%, transparent)', zIndex: 2, pointerEvents: 'none' }} />
         {/* Right fade */}
-        <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 60, background: 'linear-gradient(to left, #1a1208 40%, transparent)', zIndex: 2, pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 72, background: 'linear-gradient(to left, #1a1208 40%, transparent)', zIndex: 2, pointerEvents: 'none' }} />
 
         <div
           ref={tapeRef}
@@ -174,20 +193,22 @@ function FooterTape({ cities, currentIndex, onPrev, onNext }) {
           {cities.map((city, i) => {
             const dist = Math.abs(i - currentIndex);
             const isActive = dist === 0;
-            const opacity = isActive ? 1 : dist === 1 ? 0.55 : dist === 2 ? 0.3 : 0.12;
-            const fontSize = isActive ? 12 : dist === 1 ? 10 : 9;
+            const opacity = isActive ? 1 : dist === 1 ? 0.5 : dist === 2 ? 0.28 : 0.1;
+            const fontSize = isActive ? 22 : dist === 1 ? 14 : dist === 2 ? 11 : 9;
 
             return (
               <span
                 key={i}
                 ref={el => cityRefs.current[i] = el}
                 style={{
-                  padding: '3px 10px',
+                  padding: '4px 14px',
                   fontSize,
-                  fontWeight: isActive ? 600 : 400,
+                  fontWeight: isActive ? 700 : 400,
+                  fontFamily: isActive ? "Georgia, 'Times New Roman', serif" : 'inherit',
+                  fontStyle: isActive ? 'italic' : 'normal',
                   color: isActive ? '#c9962a' : '#f5f0e8',
                   opacity,
-                  letterSpacing: isActive ? 0.3 : 0.2,
+                  letterSpacing: isActive ? 0.2 : 0.1,
                   whiteSpace: 'nowrap',
                   flexShrink: 0,
                   transition: 'opacity 0.35s ease, font-size 0.35s ease, color 0.35s ease',
@@ -203,28 +224,37 @@ function FooterTape({ cities, currentIndex, onPrev, onNext }) {
   );
 }
 
-export default function TripDetails({ trip, index, onBack, onPrevTrip, onNextTrip }) {
-  const [currentIndex, setCurrentIndex] = useState(0);
+export default function TripDetails({ trip, index, initialCityIndex = 0, onBack, onPrevTrip, onNextTrip }) {
+  const [currentIndex, setCurrentIndex] = useState(initialCityIndex);
 
   const cities = trip.cities;
   const activeCity = cities[currentIndex];
-  const totalDays = Math.round(cities.reduce((s, c) => {
-    const d = c.dur.toLowerCase();
-    if (d.includes('month')) return s + parseFloat(d) * 30;
-    if (d.includes('week'))  return s + parseFloat(d) * 7;
-    if (d.includes('½') || d.includes('0.5')) return s + 0.5;
-    return s + (parseFloat(d) || 1);
-  }, 0));
+  const totalDuration = formatDuration(cities.reduce((s, c) => s + parseDurationDays(c.dur), 0));
 
-  const advance = useCallback((dir) => {
-    setCurrentIndex(i => Math.max(0, Math.min(cities.length - 1, i + dir)));
-  }, [cities.length]);
+  // Ref mirrors currentIndex so advance() always reads the latest value without
+  // needing to re-register event listeners every time the index changes.
+  const currentIndexRef = useRef(initialCityIndex);
+  useEffect(() => { currentIndexRef.current = currentIndex; }, [currentIndex]);
 
   // Keep trip-nav callbacks in refs so the wheel effect never needs to re-register
   const prevTripRef = useRef(onPrevTrip);
   const nextTripRef = useRef(onNextTrip);
   useEffect(() => { prevTripRef.current = onPrevTrip; }, [onPrevTrip]);
   useEffect(() => { nextTripRef.current = onNextTrip; }, [onNextTrip]);
+
+  const advance = useCallback((dir) => {
+    const next = currentIndexRef.current + dir;
+    if (next < 0) {
+      prevTripRef.current(true); // fromEnd=true → land on last city of prev trip
+      return;
+    }
+    if (next >= cities.length) {
+      nextTripRef.current();     // land on first city of next trip
+      return;
+    }
+    currentIndexRef.current = next;
+    setCurrentIndex(next);
+  }, [cities.length]);
 
   useEffect(() => {
     // ── Vertical wheel → city navigation ──────────────────────────────────
@@ -336,7 +366,7 @@ export default function TripDetails({ trip, index, onBack, onPrevTrip, onNextTri
             {trip.name}
           </div>
           <div style={{ fontSize: 11, color: '#a09888', marginTop: 4 }}>
-            {totalDays}+ days · {cities.length} stops · {trip.distanceKm.toLocaleString()} km
+            {totalDuration} · {cities.length} stops · {trip.distanceKm.toLocaleString()} km
           </div>
         </div>
 

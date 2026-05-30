@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./App.css";
 
 import TRIPS from "./trips.js";
 import TripDetails from "./TripDetails";
@@ -18,22 +19,22 @@ const styles = {
   heroSub: { fontSize: 14, color: "#a09888", maxWidth: 480, lineHeight: 1.7, marginBottom: "2rem" },
   heroStats: { display: "flex", gap: "2rem", flexWrap: "wrap" },
   heroStatN: { fontFamily: "Georgia, serif", fontSize: "2rem", color: "#c9962a", lineHeight: 1 },
-  heroStatL: { fontSize: 11, letterSpacing: 1.5, textTransform: "uppercase", color: "#6a6055", marginTop: 3 },
-  section: { maxWidth: 720, margin: "0 auto", padding: "2rem" },
+  heroStatL: { fontSize: 11, letterSpacing: 1.5, textTransform: "uppercase", color: "#9e8e7a", marginTop: 3 },
+  section: { maxWidth: 720, margin: "0 auto", padding: "2rem 0" },
   card: { background: "#faf7f2", border: "1px solid #e0d8cc", borderRadius: 4, marginBottom: 12, overflow: "hidden", cursor: "pointer", transition: "border-color 0.2s, box-shadow 0.2s" },
   cardHeader: { display: "flex", alignItems: "center", gap: "1rem", padding: "1rem 1.25rem" },
   tripNum: { fontFamily: "Georgia, serif", fontSize: "1.6rem", fontStyle: "italic", color: "#c9962a", opacity: 0.5, minWidth: 36, lineHeight: 1 },
   tripName: { fontFamily: "Georgia, serif", fontSize: "1rem", fontWeight: 700 },
-  tripMeta: { fontSize: 12, color: "#8a7a65", marginTop: 2 },
+  tripMeta: { fontSize: 12, color: "#6a5a48", marginTop: 2 },
   arrow: { fontSize: 18, color: "#8a7a65", transition: "transform 0.2s, color 0.2s" },
-  routeStrip: { display: "flex", alignItems: "center", flexWrap: "nowrap", overflowX: "auto", padding: "0 1.25rem 0.75rem", borderTop: "1px solid #e0d8cc", scrollbarWidth: "none" },
-  routeCity: { fontSize: 11, color: "#8a7a65", whiteSpace: "nowrap" },
+  routeStrip: { display: "flex", alignItems: "center", flexWrap: "nowrap", overflowX: "auto", padding: "0.375rem 1.25rem 0.75rem", borderTop: "1px solid #e0d8cc", scrollbarWidth: "none" },
+  routeCity: { fontSize: 11, color: "#6a5a48", whiteSpace: "nowrap" },
   routeDot: { width: 3, height: 3, borderRadius: "50%", background: "#c9962a", margin: "0 5px", flexShrink: 0 },
   statsBar: { background: "#1a1208", color: "#f5f0e8", padding: "1.5rem 2rem", marginTop: "1rem" },
   statsInner: { maxWidth: 720, margin: "0 auto" },
   statsRow: { display: "flex", flexWrap: "wrap", gap: "1.5rem", alignItems: "flex-start" },
   statN: { fontFamily: "Georgia, serif", fontSize: "1.5rem", color: "#c9962a" },
-  statL: { fontSize: 11, color: "#6a6055", letterSpacing: 1, textTransform: "uppercase" },
+  statL: { fontSize: 11, color: "#9e8e7a", letterSpacing: 1, textTransform: "uppercase" },
   footer: { textAlign: "center", padding: "2rem", fontSize: 11, color: "#8a7a65", letterSpacing: 1, textTransform: "uppercase" }
 };
 
@@ -42,7 +43,7 @@ function TripCard({ trip, index, onSelect }) {
   const extra = trip.cities.length - 8;
 
   return (
-    <div style={styles.card} onClick={onSelect}>
+    <div style={styles.card} className="trip-card" onClick={onSelect}>
       <div style={styles.cardHeader}>
         <div style={styles.tripNum}>{String(index + 1).padStart(2, "0")}</div>
         <div style={{ flex: 1 }}>
@@ -66,17 +67,27 @@ function TripCard({ trip, index, onSelect }) {
 
 export default function App() {
   const [selectedTripIndex, setSelectedTripIndex] = useState(null);
+  const [initialCityIndex, setInitialCityIndex] = useState(0);
 
   if (selectedTripIndex !== null) {
+    const prevIdx = (selectedTripIndex - 1 + TRIPS.length) % TRIPS.length;
+    const nextIdx = (selectedTripIndex + 1) % TRIPS.length;
     return (
       <div style={styles.root}>
         <TripDetails
           key={selectedTripIndex}
           trip={TRIPS[selectedTripIndex]}
           index={selectedTripIndex}
-          onBack={() => setSelectedTripIndex(null)}
-          onPrevTrip={() => setSelectedTripIndex(i => (i - 1 + TRIPS.length) % TRIPS.length)}
-          onNextTrip={() => setSelectedTripIndex(i => (i + 1) % TRIPS.length)}
+          initialCityIndex={initialCityIndex}
+          onBack={() => { setInitialCityIndex(0); setSelectedTripIndex(null); }}
+          onPrevTrip={(fromEnd = false) => {
+            setInitialCityIndex(fromEnd ? TRIPS[prevIdx].cities.length - 1 : 0);
+            setSelectedTripIndex(prevIdx);
+          }}
+          onNextTrip={() => {
+            setInitialCityIndex(0);
+            setSelectedTripIndex(nextIdx);
+          }}
         />
       </div>
     );
