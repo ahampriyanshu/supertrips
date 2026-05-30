@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import TRIPS from "./data.json";
+import TripDetails from "./TripDetails";
 
 function parseDays(dur) {
   const d = dur.toLowerCase();
@@ -54,20 +55,19 @@ const styles = {
   footer: { textAlign: "center", padding: "2rem", fontSize: 11, color: "#8a7a65", letterSpacing: 1, textTransform: "uppercase" }
 };
 
-function TripCard({ trip, index }) {
-  const [open, setOpen] = useState(false);
+function TripCard({ trip, index, onSelect }) {
   const preview = trip.cities.slice(0, 8);
   const extra = trip.cities.length - 8;
 
   return (
-    <div style={styles.card(open)} onClick={() => setOpen(!open)}>
+    <div style={styles.card(false)} onClick={onSelect}>
       <div style={styles.cardHeader}>
-        <div style={styles.tripNum(open)}>{String(index + 1).padStart(2, "0")}</div>
+        <div style={styles.tripNum(false)}>{String(index + 1).padStart(2, "0")}</div>
         <div style={{ flex: 1 }}>
           <div style={styles.tripName}>SuperTrip {index + 1} — {trip.name}</div>
           <div style={styles.tripMeta}>{trip.cities.length} stops</div>
         </div>
-        <div style={styles.arrow(open)}>›</div>
+        <div style={styles.arrow(false)}>›</div>
       </div>
 
       <div style={styles.routeStrip} className="hide-scroll">
@@ -77,26 +77,27 @@ function TripCard({ trip, index }) {
             {i < preview.length - 1 && <span style={styles.routeDot} />}
           </span>
         ))}
-        {extra > 0 && <span style={{ display: "flex", alignItems: "center", flexShrink: 0 }}><span style={styles.routeDot} /><span style={{ ...styles.routeCity, color: "#c9962a" }}>+{extra} more</span></span>}
+        {extra > 0 && <span style={{ display: "flex", alignItems: "center", flexShrink: 0 }}><span style={{ ...styles.routeCity, color: "#c9962a", marginLeft: "8px" }}>+{extra} more</span></span>}
       </div>
-
-      {open && (
-        <div style={styles.citiesWrap}>
-          <div style={styles.citiesGrid}>
-            {trip.cities.map((c, i) => (
-              <div key={i} style={styles.cityItem}>
-                <div style={styles.cityName}>{c.city}</div>
-                <div style={styles.cityDur}>{c.dur}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
     </div>
   );
 }
 
 export default function App() {
+  const [selectedTripIndex, setSelectedTripIndex] = useState(null);
+
+  if (selectedTripIndex !== null) {
+    return (
+      <div style={styles.root}>
+        <TripDetails 
+          trip={TRIPS[selectedTripIndex]} 
+          index={selectedTripIndex}
+          onBack={() => setSelectedTripIndex(null)} 
+        />
+      </div>
+    );
+  }
+
   return (
     <div style={styles.root}>
       <div style={styles.hero}>
@@ -121,8 +122,8 @@ export default function App() {
       </div>
 
       <div style={styles.section}>
-        <div style={styles.sectionLabel}>All Supertrips — click to expand</div>
-        {TRIPS.map((trip, i) => <TripCard key={i} trip={trip} index={i} />)}
+        <div style={styles.sectionLabel}>All Supertrips — Select to view map & itinerary</div>
+        {TRIPS.map((trip, i) => <TripCard key={i} trip={trip} index={i} onSelect={() => setSelectedTripIndex(i)} />)}
       </div>
 
       <div style={styles.statsBar}>

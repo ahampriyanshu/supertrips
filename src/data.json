@@ -4,35 +4,45 @@
     "cities": [
       {
         "city": "Gurugram",
-        "dur": "2 Weeks"
+        "dur": "2 Weeks",
+        "lat": 28.4601,
+        "lng": 77.02635
       },
       {
         "city": "Mathura",
-        "dur": "2 Days"
+        "dur": "2 Days",
+        "lat": 27.4924,
+        "lng": 77.6737
       },
       {
         "city": "Agra",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 27.1767,
+        "lng": 78.0081
       },
       {
         "city": "Varanasi",
-        "dur": "3 Days"
+        "dur": "3 Days",
+        "lat": 25.3176,
+        "lng": 82.9739
       },
       {
         "city": "Kolkata",
-        "dur": "2 Days"
+        "dur": "2 Days",
+        "lat": 22.5726,
+        "lng": 88.3639
       },
       {
         "city": "Puri & Konark",
-        "dur": "2 Days"
+        "dur": "2 Days",
+        "lat": 19.8135,
+        "lng": 85.8312
       },
       {
         "city": "Noida",
-        "dur": "2 Days"
-      },
-      {
-        "city": "Delhi",
-        "dur": "1 Week"
+        "dur": "2 Days",
+        "lat": 28.58,
+        "lng": 77.33
       }
     ]
   },
@@ -41,55 +51,81 @@
     "cities": [
       {
         "city": "Delhi",
-        "dur": "2 Day"
+        "dur": "2 Day",
+        "lat": 28.65195,
+        "lng": 77.23149
       },
       {
         "city": "Jaipur",
-        "dur": "3 Days"
+        "dur": "3 Days",
+        "lat": 26.91962,
+        "lng": 75.78781
       },
       {
         "city": "Chittorgarh",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 24.88963,
+        "lng": 74.62403
       },
       {
         "city": "Udaipur",
-        "dur": "3 Days"
+        "dur": "3 Days",
+        "lat": 27.72297,
+        "lng": 75.47178
       },
       {
         "city": "Kumbhalgarh",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 26.24918,
+        "lng": 77.40786
       },
       {
         "city": "Ahemdabad",
-        "dur": "3 Days"
+        "dur": "3 Days",
+        "lat": 23.02579,
+        "lng": 72.58727
       },
       {
         "city": "Kevadiya",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 13.1147,
+        "lng": 80.10981
       },
       {
         "city": "Surat",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 27.5035,
+        "lng": 77.67215
       },
       {
         "city": "Vadodara",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 22.29941,
+        "lng": 73.20812
       },
       {
         "city": "Somnath",
-        "dur": "2 Days"
+        "dur": "1 Day",
+        "lat": 20.8880,
+        "lng": 70.4012
       },
       {
         "city": "Dwarka",
-        "dur": "2 Days"
+        "dur": "2 Days",
+        "lat": 22.23944,
+        "lng": 68.96778
       },
       {
         "city": "Rajkot",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 22.29161,
+        "lng": 70.79322
       },
       {
         "city": "Delhi",
-        "dur": "2 Days"
+        "dur": "2 Days",
+        "lat": 28.65195,
+        "lng": 77.23149
       }
     ]
   },
@@ -98,67 +134,99 @@
     "cities": [
       {
         "city": "Ludhiana",
-        "dur": "1 Month"
+        "dur": "1 Month",
+        "lat": 30.91204,
+        "lng": 75.85379
       },
       {
         "city": "Jalandhar",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 31.32556,
+        "lng": 75.57917
       },
       {
         "city": "Amritsar",
-        "dur": "2 Days"
+        "dur": "2 Days",
+        "lat": 31.62234,
+        "lng": 74.87534
       },
       {
         "city": "Pathankot",
-        "dur": "0.5 Day"
+        "dur": "0.5 Day",
+        "lat": 32.27484,
+        "lng": 75.65287
       },
       {
         "city": "Katra",
-        "dur": "2 Days"
+        "dur": "2 Days",
+        "lat": 32.99167,
+        "lng": 74.93195
       },
       {
         "city": "Jammu",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 32.73569,
+        "lng": 74.86911
       },
       {
         "city": "Banihar & Qazigund",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 22.10133,
+        "lng": 80.54967
       },
       {
         "city": "Srinagar",
-        "dur": "3 Days"
+        "dur": "3 Days",
+        "lat": 34.08565,
+        "lng": 74.80555
       },
       {
         "city": "Gulmarg",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 17.33583,
+        "lng": 76.83757
       },
       {
         "city": "Kargil",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 34.55765,
+        "lng": 76.12622
       },
       {
         "city": "Leh",
-        "dur": "3 Days"
+        "dur": "3 Days",
+        "lat": 34.16504,
+        "lng": 77.58402
       },
       {
         "city": "Keylong",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 28.16951,
+        "lng": 94.8006
       },
       {
         "city": "Manali",
-        "dur": "3 Days"
+        "dur": "3 Days",
+        "lat": 13.16667,
+        "lng": 80.26667
       },
       {
         "city": "Kullu",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 31.95835,
+        "lng": 77.10823
       },
       {
         "city": "Chandigarh",
-        "dur": "3 Days"
+        "dur": "3 Days",
+        "lat": 30.73629,
+        "lng": 76.7884
       },
       {
         "city": "Ludhiana",
-        "dur": "2 Months"
+        "dur": "2 Months",
+        "lat": 30.91204,
+        "lng": 75.85379
       }
     ]
   },
@@ -167,103 +235,153 @@
     "cities": [
       {
         "city": "Gurugram",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 28.4601,
+        "lng": 77.02635
       },
       {
         "city": "Bikaner",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 28.01762,
+        "lng": 73.31495
       },
       {
         "city": "Sam",
-        "dur": "2 Days"
+        "dur": "2 Days",
+        "lat": 26.91763,
+        "lng": 70.90387
       },
       {
         "city": "Jaisalmer",
-        "dur": "4 Days"
+        "dur": "4 Days",
+        "lat": 26.91763,
+        "lng": 70.90387
       },
       {
         "city": "Jodhpur",
-        "dur": "4 Days"
+        "dur": "4 Days",
+        "lat": 26.26841,
+        "lng": 73.00594
       },
       {
         "city": "Ajmer & Pushkar",
-        "dur": "2 Days"
+        "dur": "2 Days",
+        "lat": 26.4521,
+        "lng": 74.63867
       },
       {
         "city": "Ahmedabad & Gandhinagar",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 23.02579,
+        "lng": 72.58727
       },
       {
         "city": "Indore",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 22.71792,
+        "lng": 75.8333
       },
       {
         "city": "Omkareshwar",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 13.49112,
+        "lng": 75.06646
       },
       {
         "city": "Nashik",
-        "dur": "2 Days"
+        "dur": "2 Days",
+        "lat": 19.99727,
+        "lng": 73.79096
       },
       {
         "city": "Shirdi",
-        "dur": "2 Days"
+        "dur": "2 Days",
+        "lat": 19.76616,
+        "lng": 74.47738
       },
       {
         "city": "Sambhajinagar",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 11.92312,
+        "lng": 76.93949
       },
       {
         "city": "Pune",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 18.51957,
+        "lng": 73.85535
       },
       {
         "city": "Mumbai",
-        "dur": "2 Weeks"
+        "dur": "2 Weeks",
+        "lat": 19.07283,
+        "lng": 72.88261
       },
       {
         "city": "Goa",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 15.49574,
+        "lng": 73.82624
       },
       {
         "city": "Kochi",
-        "dur": "3 Days"
+        "dur": "3 Days",
+        "lat": 9.93988,
+        "lng": 76.26022
       },
       {
         "city": "Allepey",
-        "dur": "2 Day"
+        "dur": "2 Day",
+        "lat": 9.49004,
+        "lng": 76.3264
       },
       {
         "city": "Varkala",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 8.7333,
+        "lng": 76.7167
       },
       {
         "city": "Trivandrum",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 8.4855,
+        "lng": 76.94924
       },
       {
         "city": "Vagamon",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 9.58692,
+        "lng": 76.52132
       },
       {
         "city": "Coimbatore",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 11.00555,
+        "lng": 76.96612
       },
       {
         "city": "Ooty",
-        "dur": "4 Days"
+        "dur": "4 Days",
+        "lat": 10.77378,
+        "lng": 79.41875
       },
       {
         "city": "Mysore",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 12.29791,
+        "lng": 76.63925
       },
       {
         "city": "Bengalauru",
-        "dur": "2 Weeks"
+        "dur": "2 Weeks",
+        "lat": 12.91723,
+        "lng": 74.85603
       },
       {
         "city": "Gurugram",
-        "dur": "4 Weeks"
+        "dur": "4 Weeks",
+        "lat": 28.4601,
+        "lng": 77.02635
       }
     ]
   },
@@ -272,103 +390,153 @@
     "cities": [
       {
         "city": "Gurugram",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 28.4601,
+        "lng": 77.02635
       },
       {
         "city": "Banglore",
-        "dur": "3 Days"
+        "dur": "3 Days",
+        "lat": 12.91723,
+        "lng": 74.85603
       },
       {
         "city": "Wayanad",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 9.07277,
+        "lng": 77.34152
       },
       {
         "city": "Banglore",
-        "dur": "3 Days"
+        "dur": "3 Days",
+        "lat": 12.91723,
+        "lng": 74.85603
       },
       {
         "city": "Rameshwaram",
-        "dur": "2 Days"
+        "dur": "2 Days",
+        "lat": 9.2885,
+        "lng": 79.31271
       },
       {
         "city": "Madurai",
-        "dur": "3 Days"
+        "dur": "3 Days",
+        "lat": 9.919,
+        "lng": 78.11953
       },
       {
         "city": "Coimbatore",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 11.00555,
+        "lng": 76.96612
       },
       {
         "city": "Guwahati",
-        "dur": "3 Days"
+        "dur": "3 Days",
+        "lat": 26.1844,
+        "lng": 91.7458
       },
       {
         "city": "Shillong",
-        "dur": "3 Days"
+        "dur": "3 Days",
+        "lat": 25.56892,
+        "lng": 91.88313
       },
       {
         "city": "Dawki",
-        "dur": "2 Days"
+        "dur": "2 Days",
+        "lat": 25.56892,
+        "lng": 91.88313
       },
       {
         "city": "Silchar",
-        "dur": "2 Days"
+        "dur": "2 Days",
+        "lat": 24.82733,
+        "lng": 92.79787
       },
       {
         "city": "Dimapur",
-        "dur": "3 Days"
+        "dur": "3 Days",
+        "lat": 25.91174,
+        "lng": 93.7217
       },
       {
         "city": "Kohima",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 25.67467,
+        "lng": 94.11099
       },
       {
         "city": "Tinsukia",
-        "dur": "2 Days"
+        "dur": "2 Days",
+        "lat": 27.48905,
+        "lng": 95.35992
       },
       {
         "city": "Itanagar",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 27.08694,
+        "lng": 93.60987
       },
       {
         "city": "Tawang",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 27.57417,
+        "lng": 91.92437
       },
       {
         "city": "Guwahati",
-        "dur": "2 Days"
+        "dur": "2 Days",
+        "lat": 26.1844,
+        "lng": 91.7458
       },
       {
         "city": "Darjeeling",
-        "dur": "5 Days"
+        "dur": "5 Days",
+        "lat": 27.03333,
+        "lng": 88.26667
       },
       {
         "city": "Pelling",
-        "dur": "4 Days"
+        "dur": "4 Days",
+        "lat": 11.36552,
+        "lng": 76.78442
       },
       {
         "city": "Gangtok",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 27.32574,
+        "lng": 88.61216
       },
       {
         "city": "Siliguri",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 26.71004,
+        "lng": 88.42851
       },
       {
         "city": "Kolkata",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 22.56263,
+        "lng": 88.36304
       },
       {
         "city": "Varanasi",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 25.31668,
+        "lng": 83.01041
       },
       {
         "city": "Gurugram",
-        "dur": "3 Weeks"
+        "dur": "3 Weeks",
+        "lat": 28.4601,
+        "lng": 77.02635
       },
       {
         "city": "Noida",
-        "dur": "1 Month"
+        "dur": "1 Month",
+        "lat": 28.58,
+        "lng": 77.33
       }
     ]
   },
@@ -377,75 +545,111 @@
     "cities": [
       {
         "city": "Gurugram",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 28.4601,
+        "lng": 77.02635
       },
       {
         "city": "Bengaluru",
-        "dur": "2 Weeks"
+        "dur": "2 Weeks",
+        "lat": 12.97194,
+        "lng": 77.59369
       },
       {
         "city": "Kanchipuram",
-        "dur": "2 Days"
+        "dur": "2 Days",
+        "lat": 12.83515,
+        "lng": 79.70006
       },
       {
         "city": "Tirupati",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 13.63551,
+        "lng": 79.41989
       },
       {
         "city": "Srisailam",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 16.07217,
+        "lng": 78.86816
       },
       {
         "city": "Hyderabad",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 17.38405,
+        "lng": 78.45636
       },
       {
         "city": "Bengaluru",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 12.97194,
+        "lng": 77.59369
       },
       {
         "city": "Shivamogga",
-        "dur": "3 Days"
+        "dur": "3 Days",
+        "lat": 13.93157,
+        "lng": 75.56791
       },
       {
         "city": "Bengaluru",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 12.97194,
+        "lng": 77.59369
       },
       {
         "city": "Pondicherry",
-        "dur": "5 Days"
+        "dur": "5 Days",
+        "lat": 11.93381,
+        "lng": 79.82979
       },
       {
         "city": "Chennai",
-        "dur": "3 Days"
+        "dur": "3 Days",
+        "lat": 13.08784,
+        "lng": 80.27847
       },
       {
         "city": "Srinagar",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 34.08565,
+        "lng": 74.80555
       },
       {
         "city": "Sonmarg",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 17.83841,
+        "lng": 76.62331
       },
       {
         "city": "Baltal",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 17.99113,
+        "lng": 74.43177
       },
       {
         "city": "Srinagar",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 34.08565,
+        "lng": 74.80555
       },
       {
         "city": "Banihal & Udhampur",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 33.43647,
+        "lng": 75.19684
       },
       {
         "city": "Ludhiana",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 30.91204,
+        "lng": 75.85379
       },
       {
         "city": "Gurugram",
-        "dur": "2 Weeks"
+        "dur": "2 Weeks",
+        "lat": 28.4601,
+        "lng": 77.02635
       }
     ]
   },
@@ -454,143 +658,213 @@
     "cities": [
       {
         "city": "Gurugram",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 28.4601,
+        "lng": 77.02635
       },
       {
         "city": "Orchha",
-        "dur": "2 Days"
+        "dur": "2 Days",
+        "lat": 25.35192,
+        "lng": 78.64033
       },
       {
         "city": "Jhansi",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 25.45887,
+        "lng": 78.57994
       },
       {
         "city": "Khajurao",
-        "dur": "1 Day"
+        "dur": "2 Days",
+        "lat": 24.8318,
+        "lng": 79.9229
       },
       {
         "city": "Prayagraj",
-        "dur": "1 Day"
+        "dur": "2 Days",
+        "lat": 25.4358,
+        "lng": 81.8463
       },
       {
         "city": "Ayodhya",
-        "dur": "2 Days"
+        "dur": "2 Days",
+        "lat": 26.79909,
+        "lng": 82.2047
       },
       {
         "city": "Lukhnow",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 26.83928,
+        "lng": 80.92313
       },
       {
         "city": "Varanasi",
-        "dur": "2 Days"
+        "dur": "2 Days",
+        "lat": 25.31668,
+        "lng": 83.01041
       },
       {
         "city": "Bodh Gaya",
-        "dur": "2 Days"
+        "dur": "2 Days",
+        "lat": 24.69808,
+        "lng": 84.9869
       },
       {
         "city": "Deoghar",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 21.53827,
+        "lng": 84.73337
       },
       {
         "city": "Kolkata",
-        "dur": "2 Weeks"
+        "dur": "2 Weeks",
+        "lat": 22.56263,
+        "lng": 88.36304
       },
       {
         "city": "Digha",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 21.62776,
+        "lng": 87.51965
       },
       {
         "city": "Kharagpur",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 25.12446,
+        "lng": 86.55578
       },
       {
         "city": "Cuttak",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 20.46497,
+        "lng": 85.87927
       },
       {
         "city": "Vishakhapatnam",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 17.68009,
+        "lng": 83.20161
       },
       {
         "city": "Araku",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 17.68009,
+        "lng": 83.20161
       },
       {
         "city": "Hyderabad",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 17.38405,
+        "lng": 78.45636
       },
       {
         "city": "Bengaluru",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 12.97194,
+        "lng": 77.59369
       },
       {
         "city": "Mysore",
-        "dur": "2 Days"
+        "dur": "2 Days",
+        "lat": 12.29791,
+        "lng": 76.63925
       },
       {
         "city": "Coorg",
-        "dur": "2 Days"
+        "dur": "2 Days",
+        "lat": 12.42602,
+        "lng": 75.7382
       },
       {
         "city": "Chikkmanglore",
-        "dur": "3 Days"
+        "dur": "3 Days",
+        "lat": 13.32231,
+        "lng": 75.774
       },
       {
         "city": "Hampi",
-        "dur": "2 Days"
+        "dur": "2 Days",
+        "lat": 15.3352,
+        "lng": 76.4603
       },
       {
         "city": "Bengaluru",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 12.97194,
+        "lng": 77.59369
       },
       {
         "city": "Mudurai",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 9.919,
+        "lng": 78.11953
       },
       {
         "city": "Kodaikannal",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 19.62425,
+        "lng": 84.94075
       },
       {
         "city": "Poombarai",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 9.84745,
+        "lng": 77.29603
       },
       {
         "city": "Theni",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 10.01115,
+        "lng": 77.47772
       },
       {
         "city": "Munnar",
-        "dur": "3 Days"
+        "dur": "3 Days",
+        "lat": 10.08818,
+        "lng": 77.06239
       },
       {
         "city": "Trivandrum",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 8.4855,
+        "lng": 76.94924
       },
       {
         "city": "Bengaluru",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 12.97194,
+        "lng": 77.59369
       },
       {
         "city": "Thrissur",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 10.51667,
+        "lng": 76.21667
       },
       {
         "city": "Palakkad",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 12.9535,
+        "lng": 80.2572
       },
       {
         "city": "Coimbatore",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 11.00555,
+        "lng": 76.96612
       },
       {
         "city": "Bengaluru",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 12.97194,
+        "lng": 77.59369
       },
       {
         "city": "Gurugram",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 28.4601,
+        "lng": 77.02635
       }
     ]
   },
@@ -599,59 +873,87 @@
     "cities": [
       {
         "city": "Delhi",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 28.65195,
+        "lng": 77.23149
       },
       {
         "city": "Bengaluru",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 12.97194,
+        "lng": 77.59369
       },
       {
         "city": "Gwalior",
-        "dur": "3 Days"
+        "dur": "3 Days",
+        "lat": 26.22983,
+        "lng": 78.17337
       },
       {
         "city": "Nagpur",
-        "dur": "4 Days"
+        "dur": "4 Days",
+        "lat": 21.14631,
+        "lng": 79.08491
       },
       {
         "city": "Hyderabad",
-        "dur": "2 Week"
+        "dur": "2 Week",
+        "lat": 17.38405,
+        "lng": 78.45636
       },
       {
         "city": "Bengaluru",
-        "dur": "3 Weeks"
+        "dur": "3 Weeks",
+        "lat": 12.97194,
+        "lng": 77.59369
       },
       {
         "city": "Gokarna",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 14.55,
+        "lng": 74.31667
       },
       {
         "city": "Goa",
-        "dur": "2 Weeks"
+        "dur": "2 Weeks",
+        "lat": 15.49574,
+        "lng": 73.82624
       },
       {
         "city": "Ahemdabad",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 23.02579,
+        "lng": 72.58727
       },
       {
         "city": "Bhuj",
-        "dur": "2 Days"
+        "dur": "2 Days",
+        "lat": 23.25397,
+        "lng": 69.66928
       },
       {
         "city": "Kutchh",
-        "dur": "5 Days"
+        "dur": "5 Days",
+        "lat": 23.25397,
+        "lng": 69.66928
       },
       {
         "city": "Surat",
-        "dur": "2 Days"
+        "dur": "2 Days",
+        "lat": 27.5035,
+        "lng": 77.67215
       },
       {
         "city": "Mumbai",
-        "dur": "1 Month"
+        "dur": "1 Month",
+        "lat": 19.07283,
+        "lng": 72.88261
       },
       {
         "city": "Gurugram",
-        "dur": "4 Months"
+        "dur": "4 Months",
+        "lat": 28.4601,
+        "lng": 77.02635
       }
     ]
   },
@@ -660,75 +962,111 @@
     "cities": [
       {
         "city": "Gurugram",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 28.4601,
+        "lng": 77.02635
       },
       {
         "city": "Bengaluru",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 12.97194,
+        "lng": 77.59369
       },
       {
         "city": "Delhi",
-        "dur": "2 Days"
+        "dur": "2 Days",
+        "lat": 28.65195,
+        "lng": 77.23149
       },
       {
         "city": "Bhopal",
-        "dur": "2 Days"
+        "dur": "2 Days",
+        "lat": 23.25469,
+        "lng": 77.40289
       },
       {
         "city": "Hyderabad",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 17.38405,
+        "lng": 78.45636
       },
       {
         "city": "Bengaluru",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 12.97194,
+        "lng": 77.59369
       },
       {
         "city": "Gokarna",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 14.55,
+        "lng": 74.31667
       },
       {
         "city": "Udupi",
-        "dur": "2 Days"
+        "dur": "2 Days",
+        "lat": 13.33467,
+        "lng": 74.74617
       },
       {
         "city": "Manglore",
-        "dur": "2 Days"
+        "dur": "2 Days",
+        "lat": 12.91723,
+        "lng": 74.85603
       },
       {
         "city": "Kannur",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 11.86752,
+        "lng": 75.35763
       },
       {
         "city": "Kozhikode",
-        "dur": "2 Days"
+        "dur": "2 Days",
+        "lat": 11.24802,
+        "lng": 75.7804
       },
       {
         "city": "Bengaluru",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 12.97194,
+        "lng": 77.59369
       },
       {
         "city": "Gurugram",
-        "dur": "2 Weeks"
+        "dur": "2 Weeks",
+        "lat": 28.4601,
+        "lng": 77.02635
       },
       {
         "city": "Amristar",
-        "dur": "3 Days"
+        "dur": "3 Days",
+        "lat": 31.62234,
+        "lng": 74.87534
       },
       {
         "city": "Dalhouisie",
-        "dur": "3 Days"
+        "dur": "3 Days",
+        "lat": 32.55219,
+        "lng": 75.94663
       },
       {
         "city": "Dharamshala & Mcleond Gang",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 32.22006,
+        "lng": 76.32013
       },
       {
         "city": "Bir",
-        "dur": "5 Days"
+        "dur": "5 Days",
+        "lat": 13.59723,
+        "lng": 75.97167
       },
       {
         "city": "Gurugram",
-        "dur": "2 Weeks"
+        "dur": "2 Weeks",
+        "lat": 28.4601,
+        "lng": 77.02635
       }
     ]
   },
@@ -737,87 +1075,135 @@
     "cities": [
       {
         "city": "Gurugram",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 28.4601,
+        "lng": 77.02635
       },
       {
         "city": "Bengaluru",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 12.97194,
+        "lng": 77.59369
       },
       {
         "city": "Wayanad(Vyithri)",
-        "dur": "3 Days"
+        "dur": "3 Days",
+        "lat": 9.07277,
+        "lng": 77.34152
       },
       {
         "city": "Bengaluru",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 12.97194,
+        "lng": 77.59369
       },
       {
         "city": "Chennai",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 13.08784,
+        "lng": 80.27847
       },
       {
         "city": "Mahabalipuram",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 11.98231,
+        "lng": 78.24796
       },
       {
         "city": "Thanjavur",
-        "dur": "2 Days"
+        "dur": "2 Days",
+        "lat": 10.78523,
+        "lng": 79.13909
       },
       {
         "city": "Tiruchirappalli",
-        "dur": "2 Days"
+        "dur": "2 Days",
+        "lat": 10.8155,
+        "lng": 78.69651
       },
       {
         "city": "Kanyakumari",
-        "dur": "2 Days"
+        "dur": "2 Days",
+        "lat": 8.09008,
+        "lng": 77.53841
       },
       {
         "city": "Kochi",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 9.93988,
+        "lng": 76.26022
       },
       {
         "city": "Kozhikode",
-        "dur": "2 Days"
+        "dur": "2 Days",
+        "lat": 11.24802,
+        "lng": 75.7804
       },
       {
         "city": "Bengaluru",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 12.97194,
+        "lng": 77.59369
       },
       {
         "city": "Kolkata",
-        "dur": "2 Months"
+        "dur": "2 Months",
+        "lat": 22.56263,
+        "lng": 88.36304
       },
       {
         "city": "Mayapur",
-        "dur": "1 Day"
+        "dur": "1 Day",
+        "lat": 11.2453,
+        "lng": 77.50066
+      },
+      {
+        "city": "Mirik",
+        "dur": "1 Week",
+        "lat": 26.88817,
+        "lng": 88.19007
       },
       {
         "city": "Kurseong",
-        "dur": "2 Days"
+        "dur": "2 Days",
+        "lat": 27.03333,
+        "lng": 88.26667
       },
       {
         "city": "Ghoom",
-        "dur": "2 Days"
+        "dur": "2 Days",
+        "lat": 27.03333,
+        "lng": 88.26667
       },
       {
         "city": "Darjeeling",
-        "dur": "2 Days"
+        "dur": "2 Days",
+        "lat": 27.03333,
+        "lng": 88.26667
       },
       {
         "city": "Kalimpong",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 27.07059,
+        "lng": 88.47529
       },
       {
         "city": "Kolkata",
-        "dur": "3 Days"
+        "dur": "3 Days",
+        "lat": 22.56263,
+        "lng": 88.36304
       },
       {
         "city": "Patna",
-        "dur": "1 Week"
+        "dur": "1 Week",
+        "lat": 25.59408,
+        "lng": 85.13563
       },
       {
         "city": "Gurugram",
-        "dur": "1 Month"
+        "dur": "1 Month",
+        "lat": 28.4601,
+        "lng": 77.02635
       }
     ]
   }
