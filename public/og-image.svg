@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">SuperTrips</title>
+  <desc id="desc">A personal travel map of routes across India.</desc>
+  <rect width="1200" height="630" fill="#1a1208"/>
+  <path d="M0 0h1200v630H0z" fill="#f5f0e8"/>
+  <path d="M-60 530C130 390 260 392 396 450c126 54 205 56 316-42 136-120 279-147 548-38" fill="none" stroke="#c9962a" stroke-width="8" stroke-linecap="round" stroke-dasharray="2 28"/>
+  <path d="M-40 410C150 270 309 280 438 342c117 56 199 47 312-57 144-132 297-157 504-77" fill="none" stroke="#d8d0c4" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 18"/>
+  <circle cx="192" cy="390" r="15" fill="#c9962a"/>
+  <circle cx="438" cy="342" r="15" fill="#c9962a"/>
+  <circle cx="750" cy="285" r="15" fill="#c9962a"/>
+  <circle cx="1018" cy="212" r="15" fill="#c9962a"/>
+  <text x="96" y="210" fill="#1a1208" font-family="Georgia, 'Times New Roman', serif" font-size="112" font-weight="700">Super<tspan fill="#c9962a" font-style="italic">Trips</tspan></text>
+  <text x="103" y="286" fill="#6a5a48" font-family="'DM Sans', 'Segoe UI', sans-serif" font-size="34">Routes across India, city by city.</text>
+  <text x="103" y="334" fill="#8a7a65" font-family="'DM Sans', 'Segoe UI', sans-serif" font-size="26">A personal diary for backpacking, planning, and remembering.</text>
+</svg>

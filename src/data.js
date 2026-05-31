@@ -257,7 +257,7 @@ export const RAW_TRIPS = [
         "dur": "1 Week"
       },
       {
-        "code": "bengalauru",
+        "code": "bengaluru",
         "dur": "2 Weeks"
       },
       {
@@ -275,7 +275,7 @@ export const RAW_TRIPS = [
         "dur": "1 Week"
       },
       {
-        "code": "banglore",
+        "code": "bengaluru",
         "dur": "3 Days"
       },
       {
@@ -283,7 +283,7 @@ export const RAW_TRIPS = [
         "dur": "1 Week"
       },
       {
-        "code": "banglore",
+        "code": "bengaluru",
         "dur": "3 Days"
       },
       {
@@ -715,7 +715,7 @@ export const RAW_TRIPS = [
         "dur": "2 Weeks"
       },
       {
-        "code": "amristar",
+        "code": "amritsar",
         "dur": "3 Days"
       },
       {
@@ -859,7 +859,10 @@ export const CITIES = {
       "Gurugram food truck trail",
       "Corporate networking walkabout in Sector 29"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "gostops",
+      "bloom"
+    ],
     "mode_of_travel": [
       "metro",
       "ola/uber",
@@ -881,8 +884,7 @@ export const CITIES = {
     "state": "uttar_pradesh",
     "region": "northern",
     "category": [
-      "pilgrimage",
-      "heritage"
+      "pilgrimage"
     ],
     "must_visit": [
       "Krishna Janmabhoomi Temple",
@@ -899,11 +901,12 @@ export const CITIES = {
       "Parikrama of Govardhan",
       "Rabri and malpua"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
       "auto",
-      "ola/uber",
-      "private_taxi"
+      "ola/uber"
     ],
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
@@ -921,7 +924,8 @@ export const CITIES = {
     "state": "uttar_pradesh",
     "region": "northern",
     "category": [
-      "heritage"
+      "forts_palaces",
+      "monuments_museums"
     ],
     "must_visit": [
       "Taj Mahal",
@@ -937,11 +941,13 @@ export const CITIES = {
       "Sunrise view of Taj from Mehtab Bagh",
       "Dalmoth and namkeen from street vendors"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel",
+      "the_hosteller"
+    ],
     "mode_of_travel": [
       "auto",
-      "ola/uber",
-      "private_taxi"
+      "ola/uber"
     ],
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
@@ -960,7 +966,7 @@ export const CITIES = {
     "region": "northern",
     "category": [
       "pilgrimage",
-      "heritage",
+      "monuments_museums",
       "backpacker"
     ],
     "must_visit": [
@@ -979,11 +985,14 @@ export const CITIES = {
       "Boat ride at dawn",
       "Banarasi paan"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel",
+      "gostops",
+      "moustache"
+    ],
     "mode_of_travel": [
       "auto",
-      "ola/uber",
-      "private_taxi"
+      "ola/uber"
     ],
     "ideal_season": "winter",
     "ideal_stay": "3-4 days",
@@ -1002,7 +1011,7 @@ export const CITIES = {
     "region": "eastern",
     "category": [
       "metro",
-      "heritage",
+      "monuments_museums",
       "backpacker",
       "base_camp"
     ],
@@ -1023,7 +1032,9 @@ export const CITIES = {
       "Evening adda at a chai stall",
       "Book-hunting at College Street"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
       "metro",
       "city_bus",
@@ -1048,7 +1059,7 @@ export const CITIES = {
     "category": [
       "pilgrimage",
       "coastal",
-      "heritage"
+      "monuments_museums"
     ],
     "must_visit": [
       "Jagannath Temple Puri",
@@ -1066,10 +1077,11 @@ export const CITIES = {
       "Watch Rath Yatra procession route if timing allows",
       "Sunrise at Konark"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "homestays"
+    ],
     "mode_of_travel": [
       "auto",
-      "private_taxi",
       "bike_rental"
     ],
     "ideal_season": "winter",
@@ -1105,7 +1117,10 @@ export const CITIES = {
       "Street momos near Film City",
       "Imarti and jalebi at Old Noida sweet shops"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel",
+      "bloom"
+    ],
     "mode_of_travel": [
       "metro",
       "ola/uber",
@@ -1129,7 +1144,8 @@ export const CITIES = {
     "region": "northern",
     "category": [
       "metro",
-      "heritage",
+      "forts_palaces",
+      "monuments_museums",
       "pilgrimage",
       "base_camp"
     ],
@@ -1150,7 +1166,13 @@ export const CITIES = {
       "Cycling in Lodhi Garden at dawn",
       "Walk through Mehrauli Archaeological Park"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel",
+      "gostops",
+      "the_hosteller",
+      "moustache",
+      "bloom"
+    ],
     "mode_of_travel": [
       "metro",
       "ola/uber",
@@ -1174,7 +1196,8 @@ export const CITIES = {
     "region": "northern",
     "category": [
       "metro",
-      "heritage"
+      "forts_palaces",
+      "monuments_museums"
     ],
     "must_visit": [
       "Amber Fort",
@@ -1193,7 +1216,14 @@ export const CITIES = {
       "Elephant ride at Amer",
       "Shopping on Johari Bazaar"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel",
+      "gostops",
+      "the_hosteller",
+      "moustache",
+      "madpackers",
+      "bloom"
+    ],
     "mode_of_travel": [
       "auto",
       "ola/uber",
@@ -1215,7 +1245,8 @@ export const CITIES = {
     "state": "rajasthan",
     "region": "northern",
     "category": [
-      "heritage"
+      "forts_palaces",
+      "monuments_museums"
     ],
     "must_visit": [
       "Chittorgarh Fort",
@@ -1231,10 +1262,11 @@ export const CITIES = {
       "Sunset at Vijay Stambha",
       "Local bazaar walk"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
-      "auto",
-      "private_taxi"
+      "auto"
     ],
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
@@ -1252,7 +1284,7 @@ export const CITIES = {
     "state": "rajasthan",
     "region": "northern",
     "category": [
-      "heritage"
+      "forts_palaces"
     ],
     "must_visit": [
       "Lake Pichola",
@@ -1270,7 +1302,14 @@ export const CITIES = {
       "Puppet show",
       "Bagore Ki Haveli evening show"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel",
+      "gostops",
+      "the_hosteller",
+      "moustache",
+      "madpackers",
+      "bloom"
+    ],
     "mode_of_travel": [
       "auto",
       "ola/uber",
@@ -1292,7 +1331,7 @@ export const CITIES = {
     "state": "rajasthan",
     "region": "northern",
     "category": [
-      "heritage",
+      "forts_palaces"
     ],
     "must_visit": [
       "Kumbhalgarh Fort",
@@ -1307,10 +1346,10 @@ export const CITIES = {
       "Sunrise from the fort battlements",
       "Trek along the fort walls"
     ],
-    "accommodation": [],
-    "mode_of_travel": [
-      "private_taxi"
+    "accommodation": [
+      "budget_hotels"
     ],
+    "mode_of_travel": [],
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 4,
@@ -1327,7 +1366,7 @@ export const CITIES = {
     "state": "gujarat",
     "region": "western",
     "category": [
-      "heritage"
+      "monuments_museums"
     ],
     "must_visit": [
       "Statue of Unity",
@@ -1343,10 +1382,10 @@ export const CITIES = {
       "Local tribal cuisine",
       "Tent resort stay"
     ],
-    "accommodation": [],
-    "mode_of_travel": [
-      "private_taxi"
+    "accommodation": [
+      "budget_hotels"
     ],
+    "mode_of_travel": [],
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 3,
@@ -1364,6 +1403,7 @@ export const CITIES = {
     "region": "western",
     "category": [
       "metro",
+      "in_transit",
       "base_camp"
     ],
     "must_visit": [
@@ -1382,7 +1422,9 @@ export const CITIES = {
       "Sev Khamani",
       "Diamond industry tour"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
       "auto",
       "ola/uber",
@@ -1404,7 +1446,8 @@ export const CITIES = {
     "state": "gujarat",
     "region": "western",
     "category": [
-      "heritage",
+      "forts_palaces",
+      "in_transit",
       "base_camp"
     ],
     "must_visit": [
@@ -1421,7 +1464,9 @@ export const CITIES = {
       "Baroda Museum visit",
       "Navratri garba (if in season)"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
       "auto",
       "ola/uber"
@@ -1459,10 +1504,11 @@ export const CITIES = {
       "Sunset at the arrow pillar (baan stambh)",
       "Morning darshan at 7am"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "homestays"
+    ],
     "mode_of_travel": [
-      "auto",
-      "private_taxi"
+      "auto"
     ],
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
@@ -1497,10 +1543,11 @@ export const CITIES = {
       "Sudarshan Chakra darshan from outside",
       "Seafood on the harbour"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "homestays"
+    ],
     "mode_of_travel": [
-      "auto",
-      "private_taxi"
+      "auto"
     ],
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
@@ -1518,7 +1565,8 @@ export const CITIES = {
     "state": "gujarat",
     "region": "western",
     "category": [
-      "metro"
+      "metro",
+      "in_transit"
     ],
     "must_visit": [
       "Watson Museum",
@@ -1534,7 +1582,9 @@ export const CITIES = {
       "Gujarati thali",
       "Visit to Gondal (day trip)"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
       "auto",
       "ola/uber"
@@ -1555,6 +1605,7 @@ export const CITIES = {
     "state": "punjab",
     "region": "northern",
     "category": [
+      "in_transit",
       "base_camp"
     ],
     "must_visit": [
@@ -1571,12 +1622,13 @@ export const CITIES = {
       "Pinni and gajak in winter",
       "Street chaat near Ghanta Ghar"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
       "auto",
       "ola/uber",
-      "city_bus",
-      "private_taxi"
+      "city_bus"
     ],
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
@@ -1594,6 +1646,7 @@ export const CITIES = {
     "state": "punjab",
     "region": "northern",
     "category": [
+      "in_transit"
     ],
     "must_visit": [
       "Devi Talab Mandir",
@@ -1609,12 +1662,13 @@ export const CITIES = {
       "Pinni from halwai shops",
       "Visiting the famous sports goods district"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "bloom"
+    ],
     "mode_of_travel": [
       "auto",
       "ola/uber",
-      "city_bus",
-      "private_taxi"
+      "city_bus"
     ],
     "ideal_season": "winter",
     "ideal_stay": "1 day",
@@ -1633,36 +1687,45 @@ export const CITIES = {
     "region": "northern",
     "category": [
       "pilgrimage",
-      "heritage",
+      "forts_palaces",
+      "monuments_museums",
       "border_town"
     ],
     "must_visit": [
-      "Golden Temple",
+      "Golden Temple (Harmandir Sahib)",
       "Jallianwala Bagh",
-      "Wagah Border",
-      "Durgiana Temple",
-      "Partition Museum"
+      "Partition Museum",
+      "Gobindgarh Fort",
+      "Wagah Border Ceremony",
+      "Durgiana Temple"
     ],
     "must_try": [
       "Langar at Golden Temple",
       "Amritsari kulcha at Kulcha Land",
-      "Lassi at Brothers Dhaba",
       "Amritsari fish at Hall Bazar",
+      "Lassi at Brothers Dhaba",
       "Wagah Border Beating Retreat ceremony",
+      "Evening at Golden Temple for illumination",
       "Makki di roti at a highway dhaba on the way back"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "gostops",
+      "the_hosteller",
+      "madpackers",
+      "bloom"
+    ],
     "mode_of_travel": [
       "auto",
       "ola/uber",
-      "private_taxi"
+      "city_bus"
     ],
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
     "rating": 5,
     "notes": [
       "The Golden Temple at 3am after the palki sahib procession is one of the most powerful things you can witness in India.",
-      "Wagah Border feels theatrical until the crowd's emotion hits you — go for the last ceremony of the day.",
+      "Langar feeds thousands every day for free — sitting on the floor and eating with strangers is a lesson in human dignity.",
+      "Wagah Border feels theatrical until the crowd emotion hits you — go for the last ceremony of the day.",
       "The Partition Museum is essential, not optional — give it two full hours."
     ]
   },
@@ -1674,6 +1737,7 @@ export const CITIES = {
     "region": "northern",
     "category": [
       "border_town",
+      "in_transit",
       "base_camp"
     ],
     "must_visit": [
@@ -1689,11 +1753,12 @@ export const CITIES = {
       "Rajma chawal at local joints",
       "Early morning chai at railway station stalls"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
       "auto",
-      "ola/uber",
-      "private_taxi"
+      "ola/uber"
     ],
     "ideal_season": "winter",
     "ideal_stay": "1 day",
@@ -1727,9 +1792,11 @@ export const CITIES = {
       "Charan Paduka visit at dawn",
       "Pony or palanquin experience on the hill trail"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "gostops",
+      "bloom"
+    ],
     "mode_of_travel": [
-      "private_taxi",
       "ola/uber",
       "auto"
     ],
@@ -1749,8 +1816,10 @@ export const CITIES = {
     "state": "jammu_kashmir",
     "region": "northern",
     "category": [
-      "heritage",
+      "forts_palaces",
+      "monuments_museums",
       "pilgrimage",
+      "in_transit",
       "base_camp"
     ],
     "must_visit": [
@@ -1768,12 +1837,13 @@ export const CITIES = {
       "Evening walk at Raghunath Bazaar",
       "Gondola ride over Tawi river"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "bloom"
+    ],
     "mode_of_travel": [
       "auto",
       "ola/uber",
-      "city_bus",
-      "private_taxi"
+      "city_bus"
     ],
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
@@ -1785,13 +1855,12 @@ export const CITIES = {
     ]
   },
   "banihar-qazigund": {
-    "city": "Banihar & Qazigund",
+    "city": "Qazigund",
     "lat": 33.5167,
     "lng": 75.2005,
     "state": "jammu_kashmir",
     "region": "northern",
-    "category": [
-    ],
+    "category": [],
     "must_visit": [
       "Banihal Tunnel (Jawahar Tunnel) entrance",
       "Banihal Pass viewpoint",
@@ -1805,10 +1874,10 @@ export const CITIES = {
       "Watching the Pir Panjal range from the highway",
       "First snow experience at Banihal in early winter"
     ],
-    "accommodation": [],
-    "mode_of_travel": [
-      "private_taxi"
+    "accommodation": [
+      "budget_hotels"
     ],
+    "mode_of_travel": [],
     "ideal_season": "post_monsoon",
     "ideal_stay": "1 day",
     "rating": 2,
@@ -1825,7 +1894,7 @@ export const CITIES = {
     "state": "jammu_kashmir",
     "region": "northern",
     "category": [
-      "heritage",
+      "monuments_museums",
       "hill_station",
       "backpacker"
     ],
@@ -1845,11 +1914,15 @@ export const CITIES = {
       "Strolling the old city bazaar for saffron and dry fruits",
       "Houseboat stay on Dal Lake"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel",
+      "gostops",
+      "moustache",
+      "bloom"
+    ],
     "mode_of_travel": [
       "auto",
       "ola/uber",
-      "private_taxi",
       "bike_rental"
     ],
     "ideal_season": "summer",
@@ -1868,7 +1941,7 @@ export const CITIES = {
     "state": "jammu_kashmir",
     "region": "northern",
     "category": [
-      "hill_station",
+      "hill_station"
     ],
     "must_visit": [
       "Gondola Phase 1 & 2 (Apharwat Peak)",
@@ -1885,10 +1958,10 @@ export const CITIES = {
       "Walking through the pine forest",
       "Noon chai with bakarkhani"
     ],
-    "accommodation": [],
-    "mode_of_travel": [
-      "private_taxi"
+    "accommodation": [
+      "homestays"
     ],
+    "mode_of_travel": [],
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 5,
@@ -1906,7 +1979,7 @@ export const CITIES = {
     "region": "northern",
     "category": [
       "border_town",
-      "heritage"
+      "monuments_museums"
     ],
     "must_visit": [
       "Kargil War Memorial (Dras)",
@@ -1923,10 +1996,10 @@ export const CITIES = {
       "Apricot picking in season (July-August)",
       "Stargazing at high altitude"
     ],
-    "accommodation": [],
-    "mode_of_travel": [
-      "private_taxi"
+    "accommodation": [
+      "budget_hotels"
     ],
+    "mode_of_travel": [],
     "ideal_season": "summer",
     "ideal_stay": "1-2 days",
     "rating": 4,
@@ -1943,7 +2016,8 @@ export const CITIES = {
     "state": "ladakh",
     "region": "northern",
     "category": [
-      "heritage",
+      "forts_palaces",
+      "monuments_museums",
       "pilgrimage",
       "backpacker"
     ],
@@ -1963,9 +2037,12 @@ export const CITIES = {
       "Visit a local homestay in Nubra",
       "Camping under stars at Pangong"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel",
+      "gostops",
+      "the_hosteller"
+    ],
     "mode_of_travel": [
-      "private_taxi",
       "bike_rental"
     ],
     "ideal_season": "summer",
@@ -1983,8 +2060,7 @@ export const CITIES = {
     "lng": 77.0241,
     "state": "himachal_pradesh",
     "region": "northern",
-    "category": [
-    ],
+    "category": [],
     "must_visit": [
       "Keylong Monastery (Kardang Gompa)",
       "Triloknath Temple",
@@ -2000,9 +2076,10 @@ export const CITIES = {
       "Night sky stargazing",
       "High mountain pass drive to Baralacha La"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
-      "private_taxi",
       "bike_rental"
     ],
     "ideal_season": "summer",
@@ -2040,9 +2117,14 @@ export const CITIES = {
       "Sunrise trek to Beas Kund base",
       "Evening bonfire in Old Manali"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel",
+      "gostops",
+      "the_hosteller",
+      "moustache",
+      "madpackers"
+    ],
     "mode_of_travel": [
-      "private_taxi",
       "bike_rental",
       "ola/uber"
     ],
@@ -2062,7 +2144,7 @@ export const CITIES = {
     "state": "himachal_pradesh",
     "region": "northern",
     "category": [
-      "heritage",
+      "hill_station"
     ],
     "must_visit": [
       "Raghunath Temple",
@@ -2078,9 +2160,10 @@ export const CITIES = {
       "Trout fishing at Tirthan Valley",
       "Local wool shawl shopping at Akhara Bazaar"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "homestays"
+    ],
     "mode_of_travel": [
-      "private_taxi",
       "city_bus",
       "bike_rental"
     ],
@@ -2100,7 +2183,7 @@ export const CITIES = {
     "state": "chandigarh",
     "region": "northern",
     "category": [
-      "heritage",
+      "monuments_museums",
       "base_camp"
     ],
     "must_visit": [
@@ -2117,7 +2200,9 @@ export const CITIES = {
       "Evening cycling around Sukhna Lake",
       "Walk through Rock Garden — give it two full hours"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
       "ola/uber",
       "auto",
@@ -2140,7 +2225,8 @@ export const CITIES = {
     "state": "rajasthan",
     "region": "northern",
     "category": [
-      "heritage",
+      "forts_palaces",
+      "monuments_museums",
       "desert"
     ],
     "must_visit": [
@@ -2157,10 +2243,11 @@ export const CITIES = {
       "Camel breeding farm visit",
       "Kote Gate bazaar walk"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
-      "auto",
-      "private_taxi"
+      "auto"
     ],
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
@@ -2178,7 +2265,7 @@ export const CITIES = {
     "state": "rajasthan",
     "region": "northern",
     "category": [
-      "desert",
+      "desert"
     ],
     "must_visit": [
       "Sam Sand Dunes",
@@ -2194,10 +2281,10 @@ export const CITIES = {
       "Sleeping under open sky",
       "Rajasthani dal baati at camp"
     ],
-    "accommodation": [],
-    "mode_of_travel": [
-      "private_taxi"
+    "accommodation": [
+      "zostel"
     ],
+    "mode_of_travel": [],
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 4,
@@ -2214,7 +2301,8 @@ export const CITIES = {
     "state": "rajasthan",
     "region": "northern",
     "category": [
-      "heritage",
+      "forts_palaces",
+      "monuments_museums",
       "desert"
     ],
     "must_visit": [
@@ -2232,11 +2320,14 @@ export const CITIES = {
       "Camel trek to village",
       "Sunset at the dunes"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel",
+      "the_hosteller",
+      "moustache"
+    ],
     "mode_of_travel": [
       "auto",
-      "bike_rental",
-      "private_taxi"
+      "bike_rental"
     ],
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
@@ -2254,7 +2345,8 @@ export const CITIES = {
     "state": "rajasthan",
     "region": "northern",
     "category": [
-      "heritage"
+      "forts_palaces",
+      "monuments_museums"
     ],
     "must_visit": [
       "Mehrangarh Fort",
@@ -2271,7 +2363,12 @@ export const CITIES = {
       "Mehrangarh sound and light show",
       "Breakfast at Shri Mishrilal Hotel"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel",
+      "the_hosteller",
+      "moustache",
+      "madpackers"
+    ],
     "mode_of_travel": [
       "auto",
       "ola/uber",
@@ -2311,10 +2408,14 @@ export const CITIES = {
       "Camel Fair (if in season)",
       "Shopping on Pushkar's main bazaar"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel",
+      "the_hosteller",
+      "moustache",
+      "madpackers"
+    ],
     "mode_of_travel": [
-      "auto",
-      "private_taxi"
+      "auto"
     ],
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
@@ -2333,7 +2434,7 @@ export const CITIES = {
     "region": "western",
     "category": [
       "metro",
-      "heritage"
+      "monuments_museums"
     ],
     "must_visit": [
       "Sabarmati Ashram",
@@ -2356,7 +2457,9 @@ export const CITIES = {
       "Manek Chowk night food market",
       "Sabarmati Riverfront evening walk"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "bloom"
+    ],
     "mode_of_travel": [
       "metro",
       "auto",
@@ -2380,7 +2483,8 @@ export const CITIES = {
     "state": "madhya_pradesh",
     "region": "central",
     "category": [
-      "metro"
+      "metro",
+      "in_transit"
     ],
     "must_visit": [
       "Rajwada Palace",
@@ -2398,7 +2502,9 @@ export const CITIES = {
       "Sarafa Bazaar night food walk",
       "Chappan Dukan street food crawl"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel"
+    ],
     "mode_of_travel": [
       "auto",
       "ola/uber",
@@ -2436,10 +2542,11 @@ export const CITIES = {
       "Prasad thali",
       "Sunset meditation at the ghat"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
-      "auto",
-      "private_taxi"
+      "auto"
     ],
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
@@ -2474,11 +2581,12 @@ export const CITIES = {
       "Grape-stomping experience (February)",
       "Trimbakeshwar aarti"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel"
+    ],
     "mode_of_travel": [
       "auto",
-      "ola/uber",
-      "private_taxi"
+      "ola/uber"
     ],
     "ideal_season": "post_monsoon",
     "ideal_stay": "2-3 days",
@@ -2512,10 +2620,11 @@ export const CITIES = {
       "Palki procession",
       "Shej aarti"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
-      "auto",
-      "private_taxi"
+      "auto"
     ],
     "ideal_season": "year_round",
     "ideal_stay": "1-2 days",
@@ -2533,7 +2642,8 @@ export const CITIES = {
     "state": "maharashtra",
     "region": "western",
     "category": [
-      "heritage"
+      "forts_palaces",
+      "monuments_museums"
     ],
     "must_visit": [
       "Ellora Caves",
@@ -2549,10 +2659,11 @@ export const CITIES = {
       "Sunrise at Ajanta",
       "Daulatabad fort climb"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel"
+    ],
     "mode_of_travel": [
-      "auto",
-      "private_taxi"
+      "auto"
     ],
     "ideal_season": "winter",
     "ideal_stay": "3-4 days",
@@ -2571,7 +2682,8 @@ export const CITIES = {
     "region": "western",
     "category": [
       "metro",
-      "heritage",
+      "forts_palaces",
+      "monuments_museums",
       "base_camp"
     ],
     "must_visit": [
@@ -2590,7 +2702,10 @@ export const CITIES = {
       "Trekking to Sinhagad",
       "Pune FC football match (if in season)"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel",
+      "bloom"
+    ],
     "mode_of_travel": [
       "auto",
       "ola/uber",
@@ -2634,7 +2749,11 @@ export const CITIES = {
       "Sanjay Gandhi NP leopard safari",
       "Chowpatty beach bhel"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel",
+      "the_hosteller",
+      "bloom"
+    ],
     "mode_of_travel": [
       "metro",
       "city_bus",
@@ -2659,7 +2778,8 @@ export const CITIES = {
     "category": [
       "coastal",
       "backpacker",
-      "heritage"
+      "forts_palaces",
+      "monuments_museums"
     ],
     "must_visit": [
       "Calangute and Baga Beach",
@@ -2679,10 +2799,18 @@ export const CITIES = {
       "Spice plantation tour",
       "Saturday Night Market"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel",
+      "gostops",
+      "the_hosteller",
+      "moustache",
+      "madpackers",
+      "bloom"
+    ],
     "mode_of_travel": [
       "bike_rental",
-      "ola/uber"
+      "ola/uber",
+      "private_taxi"
     ],
     "ideal_season": "winter",
     "ideal_stay": "1 week",
@@ -2701,7 +2829,8 @@ export const CITIES = {
     "region": "southern",
     "category": [
       "metro",
-      "heritage",
+      "forts_palaces",
+      "monuments_museums",
       "coastal",
       "backpacker",
       "base_camp"
@@ -2724,12 +2853,16 @@ export const CITIES = {
       "Jew Town antique shopping",
       "sunset walk on Marine Drive"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel",
+      "gostops",
+      "the_hosteller",
+      "bloom"
+    ],
     "mode_of_travel": [
       "auto",
       "ola/uber",
-      "city_bus",
-      "private_taxi"
+      "city_bus"
     ],
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
@@ -2767,11 +2900,13 @@ export const CITIES = {
       "coconut prawn curry",
       "kayaking through narrow canals"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel",
+      "gostops"
+    ],
     "mode_of_travel": [
       "auto",
-      "bike_rental",
-      "private_taxi"
+      "bike_rental"
     ],
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
@@ -2810,11 +2945,12 @@ export const CITIES = {
       "tender coconut on the beach",
       "Janardhana Swami Temple darshan at sunset"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel"
+    ],
     "mode_of_travel": [
       "auto",
-      "bike_rental",
-      "private_taxi"
+      "bike_rental"
     ],
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
@@ -2834,7 +2970,7 @@ export const CITIES = {
     "category": [
       "metro",
       "pilgrimage",
-      "coastal",
+      "coastal"
     ],
     "must_visit": [
       "Padmanabhaswamy Temple",
@@ -2852,12 +2988,13 @@ export const CITIES = {
       "Neyatinkara border market shopping",
       "fresh coconut water at Kovalam"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "homestays"
+    ],
     "mode_of_travel": [
       "city_bus",
       "auto",
-      "ola/uber",
-      "private_taxi"
+      "ola/uber"
     ],
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
@@ -2894,9 +3031,11 @@ export const CITIES = {
       "misty morning walk through pine forest",
       "local village chai"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel",
+      "the_hosteller"
+    ],
     "mode_of_travel": [
-      "private_taxi",
       "bike_rental"
     ],
     "ideal_season": "post_monsoon",
@@ -2916,6 +3055,7 @@ export const CITIES = {
     "region": "southern",
     "category": [
       "metro",
+      "in_transit",
       "base_camp"
     ],
     "must_visit": [
@@ -2935,12 +3075,13 @@ export const CITIES = {
       "filter coffee at any old-school mess",
       "Coimbatore banana chips"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
       "city_bus",
       "auto",
-      "ola/uber",
-      "private_taxi"
+      "ola/uber"
     ],
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
@@ -2958,8 +3099,7 @@ export const CITIES = {
     "state": "tamil_nadu",
     "region": "southern",
     "category": [
-      "hill_station",
-      "heritage"
+      "hill_station"
     ],
     "must_visit": [
       "Nilgiri Mountain Railway (Toy Train)",
@@ -2978,11 +3118,15 @@ export const CITIES = {
       "varkey biscuits",
       "Nilgiri tea tasting"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel",
+      "gostops",
+      "the_hosteller"
+    ],
     "mode_of_travel": [
-      "private_taxi",
       "auto",
-      "city_bus"
+      "city_bus",
+      "private_taxi"
     ],
     "ideal_season": "summer",
     "ideal_stay": "2-3 days",
@@ -3000,7 +3144,8 @@ export const CITIES = {
     "state": "karnataka",
     "region": "southern",
     "category": [
-      "heritage",
+      "forts_palaces",
+      "monuments_museums",
       "pilgrimage"
     ],
     "must_visit": [
@@ -3020,11 +3165,12 @@ export const CITIES = {
       "yoga class (Mysore is the ashtanga yoga capital)",
       "Mysore sandalwood soap buying"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel"
+    ],
     "mode_of_travel": [
       "auto",
       "city_bus",
-      "private_taxi",
       "bike_rental"
     ],
     "ideal_season": "winter",
@@ -3036,92 +3182,6 @@ export const CITIES = {
       "Devaraja Market in the morning smells incredible — jasmine garlands stacked taller than people."
     ]
   },
-  "bengalauru": {
-    "city": "Bengalauru",
-    "lat": 12.9716,
-    "lng": 77.5946,
-    "state": "karnataka",
-    "region": "southern",
-    "category": [
-      "metro",
-      "base_camp"
-    ],
-    "must_visit": [
-      "Cubbon Park",
-      "Lalbagh Botanical Garden",
-      "Bangalore Palace",
-      "ISKCON Temple",
-      "UB City",
-      "Nandi Hills (day trip)"
-    ],
-    "must_try": [
-      "masala dosa at MTR or Vidyarthi Bhavan",
-      "craft beer at Toit or Arbor",
-      "Bangalore breakfast trail",
-      "Sunday antique market at Shivajinagar",
-      "evening at Church Street",
-      "filter coffee at Indian Coffee House",
-      "biryani at Shivaji Military Hotel"
-    ],
-    "accommodation": [],
-    "mode_of_travel": [
-      "metro",
-      "ola/uber",
-      "auto",
-      "city_bus"
-    ],
-    "ideal_season": "year_round",
-    "ideal_stay": "3-4 days",
-    "rating": 4,
-    "notes": [
-      "Bangalore is best experienced as a resident, not a tourist — the city's soul is in its neighbourhood cafés and pub culture.",
-      "Traffic is genuinely terrible; always use the metro for cross-city travel and save auto for last miles.",
-      "Nandi Hills at sunrise is a classic Bangalore escape — leave by 4:30am to beat the mist and the crowds."
-    ]
-  },
-  "banglore": {
-    "city": "Banglore",
-    "lat": 12.9716,
-    "lng": 77.5946,
-    "state": "karnataka",
-    "region": "southern",
-    "category": [
-      "metro",
-      "base_camp"
-    ],
-    "must_visit": [
-      "Cubbon Park",
-      "Lalbagh Botanical Garden",
-      "Bangalore Palace",
-      "ISKCON Temple",
-      "UB City",
-      "Nandi Hills (day trip)"
-    ],
-    "must_try": [
-      "masala dosa at MTR or Vidyarthi Bhavan",
-      "craft beer at Toit or Arbor",
-      "Bangalore breakfast trail",
-      "Sunday antique market at Shivajinagar",
-      "evening at Church Street",
-      "filter coffee at Indian Coffee House",
-      "biryani at Shivaji Military Hotel"
-    ],
-    "accommodation": [],
-    "mode_of_travel": [
-      "metro",
-      "ola/uber",
-      "auto",
-      "city_bus"
-    ],
-    "ideal_season": "year_round",
-    "ideal_stay": "3-4 days",
-    "rating": 4,
-    "notes": [
-      "Bangalore is best experienced as a resident, not a tourist — the city's soul is in its neighbourhood cafés and pub culture.",
-      "Traffic is genuinely terrible; always use the metro for cross-city travel and save auto for last miles.",
-      "Nandi Hills at sunrise is a classic Bangalore escape — leave by 4:30am to beat the mist and the crowds."
-    ]
-  },
   "wayanad": {
     "city": "Wayanad",
     "lat": 11.6854,
@@ -3130,7 +3190,7 @@ export const CITIES = {
     "region": "southern",
     "category": [
       "hill_station",
-      "heritage"
+      "monuments_museums"
     ],
     "must_visit": [
       "Edakkal Caves",
@@ -3149,9 +3209,11 @@ export const CITIES = {
       "coffee and pepper estate walk",
       "jackfruit halwa"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel",
+      "the_hosteller"
+    ],
     "mode_of_travel": [
-      "private_taxi",
       "bike_rental"
     ],
     "ideal_season": "post_monsoon",
@@ -3172,7 +3234,7 @@ export const CITIES = {
     "category": [
       "pilgrimage",
       "coastal",
-      "heritage"
+      "monuments_museums"
     ],
     "must_visit": [
       "Ramanathaswamy Temple",
@@ -3190,10 +3252,11 @@ export const CITIES = {
       "Pamban rail bridge crossing by train",
       "pampering rice meals at local restaurants"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "homestays"
+    ],
     "mode_of_travel": [
       "auto",
-      "private_taxi",
       "bike_rental"
     ],
     "ideal_season": "winter",
@@ -3212,7 +3275,8 @@ export const CITIES = {
     "state": "tamil_nadu",
     "region": "southern",
     "category": [
-      "heritage",
+      "forts_palaces",
+      "monuments_museums",
       "pilgrimage"
     ],
     "must_visit": [
@@ -3232,11 +3296,12 @@ export const CITIES = {
       "parotta with Madurai-style salna",
       "jasmine garland buying at Nethaji market"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
       "auto",
-      "city_bus",
-      "private_taxi"
+      "city_bus"
     ],
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
@@ -3275,7 +3340,9 @@ export const CITIES = {
       "Ferry ride across the Brahmaputra at dusk",
       "Shop for Mekhela Chador at Pan Bazaar"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel"
+    ],
     "mode_of_travel": [
       "city_bus",
       "auto",
@@ -3318,11 +3385,13 @@ export const CITIES = {
       "Drive to Cherrapunji (day trip)",
       "Local craft shopping at Police Bazaar"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel"
+    ],
     "mode_of_travel": [
-      "private_taxi",
       "auto",
-      "ola/uber"
+      "ola/uber",
+      "private_taxi"
     ],
     "ideal_season": "post_monsoon",
     "ideal_stay": "2-3 days",
@@ -3357,10 +3426,12 @@ export const CITIES = {
       "Kayaking on Umngot",
       "Cross-border market browsing"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
-      "private_taxi",
-      "bike_rental"
+      "bike_rental",
+      "private_taxi"
     ],
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
@@ -3379,7 +3450,8 @@ export const CITIES = {
     "region": "northeastern",
     "category": [
       "backpacker",
-      "heritage",
+      "monuments_museums",
+      "in_transit",
       "base_camp"
     ],
     "must_visit": [
@@ -3396,11 +3468,13 @@ export const CITIES = {
       "Boat ride on Barak river",
       "Evening walk at Silchar town market"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
       "auto",
-      "private_taxi",
-      "ola/uber"
+      "ola/uber",
+      "private_taxi"
     ],
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
@@ -3419,8 +3493,9 @@ export const CITIES = {
     "region": "northeastern",
     "category": [
       "backpacker",
-      "heritage",
+      "monuments_museums",
       "border_town",
+      "in_transit",
       "base_camp"
     ],
     "must_visit": [
@@ -3437,11 +3512,13 @@ export const CITIES = {
       "Try Naga chilli (Raja Mirchi) if you dare",
       "Explore Night Market for tribal crafts"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
       "auto",
-      "private_taxi",
-      "ola/uber"
+      "ola/uber",
+      "private_taxi"
     ],
     "ideal_season": "winter",
     "ideal_stay": "1 day",
@@ -3459,7 +3536,7 @@ export const CITIES = {
     "state": "nagaland",
     "region": "northeastern",
     "category": [
-      "heritage",
+      "monuments_museums",
       "backpacker"
     ],
     "must_visit": [
@@ -3478,10 +3555,12 @@ export const CITIES = {
       "Hornbill Festival if visiting December",
       "Trek to Dzukou Valley"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
-      "private_taxi",
-      "auto"
+      "auto",
+      "private_taxi"
     ],
     "ideal_season": "post_monsoon",
     "ideal_stay": "2-3 days",
@@ -3515,10 +3594,12 @@ export const CITIES = {
       "Local Mishing tribe food",
       "Boat ride on the Brahmaputra tributaries"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
-      "private_taxi",
-      "bike_rental"
+      "bike_rental",
+      "private_taxi"
     ],
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
@@ -3536,7 +3617,8 @@ export const CITIES = {
     "state": "arunachal_pradesh",
     "region": "northeastern",
     "category": [
-      "heritage",
+      "forts_palaces",
+      "monuments_museums",
       "backpacker"
     ],
     "must_visit": [
@@ -3553,10 +3635,12 @@ export const CITIES = {
       "Local tribal market at Naharlagun",
       "Hike around Ganga Lake at sunrise"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
-      "private_taxi",
-      "auto"
+      "auto",
+      "private_taxi"
     ],
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
@@ -3594,7 +3678,9 @@ export const CITIES = {
       "Visit Bum La Pass with army escort (permits needed)",
       "Evening prayer ceremony at Tawang Monastery"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "homestays"
+    ],
     "mode_of_travel": [
       "private_taxi"
     ],
@@ -3615,7 +3701,7 @@ export const CITIES = {
     "region": "eastern",
     "category": [
       "hill_station",
-      "heritage",
+      "monuments_museums"
     ],
     "must_visit": [
       "Tiger Hill sunrise",
@@ -3633,10 +3719,12 @@ export const CITIES = {
       "Dawn drive to Tiger Hill for Kanchenjunga views",
       "Browse Chowrasta market for woolen goods"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "homestays"
+    ],
     "mode_of_travel": [
-      "private_taxi",
-      "auto"
+      "auto",
+      "private_taxi"
     ],
     "ideal_season": "post_monsoon",
     "ideal_stay": "2-3 days",
@@ -3673,7 +3761,9 @@ export const CITIES = {
       "Skywalk over the valley",
       "Trek to Khecheopalri lake"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel"
+    ],
     "mode_of_travel": [
       "private_taxi"
     ],
@@ -3694,7 +3784,7 @@ export const CITIES = {
     "region": "northeastern",
     "category": [
       "hill_station",
-      "heritage"
+      "monuments_museums"
     ],
     "must_visit": [
       "Rumtek Monastery",
@@ -3712,11 +3802,14 @@ export const CITIES = {
       "Drive to Nathu La Pass at 14,140 ft",
       "Ropeway ride over the city"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel",
+      "moustache"
+    ],
     "mode_of_travel": [
-      "private_taxi",
       "auto",
-      "ola/uber"
+      "ola/uber",
+      "private_taxi"
     ],
     "ideal_season": "post_monsoon",
     "ideal_stay": "2-3 days",
@@ -3735,6 +3828,7 @@ export const CITIES = {
     "region": "eastern",
     "category": [
       "backpacker",
+      "in_transit",
       "base_camp"
     ],
     "must_visit": [
@@ -3751,11 +3845,12 @@ export const CITIES = {
       "Day trip to Jaldapara or Gorumara",
       "Night street food at Junction area"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
       "auto",
       "ola/uber",
-      "private_taxi",
       "city_bus"
     ],
     "ideal_season": "winter",
@@ -3794,7 +3889,12 @@ export const CITIES = {
       "filter coffee at Indian Coffee House",
       "biryani at Shivaji Military Hotel"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel",
+      "gostops",
+      "the_hosteller",
+      "bloom"
+    ],
     "mode_of_travel": [
       "metro",
       "ola/uber",
@@ -3817,7 +3917,7 @@ export const CITIES = {
     "state": "tamil_nadu",
     "region": "southern",
     "category": [
-      "heritage",
+      "monuments_museums",
       "pilgrimage"
     ],
     "must_visit": [
@@ -3836,11 +3936,12 @@ export const CITIES = {
       "silk shopping directly from weavers",
       "Kamakshi Temple darshan"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
       "auto",
-      "city_bus",
-      "private_taxi"
+      "city_bus"
     ],
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
@@ -3876,9 +3977,10 @@ export const CITIES = {
       "Tirupati local meals at Anna canteen",
       "dada hobbies bazaar shopping"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
-      "private_taxi",
       "city_bus",
       "auto"
     ],
@@ -3898,8 +4000,7 @@ export const CITIES = {
     "state": "andhra_pradesh",
     "region": "southern",
     "category": [
-      "pilgrimage",
-      "heritage",
+      "pilgrimage"
     ],
     "must_visit": [
       "Mallikarjuna Jyotirlinga Temple",
@@ -3917,10 +4018,10 @@ export const CITIES = {
       "dam viewpoint at sunrise",
       "trek through the Nallamala forest"
     ],
-    "accommodation": [],
-    "mode_of_travel": [
-      "private_taxi"
+    "accommodation": [
+      "budget_hotels"
     ],
+    "mode_of_travel": [],
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
     "rating": 4,
@@ -3938,7 +4039,8 @@ export const CITIES = {
     "region": "southern",
     "category": [
       "metro",
-      "heritage",
+      "forts_palaces",
+      "monuments_museums",
       "base_camp"
     ],
     "must_visit": [
@@ -3958,7 +4060,11 @@ export const CITIES = {
       "paya and nihari at Old City",
       "Karachi Bakery fruit biscuits"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel",
+      "the_hosteller",
+      "bloom"
+    ],
     "mode_of_travel": [
       "metro",
       "ola/uber",
@@ -3981,7 +4087,7 @@ export const CITIES = {
     "state": "karnataka",
     "region": "southern",
     "category": [
-      "heritage"
+      "forts_palaces"
     ],
     "must_visit": [
       "Jog Falls",
@@ -3999,9 +4105,10 @@ export const CITIES = {
       "arecanut plantation walks",
       "fishing villages along Linganamakki reservoir"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
-      "private_taxi",
       "bike_rental"
     ],
     "ideal_season": "monsoon",
@@ -4021,7 +4128,7 @@ export const CITIES = {
     "region": "southern",
     "category": [
       "coastal",
-      "heritage",
+      "monuments_museums",
       "backpacker"
     ],
     "must_visit": [
@@ -4041,11 +4148,13 @@ export const CITIES = {
       "fresh seafood at Seagulls restaurant",
       "Pondicherry-style fish curry"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel",
+      "gostops"
+    ],
     "mode_of_travel": [
       "bike_rental",
-      "auto",
-      "private_taxi"
+      "auto"
     ],
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
@@ -4065,7 +4174,8 @@ export const CITIES = {
     "category": [
       "metro",
       "coastal",
-      "heritage",
+      "forts_palaces",
+      "monuments_museums",
       "base_camp"
     ],
     "must_visit": [
@@ -4085,7 +4195,10 @@ export const CITIES = {
       "Besant Nagar beach evening",
       "Kothu parotta at 1am"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel",
+      "bloom"
+    ],
     "mode_of_travel": [
       "metro",
       "city_bus",
@@ -4108,7 +4221,7 @@ export const CITIES = {
     "state": "jammu_kashmir",
     "region": "northern",
     "category": [
-      "hill_station",
+      "hill_station"
     ],
     "must_visit": [
       "Thajiwas Glacier",
@@ -4125,10 +4238,10 @@ export const CITIES = {
       "Camping in the high meadows",
       "Drive towards Zoji La for sunrise views"
     ],
-    "accommodation": [],
-    "mode_of_travel": [
-      "private_taxi"
+    "accommodation": [
+      "homestays"
     ],
+    "mode_of_travel": [],
     "ideal_season": "summer",
     "ideal_stay": "1-2 days",
     "rating": 4,
@@ -4145,7 +4258,7 @@ export const CITIES = {
     "state": "jammu_kashmir",
     "region": "northern",
     "category": [
-      "pilgrimage",
+      "pilgrimage"
     ],
     "must_visit": [
       "Amarnath Cave Temple (trek from Baltal)",
@@ -4161,10 +4274,10 @@ export const CITIES = {
       "Watching the yatra procession from the valley",
       "Camping at 9,000 ft under stars"
     ],
-    "accommodation": [],
-    "mode_of_travel": [
-      "private_taxi"
+    "accommodation": [
+      "budget_hotels"
     ],
+    "mode_of_travel": [],
     "ideal_season": "summer",
     "ideal_stay": "1-2 days",
     "rating": 3,
@@ -4175,13 +4288,12 @@ export const CITIES = {
     ]
   },
   "banihal-udhampur": {
-    "city": "Banihal & Udhampur",
+    "city": "Udhampur",
     "lat": 33.43647,
     "lng": 75.19684,
     "state": "jammu_kashmir",
     "region": "northern",
-    "category": [
-    ],
+    "category": [],
     "must_visit": [
       "Banihal Railway Station (highest broad-gauge section)",
       "Patnitop Hill Station",
@@ -4196,10 +4308,10 @@ export const CITIES = {
       "Viewpoint stop at Chenab gorge",
       "Drive through the Banihal-Udhampur mountain stretch at dawn"
     ],
-    "accommodation": [],
-    "mode_of_travel": [
-      "private_taxi"
+    "accommodation": [
+      "budget_hotels"
     ],
+    "mode_of_travel": [],
     "ideal_season": "summer",
     "ideal_stay": "1-2 days",
     "rating": 3,
@@ -4216,7 +4328,8 @@ export const CITIES = {
     "state": "madhya_pradesh",
     "region": "central",
     "category": [
-      "heritage"
+      "forts_palaces",
+      "monuments_museums"
     ],
     "must_visit": [
       "Orchha Fort Complex",
@@ -4233,10 +4346,11 @@ export const CITIES = {
       "Cycling between temples",
       "Sunset from the fort ramparts"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
-      "bike_rental",
-      "private_taxi"
+      "bike_rental"
     ],
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
@@ -4254,7 +4368,9 @@ export const CITIES = {
     "state": "madhya_pradesh",
     "region": "central",
     "category": [
-      "heritage"
+      "forts_palaces",
+      "monuments_museums",
+      "in_transit"
     ],
     "must_visit": [
       "Jhansi Fort",
@@ -4270,10 +4386,11 @@ export const CITIES = {
       "Local bazaar walk",
       "Day trip to Orchha"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
-      "auto",
-      "private_taxi"
+      "auto"
     ],
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
@@ -4291,7 +4408,7 @@ export const CITIES = {
     "state": "madhya_pradesh",
     "region": "central",
     "category": [
-      "heritage"
+      "monuments_museums"
     ],
     "must_visit": [
       "Western Temple Group (Kandariya Mahadeva)",
@@ -4308,10 +4425,12 @@ export const CITIES = {
       "Tribal art shopping",
       "Local thali at dhabas"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "moustache",
+      "madpackers"
+    ],
     "mode_of_travel": [
-      "bike_rental",
-      "private_taxi"
+      "bike_rental"
     ],
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
@@ -4330,7 +4449,8 @@ export const CITIES = {
     "region": "northern",
     "category": [
       "pilgrimage",
-      "heritage"
+      "forts_palaces",
+      "monuments_museums"
     ],
     "must_visit": [
       "Triveni Sangam",
@@ -4347,12 +4467,13 @@ export const CITIES = {
       "Maha Kumbh experience (if timing allows)",
       "Boat ride to Sangam confluence"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
       "auto",
       "ola/uber",
-      "city_bus",
-      "private_taxi"
+      "city_bus"
     ],
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
@@ -4370,8 +4491,7 @@ export const CITIES = {
     "state": "uttar_pradesh",
     "region": "northern",
     "category": [
-      "pilgrimage",
-      "heritage"
+      "pilgrimage"
     ],
     "must_visit": [
       "Ram Mandir",
@@ -4388,11 +4508,12 @@ export const CITIES = {
       "Chaat near Hanuman Garhi steps",
       "Parikrama of the main temple complex"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
       "auto",
-      "ola/uber",
-      "private_taxi"
+      "ola/uber"
     ],
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
@@ -4410,7 +4531,7 @@ export const CITIES = {
     "state": "uttar_pradesh",
     "region": "northern",
     "category": [
-      "heritage",
+      "monuments_museums"
     ],
     "must_visit": [
       "Bara Imambara",
@@ -4427,12 +4548,13 @@ export const CITIES = {
       "Sheermal and malaai gilori paan",
       "Walking tour of Aminabad bazaar"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
       "auto",
       "ola/uber",
-      "city_bus",
-      "private_taxi"
+      "city_bus"
     ],
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
@@ -4451,7 +4573,7 @@ export const CITIES = {
     "region": "eastern",
     "category": [
       "pilgrimage",
-      "heritage",
+      "monuments_museums",
       "backpacker"
     ],
     "must_visit": [
@@ -4470,10 +4592,11 @@ export const CITIES = {
       "Walk the Chakramarana (walking meditation path)",
       "Bodhgaya Market for Buddhist artifacts"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
       "auto",
-      "private_taxi",
       "bike_rental"
     ],
     "ideal_season": "winter",
@@ -4492,8 +4615,7 @@ export const CITIES = {
     "state": "jharkhand",
     "region": "eastern",
     "category": [
-      "pilgrimage",
-      "heritage"
+      "pilgrimage"
     ],
     "must_visit": [
       "Baidyanath Dham Temple (Jyotirlinga)",
@@ -4510,10 +4632,11 @@ export const CITIES = {
       "Litti chokha",
       "Local peda sweets from Deoghar halwais"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
-      "auto",
-      "private_taxi"
+      "auto"
     ],
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
@@ -4548,11 +4671,12 @@ export const CITIES = {
       "Sunset at New Digha with local tea",
       "Day trip to Shankarpur or Mandarmani"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "homestays"
+    ],
     "mode_of_travel": [
       "auto",
-      "bike_rental",
-      "private_taxi"
+      "bike_rental"
     ],
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
@@ -4571,6 +4695,7 @@ export const CITIES = {
     "region": "eastern",
     "category": [
       "backpacker",
+      "in_transit",
       "base_camp"
     ],
     "must_visit": [
@@ -4587,7 +4712,9 @@ export const CITIES = {
       "Observe the engineering student culture",
       "Visit the Hijli Campus heritage buildings"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
       "auto",
       "ola/uber",
@@ -4609,8 +4736,10 @@ export const CITIES = {
     "state": "odisha",
     "region": "eastern",
     "category": [
-      "heritage",
-      "pilgrimage"
+      "forts_palaces",
+      "monuments_museums",
+      "pilgrimage",
+      "in_transit"
     ],
     "must_visit": [
       "Barabati Fort",
@@ -4628,7 +4757,9 @@ export const CITIES = {
       "Bara ghanta (taro curry)",
       "Dusk walk along Mahanadi ghats"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
       "auto",
       "city_bus",
@@ -4652,7 +4783,7 @@ export const CITIES = {
     "category": [
       "coastal",
       "metro",
-      "heritage"
+      "monuments_museums"
     ],
     "must_visit": [
       "RK Beach",
@@ -4670,12 +4801,13 @@ export const CITIES = {
       "Borra cave exploration",
       "Vizag Biryani (different from Hyderabadi)"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel"
+    ],
     "mode_of_travel": [
       "city_bus",
       "auto",
-      "ola/uber",
-      "private_taxi"
+      "ola/uber"
     ],
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
@@ -4694,7 +4826,7 @@ export const CITIES = {
     "region": "southern",
     "category": [
       "hill_station",
-      "heritage",
+      "monuments_museums"
     ],
     "must_visit": [
       "Borra Caves",
@@ -4712,9 +4844,10 @@ export const CITIES = {
       "Borra Caves stalactite tour",
       "local tribal millet dishes"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "homestays"
+    ],
     "mode_of_travel": [
-      "private_taxi",
       "bike_rental"
     ],
     "ideal_season": "winter",
@@ -4733,8 +4866,7 @@ export const CITIES = {
     "state": "karnataka",
     "region": "southern",
     "category": [
-      "hill_station",
-      "heritage"
+      "hill_station"
     ],
     "must_visit": [
       "Abbey Falls",
@@ -4752,9 +4884,12 @@ export const CITIES = {
       "Kodava-style homestay dinner",
       "locally grown filter coffee"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel",
+      "gostops",
+      "the_hosteller"
+    ],
     "mode_of_travel": [
-      "private_taxi",
       "bike_rental"
     ],
     "ideal_season": "winter",
@@ -4773,7 +4908,7 @@ export const CITIES = {
     "state": "karnataka",
     "region": "southern",
     "category": [
-      "hill_station",
+      "hill_station"
     ],
     "must_visit": [
       "Mullayanagiri Peak",
@@ -4791,9 +4926,10 @@ export const CITIES = {
       "night stay at coffee estate homestay",
       "kadubu (steamed rice dumpling) breakfast"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "the_hosteller"
+    ],
     "mode_of_travel": [
-      "private_taxi",
       "bike_rental"
     ],
     "ideal_season": "post_monsoon",
@@ -4812,8 +4948,8 @@ export const CITIES = {
     "state": "karnataka",
     "region": "southern",
     "category": [
-      "heritage",
-      "backpacker",
+      "monuments_museums",
+      "backpacker"
     ],
     "must_visit": [
       "Virupaksha Temple",
@@ -4832,11 +4968,12 @@ export const CITIES = {
       "bicycle through the ruins at dusk",
       "Tungabhadra river sunset"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel"
+    ],
     "mode_of_travel": [
       "bike_rental",
-      "auto",
-      "private_taxi"
+      "auto"
     ],
     "ideal_season": "winter",
     "ideal_stay": "3-4 days",
@@ -4854,7 +4991,8 @@ export const CITIES = {
     "state": "tamil_nadu",
     "region": "southern",
     "category": [
-      "heritage",
+      "forts_palaces",
+      "monuments_museums",
       "pilgrimage"
     ],
     "must_visit": [
@@ -4874,11 +5012,12 @@ export const CITIES = {
       "parotta with Madurai-style salna",
       "jasmine garland buying at Nethaji market"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
       "auto",
-      "city_bus",
-      "private_taxi"
+      "city_bus"
     ],
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
@@ -4915,11 +5054,14 @@ export const CITIES = {
       "Pillar Rocks viewpoint at sunset",
       "Kodaikanal Special Porridge at local restaurants"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel",
+      "the_hosteller"
+    ],
     "mode_of_travel": [
-      "private_taxi",
       "bike_rental",
-      "auto"
+      "auto",
+      "private_taxi"
     ],
     "ideal_season": "summer",
     "ideal_stay": "2-3 days",
@@ -4938,7 +5080,7 @@ export const CITIES = {
     "region": "southern",
     "category": [
       "hill_station",
-      "backpacker",
+      "backpacker"
     ],
     "must_visit": [
       "Poombarai Village viewpoint",
@@ -4956,9 +5098,10 @@ export const CITIES = {
       "cycling through the shola grassland edges",
       "fresh cardamom chai from village shops"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "homestays"
+    ],
     "mode_of_travel": [
-      "private_taxi",
       "bike_rental"
     ],
     "ideal_season": "post_monsoon",
@@ -4977,7 +5120,8 @@ export const CITIES = {
     "state": "tamil_nadu",
     "region": "southern",
     "category": [
-      "hill_station"
+      "hill_station",
+      "in_transit"
     ],
     "must_visit": [
       "Megamalai Wildlife Sanctuary",
@@ -4995,10 +5139,12 @@ export const CITIES = {
       "Bodinayakkanur grapes (it's the grape capital of TN)",
       "jungle trekking permits through forest department"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "homestays"
+    ],
     "mode_of_travel": [
-      "private_taxi",
-      "bike_rental"
+      "bike_rental",
+      "private_taxi"
     ],
     "ideal_season": "post_monsoon",
     "ideal_stay": "1-2 days",
@@ -5016,7 +5162,7 @@ export const CITIES = {
     "state": "kerala",
     "region": "southern",
     "category": [
-      "hill_station",
+      "hill_station"
     ],
     "must_visit": [
       "Eravikulam National Park (Nilgiri Tahr)",
@@ -5035,10 +5181,13 @@ export const CITIES = {
       "Munnar special tea (cardamom and ginger blend)",
       "camping at Rajamala"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel",
+      "the_hosteller"
+    ],
     "mode_of_travel": [
-      "private_taxi",
-      "bike_rental"
+      "bike_rental",
+      "private_taxi"
     ],
     "ideal_season": "post_monsoon",
     "ideal_stay": "3-4 days",
@@ -5056,7 +5205,7 @@ export const CITIES = {
     "state": "kerala",
     "region": "southern",
     "category": [
-      "heritage",
+      "monuments_museums",
       "pilgrimage"
     ],
     "must_visit": [
@@ -5075,11 +5224,12 @@ export const CITIES = {
       "Kerala traditional mural art class",
       "Shakkara Payasam (sweet rice dessert at temples)"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
       "city_bus",
-      "auto",
-      "private_taxi"
+      "auto"
     ],
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
@@ -5097,7 +5247,8 @@ export const CITIES = {
     "state": "kerala",
     "region": "southern",
     "category": [
-      "heritage",
+      "forts_palaces",
+      "in_transit"
     ],
     "must_visit": [
       "Palakkad Fort",
@@ -5115,9 +5266,10 @@ export const CITIES = {
       "Malampuzha rope-way ride",
       "fresh organic mangoes (Palakkad grows special varieties)"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
-      "private_taxi",
       "city_bus"
     ],
     "ideal_season": "winter",
@@ -5136,7 +5288,9 @@ export const CITIES = {
     "state": "madhya_pradesh",
     "region": "central",
     "category": [
-      "heritage"
+      "forts_palaces",
+      "monuments_museums",
+      "in_transit"
     ],
     "must_visit": [
       "Gwalior Fort",
@@ -5153,7 +5307,9 @@ export const CITIES = {
       "Tansen Music Festival (if in season)",
       "Cycling through the old city"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
       "auto",
       "ola/uber"
@@ -5175,6 +5331,7 @@ export const CITIES = {
     "region": "central",
     "category": [
       "metro",
+      "in_transit",
       "base_camp"
     ],
     "must_visit": [
@@ -5193,7 +5350,9 @@ export const CITIES = {
       "Tadoba safari",
       "Ambedkar Memorial visit"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
       "auto",
       "ola/uber"
@@ -5235,11 +5394,13 @@ export const CITIES = {
       "cliff jumping at Half Moon Beach",
       "Gokarna full-moon beach party"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel",
+      "the_hosteller"
+    ],
     "mode_of_travel": [
       "auto",
-      "bike_rental",
-      "private_taxi"
+      "bike_rental"
     ],
     "ideal_season": "winter",
     "ideal_stay": "3-4 days",
@@ -5257,8 +5418,9 @@ export const CITIES = {
     "state": "gujarat",
     "region": "western",
     "category": [
-      "heritage",
-      "desert",
+      "forts_palaces",
+      "monuments_museums",
+      "desert"
     ],
     "must_visit": [
       "Bhuj Swaminarayan Temple",
@@ -5276,9 +5438,10 @@ export const CITIES = {
       "Kutchi handicraft shopping",
       "Kutchi embroidery"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
-      "private_taxi",
       "ola/uber",
       "auto"
     ],
@@ -5298,8 +5461,8 @@ export const CITIES = {
     "state": "gujarat",
     "region": "western",
     "category": [
-      "heritage",
-      "desert",
+      "monuments_museums",
+      "desert"
     ],
     "must_visit": [
       "White Rann",
@@ -5316,9 +5479,10 @@ export const CITIES = {
       "Star gazing on the Rann",
       "Kutchi thali"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
-      "private_taxi",
       "bike_rentals"
     ],
     "ideal_season": "winter",
@@ -5338,7 +5502,8 @@ export const CITIES = {
     "region": "central",
     "category": [
       "metro",
-      "heritage",
+      "monuments_museums",
+      "in_transit",
       "base_camp"
     ],
     "must_visit": [
@@ -5357,7 +5522,9 @@ export const CITIES = {
       "Bhimbetka half-day trip",
       "Old city street food walk"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
       "auto",
       "ola/uber",
@@ -5379,7 +5546,6 @@ export const CITIES = {
     "state": "karnataka",
     "region": "southern",
     "category": [
-      "heritage",
       "pilgrimage",
       "coastal"
     ],
@@ -5400,11 +5566,12 @@ export const CITIES = {
       "Kaup beach lighthouse sunset",
       "goli baje (unique Udupi fritter)"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "homestays"
+    ],
     "mode_of_travel": [
       "auto",
       "city_bus",
-      "private_taxi",
       "bike_rental"
     ],
     "ideal_season": "winter",
@@ -5424,8 +5591,9 @@ export const CITIES = {
     "region": "southern",
     "category": [
       "coastal",
-      "heritage",
-      "metro"
+      "monuments_museums",
+      "metro",
+      "in_transit"
     ],
     "must_visit": [
       "Kadri Manjunath Temple",
@@ -5444,12 +5612,13 @@ export const CITIES = {
       "Mangalorean buns (sweet fried bread)",
       "port area seafood market in the morning"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "homestays"
+    ],
     "mode_of_travel": [
       "city_bus",
       "auto",
-      "ola/uber",
-      "private_taxi"
+      "ola/uber"
     ],
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
@@ -5468,7 +5637,7 @@ export const CITIES = {
     "region": "southern",
     "category": [
       "coastal",
-      "heritage",
+      "forts_palaces",
       "pilgrimage"
     ],
     "must_visit": [
@@ -5487,11 +5656,12 @@ export const CITIES = {
       "Dharmadam Island boat trip",
       "locally woven handloom fabrics (Kannur is the weaving capital)"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "homestays"
+    ],
     "mode_of_travel": [
       "city_bus",
       "auto",
-      "private_taxi",
       "bike_rental"
     ],
     "ideal_season": "winter",
@@ -5510,7 +5680,7 @@ export const CITIES = {
     "state": "kerala",
     "region": "southern",
     "category": [
-      "heritage",
+      "monuments_museums",
       "coastal",
       "backpacker"
     ],
@@ -5531,11 +5701,12 @@ export const CITIES = {
       "kallumakkaya (mussels) ularthiyathu",
       "heritage walk through Kuttichira"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "homestays"
+    ],
     "mode_of_travel": [
       "city_bus",
-      "auto",
-      "private_taxi"
+      "auto"
     ],
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
@@ -5546,49 +5717,6 @@ export const CITIES = {
       "SM Street's halwa shops have been operating for generations; the black halwa is unique to Kozhikode and worth bringing home."
     ]
   },
-  "amristar": {
-    "city": "Amristar",
-    "lat": 31.62234,
-    "lng": 74.87534,
-    "state": "punjab",
-    "region": "northern",
-    "category": [
-      "pilgrimage",
-      "heritage",
-      "border_town"
-    ],
-    "must_visit": [
-      "Golden Temple (Harmandir Sahib)",
-      "Wagah Border Ceremony",
-      "Jallianwala Bagh",
-      "Partition Museum",
-      "Gobindgarh Fort",
-      "Durgiana Temple"
-    ],
-    "must_try": [
-      "Langar at Golden Temple (mandatory)",
-      "Amritsari kulcha with chhole",
-      "Amritsari fish fry",
-      "Lassi from Gurdas Ram stall",
-      "Attend the Wagah Border Beating Retreat Ceremony",
-      "Evening at Golden Temple for illumination"
-    ],
-    "accommodation": [],
-    "mode_of_travel": [
-      "auto",
-      "ola/uber",
-      "private_taxi",
-      "city_bus"
-    ],
-    "ideal_season": "winter",
-    "ideal_stay": "2-3 days",
-    "rating": 5,
-    "notes": [
-      "The Golden Temple at 3am, when most tourists are asleep and only the devout remain, is the most peaceful place in India.",
-      "Langar feeds 100,000 people a day for free — sitting on the floor and eating with strangers is a lesson in human dignity.",
-      "Wagah border is nationalistic theater done right — absurd and moving at the same time."
-    ]
-  },
   "dalhouisie": {
     "city": "Dalhouisie",
     "lat": 32.55219,
@@ -5596,8 +5724,7 @@ export const CITIES = {
     "state": "himachal_pradesh",
     "region": "northern",
     "category": [
-      "hill_station",
-      "heritage"
+      "hill_station"
     ],
     "must_visit": [
       "Dainkund Peak",
@@ -5613,9 +5740,11 @@ export const CITIES = {
       "Sunset from Dainkund Peak",
       "Colonial-era bakery pastries in the mall area"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel",
+      "the_hosteller"
+    ],
     "mode_of_travel": [
-      "private_taxi",
       "ola/uber"
     ],
     "ideal_season": "summer",
@@ -5636,7 +5765,7 @@ export const CITIES = {
     "category": [
       "hill_station",
       "pilgrimage",
-      "backpacker",
+      "backpacker"
     ],
     "must_visit": [
       "Namgyal Monastery & Tsuglagkhang Complex",
@@ -5653,9 +5782,13 @@ export const CITIES = {
       "Prayer wheel circuit around the main temple",
       "Israeli cafe scene in McLeod Ganj"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel",
+      "gostops",
+      "the_hosteller",
+      "madpackers"
+    ],
     "mode_of_travel": [
-      "private_taxi",
       "ola/uber",
       "bike_rental"
     ],
@@ -5692,9 +5825,13 @@ export const CITIES = {
       "Camping at Billing overnight",
       "Sunrise view of Dhauladhar range"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "gostops",
+      "the_hosteller",
+      "moustache",
+      "madpackers"
+    ],
     "mode_of_travel": [
-      "private_taxi",
       "bike_rental"
     ],
     "ideal_season": "post_monsoon",
@@ -5714,7 +5851,7 @@ export const CITIES = {
     "region": "southern",
     "category": [
       "hill_station",
-      "heritage"
+      "monuments_museums"
     ],
     "must_visit": [
       "Edakkal Caves",
@@ -5733,9 +5870,11 @@ export const CITIES = {
       "coffee and pepper estate walk",
       "jackfruit halwa"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "zostel",
+      "the_hosteller"
+    ],
     "mode_of_travel": [
-      "private_taxi",
       "bike_rental"
     ],
     "ideal_season": "post_monsoon",
@@ -5754,7 +5893,7 @@ export const CITIES = {
     "state": "tamil_nadu",
     "region": "southern",
     "category": [
-      "heritage",
+      "monuments_museums",
       "coastal"
     ],
     "must_visit": [
@@ -5774,11 +5913,12 @@ export const CITIES = {
       "fresh lobster at a beach shack",
       "sunset from the Shore Temple beach"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "homestays"
+    ],
     "mode_of_travel": [
       "bike_rental",
-      "auto",
-      "private_taxi"
+      "auto"
     ],
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
@@ -5796,7 +5936,8 @@ export const CITIES = {
     "state": "tamil_nadu",
     "region": "southern",
     "category": [
-      "heritage",
+      "forts_palaces",
+      "monuments_museums",
       "pilgrimage"
     ],
     "must_visit": [
@@ -5816,11 +5957,12 @@ export const CITIES = {
       "Airavateeswara Temple (a UNESCO site often skipped)",
       "Carnatic classical music performance"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
       "auto",
       "city_bus",
-      "private_taxi",
       "bike_rental"
     ],
     "ideal_season": "winter",
@@ -5839,8 +5981,10 @@ export const CITIES = {
     "state": "tamil_nadu",
     "region": "southern",
     "category": [
-      "heritage",
-      "pilgrimage"
+      "forts_palaces",
+      "monuments_museums",
+      "pilgrimage",
+      "in_transit"
     ],
     "must_visit": [
       "Sri Ranganathaswamy Temple (Srirangam)",
@@ -5858,11 +6002,12 @@ export const CITIES = {
       "local biryani near Chathram bus stand",
       "banana leaf meal at a hotel near Srirangam"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
       "city_bus",
-      "auto",
-      "private_taxi"
+      "auto"
     ],
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
@@ -5882,7 +6027,7 @@ export const CITIES = {
     "category": [
       "pilgrimage",
       "coastal",
-      "heritage"
+      "forts_palaces"
     ],
     "must_visit": [
       "Vivekananda Rock Memorial",
@@ -5901,10 +6046,11 @@ export const CITIES = {
       "fresh coconut water at land's end",
       "kothu parotta with chicken gravy"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "homestays"
+    ],
     "mode_of_travel": [
       "auto",
-      "private_taxi",
       "city_bus"
     ],
     "ideal_season": "winter",
@@ -5940,9 +6086,10 @@ export const CITIES = {
       "Vaishnav khichdi prasad",
       "Walk the parikrama path around Mayapur dhama"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
-      "private_taxi",
       "auto"
     ],
     "ideal_season": "winter",
@@ -5978,10 +6125,10 @@ export const CITIES = {
       "Drive through orange orchards in season (Oct-Nov)",
       "Dawn walk along the lake promenade"
     ],
-    "accommodation": [],
-    "mode_of_travel": [
-      "private_taxi"
+    "accommodation": [
+      "homestays"
     ],
+    "mode_of_travel": [],
     "ideal_season": "post_monsoon",
     "ideal_stay": "1-2 days",
     "rating": 3,
@@ -5999,7 +6146,7 @@ export const CITIES = {
     "region": "eastern",
     "category": [
       "hill_station",
-      "heritage",
+      "monuments_museums",
       "backpacker"
     ],
     "must_visit": [
@@ -6016,10 +6163,10 @@ export const CITIES = {
       "Walk the Dow Hill Forest trail",
       "Sunset from Eagle's Craig"
     ],
-    "accommodation": [],
-    "mode_of_travel": [
-      "private_taxi"
+    "accommodation": [
+      "homestays"
     ],
+    "mode_of_travel": [],
     "ideal_season": "post_monsoon",
     "ideal_stay": "1-2 days",
     "rating": 3,
@@ -6037,7 +6184,7 @@ export const CITIES = {
     "region": "eastern",
     "category": [
       "hill_station",
-      "heritage",
+      "monuments_museums",
       "pilgrimage"
     ],
     "must_visit": [
@@ -6054,10 +6201,10 @@ export const CITIES = {
       "Monk chanting ceremony at Ghoom Monastery",
       "Local thukpa in the tiny market"
     ],
-    "accommodation": [],
-    "mode_of_travel": [
-      "private_taxi"
+    "accommodation": [
+      "homestays"
     ],
+    "mode_of_travel": [],
     "ideal_season": "post_monsoon",
     "ideal_stay": "1 day",
     "rating": 3,
@@ -6075,7 +6222,6 @@ export const CITIES = {
     "region": "eastern",
     "category": [
       "hill_station",
-      "heritage",
       "backpacker"
     ],
     "must_visit": [
@@ -6094,7 +6240,9 @@ export const CITIES = {
       "Visit the Sunday haat for local produce",
       "Eat at a Tibetan refugee family's homestay"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "homestays"
+    ],
     "mode_of_travel": [
       "private_taxi"
     ],
@@ -6115,7 +6263,7 @@ export const CITIES = {
     "region": "eastern",
     "category": [
       "metro",
-      "heritage",
+      "monuments_museums",
       "pilgrimage",
       "base_camp"
     ],
@@ -6135,12 +6283,13 @@ export const CITIES = {
       "Bihari thali at a local restaurant",
       "Boat ride on the Ganges at sunset"
     ],
-    "accommodation": [],
+    "accommodation": [
+      "budget_hotels"
+    ],
     "mode_of_travel": [
       "auto",
       "city_bus",
-      "ola/uber",
-      "private_taxi"
+      "ola/uber"
     ],
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
@@ -6153,6 +6302,56 @@ export const CITIES = {
   }
 };
 
+const ACCOMMODATION_META = {
+  "bloom": {
+    "label": "Bloom",
+    "slug": "bloom"
+  },
+  "zostel": {
+    "label": "Zostel",
+    "slug": "zostel"
+  },
+  "gostops": {
+    "label": "goSTOPS",
+    "slug": "gostops"
+  },
+  "the_hosteller": {
+    "label": "The Hosteller",
+    "slug": "the-hosteller"
+  },
+  "moustache": {
+    "label": "Moustache",
+    "slug": "moustache"
+  },
+  "madpackers": {
+    "label": "Madpackers",
+    "slug": "madpackers"
+  },
+  "homestays": {
+    "label": "Homestays",
+    "slug": "homestays"
+  },
+  "budget_hotels": {
+    "label": "Hotels",
+    "slug": "hotels"
+  }
+};
+
+export const ACCOMMODATIONS = Object.fromEntries(
+  Object.entries(ACCOMMODATION_META)
+    .map(([code, meta]) => [
+      code,
+      {
+        ...meta,
+        cities: Object.entries(CITIES)
+          .filter(([, city]) => city.accommodation?.includes(code))
+          .map(([cityCode]) => cityCode)
+          .sort((a, b) => CITIES[a].city.localeCompare(CITIES[b].city))
+      }
+    ])
+    .filter(([, group]) => group.cities.length > 0)
+);
+
 export const CATEGORIES = {
   "backpacker": {
     "label": "Backpacker",
@@ -6160,20 +6359,38 @@ export const CATEGORIES = {
     "cities": [
       "allepey",
       "bir",
+      "bodh-gaya",
+      "dawki",
       "dharamshala-mcleond-gang",
+      "digha",
+      "dimapur",
       "goa",
       "gokarna",
+      "guwahati",
       "hampi",
+      "itanagar",
+      "kalimpong",
+      "kharagpur",
       "kochi",
       "kodaikannal",
+      "kohima",
+      "kolkata",
       "kozhikode",
+      "kurseong",
+      "leh",
       "manali",
+      "mayapur",
+      "mirik",
       "pondicherry",
-      "puri-konark",
-      "udupi",
-      "varkala",
-      "wayanad",
-      "wayanad-vyithri"
+      "poombarai",
+      "shillong",
+      "silchar",
+      "siliguri",
+      "srinagar",
+      "tinsukia",
+      "vagamon",
+      "varanasi",
+      "varkala"
     ]
   },
   "coastal": {
@@ -6195,8 +6412,8 @@ export const CATEGORIES = {
       "mumbai",
       "pondicherry",
       "puri-konark",
+      "rameshwaram",
       "somnath",
-      "surat",
       "trivandrum",
       "udupi",
       "varkala",
@@ -6210,7 +6427,6 @@ export const CATEGORIES = {
       "bhuj",
       "bikaner",
       "jaisalmer",
-      "jodhpur",
       "kutchh",
       "sam"
     ]
@@ -6220,7 +6436,6 @@ export const CATEGORIES = {
     "slug": "food",
     "cities": [
       "ahmedabad-gandhinagar",
-      "amristar",
       "amritsar",
       "bengaluru",
       "delhi",
@@ -6240,55 +6455,45 @@ export const CATEGORIES = {
       "varanasi"
     ]
   },
-  "heritage": {
-    "label": "Heritage",
-    "slug": "heritage",
+  "forts_palaces": {
+    "label": "Forts and Palaces",
+    "slug": "forts-and-palaces",
     "cities": [
       "agra",
-      "ahmedabad-gandhinagar",
-      "ajmer-pushkar",
-      "amristar",
       "amritsar",
-      "bhopal",
       "bhuj",
       "bikaner",
-      "chandigarh",
       "chennai",
       "chittorgarh",
       "cuttak",
       "delhi",
       "goa",
       "gwalior",
-      "hampi",
       "hyderabad",
+      "itanagar",
       "jaipur",
       "jaisalmer",
+      "jammu",
       "jhansi",
       "jodhpur",
-      "kanchipuram",
-      "kevadiya",
-      "khajurao",
+      "kannur",
+      "kanyakumari",
       "kochi",
-      "kolkata",
       "kumbhalgarh",
-      "lukhnow",
+      "leh",
       "madurai",
-      "mahabalipuram",
-      "mumbai",
       "mudurai",
       "mysore",
       "orchha",
-      "patna",
-      "pondicherry",
+      "palakkad",
+      "prayagraj",
       "pune",
-      "rajkot",
       "sambhajinagar",
-      "somnath",
+      "shivamogga",
       "thanjavur",
       "tiruchirappalli",
       "udaipur",
-      "vadodara",
-      "varanasi"
+      "vadodara"
     ]
   },
   "hill_station": {
@@ -6296,9 +6501,6 @@ export const CATEGORIES = {
     "slug": "mountains",
     "cities": [
       "araku",
-      "banihal-udhampur",
-      "banihar-qazigund",
-      "bir",
       "chikkmanglore",
       "coorg",
       "dalhouisie",
@@ -6308,13 +6510,9 @@ export const CATEGORIES = {
       "ghoom",
       "gulmarg",
       "kalimpong",
-      "kargil",
-      "keylong",
       "kodaikannal",
-      "kohima",
       "kullu",
       "kurseong",
-      "leh",
       "manali",
       "mirik",
       "munnar",
@@ -6325,6 +6523,7 @@ export const CATEGORIES = {
       "sonmarg",
       "srinagar",
       "tawang",
+      "theni",
       "vagamon",
       "wayanad",
       "wayanad-vyithri"
@@ -6335,11 +6534,8 @@ export const CATEGORIES = {
     "slug": "metro",
     "cities": [
       "ahmedabad-gandhinagar",
-      "banglore",
-      "bengalauru",
       "bengaluru",
       "bhopal",
-      "chandigarh",
       "chennai",
       "coimbatore",
       "delhi",
@@ -6347,11 +6543,9 @@ export const CATEGORIES = {
       "guwahati",
       "hyderabad",
       "indore",
-      "jalandhar",
       "jaipur",
       "kochi",
       "kolkata",
-      "ludhiana",
       "manglore",
       "mumbai",
       "nagpur",
@@ -6361,8 +6555,102 @@ export const CATEGORIES = {
       "rajkot",
       "surat",
       "trivandrum",
-      "vadodara",
       "vishakhapatnam"
+    ]
+  },
+  "in_transit": {
+    "label": "In Transit",
+    "slug": "in-transit",
+    "cities": [
+      "bhopal",
+      "coimbatore",
+      "cuttak",
+      "dimapur",
+      "gwalior",
+      "indore",
+      "jalandhar",
+      "jammu",
+      "jhansi",
+      "kharagpur",
+      "ludhiana",
+      "manglore",
+      "nagpur",
+      "palakkad",
+      "pathankot",
+      "rajkot",
+      "silchar",
+      "siliguri",
+      "surat",
+      "theni",
+      "tiruchirappalli",
+      "vadodara"
+    ]
+  },
+  "monuments_museums": {
+    "label": "Monuments and Museums",
+    "slug": "monuments-and-museums",
+    "cities": [
+      "agra",
+      "ahmedabad-gandhinagar",
+      "amritsar",
+      "araku",
+      "bhopal",
+      "bhuj",
+      "bikaner",
+      "bodh-gaya",
+      "chandigarh",
+      "chennai",
+      "chittorgarh",
+      "cuttak",
+      "darjeeling",
+      "delhi",
+      "dimapur",
+      "gangtok",
+      "ghoom",
+      "goa",
+      "gwalior",
+      "hampi",
+      "hyderabad",
+      "itanagar",
+      "jaipur",
+      "jaisalmer",
+      "jammu",
+      "jhansi",
+      "jodhpur",
+      "kanchipuram",
+      "kargil",
+      "kevadiya",
+      "khajurao",
+      "kochi",
+      "kohima",
+      "kolkata",
+      "kozhikode",
+      "kurseong",
+      "kutchh",
+      "leh",
+      "lukhnow",
+      "madurai",
+      "mahabalipuram",
+      "manglore",
+      "mudurai",
+      "mysore",
+      "orchha",
+      "patna",
+      "pondicherry",
+      "prayagraj",
+      "pune",
+      "puri-konark",
+      "rameshwaram",
+      "sambhajinagar",
+      "silchar",
+      "srinagar",
+      "thanjavur",
+      "thrissur",
+      "tiruchirappalli",
+      "varanasi",
+      "vishakhapatnam",
+      "wayanad",
+      "wayanad-vyithri"
     ]
   },
   "nature": {
@@ -6416,37 +6704,66 @@ export const CATEGORIES = {
     "slug": "temple-tour",
     "cities": [
       "ajmer-pushkar",
-      "amristar",
       "amritsar",
       "ayodhya",
       "baltal",
       "bodh-gaya",
+      "cuttak",
+      "delhi",
       "deoghar",
+      "dharamshala-mcleond-gang",
       "dwarka",
+      "ghoom",
+      "gokarna",
+      "guwahati",
       "jammu",
       "kanchipuram",
-      "katra",
+      "kannur",
       "kanyakumari",
+      "katra",
+      "leh",
+      "madurai",
       "mathura",
       "mayapur",
+      "mudurai",
+      "mysore",
+      "nashik",
       "omkareshwar",
+      "patna",
+      "pelling",
       "prayagraj",
       "puri-konark",
       "rameshwaram",
       "shirdi",
       "somnath",
       "srisailam",
+      "tawang",
+      "thanjavur",
+      "thrissur",
       "tiruchirappalli",
       "tirupati",
-      "varanasi"
+      "trivandrum",
+      "udupi",
+      "varanasi",
+      "varkala"
+    ]
+  },
+  "border_town": {
+    "label": "Border Town",
+    "slug": "border-town",
+    "cities": [
+      "amritsar",
+      "dawki",
+      "dimapur",
+      "kargil",
+      "pathankot",
+      "tawang"
     ]
   },
   "base_camp": {
     "label": "Base Camp",
     "slug": "base-camp",
     "cities": [
-      "banglore",
-      "bengalauru",
       "bengaluru",
       "bhopal",
       "chandigarh",
@@ -6533,7 +6850,6 @@ export const REGIONS = {
     "cities": [
       "agra",
       "ajmer-pushkar",
-      "amristar",
       "amritsar",
       "ayodhya",
       "baltal",
@@ -6580,8 +6896,6 @@ export const REGIONS = {
     "cities": [
       "allepey",
       "araku",
-      "banglore",
-      "bengalauru",
       "bengaluru",
       "chennai",
       "chikkmanglore",
@@ -6763,8 +7077,6 @@ export const STATES = {
     "label": "Karnataka",
     "slug": "karnataka",
     "cities": [
-      "banglore",
-      "bengalauru",
       "bengaluru",
       "chikkmanglore",
       "coorg",
@@ -6861,7 +7173,6 @@ export const STATES = {
     "label": "Punjab",
     "slug": "punjab",
     "cities": [
-      "amristar",
       "amritsar",
       "jalandhar",
       "ludhiana",
