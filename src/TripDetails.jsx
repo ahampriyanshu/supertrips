@@ -90,6 +90,28 @@ const activeStopMarkerOptions = {
   weight: 2,
 };
 
+function useDesktopView() {
+  const [isDesktop, setIsDesktop] = useState(() => (
+    typeof window !== 'undefined'
+      ? window.matchMedia('(min-width: 640px)').matches
+      : false
+  ));
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return undefined;
+
+    const mediaQuery = window.matchMedia('(min-width: 640px)');
+    const handleChange = () => setIsDesktop(mediaQuery.matches);
+
+    handleChange();
+    mediaQuery.addEventListener('change', handleChange);
+
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
+
+  return isDesktop;
+}
+
 function MapPopupLink({ href, className, children }) {
   return (
     <a
@@ -161,7 +183,50 @@ function StopPopup({ city }) {
   );
 }
 
+function StopMarker({ city, index, activePosition, openActivePopup }) {
+  const markerRef = useRef(null);
+  const isActive = activePosition?.[0] === city.lat && activePosition?.[1] === city.lng;
+
+  useEffect(() => {
+    const marker = markerRef.current;
+    if (!marker) return undefined;
+
+    if (isActive && openActivePopup) {
+      const timer = setTimeout(() => marker.openPopup(), 550);
+      return () => clearTimeout(timer);
+    }
+
+    if (!isActive) {
+      marker.closePopup();
+    }
+
+    return undefined;
+  }, [city.code, city.city, isActive, openActivePopup]);
+
+  return (
+    <CircleMarker
+      ref={markerRef}
+      key={`${city.code || city.city}-${index}`}
+      center={[city.lat, city.lng]}
+      radius={isActive ? 7 : 5}
+      pathOptions={isActive ? activeStopMarkerOptions : stopMarkerOptions}
+    >
+      <Popup
+        className="td-map-popup"
+        autoPan
+        keepInView
+        autoPanPaddingTopLeft={[32, 72]}
+        autoPanPaddingBottomRight={[32, 32]}
+      >
+        <StopPopup city={city} />
+      </Popup>
+    </CircleMarker>
+  );
+}
+
 function LeafletMap({ cities = [], positions, activePosition }) {
+  const openActivePopup = useDesktopView();
+
   return (
     <MapContainer
       center={[20.5937, 78.9629]}
@@ -186,19 +251,15 @@ function LeafletMap({ cities = [], positions, activePosition }) {
       {positions.length > 1 && <Polyline positions={positions} pathOptions={routeLineOptions} />}
       {cities.map((city, index) => {
         if (!city?.lat || !city?.lng) return null;
-        const isActive = activePosition?.[0] === city.lat && activePosition?.[1] === city.lng;
 
         return (
-          <CircleMarker
+          <StopMarker
             key={`${city.code || city.city}-${index}`}
-            center={[city.lat, city.lng]}
-            radius={isActive ? 7 : 5}
-            pathOptions={isActive ? activeStopMarkerOptions : stopMarkerOptions}
-          >
-            <Popup className="td-map-popup">
-              <StopPopup city={city} />
-            </Popup>
-          </CircleMarker>
+            city={city}
+            index={index}
+            activePosition={activePosition}
+            openActivePopup={openActivePopup}
+          />
         );
       })}
     </MapContainer>
@@ -596,10 +657,10 @@ export default function TripDetails({ trip, index, initialCityIndex = 0, onBack,
           <div className="td-trip-meta">{totalDuration} · {cities.length} stops · {trip.distanceKm.toLocaleString()} km</div>
         </div>
 
-        {/* Mobile title (city name) */}
+        {/* Mobile title */}
         <div className="td-title-block td-mobile-only">
-          <div className="td-trip-title">{activeCity?.city}</div>
-          <div className="td-trip-meta">{trip.name} · stop {currentIndex + 1}/{cities.length}</div>
+          <div className="td-trip-title">{trip.name}</div>
+          <div className="td-trip-meta">stop {currentIndex + 1} of {cities.length}</div>
         </div>
 
         {/* Desktop: trip switcher */}

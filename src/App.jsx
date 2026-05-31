@@ -375,7 +375,7 @@ function HeroHeader() {
         <div className="app-hero-stats">
           {[
             ["10", "Trips"],
-            [totalCities, "Unique cities"],
+            [totalCities, "Cities"],
             [totalStops, "Total stops"],
           ].map(([n, l]) => (
             <div key={l}>
