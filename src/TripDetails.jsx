@@ -1,13 +1,10 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { CircleMarker, MapContainer, Polyline, Popup, TileLayer, useMap } from 'react-leaflet';
+import { CircleMarker, MapContainer, Polyline, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import { ACCOMMODATIONS, CITIES as CITIES_DATA, CATEGORIES } from './data.js';
 import './TripDetails.css';
-
-function navigateTo(href) {
-  window.history.pushState(null, '', href);
-  window.dispatchEvent(new Event('popstate'));
-}
+import MapTileLayer from './components/MapTileLayer.jsx';
+import { navigateTo } from './nav.js';
 
 const CITY_ENRICHMENT = Object.values(CITIES_DATA).reduce((acc, entry) => {
   if (!acc[entry.city]) acc[entry.city] = entry;
@@ -219,17 +216,7 @@ function LeafletMap({ cities = [], positions, activePosition }) {
       zoomControl={false}
       style={{ height: '100%', width: '100%', background: '#eae8e0' }}
     >
-      {import.meta.env.VITE_MAPPLS_KEY ? (
-        <TileLayer
-          attribution='&copy; <a href="https://www.mappls.com/">MapmyIndia</a>'
-          url={`https://apis.mappls.com/advancedmaps/v1/${import.meta.env.VITE_MAPPLS_KEY}/still_map/{z}/{x}/{y}.png`}
-        />
-      ) : (
-        <TileLayer
-          attribution='&copy; OpenStreetMap contributors'
-          url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
-        />
-      )}
+      <MapTileLayer />
       <BoundsInit positions={positions} />
       {activePosition && <CityFocuser position={activePosition} />}
       {positions.length > 1 && <Polyline positions={positions} pathOptions={routeLineOptions} />}
@@ -317,7 +304,6 @@ function DetailColumn({ city, cityIndex, total, onOpenMap }) {
     <div data-detail-scroll="" className="td-detail-scroll" style={{ opacity: visible ? 1 : 0 }}>
       <div className="td-detail-inner">
 
-        {/* Map widget — mobile only */}
         {onOpenMap && (
           <button className="td-map-widget td-mobile-only" onClick={onOpenMap}>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -328,7 +314,6 @@ function DetailColumn({ city, cityIndex, total, onOpenMap }) {
           </button>
         )}
 
-        {/* City name + categories */}
         <div>
           <div className="td-city-title-row">
             <div className="td-city-title">{c?.city}</div>
@@ -362,14 +347,12 @@ function DetailColumn({ city, cityIndex, total, onOpenMap }) {
           )}
         </div>
 
-        {/* Stay badges */}
         <div className="td-badge-row">
           {c?.dur && <InfoBadge label="My stay" value={c.dur} />}
           {data?.ideal_stay && <InfoBadge label="Ideal stay" value={data.ideal_stay} />}
           {data?.ideal_season && <InfoBadge label="Ideal time" value={fmt(data.ideal_season)} />}
         </div>
 
-        {/* Accommodation */}
         {data?.accommodation?.length > 0 && (
           <div>
             <div className="td-section-label">Accommodation</div>
@@ -385,7 +368,6 @@ function DetailColumn({ city, cityIndex, total, onOpenMap }) {
           </div>
         )}
 
-        {/* Travel */}
         {data?.mode_of_travel?.length > 0 && (
           <div>
             <div className="td-section-label">Travel</div>
@@ -397,7 +379,6 @@ function DetailColumn({ city, cityIndex, total, onOpenMap }) {
           </div>
         )}
 
-        {/* Must Visit */}
         {data?.must_visit?.length > 0 && (
           <div>
             <div className="td-section-label">Must Visit</div>
@@ -409,7 +390,6 @@ function DetailColumn({ city, cityIndex, total, onOpenMap }) {
           </div>
         )}
 
-        {/* Must Try */}
         {data?.must_try?.length > 0 && (
           <div>
             <div className="td-section-label">Must Try</div>
@@ -421,7 +401,6 @@ function DetailColumn({ city, cityIndex, total, onOpenMap }) {
           </div>
         )}
 
-        {/* My Notes */}
         {notes.length > 0 && (
           <div>
             <div className="td-section-label">My Notes</div>
@@ -627,11 +606,9 @@ export default function TripDetails({ trip, index, initialCityIndex = 0, onBack,
 
   return (
     <div className="td-root">
-      {/* ── HEADER ── */}
       <div className="td-topbar">
         <div className="td-pattern" />
 
-        {/* Desktop: back button */}
         <button onClick={onBack} className="td-icon-btn td-desktop-only">
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
             <path d="M14 17L8 11L14 5" stroke="#c9962a" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
@@ -639,19 +616,16 @@ export default function TripDetails({ trip, index, initialCityIndex = 0, onBack,
         </button>
         <div className="td-divider td-desktop-only" />
 
-        {/* Desktop title */}
         <div className="td-title-block td-desktop-only">
           <div className="td-trip-title">{trip.name}</div>
           <div className="td-trip-meta">{totalDuration} · {cities.length} stops · {trip.distanceKm.toLocaleString()} km</div>
         </div>
 
-        {/* Mobile title */}
         <div className="td-title-block td-mobile-only">
           <div className="td-trip-title">{trip.name}</div>
           <div className="td-trip-meta">stop {currentIndex + 1} of {cities.length}</div>
         </div>
 
-        {/* Desktop: trip switcher */}
         <div className="td-trip-switcher td-desktop-only">
           <button onClick={onPrevTrip} className="td-icon-btn">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -666,7 +640,6 @@ export default function TripDetails({ trip, index, initialCityIndex = 0, onBack,
           </button>
         </div>
 
-        {/* Mobile: city prev/next */}
         <div className="td-trip-switcher td-mobile-only">
           <button onClick={() => advance(-1)} className="td-icon-btn">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -681,7 +654,6 @@ export default function TripDetails({ trip, index, initialCityIndex = 0, onBack,
         </div>
       </div>
 
-      {/* ── MAIN SPLIT ── */}
       <div className="td-main">
         <MapColumn
           cities={cities}
@@ -691,10 +663,8 @@ export default function TripDetails({ trip, index, initialCityIndex = 0, onBack,
         <DetailColumn city={activeCity} cityIndex={currentIndex} total={cities.length} onOpenMap={() => setMapOpen(true)} />
       </div>
 
-      {/* ── FOOTER TAPE ── */}
       <FooterTape cities={cities} currentIndex={currentIndex} onPrev={() => advance(-1)} onNext={() => advance(1)} />
 
-      {/* ── MAP MODAL (mobile) ── */}
       {mapOpen && (
         <MapModal
           cities={cities}

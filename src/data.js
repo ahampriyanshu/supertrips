@@ -7279,7 +7279,7 @@ export const BACKPACKING_101 = [
       "100L rucksack bag + 20-30L foldable bags",
       "Packing cubes or pouches to separate clothes, cables, and toiletries.",
       "Basic medicines, reusable water bottle, and a rain cover.",
-      "Power bank, 4m usb-c cable, ",
+      "Power bank, 4m usb-c cable, wired earphones",
       "A small padlock for lockers, and a cheap but sturdy money belt.",
     ],
   },

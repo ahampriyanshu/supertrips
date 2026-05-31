@@ -1,26 +1,15 @@
 import { useEffect, useState } from "react";
-import { CircleMarker, MapContainer, Popup, TileLayer } from "react-leaflet";
+import { CircleMarker, MapContainer, Popup } from "react-leaflet";
 import "./App.css";
 
 import TripDetails, { CityDetails } from "./TripDetails";
 import { ACCOMMODATIONS, BACKPACKING_101, CATEGORIES, CITIES, REGIONS, STATES, TRIPS } from "./data.js";
+import MapTileLayer from "./components/MapTileLayer.jsx";
+import { navigateTo } from "./nav.js";
 
 
 const totalCities = new Set(TRIPS.flatMap(t => t.cities.map(c => c.city))).size;
 const totalStops = TRIPS.reduce((a, t) => a + t.cities.length, 0);
-
-const routeDefinitions = [
-  "/",
-  "/supertrips",
-  "/routes/:route",
-  "/cities",
-  "/cities/:city",
-  "/categories",
-  "/stay",
-  "/states/:state",
-  "/regions/:region",
-  "/categories/:category",
-];
 
 function toDirectoryItems(groups, basePath, hashPrefix) {
   return Object.values(groups).map(({ label, slug, cities }) => ({
@@ -140,12 +129,6 @@ function useCurrentRoute() {
   return route;
 }
 
-function navigateTo(href, state = null) {
-  if (typeof window === "undefined") return;
-  window.history.pushState(state, "", href);
-  window.dispatchEvent(new Event("popstate"));
-}
-
 function Link({ href, className, children, ...props }) {
   return (
     <a
@@ -252,17 +235,7 @@ function CitiesMap({ cityCodes, label = "Map of all cities" }) {
           zoomControl={false}
           style={{ height: "100%", width: "100%", background: "#eae8e0" }}
         >
-          {import.meta.env.VITE_MAPPLS_KEY ? (
-            <TileLayer
-              attribution='&copy; <a href="https://www.mappls.com/">MapmyIndia</a>'
-              url={`https://apis.mappls.com/advancedmaps/v1/${import.meta.env.VITE_MAPPLS_KEY}/still_map/{z}/{x}/{y}.png`}
-            />
-          ) : (
-            <TileLayer
-              attribution='&copy; OpenStreetMap contributors'
-              url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
-            />
-          )}
+          <MapTileLayer />
 
           {cities.map(({ cityCode, city, position }) => {
             const categories = normalizeList(city.category);
@@ -431,11 +404,7 @@ function CitiesIndexPage() {
 
   return (
     <div className="app-root">
-      <PageHeader
-        eyebrow="Cities"
-        title="Cities"
-        intro="All destinations grouped by region, state, and city."
-      />
+      <PageHeader title="Cities" />
 
       <CitiesMap cityCodes={allCityCodes} />
 
@@ -495,11 +464,7 @@ function CategoriesIndexPage() {
 
   return (
     <div className="app-root">
-      <PageHeader
-        eyebrow="Categories"
-        title="Categories"
-        intro="Travel styles with matching destinations from these routes."
-      />
+      <PageHeader title="Categories" />
 
       <CitiesMap cityCodes={categoryCityCodes} label="Map of cities by category" />
 
@@ -536,11 +501,7 @@ function StayIndexPage() {
 
   return (
     <div className="app-root">
-      <PageHeader
-        eyebrow="Stay"
-        title="Stay"
-        intro="Accommodation options grouped by the cities where they are useful."
-      />
+      <PageHeader title="Stay" />
 
       <main className="app-page-content">
         {stayGroups.map((stay, stayIndex) => {
@@ -610,7 +571,7 @@ function GroupPage({ type, value }) {
 
   return (
     <div className="app-root">
-      <PageHeader eyebrow={typeLabel} title={group.label} intro={intro} />
+      <PageHeader title={group.label} />
 
       <main className="app-page-content">
         <ul className="app-city-list">
@@ -630,11 +591,7 @@ function GroupPage({ type, value }) {
 function NotFoundPage() {
   return (
     <div className="app-root">
-      <PageHeader
-        eyebrow="404"
-        title="Not found"
-        intro={`Available paths: ${routeDefinitions.join(", ")}`}
-      />
+      <PageHeader title="Not found" />
     </div>
   );
 }
@@ -772,7 +729,7 @@ export default function App() {
       <section className="app-directory-section">
         <h2 className="app-directory-title">Plan your next itinerary</h2>
         <p className="app-directory-intro">
-          Pick a region, a state, a travel style, or a place to stay — and build your own route from there.
+          Pick a region, a state, a travel style and build your own route from there.
         </p>
 
         {directoryGroups.map(group => (
