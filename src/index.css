@@ -4,6 +4,11 @@
   padding: 0;
 }
 
+::selection {
+  background: #c9962a;
+  color: #1a1208;
+}
+
 body {
   font-family: 'DM Sans', 'Segoe UI', sans-serif;
   background-color: #f5f0e8;

@@ -167,6 +167,7 @@
 .td-map-popup .leaflet-popup-content {
   width: 230px;
   margin: 12px;
+  font-family: 'DM Sans', 'Segoe UI', sans-serif;
 }
 
 .td-map-popup .leaflet-popup-tip {
@@ -190,6 +191,14 @@
 }
 
 .td-map-popup-title:hover {
+  color: var(--td-gold);
+}
+
+.leaflet-container .td-map-popup-title {
+  color: var(--td-ink);
+}
+
+.leaflet-container .td-map-popup-title:hover {
   color: var(--td-gold);
 }
 
@@ -235,6 +244,14 @@
 
 .td-map-popup-chip:hover {
   border-color: var(--td-gold);
+  color: var(--td-ink);
+}
+
+.leaflet-container .td-map-popup-chip {
+  color: #2e2416;
+}
+
+.leaflet-container .td-map-popup-chip:hover {
   color: var(--td-ink);
 }
 
@@ -287,6 +304,13 @@
 
 .td-city-meta a:hover {
   text-decoration: underline;
+}
+
+.td-category-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.2rem;
 }
 
 .td-category-link {
@@ -492,14 +516,14 @@
 
 .td-map-modal-body {
   flex: 1;
-  position: relative;
-  padding: 0.75rem;
   min-height: 0;
+  padding: 0.75rem;
+  overflow: hidden;
 }
 
 .td-map-modal-body .leaflet-container {
-  position: absolute;
-  inset: 0.75rem;
+  height: 100%;
+  width: 100%;
   border-radius: 6px;
 }
 

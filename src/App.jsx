@@ -3,7 +3,7 @@ import { CircleMarker, MapContainer, Popup, TileLayer } from "react-leaflet";
 import "./App.css";
 
 import TripDetails, { CityDetails } from "./TripDetails";
-import { ACCOMMODATIONS, CATEGORIES, CITIES, REGIONS, STATES, TRIPS } from "./data.js";
+import { ACCOMMODATIONS, BACKPACKING_101, CATEGORIES, CITIES, REGIONS, STATES, TRIPS } from "./data.js";
 
 
 const totalCities = new Set(TRIPS.flatMap(t => t.cities.map(c => c.city))).size;
@@ -275,7 +275,7 @@ function CitiesMap({ cityCodes, label = "Map of all cities" }) {
                 radius={5}
                 pathOptions={cityMapMarkerOptions}
               >
-                <Popup className="app-map-popup">
+                <Popup className="app-map-popup" closeButton={false}>
                   <div className="app-map-popup-inner">
                     <Link href={`/cities/${cityCode}`} className="app-map-popup-title">
                       {city.city}
@@ -407,7 +407,7 @@ function PageHeader({ title }) {
 function CityListItem({ cityCode, isLast = false }) {
   const city = CITIES[cityCode];
   if (!city) return null;
-  const tags = normalizeList(city.category).slice(0, 3);
+  const tags = normalizeList(city.category).slice(0, 2);
 
   return (
     <li className={isLast ? "app-city-list-item app-city-list-item--last" : "app-city-list-item"}>
@@ -644,61 +644,18 @@ function BackpackingSection() {
     <section className="app-backpacking-section">
       <h2 className="app-backpacking-title">Backpacking 101</h2>
       <p className="app-backpacking-intro">
-        A small, practical list from the road: things worth carrying, habits that
-        saved time, and a few items that helped during workdays away from home.
+        Few things I learned after and during my backpacking days.
       </p>
 
       <div className="app-backpacking-grid">
-        <div className="app-backpacking-card">
-          <div className="app-backpacking-card-title">Stay</div>
-          <ul className="app-backpacking-list">
-            <li>Book the first night in advance — never arrive in a new city without a confirmed bed.</li>
-            <li>Hostels for social energy, guesthouses for quiet — pick based on what you need that week.</li>
-            <li>Check checkout time before sleeping. Delayed checkouts are usually easy to negotiate the night before.</li>
-            <li>Keep the property address saved offline and in the local language.</li>
-          </ul>
-        </div>
-
-        <div className="app-backpacking-card">
-          <div className="app-backpacking-card-title">Travel</div>
-          <ul className="app-backpacking-list">
-            <li>Overnight trains between cities save a night's accommodation and travel time.</li>
-            <li>Book sleeper class early — side lower fills fast on popular routes.</li>
-            <li>Carry snacks, a water bottle, and a light jacket for long journeys.</li>
-            <li>Keep one accessible fresh set of clothes for delayed arrivals or missed connections.</li>
-          </ul>
-        </div>
-
-        <div className="app-backpacking-card">
-          <div className="app-backpacking-card-title">Budgeting</div>
-          <ul className="app-backpacking-list">
-            <li>Split cash across wallet, backpack, and phone cover — never keep it all together.</li>
-            <li>Small notes matter: buses, autos, tea stalls, and cloakrooms rarely give change.</li>
-            <li>Keep one backup card physically separate from your daily card.</li>
-            <li>Track spending city by city — patterns show where money leaks.</li>
-          </ul>
-        </div>
-
-        <div className="app-backpacking-card">
-          <div className="app-backpacking-card-title">Hacks</div>
-          <ul className="app-backpacking-list">
-            <li>Do laundry the day before you move, not the day you arrive tired.</li>
-            <li>A sleep kit for trains — earplugs, eye mask, light blanket — makes overnight travel actually restful.</li>
-            <li>Extension board for awkward plug points in hostels, hotels, and cafes.</li>
-            <li>Save offline maps, tickets, and bookings before any travel day.</li>
-          </ul>
-        </div>
-
-        <div className="app-backpacking-card">
-          <div className="app-backpacking-card-title">Red Zone</div>
-          <ul className="app-backpacking-list">
-            <li>Never share your location or travel plan with someone you just met.</li>
-            <li>Avoid unlicensed taxis at night — use apps or ask the hotel to arrange.</li>
-            <li>If a place feels off, leave. Trust that instinct without needing to explain it.</li>
-            <li>Keep emergency contacts and a copy of your ID in a separate bag.</li>
-          </ul>
-        </div>
-
+        {BACKPACKING_101.map(({ title, tips }) => (
+          <div key={title} className="app-backpacking-card">
+            <div className="app-backpacking-card-title">{title}</div>
+            <ul className="app-backpacking-list">
+              {tips.map((tip, i) => <li key={i}>{tip}</li>)}
+            </ul>
+          </div>
+        ))}
       </div>
     </section>
   );

@@ -128,7 +128,6 @@ function StopPopup({ city }) {
   const data = getCityData(city);
   const cityCode = getCityCode(city);
   const categories = Array.isArray(data?.category) ? data.category.filter(Boolean) : [];
-  const accommodation = Array.isArray(data?.accommodation) ? data.accommodation.filter(Boolean) : [];
 
   return (
     <div className="td-map-popup-inner">
@@ -163,22 +162,6 @@ function StopPopup({ city }) {
         </div>
       )}
 
-      {accommodation.length > 0 && (
-        <div className="td-map-popup-group">
-          <div className="td-map-popup-label">Stay</div>
-          <div className="td-map-popup-chips">
-            {accommodation.map(stay => (
-              <MapPopupLink
-                key={stay}
-                href={`/stay#${getAccommodationSlug(stay)}`}
-                className="td-map-popup-chip"
-              >
-                {formatAccommodation(stay)}
-              </MapPopupLink>
-            ))}
-          </div>
-        </div>
-      )}
     </div>
   );
 }
@@ -213,6 +196,7 @@ function StopMarker({ city, index, activePosition, openActivePopup }) {
     >
       <Popup
         className="td-map-popup"
+        closeButton={false}
         autoPan
         keepInView
         autoPanPaddingTopLeft={[32, 72]}
@@ -348,19 +332,23 @@ function DetailColumn({ city, cityIndex, total, onOpenMap }) {
         <div>
           <div className="td-city-title-row">
             <div className="td-city-title">{c?.city}</div>
-            {data && data.category.length > 0 && data.category.map((cat, i) => (
-              <span key={cat} className="td-category-link">
-                <a
-                  href={`/categories#category-${CATEGORIES[cat]?.slug || cat}`}
-                  onClick={e => { e.preventDefault(); navigateTo(`/categories#category-${CATEGORIES[cat]?.slug || cat}`); }}
-                  className="td-category-link"
-                >
-                  {CATEGORIES[cat]?.label || fmt(cat)}
-                </a>
-                {i < data.category.length - 1 && ','}
-              </span>
-            ))}
           </div>
+          {data && data.category.length > 0 && (
+            <div className="td-category-row td-mobile-only">
+              {data.category.map((cat, i) => (
+                <span key={cat} className="td-category-link">
+                  <a
+                    href={`/categories#category-${CATEGORIES[cat]?.slug || cat}`}
+                    onClick={e => { e.preventDefault(); navigateTo(`/categories#category-${CATEGORIES[cat]?.slug || cat}`); }}
+                    className="td-category-link"
+                  >
+                    {CATEGORIES[cat]?.label || fmt(cat)}
+                  </a>
+                  {i < data.category.length - 1 && ','}
+                </span>
+              ))}
+            </div>
+          )}
           {data && (
             <div className="td-city-meta">
               <a href={`/cities#state-${data.state}`} onClick={e => { e.preventDefault(); navigateTo(`/cities#state-${data.state}`); }}>
@@ -397,10 +385,10 @@ function DetailColumn({ city, cityIndex, total, onOpenMap }) {
           </div>
         )}
 
-        {/* Getting Around */}
+        {/* Travel */}
         {data?.mode_of_travel?.length > 0 && (
           <div>
-            <div className="td-section-label">Getting Around</div>
+            <div className="td-section-label">Travel</div>
             <div className="td-chip-row">
               {data.mode_of_travel.map(m => (
                 <span key={m} className="td-chip">{fmt(m)}</span>
@@ -467,26 +455,6 @@ function FooterTape({ cities, currentIndex, onPrev, onNext }) {
 
   return (
     <div className="td-footer-tape">
-      <div className="td-footer-controls">
-        <button onClick={onPrev} className="td-icon-btn-padded" style={{ opacity: currentIndex === 0 ? 0.2 : 1 }}>
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-            <path d="M11 14L6 9L11 4" stroke="#c9962a" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
-        <div className="td-footer-counter">
-          <span className="td-footer-counter-current">{currentIndex + 1}</span>
-          <span className="td-footer-counter-slash">/</span>
-          <span className="td-footer-counter-total">{cities.length}</span>
-        </div>
-        <button onClick={onNext} className="td-icon-btn-padded" style={{ opacity: currentIndex === cities.length - 1 ? 0.2 : 1 }}>
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-            <path d="M7 4L12 9L7 14" stroke="#c9962a" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
-      </div>
-
-      <div className="td-divider" />
-
       <div className="td-tape-window">
         <div className="td-tape-fade-left" />
         <div className="td-tape-fade-right" />
@@ -514,6 +482,26 @@ function FooterTape({ cities, currentIndex, onPrev, onNext }) {
             );
           })}
         </div>
+      </div>
+
+      <div className="td-divider" />
+
+      <div className="td-footer-controls">
+        <button onClick={onPrev} className="td-icon-btn-padded" style={{ opacity: currentIndex === 0 ? 0.2 : 1 }}>
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M11 14L6 9L11 4" stroke="#c9962a" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+        <div className="td-footer-counter">
+          <span className="td-footer-counter-current">{currentIndex + 1}</span>
+          <span className="td-footer-counter-slash">/</span>
+          <span className="td-footer-counter-total">{cities.length}</span>
+        </div>
+        <button onClick={onNext} className="td-icon-btn-padded" style={{ opacity: currentIndex === cities.length - 1 ? 0.2 : 1 }}>
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M7 4L12 9L7 14" stroke="#c9962a" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
       </div>
     </div>
   );

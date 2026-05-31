@@ -179,6 +179,7 @@
 .app-map-popup .leaflet-popup-content {
   width: 230px;
   margin: 12px;
+  font-family: 'DM Sans', 'Segoe UI', sans-serif;
 }
 
 .app-map-popup .leaflet-popup-tip {
@@ -202,6 +203,14 @@
 }
 
 .app-map-popup-title:hover {
+  color: var(--color-gold);
+}
+
+.leaflet-container .app-map-popup-title {
+  color: var(--color-text);
+}
+
+.leaflet-container .app-map-popup-title:hover {
   color: var(--color-gold);
 }
 
@@ -247,6 +256,14 @@
 
 .app-map-popup-chip:hover {
   border-color: var(--color-gold);
+  color: var(--color-text);
+}
+
+.leaflet-container .app-map-popup-chip {
+  color: #2e2416;
+}
+
+.leaflet-container .app-map-popup-chip:hover {
   color: var(--color-text);
 }
 
@@ -359,7 +376,7 @@
 
 .app-backpacking-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 12px;
 }
 
@@ -566,5 +583,9 @@
 
   .app-cities-map-frame {
     height: 320px;
+  }
+
+  .app-city-list-tag:nth-child(n+2) {
+    display: none;
   }
 }

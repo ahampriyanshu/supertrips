@@ -871,11 +871,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 3,
-    "notes": [
-      "More of a layover city than a destination — the food scene around Cyber Hub genuinely surprised me.",
-      "Traffic is brutal after 6pm, plan your evenings inside Cyber Hub or near your hotel.",
-      "If you are working remotely, the co-working culture here is top-notch — cafes everywhere."
-    ]
+    // "notes": [
+      // "More of a layover city than a destination — the food scene around Cyber Hub genuinely surprised me.",
+      // "Traffic is brutal after 6pm, plan your evenings inside Cyber Hub or near your hotel.",
+      // "If you are working remotely, the co-working culture here is top-notch — cafes everywhere."
+    // ]
   },
   "mathura": {
     "city": "Mathura",
@@ -911,11 +911,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 4,
-    "notes": [
-      "The Vishram Ghat evening aarti is genuinely moving — smaller and more intimate than Varanasi.",
-      "Holi here is the real deal — if you can handle the crowd, nothing else comes close.",
-      "The peda here is legitimately different from anywhere else, stock up before leaving."
-    ]
+    // "notes": [
+      // "The Vishram Ghat evening aarti is genuinely moving — smaller and more intimate than Varanasi.",
+      // "Holi here is the real deal — if you can handle the crowd, nothing else comes close.",
+      // "The peda here is legitimately different from anywhere else, stock up before leaving."
+    // ]
   },
   "agra": {
     "city": "Agra",
@@ -952,11 +952,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 4,
-    "notes": [
-      "The Taj at sunrise from Mehtab Bagh across the Yamuna is far better than fighting the main gate crowd.",
-      "Fatehpur Sikri is criminally underrated — go on a weekday for a near-empty experience.",
-      "Agra is a 1-night city max — do it efficiently and move on."
-    ]
+    // "notes": [
+      // "The Taj at sunrise from Mehtab Bagh across the Yamuna is far better than fighting the main gate crowd.",
+      // "Fatehpur Sikri is criminally underrated — go on a weekday for a near-empty experience.",
+      // "Agra is a 1-night city max — do it efficiently and move on."
+    // ]
   },
   "varanasi": {
     "city": "Varanasi",
@@ -997,11 +997,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "3-4 days",
     "rating": 5,
-    "notes": [
-      "Varanasi doesn't reveal itself on day one — you need at least two full days to stop feeling overwhelmed and start feeling it.",
-      "The pre-dawn boat ride is non-negotiable, no matter how cold it gets.",
-      "Manikarnika is confronting and profound — approach with respect, no camera."
-    ]
+    // "notes": [
+      // "Varanasi doesn't reveal itself on day one — you need at least two full days to stop feeling overwhelmed and start feeling it.",
+      // "The pre-dawn boat ride is non-negotiable, no matter how cold it gets.",
+      // "Manikarnika is confronting and profound — approach with respect, no camera."
+    // ]
   },
   "kolkata": {
     "city": "Kolkata",
@@ -1044,11 +1044,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "3-4 days",
     "rating": 4,
-    "notes": [
-      "Kolkata hits different in winter — the city slows down just enough to let you breathe it in.",
-      "Every lane has a story and every stranger has an opinion — embrace it.",
-      "The food here will ruin you for everywhere else, and that's perfectly fine."
-    ]
+    // "notes": [
+      // "Kolkata hits different in winter — the city slows down just enough to let you breathe it in.",
+      // "Every lane has a story and every stranger has an opinion — embrace it.",
+      // "The food here will ruin you for everywhere else, and that's perfectly fine."
+    // ]
   },
   "puri-konark": {
     "city": "Puri & Konark",
@@ -1087,11 +1087,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
     "rating": 4,
-    "notes": [
-      "Konark at sunrise with almost no one around is one of those images you carry forever.",
-      "Mahaprasad at Ananda Bazaar feels sacred even if you're not religious — eat it sitting on the floor.",
-      "Puri beach is noisy and touristy but the sunset still delivers, every single time."
-    ]
+    // "notes": [
+      // "Konark at sunrise with almost no one around is one of those images you carry forever.",
+      // "Mahaprasad at Ananda Bazaar feels sacred even if you're not religious — eat it sitting on the floor.",
+      // "Puri beach is noisy and touristy but the sunset still delivers, every single time."
+    // ]
   },
   "noida": {
     "city": "Noida",
@@ -1130,11 +1130,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 3,
-    "notes": [
-      "Noida is the quieter, more planned twin of Delhi — useful base for exploring UP heritage sites.",
-      "The metro connectivity to Delhi is genuinely seamless, best way to get around.",
-      "Sector 18 after dark has decent street food energy but nothing particularly unique."
-    ]
+    // "notes": [
+      // "Noida is the quieter, more planned twin of Delhi — useful base for exploring UP heritage sites.",
+      // "The metro connectivity to Delhi is genuinely seamless, best way to get around.",
+      // "Sector 18 after dark has decent street food energy but nothing particularly unique."
+    // ]
   },
   "delhi": {
     "city": "Delhi",
@@ -1182,11 +1182,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "3-4 days",
     "rating": 5,
-    "notes": [
-      "Old Delhi is sensory overload in the best possible way — Chandni Chowk at 7am before the crowds is magic.",
-      "The sheer density of Mughal and pre-Mughal monuments here rivals any world capital.",
-      "Pollution in November-January is real — carry a mask if you plan outdoor sightseeing."
-    ]
+    // "notes": [
+      // "Old Delhi is sensory overload in the best possible way — Chandni Chowk at 7am before the crowds is magic.",
+      // "The sheer density of Mughal and pre-Mughal monuments here rivals any world capital.",
+      // "Pollution in November-January is real — carry a mask if you plan outdoor sightseeing."
+    // ]
   },
   "jaipur": {
     "city": "Jaipur",
@@ -1232,11 +1232,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "3-4 days",
     "rating": 5,
-    "notes": [
-      "The pink city really earns its name at dusk when the sandstone turns gold — Amber Fort at sunrise is worth the early wake-up call.",
-      "Johari Bazaar is absolute chaos and I loved every second of it — bargaining for blue pottery and silver jewellery is half the fun.",
-      "Auto-rickshaw drivers will try every trick in the book — settle the price before you get in, always."
-    ]
+    // "notes": [
+      // "The pink city really earns its name at dusk when the sandstone turns gold — Amber Fort at sunrise is worth the early wake-up call.",
+      // "Johari Bazaar is absolute chaos and I loved every second of it — bargaining for blue pottery and silver jewellery is half the fun.",
+      // "Auto-rickshaw drivers will try every trick in the book — settle the price before you get in, always."
+    // ]
   },
   "chittorgarh": {
     "city": "Chittorgarh",
@@ -1271,11 +1271,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 4,
-    "notes": [
-      "The fort is massive — bigger than most Indian cities — and the weight of history hits you the moment you pass through the first gate.",
-      "Most tourists skip Chittorgarh for Udaipur but honestly the stories of Rani Padmini and Maharana Pratap make this the more emotionally resonant stop.",
-      "Hire a local guide, not a tourist agency one — the difference in storytelling quality is night and day."
-    ]
+    // "notes": [
+      // "The fort is massive — bigger than most Indian cities — and the weight of history hits you the moment you pass through the first gate.",
+      // "Most tourists skip Chittorgarh for Udaipur but honestly the stories of Rani Padmini and Maharana Pratap make this the more emotionally resonant stop.",
+      // "Hire a local guide, not a tourist agency one — the difference in storytelling quality is night and day."
+    // ]
   },
   "udaipur": {
     "city": "Udaipur",
@@ -1318,11 +1318,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "3-4 days",
     "rating": 5,
-    "notes": [
-      "Every rooftop restaurant in the old city has a view that makes you feel like you're in a painting — I didn't want to leave.",
-      "Rent a scooter for a day, drive around Fateh Sagar in the evening, stop for corn on the lakeside — perfection.",
-      "Monsoon Udaipur is secretly magical if you don't mind some rain — the hills turn green and the lakes fill up spectacularly."
-    ]
+    // "notes": [
+      // "Every rooftop restaurant in the old city has a view that makes you feel like you're in a painting — I didn't want to leave.",
+      // "Rent a scooter for a day, drive around Fateh Sagar in the evening, stop for corn on the lakeside — perfection.",
+      // "Monsoon Udaipur is secretly magical if you don't mind some rain — the hills turn green and the lakes fill up spectacularly."
+    // ]
   },
   "kumbhalgarh": {
     "city": "Kumbhalgarh",
@@ -1353,11 +1353,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 4,
-    "notes": [
-      "Standing on those 36-kilometre walls at sunrise with mist rolling through the Aravalli valleys — this is the image that stays with you long after you leave Rajasthan.",
-      "It's a day-trip from Udaipur for most but staying overnight in the forest means you get the fort completely to yourself at dawn.",
-      "The wildlife sanctuary is underrated — sloth bears and leopards live here and the forest drive is genuinely thrilling."
-    ]
+    // "notes": [
+      // "Standing on those 36-kilometre walls at sunrise with mist rolling through the Aravalli valleys — this is the image that stays with you long after you leave Rajasthan.",
+      // "It's a day-trip from Udaipur for most but staying overnight in the forest means you get the fort completely to yourself at dawn.",
+      // "The wildlife sanctuary is underrated — sloth bears and leopards live here and the forest drive is genuinely thrilling."
+    // ]
   },
   "kevadiya": {
     "city": "Kevadiya",
@@ -1389,11 +1389,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 3,
-    "notes": [
-      "The statue is genuinely staggering in scale — nothing prepares you for how enormous it is until you're standing at the base looking up.",
-      "Beyond the statue, the surrounding eco-tourism zone is well-designed and surprisingly green — not the dusty construction-site vibe I expected.",
-      "It's a government project so it's all very organised and a bit theme-park-y, but worth a day trip from Vadodara or Surat."
-    ]
+    // "notes": [
+      // "The statue is genuinely staggering in scale — nothing prepares you for how enormous it is until you're standing at the base looking up.",
+      // "Beyond the statue, the surrounding eco-tourism zone is well-designed and surprisingly green — not the dusty construction-site vibe I expected.",
+      // "It's a government project so it's all very organised and a bit theme-park-y, but worth a day trip from Vadodara or Surat."
+    // ]
   },
   "surat": {
     "city": "Surat",
@@ -1433,11 +1433,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 3,
-    "notes": [
-      "Surat is primarily a food city — if you're not eating every two hours you're doing it wrong.",
-      "The textile and diamond markets are fascinating to walk through even if you're not buying — the scale of trade happening in narrow lanes is mind-boggling.",
-      "Not a typical tourist destination but has a certain unpretentious energy that's refreshing after Rajasthan's tourism machinery."
-    ]
+    // "notes": [
+      // "Surat is primarily a food city — if you're not eating every two hours you're doing it wrong.",
+      // "The textile and diamond markets are fascinating to walk through even if you're not buying — the scale of trade happening in narrow lanes is mind-boggling.",
+      // "Not a typical tourist destination but has a certain unpretentious energy that's refreshing after Rajasthan's tourism machinery."
+    // ]
   },
   "vadodara": {
     "city": "Vadodara",
@@ -1474,11 +1474,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 3,
-    "notes": [
-      "Laxmi Vilas Palace is four times the size of Buckingham Palace and still a royal residence — that alone makes Vadodara worth a stop.",
-      "The Baroda Museum inside the park is one of those old colonial-era institutions where time has stopped in the best possible way.",
-      "Day trip to Champaner-Pavagadh is essential — a UNESCO site that most tourists completely skip."
-    ]
+    // "notes": [
+      // "Laxmi Vilas Palace is four times the size of Buckingham Palace and still a royal residence — that alone makes Vadodara worth a stop.",
+      // "The Baroda Museum inside the park is one of those old colonial-era institutions where time has stopped in the best possible way.",
+      // "Day trip to Champaner-Pavagadh is essential — a UNESCO site that most tourists completely skip."
+    // ]
   },
   "somnath": {
     "city": "Somnath",
@@ -1513,11 +1513,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 4,
-    "notes": [
-      "The arrow pillar at the ocean edge — pointing into the sea with 'there is no land between here and Antarctica' — gave me chills I didn't expect from a pilgrimage site.",
-      "The evening sound and light show is surprisingly well-produced and puts the temple's history of destruction and rebuilding into stark relief.",
-      "Very crowded on weekends and festival days — arrive on a Tuesday morning for a completely different experience."
-    ]
+    // "notes": [
+      // "The arrow pillar at the ocean edge — pointing into the sea with 'there is no land between here and Antarctica' — gave me chills I didn't expect from a pilgrimage site.",
+      // "The evening sound and light show is surprisingly well-produced and puts the temple's history of destruction and rebuilding into stark relief.",
+      // "Very crowded on weekends and festival days — arrive on a Tuesday morning for a completely different experience."
+    // ]
   },
   "dwarka": {
     "city": "Dwarka",
@@ -1552,11 +1552,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
     "rating": 4,
-    "notes": [
-      "Dwarka has a mythological weight that very few places carry — standing by the sea knowing this was supposedly Krishna's kingdom is unexpectedly moving even for a non-devotee.",
-      "Bet Dwarka island by boat is the more intimate part of the pilgrimage — the lanes of the island feel genuinely ancient.",
-      "The town itself is small and manageable unlike the chaos of most pilgrimage towns — easier to be present and unhurried here."
-    ]
+    // "notes": [
+      // "Dwarka has a mythological weight that very few places carry — standing by the sea knowing this was supposedly Krishna's kingdom is unexpectedly moving even for a non-devotee.",
+      // "Bet Dwarka island by boat is the more intimate part of the pilgrimage — the lanes of the island feel genuinely ancient.",
+      // "The town itself is small and manageable unlike the chaos of most pilgrimage towns — easier to be present and unhurried here."
+    // ]
   },
   "rajkot": {
     "city": "Rajkot",
@@ -1592,11 +1592,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 3,
-    "notes": [
-      "Rajkot is Gandhi's childhood city and the museum there does a good job of showing the domestic side of his early life — intimate rather than monumental.",
-      "Saurashtra's business hub isn't glamorous but is a useful base for exploring the Kathiawar peninsula.",
-      "Watson Museum is genuinely one of the better colonial-era district museums in India — worth an hour of your time."
-    ]
+    // "notes": [
+      // "Rajkot is Gandhi's childhood city and the museum there does a good job of showing the domestic side of his early life — intimate rather than monumental.",
+      // "Saurashtra's business hub isn't glamorous but is a useful base for exploring the Kathiawar peninsula.",
+      // "Watson Museum is genuinely one of the better colonial-era district museums in India — worth an hour of your time."
+    // ]
   },
   "ludhiana": {
     "city": "Ludhiana",
@@ -1633,11 +1633,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 3,
-    "notes": [
-      "Ludhiana is the industrial heartland of Punjab — not a tourist city but the dhabas on the GT Road are exceptional.",
-      "Best used as an overnight stop between Chandigarh and Amritsar rather than a destination.",
-      "The Punjabi hospitality is real here — any local you ask will overfeed you."
-    ]
+    // "notes": [
+      // "Ludhiana is the industrial heartland of Punjab — not a tourist city but the dhabas on the GT Road are exceptional.",
+      // "Best used as an overnight stop between Chandigarh and Amritsar rather than a destination.",
+      // "The Punjabi hospitality is real here — any local you ask will overfeed you."
+    // ]
   },
   "jalandhar": {
     "city": "Jalandhar",
@@ -1673,11 +1673,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1 day",
     "rating": 2,
-    "notes": [
-      "Jalandhar is primarily a transit point on the Delhi-Amritsar highway — the sports goods market is genuinely worth a browse.",
-      "Not a stand-alone destination but worth a half-day stop if driving through.",
-      "Devi Talab temple has a certain old-world calm that contrasts nicely with the city's commercial vibe."
-    ]
+    // "notes": [
+      // "Jalandhar is primarily a transit point on the Delhi-Amritsar highway — the sports goods market is genuinely worth a browse.",
+      // "Not a stand-alone destination but worth a half-day stop if driving through.",
+      // "Devi Talab temple has a certain old-world calm that contrasts nicely with the city's commercial vibe."
+    // ]
   },
   "amritsar": {
     "city": "Amritsar",
@@ -1722,12 +1722,12 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
     "rating": 5,
-    "notes": [
-      "The Golden Temple at 3am after the palki sahib procession is one of the most powerful things you can witness in India.",
-      "Langar feeds thousands every day for free — sitting on the floor and eating with strangers is a lesson in human dignity.",
-      "Wagah Border feels theatrical until the crowd emotion hits you — go for the last ceremony of the day.",
-      "The Partition Museum is essential, not optional — give it two full hours."
-    ]
+    // "notes": [
+      // "The Golden Temple at 3am after the palki sahib procession is one of the most powerful things you can witness in India.",
+      // "Langar feeds thousands every day for free — sitting on the floor and eating with strangers is a lesson in human dignity.",
+      // "Wagah Border feels theatrical until the crowd emotion hits you — go for the last ceremony of the day.",
+      // "The Partition Museum is essential, not optional — give it two full hours."
+    // ]
   },
   "pathankot": {
     "city": "Pathankot",
@@ -1763,11 +1763,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1 day",
     "rating": 2,
-    "notes": [
-      "Pathankot is purely a gateway city — you are here to catch a bus or train to Dharamshala, Dalhousie, or Jammu.",
-      "The Ranjit Sagar Dam reservoir is surprisingly scenic for a detour on your way through.",
-      "Stock up on supplies here before heading into the hills — last point of easy availability."
-    ]
+    // "notes": [
+      // "Pathankot is purely a gateway city — you are here to catch a bus or train to Dharamshala, Dalhousie, or Jammu.",
+      // "The Ranjit Sagar Dam reservoir is surprisingly scenic for a detour on your way through.",
+      // "Stock up on supplies here before heading into the hills — last point of easy availability."
+    // ]
   },
   "katra": {
     "city": "Katra",
@@ -1803,11 +1803,11 @@ export const CITIES = {
     "ideal_season": "post_monsoon",
     "ideal_stay": "2-3 days",
     "rating": 4,
-    "notes": [
-      "The trek to Vaishno Devi is genuinely uplifting — the energy of tens of thousands walking together in the dark is unlike anything else.",
-      "Book your registration slip well in advance, especially for weekends and Navratri.",
-      "Katra town itself is very small — one full day is enough outside the pilgrimage itself."
-    ]
+    // "notes": [
+      // "The trek to Vaishno Devi is genuinely uplifting — the energy of tens of thousands walking together in the dark is unlike anything else.",
+      // "Book your registration slip well in advance, especially for weekends and Navratri.",
+      // "Katra town itself is very small — one full day is enough outside the pilgrimage itself."
+    // ]
   },
   "jammu": {
     "city": "Jammu",
@@ -1848,11 +1848,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 3,
-    "notes": [
-      "Jammu is the forgotten half of J&K — the Dogri culture and food here are genuinely distinct from both Kashmir and Punjab.",
-      "Kaladi kulcha for breakfast is essential — it is the most unique thing you will eat on the whole J&K stretch.",
-      "Most people rush through Jammu towards Kashmir — slow down and spend a proper day here."
-    ]
+    // "notes": [
+      // "Jammu is the forgotten half of J&K — the Dogri culture and food here are genuinely distinct from both Kashmir and Punjab.",
+      // "Kaladi kulcha for breakfast is essential — it is the most unique thing you will eat on the whole J&K stretch.",
+      // "Most people rush through Jammu towards Kashmir — slow down and spend a proper day here."
+    // ]
   },
   "banihar-qazigund": {
     "city": "Qazigund",
@@ -1881,11 +1881,11 @@ export const CITIES = {
     "ideal_season": "post_monsoon",
     "ideal_stay": "1 day",
     "rating": 2,
-    "notes": [
-      "This is a transit stretch, not a destination — but the drive through Ramban gorge is genuinely dramatic.",
-      "The Banihal Tunnel is a lifeline; check tunnel timings and traffic updates before you start.",
-      "Qazigund side feels distinctly Kashmiri — the air, the vegetation, the architecture all change suddenly."
-    ]
+    // "notes": [
+      // "This is a transit stretch, not a destination — but the drive through Ramban gorge is genuinely dramatic.",
+      // "The Banihal Tunnel is a lifeline; check tunnel timings and traffic updates before you start.",
+      // "Qazigund side feels distinctly Kashmiri — the air, the vegetation, the architecture all change suddenly."
+    // ]
   },
   "srinagar": {
     "city": "Srinagar",
@@ -1928,11 +1928,11 @@ export const CITIES = {
     "ideal_season": "summer",
     "ideal_stay": "3-4 days",
     "rating": 5,
-    "notes": [
-      "The Mughal Gardens are most beautiful in spring tulip season — late March to mid April is peak.",
-      "Staying in a houseboat even one night is worth the extra money — waking up to mist on Dal Lake is otherworldly.",
-      "The old city bazaar around Lal Chowk has the best saffron and dry fruits, negotiate hard."
-    ]
+    // "notes": [
+      // "The Mughal Gardens are most beautiful in spring tulip season — late March to mid April is peak.",
+      // "Staying in a houseboat even one night is worth the extra money — waking up to mist on Dal Lake is otherworldly.",
+      // "The old city bazaar around Lal Chowk has the best saffron and dry fruits, negotiate hard."
+    // ]
   },
   "gulmarg": {
     "city": "Gulmarg",
@@ -1965,11 +1965,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 5,
-    "notes": [
-      "In deep winter the gondola ride to Apharwat is genuinely world-class skiing terrain at a fraction of European prices.",
-      "Summer Gulmarg is underrated — vast green meadows with the snowline visible above are stunning.",
-      "Come for at least two nights — one day is not enough to absorb the altitude and atmosphere."
-    ]
+    // "notes": [
+      // "In deep winter the gondola ride to Apharwat is genuinely world-class skiing terrain at a fraction of European prices.",
+      // "Summer Gulmarg is underrated — vast green meadows with the snowline visible above are stunning.",
+      // "Come for at least two nights — one day is not enough to absorb the altitude and atmosphere."
+    // ]
   },
   "kargil": {
     "city": "Kargil",
@@ -2003,11 +2003,11 @@ export const CITIES = {
     "ideal_season": "summer",
     "ideal_stay": "1-2 days",
     "rating": 4,
-    "notes": [
-      "Kargil War Memorial at Dras is deeply affecting — read the names on the wall and give it the silence it deserves.",
-      "Most people rush through Kargil on the Srinagar-Leh highway, which is a mistake — Suru Valley is spectacular.",
-      "The local apricots in July are some of the best you will ever eat — buy them from roadside sellers."
-    ]
+    // "notes": [
+      // "Kargil War Memorial at Dras is deeply affecting — read the names on the wall and give it the silence it deserves.",
+      // "Most people rush through Kargil on the Srinagar-Leh highway, which is a mistake — Suru Valley is spectacular.",
+      // "The local apricots in July are some of the best you will ever eat — buy them from roadside sellers."
+    // ]
   },
   "leh": {
     "city": "Leh",
@@ -2048,11 +2048,11 @@ export const CITIES = {
     "ideal_season": "summer",
     "ideal_stay": "1 week",
     "rating": 5,
-    "notes": [
-      "Acclimatize for at least two full days in Leh before any high-altitude excursion — altitude sickness is real and serious.",
-      "Pangong Tso at first light with no other cars around is one of the most surreal experiences available in India.",
-      "Leh is expensive relative to the rest of India — budget accordingly, especially for taxis and permits."
-    ]
+    // "notes": [
+      // "Acclimatize for at least two full days in Leh before any high-altitude excursion — altitude sickness is real and serious.",
+      // "Pangong Tso at first light with no other cars around is one of the most surreal experiences available in India.",
+      // "Leh is expensive relative to the rest of India — budget accordingly, especially for taxis and permits."
+    // ]
   },
   "keylong": {
     "city": "Keylong",
@@ -2085,11 +2085,11 @@ export const CITIES = {
     "ideal_season": "summer",
     "ideal_stay": "1-2 days",
     "rating": 3,
-    "notes": [
-      "Keylong is a pit stop between Manali and Leh — but the Kardang Gompa is genuinely worth an hour's walk.",
-      "The town sits in a barren valley that looks almost Tibetan — the desolation is beautiful if you sit with it.",
-      "Temperatures drop sharply at night even in July — always carry warm layers."
-    ]
+    // "notes": [
+      // "Keylong is a pit stop between Manali and Leh — but the Kardang Gompa is genuinely worth an hour's walk.",
+      // "The town sits in a barren valley that looks almost Tibetan — the desolation is beautiful if you sit with it.",
+      // "Temperatures drop sharply at night even in July — always carry warm layers."
+    // ]
   },
   "manali": {
     "city": "Manali",
@@ -2131,11 +2131,11 @@ export const CITIES = {
     "ideal_season": "summer",
     "ideal_stay": "3-4 days",
     "rating": 5,
-    "notes": [
-      "Old Manali has become a bit backpacker-touristy but it still has the best cafes and river-facing guesthouses.",
-      "Rohtang is worth the early 4am start — once crowds arrive after 9am, the magic evaporates.",
-      "Manali in October post-season is quieter, cheaper, and the autumn colours are extraordinary."
-    ]
+    // "notes": [
+      // "Old Manali has become a bit backpacker-touristy but it still has the best cafes and river-facing guesthouses.",
+      // "Rohtang is worth the early 4am start — once crowds arrive after 9am, the magic evaporates.",
+      // "Manali in October post-season is quieter, cheaper, and the autumn colours are extraordinary."
+    // ]
   },
   "kullu": {
     "city": "Kullu",
@@ -2170,11 +2170,11 @@ export const CITIES = {
     "ideal_season": "post_monsoon",
     "ideal_stay": "1-2 days",
     "rating": 3,
-    "notes": [
-      "Kullu Dussehra is one of the most unique festivals in India — hundreds of local devtas (deities) are carried in procession.",
-      "Most travellers skip Kullu and go straight to Manali, which means you get the valley views without the crowd.",
-      "The Tirthan Valley nearby is genuinely off the radar — exactly what Manali used to be 15 years ago."
-    ]
+    // "notes": [
+      // "Kullu Dussehra is one of the most unique festivals in India — hundreds of local devtas (deities) are carried in procession.",
+      // "Most travellers skip Kullu and go straight to Manali, which means you get the valley views without the crowd.",
+      // "The Tirthan Valley nearby is genuinely off the radar — exactly what Manali used to be 15 years ago."
+    // ]
   },
   "chandigarh": {
     "city": "Chandigarh",
@@ -2212,11 +2212,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 4,
-    "notes": [
-      "The Rock Garden is one of the most original outsider-art environments in the world — completely unexpected in a planned government city.",
-      "Chandigarh is the cleanest and most legible city in north India — it's genuinely pleasant just to walk around.",
-      "The Capitol Complex is a UNESCO site but often overlooked — Le Corbusier nerds will lose their minds here."
-    ]
+    // "notes": [
+      // "The Rock Garden is one of the most original outsider-art environments in the world — completely unexpected in a planned government city.",
+      // "Chandigarh is the cleanest and most legible city in north India — it's genuinely pleasant just to walk around.",
+      // "The Capitol Complex is a UNESCO site but often overlooked — Le Corbusier nerds will lose their minds here."
+    // ]
   },
   "bikaner": {
     "city": "Bikaner",
@@ -2252,11 +2252,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 4,
-    "notes": [
-      "Junagarh Fort is the real sleeper hit of Rajasthan — almost no tourists, insanely intricate interiors, and zero commercialisation.",
-      "The Rat Temple at Deshnoke is either the most disturbing or most fascinating thing you'll see in India — go early when the rats are most active.",
-      "Bikaneri bhujia from the original Haldiram's in town tastes completely different from anything you get in a packet — transformative."
-    ]
+    // "notes": [
+      // "Junagarh Fort is the real sleeper hit of Rajasthan — almost no tourists, insanely intricate interiors, and zero commercialisation.",
+      // "The Rat Temple at Deshnoke is either the most disturbing or most fascinating thing you'll see in India — go early when the rats are most active.",
+      // "Bikaneri bhujia from the original Haldiram's in town tastes completely different from anything you get in a packet — transformative."
+    // ]
   },
   "sam": {
     "city": "Sam",
@@ -2288,11 +2288,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 4,
-    "notes": [
-      "The silence of the Sam dunes at 5am, before the camel touts arrive, is one of those rare moments that makes you understand why people travel.",
-      "Don't skip the overnight camp — watching the Milky Way from a Thar Desert dune is not something you can simulate anywhere else in India.",
-      "Avoid the peak tourist months of December-January if you want any solitude — the dunes get alarmingly crowded otherwise."
-    ]
+    // "notes": [
+      // "The silence of the Sam dunes at 5am, before the camel touts arrive, is one of those rare moments that makes you understand why people travel.",
+      // "Don't skip the overnight camp — watching the Milky Way from a Thar Desert dune is not something you can simulate anywhere else in India.",
+      // "Avoid the peak tourist months of December-January if you want any solitude — the dunes get alarmingly crowded otherwise."
+    // ]
   },
   "jaisalmer": {
     "city": "Jaisalmer",
@@ -2332,11 +2332,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
     "rating": 5,
-    "notes": [
-      "Jaisalmer fort is a living fort — people still live, cook and run shops inside — and that makes it feel like a time machine rather than a museum.",
-      "The havelis here are the finest examples of sandstone carving you'll ever see, and most of the tourists walk right past them to get to the dunes.",
-      "Rent a bike and drive to the desert villages beyond Sam — that's where the real Rajasthan lives, not in the camel selfie zone."
-    ]
+    // "notes": [
+      // "Jaisalmer fort is a living fort — people still live, cook and run shops inside — and that makes it feel like a time machine rather than a museum.",
+      // "The havelis here are the finest examples of sandstone carving you'll ever see, and most of the tourists walk right past them to get to the dunes.",
+      // "Rent a bike and drive to the desert villages beyond Sam — that's where the real Rajasthan lives, not in the camel selfie zone."
+    // ]
   },
   "jodhpur": {
     "city": "Jodhpur",
@@ -2377,11 +2377,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
     "rating": 5,
-    "notes": [
-      "Mehrangarh is the most imposing fort in India — period. Standing at the top looking over the blue city is one of those views that rewires your brain.",
-      "The clock tower market at 8am, buying spices and sipping chai while the city wakes up — that's the real Jodhpur that Instagram misses.",
-      "The blue city is less uniformly blue than photos suggest but wandering those narrow lanes in the morning light is still completely magical."
-    ]
+    // "notes": [
+      // "Mehrangarh is the most imposing fort in India — period. Standing at the top looking over the blue city is one of those views that rewires your brain.",
+      // "The clock tower market at 8am, buying spices and sipping chai while the city wakes up — that's the real Jodhpur that Instagram misses.",
+      // "The blue city is less uniformly blue than photos suggest but wandering those narrow lanes in the morning light is still completely magical."
+    // ]
   },
   "ajmer-pushkar": {
     "city": "Ajmer & Pushkar",
@@ -2420,11 +2420,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
     "rating": 4,
-    "notes": [
-      "Ajmer's Dargah is one of the most powerful religious experiences in India regardless of your faith — the qawwali on Thursday nights is something else entirely.",
-      "Pushkar is Rajasthan's hippie town and the contrast with Ajmer's Islamic spiritual gravity just 11 km away is one of India's great juxtapositions.",
-      "The camel fair in November is absolute madness and absolutely worth planning your entire Rajasthan trip around."
-    ]
+    // "notes": [
+      // "Ajmer's Dargah is one of the most powerful religious experiences in India regardless of your faith — the qawwali on Thursday nights is something else entirely.",
+      // "Pushkar is Rajasthan's hippie town and the contrast with Ajmer's Islamic spiritual gravity just 11 km away is one of India's great juxtapositions.",
+      // "The camel fair in November is absolute madness and absolutely worth planning your entire Rajasthan trip around."
+    // ]
   },
   "ahmedabad-gandhinagar": {
     "city": "Ahmedabad & Gandhinagar",
@@ -2469,12 +2469,12 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "3-4 days",
     "rating": 4,
-    "notes": [
-      "The UNESCO heritage walk through Ahmedabad's old city pols is genuinely one of the finest urban heritage experiences in all of India.",
-      "Gandhinagar is that rare Indian state capital that actually feels planned — clean, green, and oddly calming after Ahmedabad's intensity.",
-      "Manek Chowk transforms from a jewellery market by day to a street food paradise by night — don't make dinner plans, just go there.",
-      "Traffic is a nightmare but the metro has made getting around surprisingly easy now."
-    ]
+    // "notes": [
+      // "The UNESCO heritage walk through Ahmedabad's old city pols is genuinely one of the finest urban heritage experiences in all of India.",
+      // "Gandhinagar is that rare Indian state capital that actually feels planned — clean, green, and oddly calming after Ahmedabad's intensity.",
+      // "Manek Chowk transforms from a jewellery market by day to a street food paradise by night — don't make dinner plans, just go there.",
+      // "Traffic is a nightmare but the metro has made getting around surprisingly easy now."
+    // ]
   },
   "indore": {
     "city": "Indore",
@@ -2513,11 +2513,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
     "rating": 4,
-    "notes": [
-      "Indore's Sarafa Bazaar at midnight — a jewellery market by day that becomes India's best night food market — is the most unique dining experience I've had in Central India.",
-      "The city is consistently ranked India's cleanest for a reason — Indori pride in their city is tangible and infectious.",
-      "Come hungry and plan no fixed itinerary — the best Indore experiences happen when you follow your nose through the lanes."
-    ]
+    // "notes": [
+      // "Indore's Sarafa Bazaar at midnight — a jewellery market by day that becomes India's best night food market — is the most unique dining experience I've had in Central India.",
+      // "The city is consistently ranked India's cleanest for a reason — Indori pride in their city is tangible and infectious.",
+      // "Come hungry and plan no fixed itinerary — the best Indore experiences happen when you follow your nose through the lanes."
+    // ]
   },
   "omkareshwar": {
     "city": "Omkareshwar",
@@ -2551,11 +2551,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 4,
-    "notes": [
-      "The island itself is shaped like the OM symbol — something about knowing that as you walk the parikrama path above the Narmada gorge makes the whole experience quite otherworldly.",
-      "Far less crowded than Ujjain but just as spiritually charged — this is where you come if you want Narmada darshan without the tourist machinery.",
-      "The boat ride on the Narmada between the two temples at dawn, when the mist is still on the water, is genuinely serene."
-    ]
+    // "notes": [
+      // "The island itself is shaped like the OM symbol — something about knowing that as you walk the parikrama path above the Narmada gorge makes the whole experience quite otherworldly.",
+      // "Far less crowded than Ujjain but just as spiritually charged — this is where you come if you want Narmada darshan without the tourist machinery.",
+      // "The boat ride on the Narmada between the two temples at dawn, when the mist is still on the water, is genuinely serene."
+    // ]
   },
   "nashik": {
     "city": "Nashik",
@@ -2591,11 +2591,11 @@ export const CITIES = {
     "ideal_season": "post_monsoon",
     "ideal_stay": "2-3 days",
     "rating": 4,
-    "notes": [
-      "The bizarre combination of being a major Hindu pilgrimage town AND India's wine capital produces a uniquely schizophrenic energy — I love it.",
-      "Sula Vineyards at harvest time in February is legitimately world-class and totally unexpected in India's interior.",
-      "Trimbakeshwar has some of the most ornate temple architecture in Maharashtra and is always less mobbed than it deserves to be."
-    ]
+    // "notes": [
+      // "The bizarre combination of being a major Hindu pilgrimage town AND India's wine capital produces a uniquely schizophrenic energy — I love it.",
+      // "Sula Vineyards at harvest time in February is legitimately world-class and totally unexpected in India's interior.",
+      // "Trimbakeshwar has some of the most ornate temple architecture in Maharashtra and is always less mobbed than it deserves to be."
+    // ]
   },
   "shirdi": {
     "city": "Shirdi",
@@ -2629,11 +2629,11 @@ export const CITIES = {
     "ideal_season": "year_round",
     "ideal_stay": "1-2 days",
     "rating": 3,
-    "notes": [
-      "The devotional energy here is completely overwhelming in a way that's hard to prepare for — tens of thousands of people per day and yet the atmosphere is strangely calm.",
-      "Spend the night and catch the early morning Kakad aarti at 4:30am — the experience when the temple is half-lit and the bhajans echo off the stone is transformative.",
-      "The commercial zone around the temple is aggressively tacky — keep your eyes forward and walk straight to the complex."
-    ]
+    // "notes": [
+      // "The devotional energy here is completely overwhelming in a way that's hard to prepare for — tens of thousands of people per day and yet the atmosphere is strangely calm.",
+      // "Spend the night and catch the early morning Kakad aarti at 4:30am — the experience when the temple is half-lit and the bhajans echo off the stone is transformative.",
+      // "The commercial zone around the temple is aggressively tacky — keep your eyes forward and walk straight to the complex."
+    // ]
   },
   "sambhajinagar": {
     "city": "Sambhajinagar",
@@ -2668,11 +2668,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "3-4 days",
     "rating": 5,
-    "notes": [
-      "Ellora's Kailasa Temple — carved downward from a single rock — is architecturally the most mind-bending structure I have ever stood inside.",
-      "Ajanta needs a dawn arrival; the painted caves in early light before the tourist buses arrive are exactly why people call this a world wonder.",
-      "Budget three full days minimum — Ellora, Ajanta, and Daulatabad each deserve a dedicated day and most tourists catastrophically underestimate this."
-    ]
+    // "notes": [
+      // "Ellora's Kailasa Temple — carved downward from a single rock — is architecturally the most mind-bending structure I have ever stood inside.",
+      // "Ajanta needs a dawn arrival; the painted caves in early light before the tourist buses arrive are exactly why people call this a world wonder.",
+      // "Budget three full days minimum — Ellora, Ajanta, and Daulatabad each deserve a dedicated day and most tourists catastrophically underestimate this."
+    // ]
   },
   "pune": {
     "city": "Pune",
@@ -2715,11 +2715,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "3-4 days",
     "rating": 4,
-    "notes": [
-      "Pune is one of the most liveable cities in India — the Sahyadri backdrop, the student energy, the café culture and the genuinely good weather makes you want to just stay.",
-      "Sinhagad at 5am before the weekend crowds hit — misty, silent, with tea and bhurji at the top — is one of Maharashtra's perfect mornings.",
-      "The city has gentrified rapidly but the old Peth areas still feel like 18th-century Maratha pulse — walk through Kasba and Mandai market."
-    ]
+    // "notes": [
+      // "Pune is one of the most liveable cities in India — the Sahyadri backdrop, the student energy, the café culture and the genuinely good weather makes you want to just stay.",
+      // "Sinhagad at 5am before the weekend crowds hit — misty, silent, with tea and bhurji at the top — is one of Maharashtra's perfect mornings.",
+      // "The city has gentrified rapidly but the old Peth areas still feel like 18th-century Maratha pulse — walk through Kasba and Mandai market."
+    // ]
   },
   "mumbai": {
     "city": "Mumbai",
@@ -2763,11 +2763,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "3-4 days",
     "rating": 5,
-    "notes": [
-      "Mumbai is the only Indian city where the local train at rush hour feels like a rite of passage rather than an ordeal — do it at least once, it will teach you something.",
-      "Marine Drive at 6am, watching the city wake up over the Arabian Sea with a cutting chai from a nearby tapri — this is the real Mumbai.",
-      "The city never stops, never sleeps, never apologises for being itself — exhausting and completely intoxicating in equal measure."
-    ]
+    // "notes": [
+      // "Mumbai is the only Indian city where the local train at rush hour feels like a rite of passage rather than an ordeal — do it at least once, it will teach you something.",
+      // "Marine Drive at 6am, watching the city wake up over the Arabian Sea with a cutting chai from a nearby tapri — this is the real Mumbai.",
+      // "The city never stops, never sleeps, never apologises for being itself — exhausting and completely intoxicating in equal measure."
+    // ]
   },
   "goa": {
     "city": "Goa",
@@ -2815,11 +2815,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1 week",
     "rating": 5,
-    "notes": [
-      "South Goa is a completely different universe from North Goa — if your image of Goa is Baga-beach chaos, drive south and recalibrate entirely.",
-      "Rent a bike, ignore the beach shack raves, and just ride through the inland villages of Ponda and Divar island — that's where the real Goa magic lives.",
-      "Dudhsagar in monsoon is worth the muddy jeep trek — the waterfall in full force is one of those absurdly beautiful things."
-    ]
+    // "notes": [
+      // "South Goa is a completely different universe from North Goa — if your image of Goa is Baga-beach chaos, drive south and recalibrate entirely.",
+      // "Rent a bike, ignore the beach shack raves, and just ride through the inland villages of Ponda and Divar island — that's where the real Goa magic lives.",
+      // "Dudhsagar in monsoon is worth the muddy jeep trek — the waterfall in full force is one of those absurdly beautiful things."
+    // ]
   },
   "kochi": {
     "city": "Kochi",
@@ -2867,11 +2867,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
     "rating": 5,
-    "notes": [
-      "Fort Kochi at dusk felt like stepping into a Portuguese colonial painting — the spice smell and sea breeze hit differently here.",
-      "The ferry from Ernakulam to Fort Kochi is Rs 5 and gives you better views than any tourist boat.",
-      "Mattancherry's Jew Town is chaotic and crowded but the antique shops are genuinely fascinating — stumbled upon 200-year-old maps."
-    ]
+    // "notes": [
+      // "Fort Kochi at dusk felt like stepping into a Portuguese colonial painting — the spice smell and sea breeze hit differently here.",
+      // "The ferry from Ernakulam to Fort Kochi is Rs 5 and gives you better views than any tourist boat.",
+      // "Mattancherry's Jew Town is chaotic and crowded but the antique shops are genuinely fascinating — stumbled upon 200-year-old maps."
+    // ]
   },
   "allepey": {
     "city": "Allepey",
@@ -2911,11 +2911,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
     "rating": 5,
-    "notes": [
-      "The houseboat is overpriced if you book through hotels — find local operators at the jetty and negotiate directly for half the cost.",
-      "Woke up at 5am on the houseboat to complete silence and mist on the water — worth every rupee.",
-      "Kuttanad is rice farming below sea level; watching paddy fields surrounded by canals is genuinely surreal geography."
-    ]
+    // "notes": [
+      // "The houseboat is overpriced if you book through hotels — find local operators at the jetty and negotiate directly for half the cost.",
+      // "Woke up at 5am on the houseboat to complete silence and mist on the water — worth every rupee.",
+      // "Kuttanad is rice farming below sea level; watching paddy fields surrounded by canals is genuinely surreal geography."
+    // ]
   },
   "varkala": {
     "city": "Varkala",
@@ -2955,11 +2955,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
     "rating": 4,
-    "notes": [
-      "Varkala cliff is Goa for people who've outgrown Goa — same vibe but quieter, cleaner, and with an actual temple.",
-      "The cliff path gets touristy fast but walk 10 minutes north of the main stretch and it's suddenly peaceful.",
-      "Avoid monsoon — the cliffs erode dangerously and most shacks shut down."
-    ]
+    // "notes": [
+      // "Varkala cliff is Goa for people who've outgrown Goa — same vibe but quieter, cleaner, and with an actual temple.",
+      // "The cliff path gets touristy fast but walk 10 minutes north of the main stretch and it's suddenly peaceful.",
+      // "Avoid monsoon — the cliffs erode dangerously and most shacks shut down."
+    // ]
   },
   "trivandrum": {
     "city": "Trivandrum",
@@ -2999,11 +2999,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
     "rating": 4,
-    "notes": [
-      "Padmanabhaswamy Temple has strict dress codes but the experience inside is genuinely spiritual — one of the richest temples in the world.",
-      "Kovalam is touristy but Lighthouse Beach at dawn before the crowds is lovely.",
-      "Trivandrum has surprisingly good café culture and a relaxed pace for a state capital."
-    ]
+    // "notes": [
+      // "Padmanabhaswamy Temple has strict dress codes but the experience inside is genuinely spiritual — one of the richest temples in the world.",
+      // "Kovalam is touristy but Lighthouse Beach at dawn before the crowds is lovely.",
+      // "Trivandrum has surprisingly good café culture and a relaxed pace for a state capital."
+    // ]
   },
   "vagamon": {
     "city": "Vagamon",
@@ -3041,11 +3041,11 @@ export const CITIES = {
     "ideal_season": "post_monsoon",
     "ideal_stay": "2-3 days",
     "rating": 4,
-    "notes": [
-      "Vagamon is what Munnar was 15 years ago — untouched, misty, and relatively unknown. Don't wait too long.",
-      "The paragliding here is genuinely thrilling — wide open meadows give you full sky views with no obstructions.",
-      "Roads are narrow and steep; a scooter rental makes exploring the surrounding hills much more fun."
-    ]
+    // "notes": [
+      // "Vagamon is what Munnar was 15 years ago — untouched, misty, and relatively unknown. Don't wait too long.",
+      // "The paragliding here is genuinely thrilling — wide open meadows give you full sky views with no obstructions.",
+      // "Roads are narrow and steep; a scooter rental makes exploring the surrounding hills much more fun."
+    // ]
   },
   "coimbatore": {
     "city": "Coimbatore",
@@ -3086,11 +3086,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 3,
-    "notes": [
-      "Coimbatore is less a tourist city and more a gateway — to Ooty, Munnar, Wayanad, and Isha.",
-      "The Isha Yoga Centre alone justifies a stop here — the Dhyanalinga is one of the most energetically powerful spaces I've been in.",
-      "Great food city but not much to see beyond temples and the Isha campus."
-    ]
+    // "notes": [
+      // "Coimbatore is less a tourist city and more a gateway — to Ooty, Munnar, Wayanad, and Isha.",
+      // "The Isha Yoga Centre alone justifies a stop here — the Dhyanalinga is one of the most energetically powerful spaces I've been in.",
+      // "Great food city but not much to see beyond temples and the Isha campus."
+    // ]
   },
   "ooty": {
     "city": "Ooty",
@@ -3131,11 +3131,11 @@ export const CITIES = {
     "ideal_season": "summer",
     "ideal_stay": "2-3 days",
     "rating": 4,
-    "notes": [
-      "The toy train is slow and rickety and absolutely magical — book months ahead for weekends.",
-      "Ooty gets brutally crowded in May-June school holidays; visit in March or September for the best experience.",
-      "The Botanical Gardens in full bloom during spring is genuinely worth the entry fee unlike most such places."
-    ]
+    // "notes": [
+      // "The toy train is slow and rickety and absolutely magical — book months ahead for weekends.",
+      // "Ooty gets brutally crowded in May-June school holidays; visit in March or September for the best experience.",
+      // "The Botanical Gardens in full bloom during spring is genuinely worth the entry fee unlike most such places."
+    // ]
   },
   "mysore": {
     "city": "Mysore",
@@ -3176,11 +3176,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
     "rating": 4,
-    "notes": [
-      "The palace on a Sunday evening with 100,000 bulbs lit up is one of the most dramatic sights in India — completely free.",
-      "Mysore is compact and walkable for a city; hired a cycle for a day and covered most of the old city.",
-      "Devaraja Market in the morning smells incredible — jasmine garlands stacked taller than people."
-    ]
+    // "notes": [
+      // "The palace on a Sunday evening with 100,000 bulbs lit up is one of the most dramatic sights in India — completely free.",
+      // "Mysore is compact and walkable for a city; hired a cycle for a day and covered most of the old city.",
+      // "Devaraja Market in the morning smells incredible — jasmine garlands stacked taller than people."
+    // ]
   },
   "wayanad": {
     "city": "Wayanad",
@@ -3219,11 +3219,11 @@ export const CITIES = {
     "ideal_season": "post_monsoon",
     "ideal_stay": "3-4 days",
     "rating": 5,
-    "notes": [
-      "Chembra Peak trek is one of the best day treks in South India — the heart-shaped lake at the top is genuinely one of a kind.",
-      "Wayanad is misty, green, and tribal in character — the coffee estates here feel more authentic than Coorg.",
-      "Roads to Wayanad through the Ghat sections are genuinely beautiful — don't rush this drive."
-    ]
+    // "notes": [
+      // "Chembra Peak trek is one of the best day treks in South India — the heart-shaped lake at the top is genuinely one of a kind.",
+      // "Wayanad is misty, green, and tribal in character — the coffee estates here feel more authentic than Coorg.",
+      // "Roads to Wayanad through the Ghat sections are genuinely beautiful — don't rush this drive."
+    // ]
   },
   "rameshwaram": {
     "city": "Rameshwaram",
@@ -3262,11 +3262,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
     "rating": 4,
-    "notes": [
-      "Dhanushkodi is one of the eeriest and most beautiful places in India — a ruined town at land's end facing Sri Lanka.",
-      "The Pamban Bridge at dawn, with fishing boats and pink sky, is a genuinely iconic image.",
-      "The temple corridor is 1.2km — the longest in the world — and it's absolutely hypnotic to walk through."
-    ]
+    // "notes": [
+      // "Dhanushkodi is one of the eeriest and most beautiful places in India — a ruined town at land's end facing Sri Lanka.",
+      // "The Pamban Bridge at dawn, with fishing boats and pink sky, is a genuinely iconic image.",
+      // "The temple corridor is 1.2km — the longest in the world — and it's absolutely hypnotic to walk through."
+    // ]
   },
   "madurai": {
     "city": "Madurai",
@@ -3306,11 +3306,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
     "rating": 5,
-    "notes": [
-      "Meenakshi Temple at night is other-worldly — the lit gopurams and the chanting create an atmosphere unlike anywhere else.",
-      "Jigarthanda is mandatory — it's a sweet, milky, nannari-flavoured cold drink unique to this city.",
-      "Madurai is hot, loud, and chaotic but has more concentrated temple architecture per square kilometre than almost anywhere."
-    ]
+    // "notes": [
+      // "Meenakshi Temple at night is other-worldly — the lit gopurams and the chanting create an atmosphere unlike anywhere else.",
+      // "Jigarthanda is mandatory — it's a sweet, milky, nannari-flavoured cold drink unique to this city.",
+      // "Madurai is hot, loud, and chaotic but has more concentrated temple architecture per square kilometre than almost anywhere."
+    // ]
   },
   "guwahati": {
     "city": "Guwahati",
@@ -3352,11 +3352,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 3,
-    "notes": [
-      "Guwahati is the obligatory hub — use it wisely as a launchpad, not a destination.",
-      "Kamakhya before 7am is genuinely powerful; after 9am it's a crowd management exercise.",
-      "The Brahmaputra at dusk from the ferry is one of those quiet moments that resets you."
-    ]
+    // "notes": [
+      // "Guwahati is the obligatory hub — use it wisely as a launchpad, not a destination.",
+      // "Kamakhya before 7am is genuinely powerful; after 9am it's a crowd management exercise.",
+      // "The Brahmaputra at dusk from the ferry is one of those quiet moments that resets you."
+    // ]
   },
   "shillong": {
     "city": "Shillong",
@@ -3396,11 +3396,11 @@ export const CITIES = {
     "ideal_season": "post_monsoon",
     "ideal_stay": "2-3 days",
     "rating": 4,
-    "notes": [
-      "Shillong has a vibe that's entirely its own — part hill town, part rock city, part rainforest.",
-      "The cloud ceiling drops in the evening and suddenly you're inside a painting.",
-      "Eat pork without guilt here — it's genuinely a cultural experience."
-    ]
+    // "notes": [
+      // "Shillong has a vibe that's entirely its own — part hill town, part rock city, part rainforest.",
+      // "The cloud ceiling drops in the evening and suddenly you're inside a painting.",
+      // "Eat pork without guilt here — it's genuinely a cultural experience."
+    // ]
   },
   "dawki": {
     "city": "Dawki",
@@ -3436,11 +3436,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 5,
-    "notes": [
-      "The Umngot river is so clear the boats look like they're floating on air — it genuinely looks photoshopped until you're there.",
-      "Come in November-December for the clearest water; monsoon turns it brown.",
-      "Shnongpdeng is where you stay if you want the real experience — not a hotel in Dawki town."
-    ]
+    // "notes": [
+      // "The Umngot river is so clear the boats look like they're floating on air — it genuinely looks photoshopped until you're there.",
+      // "Come in November-December for the clearest water; monsoon turns it brown.",
+      // "Shnongpdeng is where you stay if you want the real experience — not a hotel in Dawki town."
+    // ]
   },
   "silchar": {
     "city": "Silchar",
@@ -3479,11 +3479,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 2,
-    "notes": [
-      "Silchar is overlooked but has a quiet, unhurried Bengali-Assamese cultural blend that's genuinely interesting.",
-      "It's more of a base than a destination — but the food will catch you off guard.",
-      "The town runs at half-speed and that's its charm if you let yourself slow down."
-    ]
+    // "notes": [
+      // "Silchar is overlooked but has a quiet, unhurried Bengali-Assamese cultural blend that's genuinely interesting.",
+      // "It's more of a base than a destination — but the food will catch you off guard.",
+      // "The town runs at half-speed and that's its charm if you let yourself slow down."
+    // ]
   },
   "dimapur": {
     "city": "Dimapur",
@@ -3523,11 +3523,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1 day",
     "rating": 2,
-    "notes": [
-      "Dimapur is Nagaland's ugly commercial face — a necessary stop, not a destination.",
-      "The Kachari ruins in the middle of the city are strangely haunting between all the traffic.",
-      "Stock up on smoked meats here before heading to Kohima — better variety and cheaper."
-    ]
+    // "notes": [
+      // "Dimapur is Nagaland's ugly commercial face — a necessary stop, not a destination.",
+      // "The Kachari ruins in the middle of the city are strangely haunting between all the traffic.",
+      // "Stock up on smoked meats here before heading to Kohima — better variety and cheaper."
+    // ]
   },
   "kohima": {
     "city": "Kohima",
@@ -3565,11 +3565,11 @@ export const CITIES = {
     "ideal_season": "post_monsoon",
     "ideal_stay": "2-3 days",
     "rating": 4,
-    "notes": [
-      "Kohima War Cemetery is one of the most moving WWII sites in Asia — budget at least an hour of silence here.",
-      "The Hornbill Festival in December is one of India's most authentic cultural fests — worth planning a trip around.",
-      "Dzukou Valley feels like a different planet — do the overnight trek if your knees allow."
-    ]
+    // "notes": [
+      // "Kohima War Cemetery is one of the most moving WWII sites in Asia — budget at least an hour of silence here.",
+      // "The Hornbill Festival in December is one of India's most authentic cultural fests — worth planning a trip around.",
+      // "Dzukou Valley feels like a different planet — do the overnight trek if your knees allow."
+    // ]
   },
   "tinsukia": {
     "city": "Tinsukia",
@@ -3604,11 +3604,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
     "rating": 3,
-    "notes": [
-      "Tinsukia is for people who mean business about wildlife — the feral horses of Dibru-Saikhowa are something out of a dream.",
-      "The wetlands at Maguri beel at dawn are quiet enough to hear your own heartbeat.",
-      "Don't come expecting tourist infrastructure — come expecting untouched Assam."
-    ]
+    // "notes": [
+      // "Tinsukia is for people who mean business about wildlife — the feral horses of Dibru-Saikhowa are something out of a dream.",
+      // "The wetlands at Maguri beel at dawn are quiet enough to hear your own heartbeat.",
+      // "Don't come expecting tourist infrastructure — come expecting untouched Assam."
+    // ]
   },
   "itanagar": {
     "city": "Itanagar",
@@ -3645,11 +3645,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 3,
-    "notes": [
-      "Itanagar requires an Inner Line Permit — get it sorted in advance or you'll waste your first day.",
-      "The state museum is genuinely excellent; more depth on Arunachali tribes than you'd expect.",
-      "It's a functional capital more than a tourist city, but the surrounding hills make up for it."
-    ]
+    // "notes": [
+      // "Itanagar requires an Inner Line Permit — get it sorted in advance or you'll waste your first day.",
+      // "The state museum is genuinely excellent; more depth on Arunachali tribes than you'd expect.",
+      // "It's a functional capital more than a tourist city, but the surrounding hills make up for it."
+    // ]
   },
   "tawang": {
     "city": "Tawang",
@@ -3687,11 +3687,11 @@ export const CITIES = {
     "ideal_season": "post_monsoon",
     "ideal_stay": "3-4 days",
     "rating": 5,
-    "notes": [
-      "Tawang Monastery at golden hour with the valley below is the kind of view that makes you reconsider everything.",
-      "The road via Sela Pass is terrifying and magnificent — go with a local driver who knows every blind curve.",
-      "Inner Line Permit and Protected Area Permit both needed — bureaucracy is annoying but the destination earns it."
-    ]
+    // "notes": [
+      // "Tawang Monastery at golden hour with the valley below is the kind of view that makes you reconsider everything.",
+      // "The road via Sela Pass is terrifying and magnificent — go with a local driver who knows every blind curve.",
+      // "Inner Line Permit and Protected Area Permit both needed — bureaucracy is annoying but the destination earns it."
+    // ]
   },
   "darjeeling": {
     "city": "Darjeeling",
@@ -3729,11 +3729,11 @@ export const CITIES = {
     "ideal_season": "post_monsoon",
     "ideal_stay": "2-3 days",
     "rating": 5,
-    "notes": [
-      "Tiger Hill at 4am is a rite of passage — stand in the freezing dark and watch Kanchenjunga turn gold.",
-      "The Toy Train is slow, smoky, and absolutely perfect — do not skip it.",
-      "Darjeeling tea tastes different when you drink it at the estate where it's grown. That's not marketing, that's fact."
-    ]
+    // "notes": [
+      // "Tiger Hill at 4am is a rite of passage — stand in the freezing dark and watch Kanchenjunga turn gold.",
+      // "The Toy Train is slow, smoky, and absolutely perfect — do not skip it.",
+      // "Darjeeling tea tastes different when you drink it at the estate where it's grown. That's not marketing, that's fact."
+    // ]
   },
   "pelling": {
     "city": "Pelling",
@@ -3770,11 +3770,11 @@ export const CITIES = {
     "ideal_season": "post_monsoon",
     "ideal_stay": "2-3 days",
     "rating": 4,
-    "notes": [
-      "Pelling has arguably the best unobstructed Kanchenjunga view in the region — Gangtok can't compete on this front.",
-      "The Skywalk is touristy but gives you a genuine perspective on the scale of the valleys below.",
-      "Khecheopalri lake has a serenity that's hard to explain — the locals say birds remove every fallen leaf from the surface."
-    ]
+    // "notes": [
+      // "Pelling has arguably the best unobstructed Kanchenjunga view in the region — Gangtok can't compete on this front.",
+      // "The Skywalk is touristy but gives you a genuine perspective on the scale of the valleys below.",
+      // "Khecheopalri lake has a serenity that's hard to explain — the locals say birds remove every fallen leaf from the surface."
+    // ]
   },
   "gangtok": {
     "city": "Gangtok",
@@ -3814,11 +3814,11 @@ export const CITIES = {
     "ideal_season": "post_monsoon",
     "ideal_stay": "2-3 days",
     "rating": 4,
-    "notes": [
-      "Gangtok is more polished than most hill stations — MG Marg at night feels almost European, which is either charming or uncanny.",
-      "Nathu La Pass requires a permit and often closes — check weather and book well in advance.",
-      "The monastery circuit here is understated; you can feel the Tibetan Buddhist influence without it being performance."
-    ]
+    // "notes": [
+      // "Gangtok is more polished than most hill stations — MG Marg at night feels almost European, which is either charming or uncanny.",
+      // "Nathu La Pass requires a permit and often closes — check weather and book well in advance.",
+      // "The monastery circuit here is understated; you can feel the Tibetan Buddhist influence without it being performance."
+    // ]
   },
   "siliguri": {
     "city": "Siliguri",
@@ -3856,11 +3856,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1 day",
     "rating": 2,
-    "notes": [
-      "Siliguri is a junction city — treat it as a logistics hub, not a destination, and it'll serve you well.",
-      "The Bengal Safari is actually worth 3 hours if you have time to spare.",
-      "Hong Kong Market for cheap electronics and the momo stalls around it are the two reasons to actually stop here."
-    ]
+    // "notes": [
+      // "Siliguri is a junction city — treat it as a logistics hub, not a destination, and it'll serve you well.",
+      // "The Bengal Safari is actually worth 3 hours if you have time to spare.",
+      // "Hong Kong Market for cheap electronics and the momo stalls around it are the two reasons to actually stop here."
+    // ]
   },
   "bengaluru": {
     "city": "Bengaluru",
@@ -3904,11 +3904,11 @@ export const CITIES = {
     "ideal_season": "year_round",
     "ideal_stay": "3-4 days",
     "rating": 4,
-    "notes": [
-      "Bangalore is best experienced as a resident, not a tourist — the city's soul is in its neighbourhood cafés and pub culture.",
-      "Traffic is genuinely terrible; always use the metro for cross-city travel and save auto for last miles.",
-      "Nandi Hills at sunrise is a classic Bangalore escape — leave by 4:30am to beat the mist and the crowds."
-    ]
+    // "notes": [
+      // "Bangalore is best experienced as a resident, not a tourist — the city's soul is in its neighbourhood cafés and pub culture.",
+      // "Traffic is genuinely terrible; always use the metro for cross-city travel and save auto for last miles.",
+      // "Nandi Hills at sunrise is a classic Bangalore escape — leave by 4:30am to beat the mist and the crowds."
+    // ]
   },
   "kanchipuram": {
     "city": "Kanchipuram",
@@ -3946,11 +3946,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 4,
-    "notes": [
-      "Kanchipuram's Kailasanathar Temple is the oldest in Tamil Nadu and one of the best-preserved Pallava structures — genuinely underrated.",
-      "The silk weaving units let you watch the process up close — buying directly here saves significantly over Chennai.",
-      "Can be done as a day trip from Chennai but staying overnight gives you the temples without tourist crowds."
-    ]
+    // "notes": [
+      // "Kanchipuram's Kailasanathar Temple is the oldest in Tamil Nadu and one of the best-preserved Pallava structures — genuinely underrated.",
+      // "The silk weaving units let you watch the process up close — buying directly here saves significantly over Chennai.",
+      // "Can be done as a day trip from Chennai but staying overnight gives you the temples without tourist crowds."
+    // ]
   },
   "tirupati": {
     "city": "Tirupati",
@@ -3987,11 +3987,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
     "rating": 4,
-    "notes": [
-      "The Tirumala temple at dawn with no crowd is a divine experience — book the Rs 300 special darshan online a month in advance.",
-      "Tirupati ladoos are genuinely different from reproductions — get them fresh from the official counters only.",
-      "The serpentine queue for general darshan can be 18+ hours; plan smart unless you have special entry."
-    ]
+    // "notes": [
+      // "The Tirumala temple at dawn with no crowd is a divine experience — book the Rs 300 special darshan online a month in advance.",
+      // "Tirupati ladoos are genuinely different from reproductions — get them fresh from the official counters only.",
+      // "The serpentine queue for general darshan can be 18+ hours; plan smart unless you have special entry."
+    // ]
   },
   "srisailam": {
     "city": "Srisailam",
@@ -4025,11 +4025,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
     "rating": 4,
-    "notes": [
-      "Srisailam combines a Jyotirlinga with a massive dam and dense tiger forest — one of the most underrated religious-nature combos in India.",
-      "The ropeway over the Krishna gorge is vertiginous and spectacular — don't skip it.",
-      "The roads through Nallamala forest after dark can be risky; plan to arrive before sunset."
-    ]
+    // "notes": [
+      // "Srisailam combines a Jyotirlinga with a massive dam and dense tiger forest — one of the most underrated religious-nature combos in India.",
+      // "The ropeway over the Krishna gorge is vertiginous and spectacular — don't skip it.",
+      // "The roads through Nallamala forest after dark can be risky; plan to arrive before sunset."
+    // ]
   },
   "hyderabad": {
     "city": "Hyderabad",
@@ -4074,11 +4074,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "3-4 days",
     "rating": 5,
-    "notes": [
-      "Hyderabadi biryani is not a tourist dish — it's a cultural institution, and every local has a sworn loyalty to one shop.",
-      "Golconda Fort's acoustics test is genuinely clever; a clap at the entrance gate can be heard at the top of the fort.",
-      "Old Hyderabad near Charminar is a completely different world from Hitech City — don't leave without spending time in the bazaars."
-    ]
+    // "notes": [
+      // "Hyderabadi biryani is not a tourist dish — it's a cultural institution, and every local has a sworn loyalty to one shop.",
+      // "Golconda Fort's acoustics test is genuinely clever; a clap at the entrance gate can be heard at the top of the fort.",
+      // "Old Hyderabad near Charminar is a completely different world from Hitech City — don't leave without spending time in the bazaars."
+    // ]
   },
   "shivamogga": {
     "city": "Shivamogga",
@@ -4114,11 +4114,11 @@ export const CITIES = {
     "ideal_season": "monsoon",
     "ideal_stay": "2-3 days",
     "rating": 4,
-    "notes": [
-      "Jog Falls in monsoon is one of the most powerful natural sights in India — the force of water is humbling.",
-      "Most people visit Jog Falls and leave the same day; staying in Shivamogga lets you explore the wildlife sanctuary and Kodachadri.",
-      "Shivamogga is a classic underrated Karnataka gem — lush, cheap, and barely touristy."
-    ]
+    // "notes": [
+      // "Jog Falls in monsoon is one of the most powerful natural sights in India — the force of water is humbling.",
+      // "Most people visit Jog Falls and leave the same day; staying in Shivamogga lets you explore the wildlife sanctuary and Kodachadri.",
+      // "Shivamogga is a classic underrated Karnataka gem — lush, cheap, and barely touristy."
+    // ]
   },
   "pondicherry": {
     "city": "Pondicherry",
@@ -4159,11 +4159,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
     "rating": 4,
-    "notes": [
-      "White Town at dawn on a rented bicycle is one of my favourite things to do in South India — bougainvillea walls and French villas before the scooters arrive.",
-      "Auroville Matrimandir requires advance registration — don't show up without it expecting to get in.",
-      "The French Quarter is genuinely pleasant but gets overrun by Chennai weekenders on Saturdays — arrive Sunday morning."
-    ]
+    // "notes": [
+      // "White Town at dawn on a rented bicycle is one of my favourite things to do in South India — bougainvillea walls and French villas before the scooters arrive.",
+      // "Auroville Matrimandir requires advance registration — don't show up without it expecting to get in.",
+      // "The French Quarter is genuinely pleasant but gets overrun by Chennai weekenders on Saturdays — arrive Sunday morning."
+    // ]
   },
   "chennai": {
     "city": "Chennai",
@@ -4208,11 +4208,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
     "rating": 4,
-    "notes": [
-      "Chennai doesn't show off — it's a working city, and you have to seek out its pleasures rather than have them presented.",
-      "The Mylapore neighbourhood around Kapaleeshwarar Temple is the real Chennai — flower sellers, silk saree shops, and kolam drawings on every doorstep.",
-      "Marina Beach at 6am is serene; by 9am it's one of the most densely packed beaches in the world."
-    ]
+    // "notes": [
+      // "Chennai doesn't show off — it's a working city, and you have to seek out its pleasures rather than have them presented.",
+      // "The Mylapore neighbourhood around Kapaleeshwarar Temple is the real Chennai — flower sellers, silk saree shops, and kolam drawings on every doorstep.",
+      // "Marina Beach at 6am is serene; by 9am it's one of the most densely packed beaches in the world."
+    // ]
   },
   "sonmarg": {
     "city": "Sonmarg",
@@ -4245,11 +4245,11 @@ export const CITIES = {
     "ideal_season": "summer",
     "ideal_stay": "1-2 days",
     "rating": 4,
-    "notes": [
-      "Sonmarg's meadows in June when the snow is still on the peaks and the wildflowers are out is as beautiful as Kashmir gets.",
-      "The road to Zoji La is hair-raising but worth it for the views — only attempt in good weather.",
-      "Thajiwas Glacier is just a 2km walk from the main meadow — you don't need a pony unless you want one."
-    ]
+    // "notes": [
+      // "Sonmarg's meadows in June when the snow is still on the peaks and the wildflowers are out is as beautiful as Kashmir gets.",
+      // "The road to Zoji La is hair-raising but worth it for the views — only attempt in good weather.",
+      // "Thajiwas Glacier is just a 2km walk from the main meadow — you don't need a pony unless you want one."
+    // ]
   },
   "baltal": {
     "city": "Baltal",
@@ -4281,11 +4281,11 @@ export const CITIES = {
     "ideal_season": "summer",
     "ideal_stay": "1-2 days",
     "rating": 3,
-    "notes": [
-      "Baltal is the shorter and steeper route to Amarnath — 14km versus 36km from Pahalgam, but more demanding.",
-      "The Yatra season is July-August only — outside that window Baltal is just a beautiful but basic camp site.",
-      "Physical fitness and acclimatization matter here — altitude and gradient together catch many people off guard."
-    ]
+    // "notes": [
+      // "Baltal is the shorter and steeper route to Amarnath — 14km versus 36km from Pahalgam, but more demanding.",
+      // "The Yatra season is July-August only — outside that window Baltal is just a beautiful but basic camp site.",
+      // "Physical fitness and acclimatization matter here — altitude and gradient together catch many people off guard."
+    // ]
   },
   "banihal-udhampur": {
     "city": "Udhampur",
@@ -4315,11 +4315,11 @@ export const CITIES = {
     "ideal_season": "summer",
     "ideal_stay": "1-2 days",
     "rating": 3,
-    "notes": [
-      "The Chenab Railway Bridge under construction (now complete) is an engineering marvel — worth a dedicated stop.",
-      "Patnitop is a pleasant, undiscovered Himalayan meadow town that deserves more attention than it gets.",
-      "This corridor has transformed with the Udhampur-Srinagar-Baramulla Rail Link — train travel here is now possible."
-    ]
+    // "notes": [
+      // "The Chenab Railway Bridge under construction (now complete) is an engineering marvel — worth a dedicated stop.",
+      // "Patnitop is a pleasant, undiscovered Himalayan meadow town that deserves more attention than it gets.",
+      // "This corridor has transformed with the Udhampur-Srinagar-Baramulla Rail Link — train travel here is now possible."
+    // ]
   },
   "orchha": {
     "city": "Orchha",
@@ -4355,11 +4355,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 5,
-    "notes": [
-      "Orchha is one of those rare places that feels completely frozen in time — 17th-century cenotaphs standing in the river with vultures overhead and almost no other tourists.",
-      "The Raja Ram Temple is the only place in India where Lord Ram is worshipped as a king rather than a god and carries a unique military tradition — fascinating.",
-      "Stay overnight to get the town to yourself after the day-trippers leave — the morning light on the Betwa ghats is extraordinary."
-    ]
+    // "notes": [
+      // "Orchha is one of those rare places that feels completely frozen in time — 17th-century cenotaphs standing in the river with vultures overhead and almost no other tourists.",
+      // "The Raja Ram Temple is the only place in India where Lord Ram is worshipped as a king rather than a god and carries a unique military tradition — fascinating.",
+      // "Stay overnight to get the town to yourself after the day-trippers leave — the morning light on the Betwa ghats is extraordinary."
+    // ]
   },
   "jhansi": {
     "city": "Jhansi",
@@ -4395,11 +4395,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 3,
-    "notes": [
-      "Jhansi is primarily a gateway city rather than a destination but the fort carries genuine weight — standing where Lakshmibai made her last stand is powerful.",
-      "Most people rush through on the way to Orchha or Khajuraho but the Government Museum has an excellent collection of local sculpture worth an hour.",
-      "The town's Bundeli food — particularly the tehri and bedai — is distinct from both UP and MP cuisines and should not be missed."
-    ]
+    // "notes": [
+      // "Jhansi is primarily a gateway city rather than a destination but the fort carries genuine weight — standing where Lakshmibai made her last stand is powerful.",
+      // "Most people rush through on the way to Orchha or Khajuraho but the Government Museum has an excellent collection of local sculpture worth an hour.",
+      // "The town's Bundeli food — particularly the tehri and bedai — is distinct from both UP and MP cuisines and should not be missed."
+    // ]
   },
   "khajurao": {
     "city": "Khajurao",
@@ -4435,11 +4435,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
     "rating": 5,
-    "notes": [
-      "The sculptures here are not what the internet's obsession with the erotic panels suggests — the temple complexes are among the finest examples of Chandela architecture and the cosmic iconography is genuinely complex.",
-      "Most tourists do a three-hour walk and leave — rent a cycle, slow down, and spend a full day in the western group alone, it rewards patience enormously.",
-      "Raneh Falls nearby — red and grey volcanic gorge cut by the Ken river — is one of Madhya Pradesh's best kept natural secrets."
-    ]
+    // "notes": [
+      // "The sculptures here are not what the internet's obsession with the erotic panels suggests — the temple complexes are among the finest examples of Chandela architecture and the cosmic iconography is genuinely complex.",
+      // "Most tourists do a three-hour walk and leave — rent a cycle, slow down, and spend a full day in the western group alone, it rewards patience enormously.",
+      // "Raneh Falls nearby — red and grey volcanic gorge cut by the Ken river — is one of Madhya Pradesh's best kept natural secrets."
+    // ]
   },
   "prayagraj": {
     "city": "Prayagraj",
@@ -4478,11 +4478,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 4,
-    "notes": [
-      "The Sangam at dawn when the mist sits on the water feels genuinely sacred regardless of belief.",
-      "Kumbh Mela here is once in a lifetime if you can handle the scale — otherwise the city is a calm two-day stop.",
-      "Anand Bhavan gives you a real window into the freedom movement that textbooks miss."
-    ]
+    // "notes": [
+      // "The Sangam at dawn when the mist sits on the water feels genuinely sacred regardless of belief.",
+      // "Kumbh Mela here is once in a lifetime if you can handle the scale — otherwise the city is a calm two-day stop.",
+      // "Anand Bhavan gives you a real window into the freedom movement that textbooks miss."
+    // ]
   },
   "ayodhya": {
     "city": "Ayodhya",
@@ -4518,11 +4518,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 4,
-    "notes": [
-      "The new Ram Mandir is architecturally stunning — the scale of devotion around it is something you can only feel in person.",
-      "Saryu Ghat at dusk with the aarti is a quieter, more personal version of the Varanasi experience.",
-      "Crowds during Ram Navami and Diwali are immense — plan accordingly or avoid peak days."
-    ]
+    // "notes": [
+      // "The new Ram Mandir is architecturally stunning — the scale of devotion around it is something you can only feel in person.",
+      // "Saryu Ghat at dusk with the aarti is a quieter, more personal version of the Varanasi experience.",
+      // "Crowds during Ram Navami and Diwali are immense — plan accordingly or avoid peak days."
+    // ]
   },
   "lukhnow": {
     "city": "Lukhnow",
@@ -4559,11 +4559,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
     "rating": 4,
-    "notes": [
-      "The food alone justifies the trip — Tunde Kababi is not hype, it genuinely melts.",
-      "Bara Imambara's bhul-bhulaiya maze is one of the most underrated architectural experiences in India.",
-      "Lucknow has a slowness and grace to it that most north Indian cities have lost — lean into it."
-    ]
+    // "notes": [
+      // "The food alone justifies the trip — Tunde Kababi is not hype, it genuinely melts.",
+      // "Bara Imambara's bhul-bhulaiya maze is one of the most underrated architectural experiences in India.",
+      // "Lucknow has a slowness and grace to it that most north Indian cities have lost — lean into it."
+    // ]
   },
   "bodh-gaya": {
     "city": "Bodh Gaya",
@@ -4602,11 +4602,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 4,
-    "notes": [
-      "The Mahabodhi Temple complex at dawn, with monks chanting from every direction, is genuinely transcendent.",
-      "Buddhists from Thailand, Japan, Sri Lanka, Tibet all share this space — the diversity of devotion is the attraction.",
-      "It's a pilgrimage site, not a tourist attraction — carry that energy into how you move through it."
-    ]
+    // "notes": [
+      // "The Mahabodhi Temple complex at dawn, with monks chanting from every direction, is genuinely transcendent.",
+      // "Buddhists from Thailand, Japan, Sri Lanka, Tibet all share this space — the diversity of devotion is the attraction.",
+      // "It's a pilgrimage site, not a tourist attraction — carry that energy into how you move through it."
+    // ]
   },
   "deoghar": {
     "city": "Deoghar",
@@ -4641,11 +4641,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 3,
-    "notes": [
-      "Baidyanath Dham is one of the twelve Jyotirlingas — during Shravani Mela, millions walk hundreds of kilometers to offer water here.",
-      "The intensity of devotion here is unlike anything you'll see at more 'accessible' temples.",
-      "Outside of Shravani Mela it's quieter and more manageable — you can actually touch the sanctum."
-    ]
+    // "notes": [
+      // "Baidyanath Dham is one of the twelve Jyotirlingas — during Shravani Mela, millions walk hundreds of kilometers to offer water here.",
+      // "The intensity of devotion here is unlike anything you'll see at more 'accessible' temples.",
+      // "Outside of Shravani Mela it's quieter and more manageable — you can actually touch the sanctum."
+    // ]
   },
   "digha": {
     "city": "Digha",
@@ -4681,11 +4681,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 2,
-    "notes": [
-      "Digha is the Bengalis' goa — affordable, accessible, and perpetually crowded on weekends.",
-      "Go on a weekday or it's just wall-to-wall people from Kolkata with speakers playing Bengali film songs.",
-      "The seafood is the actual reason to come — ignore the over-developed beach and focus on the food."
-    ]
+    // "notes": [
+      // "Digha is the Bengalis' goa — affordable, accessible, and perpetually crowded on weekends.",
+      // "Go on a weekday or it's just wall-to-wall people from Kolkata with speakers playing Bengali film songs.",
+      // "The seafood is the actual reason to come — ignore the over-developed beach and focus on the food."
+    // ]
   },
   "kharagpur": {
     "city": "Kharagpur",
@@ -4723,11 +4723,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1 day",
     "rating": 2,
-    "notes": [
-      "Kharagpur is not a tourist destination — it's a university town that happens to have India's longest railway platform.",
-      "The IIT campus is genuinely beautiful if you can get a pass in — colonial bungalows and tree-lined avenues.",
-      "A useful overnight break on the Kolkata-Bhubaneswar road trip rather than a standalone trip."
-    ]
+    // "notes": [
+      // "Kharagpur is not a tourist destination — it's a university town that happens to have India's longest railway platform.",
+      // "The IIT campus is genuinely beautiful if you can get a pass in — colonial bungalows and tree-lined avenues.",
+      // "A useful overnight break on the Kolkata-Bhubaneswar road trip rather than a standalone trip."
+    // ]
   },
   "cuttak": {
     "city": "Cuttak",
@@ -4768,11 +4768,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 3,
-    "notes": [
-      "Cuttack's silver filigree craft is some of the finest in the world — a workshop visit is genuinely mind-blowing.",
-      "Dahibara Aludum at the roadside stalls is the kind of street food that ruins restaurant versions for you.",
-      "Netaji Subhas Chandra Bose was born here — the museum is small but sincere."
-    ]
+    // "notes": [
+      // "Cuttack's silver filigree craft is some of the finest in the world — a workshop visit is genuinely mind-blowing.",
+      // "Dahibara Aludum at the roadside stalls is the kind of street food that ruins restaurant versions for you.",
+      // "Netaji Subhas Chandra Bose was born here — the museum is small but sincere."
+    // ]
   },
   "vishakhapatnam": {
     "city": "Vishakhapatnam",
@@ -4812,11 +4812,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
     "rating": 4,
-    "notes": [
-      "Vizag is an underrated coastal city — less chaotic than Chennai, less expensive than Goa, and genuinely beautiful.",
-      "The Araku Valley day trip is mandatory — the ghat road alone is worth it.",
-      "INS Kursura submarine museum is one of the few places you can go inside a decommissioned navy submarine — claustrophobic but fascinating."
-    ]
+    // "notes": [
+      // "Vizag is an underrated coastal city — less chaotic than Chennai, less expensive than Goa, and genuinely beautiful.",
+      // "The Araku Valley day trip is mandatory — the ghat road alone is worth it.",
+      // "INS Kursura submarine museum is one of the few places you can go inside a decommissioned navy submarine — claustrophobic but fascinating."
+    // ]
   },
   "araku": {
     "city": "Araku",
@@ -4853,11 +4853,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
     "rating": 4,
-    "notes": [
-      "The Kirandul Express train through the Eastern Ghats to Araku is genuinely one of the most scenic rail journeys in India — window seat mandatory.",
-      "Borra Caves are much larger and more impressive than I expected — the limestone formations are extraordinary.",
-      "Araku coffee is excellent and dirt cheap at the source; the tribal cooperatives sell it at a fraction of what Chennai shops charge."
-    ]
+    // "notes": [
+      // "The Kirandul Express train through the Eastern Ghats to Araku is genuinely one of the most scenic rail journeys in India — window seat mandatory.",
+      // "Borra Caves are much larger and more impressive than I expected — the limestone formations are extraordinary.",
+      // "Araku coffee is excellent and dirt cheap at the source; the tribal cooperatives sell it at a fraction of what Chennai shops charge."
+    // ]
   },
   "coorg": {
     "city": "Coorg",
@@ -4895,11 +4895,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "3-4 days",
     "rating": 5,
-    "notes": [
-      "Coorg is best enjoyed at a homestay run by a Kodava family — the food, hospitality, and local knowledge are unmatched.",
-      "The Namdroling Golden Temple is surprisingly spectacular — gold-lacquered Tibetan Buddhist architecture in the middle of coffee country.",
-      "Monsoon Coorg is lush but the roads get bad; October-March is the sweet spot."
-    ]
+    // "notes": [
+      // "Coorg is best enjoyed at a homestay run by a Kodava family — the food, hospitality, and local knowledge are unmatched.",
+      // "The Namdroling Golden Temple is surprisingly spectacular — gold-lacquered Tibetan Buddhist architecture in the middle of coffee country.",
+      // "Monsoon Coorg is lush but the roads get bad; October-March is the sweet spot."
+    // ]
   },
   "chikkmanglore": {
     "city": "Chikkmanglore",
@@ -4935,11 +4935,11 @@ export const CITIES = {
     "ideal_season": "post_monsoon",
     "ideal_stay": "2-3 days",
     "rating": 4,
-    "notes": [
-      "Mullayanagiri at dawn is magnificent — you're above the clouds and can see all the way to the coast on a clear day.",
-      "Chikmagalur is overrun by Bangaloreans on weekends; plan for weekdays if you want the quiet coffee estate vibe.",
-      "Kudremukh requires advance forest department permits but is one of the most pristine treks in the Western Ghats."
-    ]
+    // "notes": [
+      // "Mullayanagiri at dawn is magnificent — you're above the clouds and can see all the way to the coast on a clear day.",
+      // "Chikmagalur is overrun by Bangaloreans on weekends; plan for weekdays if you want the quiet coffee estate vibe.",
+      // "Kudremukh requires advance forest department permits but is one of the most pristine treks in the Western Ghats."
+    // ]
   },
   "hampi": {
     "city": "Hampi",
@@ -4978,11 +4978,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "3-4 days",
     "rating": 5,
-    "notes": [
-      "Hampi is possibly the most atmospheric place in South India — 500-year-old Vijayanagara empire ruins scattered across a lunar boulder landscape.",
-      "The coracle ferry to Hippie Island is the best Rs 20 you'll spend in India — the other side has a completely different backpacker energy.",
-      "Hire a bicycle, not an auto — the ruins are spread out and half the joy is cycling through paddy fields between temples."
-    ]
+    // "notes": [
+      // "Hampi is possibly the most atmospheric place in South India — 500-year-old Vijayanagara empire ruins scattered across a lunar boulder landscape.",
+      // "The coracle ferry to Hippie Island is the best Rs 20 you'll spend in India — the other side has a completely different backpacker energy.",
+      // "Hire a bicycle, not an auto — the ruins are spread out and half the joy is cycling through paddy fields between temples."
+    // ]
   },
   "mudurai": {
     "city": "Mudurai",
@@ -5022,11 +5022,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
     "rating": 5,
-    "notes": [
-      "Meenakshi Temple at night is other-worldly — the lit gopurams and the chanting create an atmosphere unlike anywhere else.",
-      "Jigarthanda is mandatory — it's a sweet, milky, nannari-flavoured cold drink unique to this city.",
-      "Madurai is hot, loud, and chaotic but has more concentrated temple architecture per square kilometre than almost anywhere."
-    ]
+    // "notes": [
+      // "Meenakshi Temple at night is other-worldly — the lit gopurams and the chanting create an atmosphere unlike anywhere else.",
+      // "Jigarthanda is mandatory — it's a sweet, milky, nannari-flavoured cold drink unique to this city.",
+      // "Madurai is hot, loud, and chaotic but has more concentrated temple architecture per square kilometre than almost anywhere."
+    // ]
   },
   "kodaikannal": {
     "city": "Kodaikannal",
@@ -5066,11 +5066,11 @@ export const CITIES = {
     "ideal_season": "summer",
     "ideal_stay": "2-3 days",
     "rating": 4,
-    "notes": [
-      "Kodaikanal is the cooler, quieter cousin of Ooty — same colonial hill-station charm with better forest trails.",
-      "Coaker's Walk on a clear morning gives views all the way to the plains — worth waking up at 6am for.",
-      "The local chocolate shops are tourist traps; the homemade stuff from tiny stalls near the lake is genuinely good and cheap."
-    ]
+    // "notes": [
+      // "Kodaikanal is the cooler, quieter cousin of Ooty — same colonial hill-station charm with better forest trails.",
+      // "Coaker's Walk on a clear morning gives views all the way to the plains — worth waking up at 6am for.",
+      // "The local chocolate shops are tourist traps; the homemade stuff from tiny stalls near the lake is genuinely good and cheap."
+    // ]
   },
   "poombarai": {
     "city": "Poombarai",
@@ -5107,11 +5107,11 @@ export const CITIES = {
     "ideal_season": "post_monsoon",
     "ideal_stay": "1-2 days",
     "rating": 3,
-    "notes": [
-      "Poombarai is a genuinely hidden gem above Kodaikanal — most tourists never come this far, which is precisely the point.",
-      "The terraced vegetable gardens against the misty backdrop look like a painting — best light in the early morning.",
-      "Almost zero tourist infrastructure; carry food and water and book accommodation well in advance."
-    ]
+    // "notes": [
+      // "Poombarai is a genuinely hidden gem above Kodaikanal — most tourists never come this far, which is precisely the point.",
+      // "The terraced vegetable gardens against the misty backdrop look like a painting — best light in the early morning.",
+      // "Almost zero tourist infrastructure; carry food and water and book accommodation well in advance."
+    // ]
   },
   "theni": {
     "city": "Theni",
@@ -5149,11 +5149,11 @@ export const CITIES = {
     "ideal_season": "post_monsoon",
     "ideal_stay": "1-2 days",
     "rating": 3,
-    "notes": [
-      "Theni is primarily a base for Megamalai — one of Tamil Nadu's most beautiful and least visited wildlife sanctuaries.",
-      "Bodinayakkanur is the grape capital of Tamil Nadu; the vineyards and fruit markets here are a genuine surprise.",
-      "Most people rush through Theni on their way to Munnar or Kodaikanal; spending a night here rewards you with serene, unhurried access to the hills."
-    ]
+    // "notes": [
+      // "Theni is primarily a base for Megamalai — one of Tamil Nadu's most beautiful and least visited wildlife sanctuaries.",
+      // "Bodinayakkanur is the grape capital of Tamil Nadu; the vineyards and fruit markets here are a genuine surprise.",
+      // "Most people rush through Theni on their way to Munnar or Kodaikanal; spending a night here rewards you with serene, unhurried access to the hills."
+    // ]
   },
   "munnar": {
     "city": "Munnar",
@@ -5192,11 +5192,11 @@ export const CITIES = {
     "ideal_season": "post_monsoon",
     "ideal_stay": "3-4 days",
     "rating": 5,
-    "notes": [
-      "Munnar's tea estates in the morning mist are iconic for a reason — the green-on-green landscape is endlessly photogenic.",
-      "Eravikulam Park is the only place in the world to see the Nilgiri Tahr; go early for best sightings.",
-      "Munnar is crowded on weekends year-round; book accommodation early and arrive midweek for the best experience."
-    ]
+    // "notes": [
+      // "Munnar's tea estates in the morning mist are iconic for a reason — the green-on-green landscape is endlessly photogenic.",
+      // "Eravikulam Park is the only place in the world to see the Nilgiri Tahr; go early for best sightings.",
+      // "Munnar is crowded on weekends year-round; book accommodation early and arrive midweek for the best experience."
+    // ]
   },
   "thrissur": {
     "city": "Thrissur",
@@ -5234,11 +5234,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 3,
-    "notes": [
-      "If you are here during Thrissur Pooram, cancel all plans and stay — it's the most spectacular elephant festival in the world.",
-      "Athirapally waterfall is worth the 60km trip, especially post-monsoon when the water volume is massive.",
-      "Thrissur is Kerala's cultural capital — more traditional and Brahminical than Kochi, which gives it a different energy."
-    ]
+    // "notes": [
+      // "If you are here during Thrissur Pooram, cancel all plans and stay — it's the most spectacular elephant festival in the world.",
+      // "Athirapally waterfall is worth the 60km trip, especially post-monsoon when the water volume is massive.",
+      // "Thrissur is Kerala's cultural capital — more traditional and Brahminical than Kochi, which gives it a different energy."
+    // ]
   },
   "palakkad": {
     "city": "Palakkad",
@@ -5275,11 +5275,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
     "rating": 3,
-    "notes": [
-      "Silent Valley is one of the last pristine tropical rainforests in India — restricted access keeps it genuinely wild.",
-      "Palakkad is a gateway city that most Kerala tourists skip entirely; the fort and Nelliyampathy hills alone justify a night here.",
-      "The Palakkad gap (the only break in the Western Ghats) gives this district a different climate — hotter and drier than the rest of Kerala."
-    ]
+    // "notes": [
+      // "Silent Valley is one of the last pristine tropical rainforests in India — restricted access keeps it genuinely wild.",
+      // "Palakkad is a gateway city that most Kerala tourists skip entirely; the fort and Nelliyampathy hills alone justify a night here.",
+      // "The Palakkad gap (the only break in the Western Ghats) gives this district a different climate — hotter and drier than the rest of Kerala."
+    // ]
   },
   "gwalior": {
     "city": "Gwalior",
@@ -5317,11 +5317,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 4,
-    "notes": [
-      "Gwalior Fort is one of the most underrated forts in India — it sits on a sheer rock plateau above the city and the Man Singh Palace interior is extraordinary.",
-      "The Jain rock sculptures at Gopachal — massive figures carved directly into the cliff face — are completely overlooked by tourists and utterly haunting.",
-      "Jai Vilas Palace has one of the strangest Durbar halls in India: two of the world's largest chandeliers, and a silver toy train that served drinks at dinner."
-    ]
+    // "notes": [
+      // "Gwalior Fort is one of the most underrated forts in India — it sits on a sheer rock plateau above the city and the Man Singh Palace interior is extraordinary.",
+      // "The Jain rock sculptures at Gopachal — massive figures carved directly into the cliff face — are completely overlooked by tourists and utterly haunting.",
+      // "Jai Vilas Palace has one of the strangest Durbar halls in India: two of the world's largest chandeliers, and a silver toy train that served drinks at dinner."
+    // ]
   },
   "nagpur": {
     "city": "Nagpur",
@@ -5360,11 +5360,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
     "rating": 3,
-    "notes": [
-      "Nagpur is India's geographic centre and it has a certain unhurried self-confidence that bigger cities don't — Deekshabhoomi alone is worth the stop.",
-      "Saoji food is Nagpur's best-kept secret — the mutton is slow-cooked in a masala blend unique to the Saoji community and it is incendiary in the best way.",
-      "Tadoba is consistently one of the best tiger sighting destinations in India — if you're in Nagpur, blocking a morning for a safari is non-negotiable."
-    ]
+    // "notes": [
+      // "Nagpur is India's geographic centre and it has a certain unhurried self-confidence that bigger cities don't — Deekshabhoomi alone is worth the stop.",
+      // "Saoji food is Nagpur's best-kept secret — the mutton is slow-cooked in a masala blend unique to the Saoji community and it is incendiary in the best way.",
+      // "Tadoba is consistently one of the best tiger sighting destinations in India — if you're in Nagpur, blocking a morning for a safari is non-negotiable."
+    // ]
   },
   "gokarna": {
     "city": "Gokarna",
@@ -5405,11 +5405,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "3-4 days",
     "rating": 5,
-    "notes": [
-      "Gokarna is the rare place where a major pilgrimage temple and a backpacker beach scene exist in complete harmony.",
-      "The Paradise Beach trek is 45 minutes of rocky coast scrambling — worth every bruise for the isolation at the end.",
-      "Unlike Goa, Gokarna still feels genuinely undiscovered; locals and pilgrims outnumber tourists most of the year."
-    ]
+    // "notes": [
+      // "Gokarna is the rare place where a major pilgrimage temple and a backpacker beach scene exist in complete harmony.",
+      // "The Paradise Beach trek is 45 minutes of rocky coast scrambling — worth every bruise for the isolation at the end.",
+      // "Unlike Goa, Gokarna still feels genuinely undiscovered; locals and pilgrims outnumber tourists most of the year."
+    // ]
   },
   "bhuj": {
     "city": "Bhuj",
@@ -5448,11 +5448,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
     "rating": 4,
-    "notes": [
-      "Base city for the Rann of Kutch — plan your visit around Rann Utsav (Nov-Feb) for the full desert festival experience.",
-      "The 2001 earthquake devastated the city but the rebuilt temples and restored havelis are remarkable in their own right.",
-      "Bhujodi village 8km away is the epicentre of Kutchi handicrafts — better prices and selection than the city bazaars."
-    ]
+    // "notes": [
+      // "Base city for the Rann of Kutch — plan your visit around Rann Utsav (Nov-Feb) for the full desert festival experience.",
+      // "The 2001 earthquake devastated the city but the rebuilt temples and restored havelis are remarkable in their own right.",
+      // "Bhujodi village 8km away is the epicentre of Kutchi handicrafts — better prices and selection than the city bazaars."
+    // ]
   },
   "kutchh": {
     "city": "Kutchh",
@@ -5488,11 +5488,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
     "rating": 5,
-    "notes": [
-      "The White Rann at full moon is one of the most surreal landscapes in India — the salt flats reflect the moon light like a giant mirror.",
-      "Dholavira is one of the largest Indus Valley sites in India and criminally undervisited — a 4500-year-old city hiding in plain sight.",
-      "Entry to the Rann requires a permit — book online before you arrive, especially during Utsav season."
-    ]
+    // "notes": [
+      // "The White Rann at full moon is one of the most surreal landscapes in India — the salt flats reflect the moon light like a giant mirror.",
+      // "Dholavira is one of the largest Indus Valley sites in India and criminally undervisited — a 4500-year-old city hiding in plain sight.",
+      // "Entry to the Rann requires a permit — book online before you arrive, especially during Utsav season."
+    // ]
   },
   "bhopal": {
     "city": "Bhopal",
@@ -5533,11 +5533,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
     "rating": 4,
-    "notes": [
-      "Bhimbetka's 30,000-year-old rock paintings are genuinely among the most important art sites on earth and you can walk right up to them — the lack of crowds feels almost irresponsible.",
-      "Bhopal's dual personality — a modern state capital sitting beside one of India's oldest cities — gives it a layered quality that rewards slow exploration.",
-      "The Nawabi food culture here is seriously underrated; the Old City restaurants serve Mughal-era preparations that have been quietly perfected over generations."
-    ]
+    // "notes": [
+      // "Bhimbetka's 30,000-year-old rock paintings are genuinely among the most important art sites on earth and you can walk right up to them — the lack of crowds feels almost irresponsible.",
+      // "Bhopal's dual personality — a modern state capital sitting beside one of India's oldest cities — gives it a layered quality that rewards slow exploration.",
+      // "The Nawabi food culture here is seriously underrated; the Old City restaurants serve Mughal-era preparations that have been quietly perfected over generations."
+    // ]
   },
   "udupi": {
     "city": "Udupi",
@@ -5577,11 +5577,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 4,
-    "notes": [
-      "Udupi is where the masala dosa and sambar were invented — eating them here in a traditional mess is a pilgrimage of its own kind.",
-      "St. Mary's Island's hexagonal basalt columns rising from the sea look like they belong in Iceland, not Karnataka.",
-      "The Krishna Temple has a fascinating tradition where you view the deity only through a hole in a window — unique to Udupi."
-    ]
+    // "notes": [
+      // "Udupi is where the masala dosa and sambar were invented — eating them here in a traditional mess is a pilgrimage of its own kind.",
+      // "St. Mary's Island's hexagonal basalt columns rising from the sea look like they belong in Iceland, not Karnataka.",
+      // "The Krishna Temple has a fascinating tradition where you view the deity only through a hole in a window — unique to Udupi."
+    // ]
   },
   "manglore": {
     "city": "Manglore",
@@ -5623,11 +5623,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 3,
-    "notes": [
-      "Mangalore's cuisine is criminally underrated nationally — the coconut-based seafood dishes here are distinct from both Goan and Keralite food.",
-      "St. Aloysius Chapel has Italian-style ceiling frescoes that look completely out of place in coastal Karnataka — that's exactly what makes them worth seeing.",
-      "Mangalore is a transit hub more than a destination but deserves at least one proper day for the food alone."
-    ]
+    // "notes": [
+      // "Mangalore's cuisine is criminally underrated nationally — the coconut-based seafood dishes here are distinct from both Goan and Keralite food.",
+      // "St. Aloysius Chapel has Italian-style ceiling frescoes that look completely out of place in coastal Karnataka — that's exactly what makes them worth seeing.",
+      // "Mangalore is a transit hub more than a destination but deserves at least one proper day for the food alone."
+    // ]
   },
   "kannur": {
     "city": "Kannur",
@@ -5667,11 +5667,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
     "rating": 4,
-    "notes": [
-      "Theyyam is the reason to come to Kannur — a ritual art form where performers become divine — completely unmediated by tourism.",
-      "Muzhappilangad is India's only drive-in beach; watching the sunset from the car with waves crashing is oddly cinematic.",
-      "Kannur's handloom cooperatives produce some of the finest cotton fabrics in India; buying direct here is excellent value."
-    ]
+    // "notes": [
+      // "Theyyam is the reason to come to Kannur — a ritual art form where performers become divine — completely unmediated by tourism.",
+      // "Muzhappilangad is India's only drive-in beach; watching the sunset from the car with waves crashing is oddly cinematic.",
+      // "Kannur's handloom cooperatives produce some of the finest cotton fabrics in India; buying direct here is excellent value."
+    // ]
   },
   "kozhikode": {
     "city": "Kozhikode",
@@ -5711,11 +5711,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 4,
-    "notes": [
-      "Kozhikode (Calicut) was the gateway of the spice trade — Vasco da Gama landed here, and the city still carries that cosmopolitan mercantile atmosphere.",
-      "The Malabar biryani here uses thin-grained rice and is gentler than Hyderabadi style — two different religions of biryani.",
-      "SM Street's halwa shops have been operating for generations; the black halwa is unique to Kozhikode and worth bringing home."
-    ]
+    // "notes": [
+      // "Kozhikode (Calicut) was the gateway of the spice trade — Vasco da Gama landed here, and the city still carries that cosmopolitan mercantile atmosphere.",
+      // "The Malabar biryani here uses thin-grained rice and is gentler than Hyderabadi style — two different religions of biryani.",
+      // "SM Street's halwa shops have been operating for generations; the black halwa is unique to Kozhikode and worth bringing home."
+    // ]
   },
   "dalhouisie": {
     "city": "Dalhouisie",
@@ -5750,11 +5750,11 @@ export const CITIES = {
     "ideal_season": "summer",
     "ideal_stay": "2-3 days",
     "rating": 4,
-    "notes": [
-      "Khajjiar in the monsoon when the mist rolls in over the meadow feels genuinely Alpine.",
-      "Dalhousie has kept its colonial character better than most hill stations — the churches and old bungalows are lovely.",
-      "It is significantly less crowded than Shimla or Manali, which in itself is a reason to come."
-    ]
+    // "notes": [
+      // "Khajjiar in the monsoon when the mist rolls in over the meadow feels genuinely Alpine.",
+      // "Dalhousie has kept its colonial character better than most hill stations — the churches and old bungalows are lovely.",
+      // "It is significantly less crowded than Shimla or Manali, which in itself is a reason to come."
+    // ]
   },
   "dharamshala-mcleond-gang": {
     "city": "Dharamshala & Mcleond Gang",
@@ -5795,11 +5795,11 @@ export const CITIES = {
     "ideal_season": "summer",
     "ideal_stay": "3-4 days",
     "rating": 5,
-    "notes": [
-      "McLeod Ganj has a unique energy — Tibetan monks, Israeli backpackers, Indian pilgrims, and serious trekkers all coexist.",
-      "Triund trek is the most accessible overnight high-altitude experience in India — do it at least once.",
-      "The Tsuglagkhang complex when the Dalai Lama is in residence has an electric, rare atmosphere."
-    ]
+    // "notes": [
+      // "McLeod Ganj has a unique energy — Tibetan monks, Israeli backpackers, Indian pilgrims, and serious trekkers all coexist.",
+      // "Triund trek is the most accessible overnight high-altitude experience in India — do it at least once.",
+      // "The Tsuglagkhang complex when the Dalai Lama is in residence has an electric, rare atmosphere."
+    // ]
   },
   "bir": {
     "city": "Bir",
@@ -5837,11 +5837,11 @@ export const CITIES = {
     "ideal_season": "post_monsoon",
     "ideal_stay": "2-3 days",
     "rating": 4,
-    "notes": [
-      "Bir Billing is the paragliding capital of Asia — if you are going to do paragliding in India, do it here.",
-      "The Tibetan refugee colony has an authentic calm that McLeod Ganj has somewhat lost to tourism.",
-      "Bir is still under the radar enough that you can find genuinely quiet guesthouses — book ahead in October."
-    ]
+    // "notes": [
+      // "Bir Billing is the paragliding capital of Asia — if you are going to do paragliding in India, do it here.",
+      // "The Tibetan refugee colony has an authentic calm that McLeod Ganj has somewhat lost to tourism.",
+      // "Bir is still under the radar enough that you can find genuinely quiet guesthouses — book ahead in October."
+    // ]
   },
   "wayanad-vyithri": {
     "city": "Wayanad(Vyithri)",
@@ -5880,11 +5880,11 @@ export const CITIES = {
     "ideal_season": "post_monsoon",
     "ideal_stay": "3-4 days",
     "rating": 5,
-    "notes": [
-      "Chembra Peak trek is one of the best day treks in South India — the heart-shaped lake at the top is genuinely one of a kind.",
-      "Wayanad is misty, green, and tribal in character — the coffee estates here feel more authentic than Coorg.",
-      "Roads to Wayanad through the Ghat sections are genuinely beautiful — don't rush this drive."
-    ]
+    // "notes": [
+      // "Chembra Peak trek is one of the best day treks in South India — the heart-shaped lake at the top is genuinely one of a kind.",
+      // "Wayanad is misty, green, and tribal in character — the coffee estates here feel more authentic than Coorg.",
+      // "Roads to Wayanad through the Ghat sections are genuinely beautiful — don't rush this drive."
+    // ]
   },
   "mahabalipuram": {
     "city": "Mahabalipuram",
@@ -5923,11 +5923,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 4,
-    "notes": [
-      "Arjuna's Penance is one of the largest bas-relief sculptures in the world — stand back from it and the scale genuinely impresses.",
-      "Mahabalipuram is 55km from Chennai and one of India's great day trips; staying overnight lets you have the Shore Temple to yourself at dawn.",
-      "The stone carving tradition here is still alive — the workshops along the main road are worth poking your head into."
-    ]
+    // "notes": [
+      // "Arjuna's Penance is one of the largest bas-relief sculptures in the world — stand back from it and the scale genuinely impresses.",
+      // "Mahabalipuram is 55km from Chennai and one of India's great day trips; staying overnight lets you have the Shore Temple to yourself at dawn.",
+      // "The stone carving tradition here is still alive — the workshops along the main road are worth poking your head into."
+    // ]
   },
   "thanjavur": {
     "city": "Thanjavur",
@@ -5968,11 +5968,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
     "rating": 5,
-    "notes": [
-      "The Brihadeeswarar Temple is a 1000-year-old Chola masterpiece — the vimana (tower) casts no shadow at noon, a feat of ancient engineering.",
-      "Thanjavur is the Chola capital and the birthplace of Bharatanatyam and Carnatic music — the cultural density here is extraordinary.",
-      "The Saraswathi Mahal Library has manuscripts in 49 languages including rare Sanskrit and Tamil palm-leaf manuscripts; genuinely moving to see."
-    ]
+    // "notes": [
+      // "The Brihadeeswarar Temple is a 1000-year-old Chola masterpiece — the vimana (tower) casts no shadow at noon, a feat of ancient engineering.",
+      // "Thanjavur is the Chola capital and the birthplace of Bharatanatyam and Carnatic music — the cultural density here is extraordinary.",
+      // "The Saraswathi Mahal Library has manuscripts in 49 languages including rare Sanskrit and Tamil palm-leaf manuscripts; genuinely moving to see."
+    // ]
   },
   "tiruchirappalli": {
     "city": "Tiruchirappalli",
@@ -6012,11 +6012,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "2-3 days",
     "rating": 4,
-    "notes": [
-      "Srirangam is the largest functioning temple in the world by area — exploring all its concentric prakarams takes a full day.",
-      "Rock Fort at sunset with the Kaveri river below and Srirangam's gopurams in the distance is one of Tamil Nadu's great views.",
-      "Trichy is often overlooked on the Madurai-Chennai route but has some of the most important Dravidian temple architecture in existence."
-    ]
+    // "notes": [
+      // "Srirangam is the largest functioning temple in the world by area — exploring all its concentric prakarams takes a full day.",
+      // "Rock Fort at sunset with the Kaveri river below and Srirangam's gopurams in the distance is one of Tamil Nadu's great views.",
+      // "Trichy is often overlooked on the Madurai-Chennai route but has some of the most important Dravidian temple architecture in existence."
+    // ]
   },
   "kanyakumari": {
     "city": "Kanyakumari",
@@ -6056,11 +6056,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 4,
-    "notes": [
-      "Kanyakumari is India's land's end — three oceans meet here and on a clear day you can watch both sunset and moonrise over the water simultaneously.",
-      "The Vivekananda Rock visit is genuinely moving — the meditation hall feels like the edge of the world.",
-      "It's worth staying one night just for the dawn — the tri-coloured waters (Arabian Sea, Bay of Bengal, Indian Ocean) at sunrise are unmistakable."
-    ]
+    // "notes": [
+      // "Kanyakumari is India's land's end — three oceans meet here and on a clear day you can watch both sunset and moonrise over the water simultaneously.",
+      // "The Vivekananda Rock visit is genuinely moving — the meditation hall feels like the edge of the world.",
+      // "It's worth staying one night just for the dawn — the tri-coloured waters (Arabian Sea, Bay of Bengal, Indian Ocean) at sunrise are unmistakable."
+    // ]
   },
   "mayapur": {
     "city": "Mayapur",
@@ -6095,11 +6095,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 4,
-    "notes": [
-      "Mangala Aarti at 4:30am inside the main temple is one of the most electrically devotional experiences in India.",
-      "The prasadam here is extraordinary — and free or nearly free for pilgrims.",
-      "Even as a non-devotee the scale of the ISKCON vision here is breathtaking — the temple complex being built is the size of a small city."
-    ]
+    // "notes": [
+      // "Mangala Aarti at 4:30am inside the main temple is one of the most electrically devotional experiences in India.",
+      // "The prasadam here is extraordinary — and free or nearly free for pilgrims.",
+      // "Even as a non-devotee the scale of the ISKCON vision here is breathtaking — the temple complex being built is the size of a small city."
+    // ]
   },
   "mirik": {
     "city": "Mirik",
@@ -6132,11 +6132,11 @@ export const CITIES = {
     "ideal_season": "post_monsoon",
     "ideal_stay": "1-2 days",
     "rating": 3,
-    "notes": [
-      "Mirik is Darjeeling without the crowds and with a gentler pace — a best-kept-ish secret.",
-      "The lake is serene in the early morning before the day-trippers arrive around 10am.",
-      "Perfect as a one-night detour between Siliguri and Darjeeling."
-    ]
+    // "notes": [
+      // "Mirik is Darjeeling without the crowds and with a gentler pace — a best-kept-ish secret.",
+      // "The lake is serene in the early morning before the day-trippers arrive around 10am.",
+      // "Perfect as a one-night detour between Siliguri and Darjeeling."
+    // ]
   },
   "kurseong": {
     "city": "Kurseong",
@@ -6170,11 +6170,11 @@ export const CITIES = {
     "ideal_season": "post_monsoon",
     "ideal_stay": "1-2 days",
     "rating": 3,
-    "notes": [
-      "Kurseong is the quietest of the hill towns on the Darjeeling loop — and that's its greatest asset.",
-      "Dow Hill has a reputation for being haunted; whether or not you believe it, the forest is legitimately eerie and beautiful.",
-      "The Toy Train pass through here is the most scenic stretch — windows down, tea in hand."
-    ]
+    // "notes": [
+      // "Kurseong is the quietest of the hill towns on the Darjeeling loop — and that's its greatest asset.",
+      // "Dow Hill has a reputation for being haunted; whether or not you believe it, the forest is legitimately eerie and beautiful.",
+      // "The Toy Train pass through here is the most scenic stretch — windows down, tea in hand."
+    // ]
   },
   "ghoom": {
     "city": "Ghoom",
@@ -6208,11 +6208,11 @@ export const CITIES = {
     "ideal_season": "post_monsoon",
     "ideal_stay": "1 day",
     "rating": 3,
-    "notes": [
-      "Ghoom Monastery holds a 15-foot Maitreya Buddha statue that's been quietly sitting there since 1875 — find it at the right light and it stops you cold.",
-      "The highest railway station in India is here and most people blow through it — get out and stand on the platform for five minutes.",
-      "It's technically a Darjeeling extension but has its own distinct, slower quality."
-    ]
+    // "notes": [
+      // "Ghoom Monastery holds a 15-foot Maitreya Buddha statue that's been quietly sitting there since 1875 — find it at the right light and it stops you cold.",
+      // "The highest railway station in India is here and most people blow through it — get out and stand on the platform for five minutes.",
+      // "It's technically a Darjeeling extension but has its own distinct, slower quality."
+    // ]
   },
   "kalimpong": {
     "city": "Kalimpong",
@@ -6249,11 +6249,11 @@ export const CITIES = {
     "ideal_season": "post_monsoon",
     "ideal_stay": "1-2 days",
     "rating": 3,
-    "notes": [
-      "Kalimpong has a strong Tibetan and Lepcha heritage that gives it a different flavor from Darjeeling — less touristy, more layered.",
-      "The flower nurseries here supply much of India's orchid trade — a completely unexpected thing to discover in a hill town.",
-      "The views of Teesta River from Deolo Hill are some of the best in the eastern Himalayas."
-    ]
+    // "notes": [
+      // "Kalimpong has a strong Tibetan and Lepcha heritage that gives it a different flavor from Darjeeling — less touristy, more layered.",
+      // "The flower nurseries here supply much of India's orchid trade — a completely unexpected thing to discover in a hill town.",
+      // "The views of Teesta River from Deolo Hill are some of the best in the eastern Himalayas."
+    // ]
   },
   "patna": {
     "city": "Patna",
@@ -6294,11 +6294,11 @@ export const CITIES = {
     "ideal_season": "winter",
     "ideal_stay": "1-2 days",
     "rating": 3,
-    "notes": [
-      "Patna is often dismissed but it has layers — Mauryan empire roots, Sikh significance, Buddhist proximity.",
-      "Litti chokha here is the reference version — everything else you've eaten is an approximation.",
-      "The Ganga ghats at Patna are less famous than Varanasi's but give you more space to actually be present."
-    ]
+    // "notes": [
+      // "Patna is often dismissed but it has layers — Mauryan empire roots, Sikh significance, Buddhist proximity.",
+      // "Litti chokha here is the reference version — everything else you've eaten is an approximation.",
+      // "The Ganga ghats at Patna are less famous than Varanasi's but give you more space to actually be present."
+    // ]
   }
 };
 
@@ -7271,3 +7271,61 @@ export const TRIPS = RAW_TRIPS.map(trip => ({
 }));
 
 export default TRIPS;
+
+export const BACKPACKING_101 = [
+  {
+    title: "Stuff you will need",
+    tips: [
+      "One medium backpack (40–50L) and a small day bag for city walks and short hops.",
+      "Packing cubes or pouches to separate clothes, cables, and toiletries.",
+      "Light towel, basic medicines, reusable water bottle, and a rain cover.",
+      "Extension board, power bank, and a spare charging cable — non-negotiable.",
+      "A small padlock for lockers, and a cheap but sturdy money belt.",
+    ],
+  },
+  {
+    title: "Stay",
+    tips: [
+      "Book the first night in advance — never arrive in a new city without a confirmed bed.",
+      "Hostels for social energy, guesthouses for quiet — pick based on what you need that week.",
+      "Check checkout time before sleeping. Delayed checkouts are usually easy to negotiate the night before.",
+      "Keep the property address saved offline and in the local language.",
+    ],
+  },
+  {
+    title: "Travel",
+    tips: [
+      "Overnight trains between cities save a night's accommodation and travel time.",
+      "Book sleeper class early — side lower fills fast on popular routes.",
+      "Carry snacks, a water bottle, and a light jacket for long journeys.",
+      "Keep one accessible fresh set of clothes for delayed arrivals or missed connections.",
+    ],
+  },
+  {
+    title: "Budgeting",
+    tips: [
+      "Split cash across wallet, backpack, and phone cover — never keep it all together.",
+      "Small notes matter: buses, autos, tea stalls, and cloakrooms rarely give change.",
+      "Keep one backup card physically separate from your daily card.",
+      "Track spending city by city — patterns show where money leaks.",
+    ],
+  },
+  {
+    title: "Hacks",
+    tips: [
+      "Do laundry the day before you move, not the day you arrive tired.",
+      "A sleep kit for trains — earplugs, eye mask, light blanket — makes overnight travel actually restful.",
+      "Extension board for awkward plug points in hostels, hotels, and cafes.",
+      "Save offline maps, tickets, and bookings before any travel day.",
+    ],
+  },
+  {
+    title: "Red Zone",
+    tips: [
+      "Never share your location or travel plan with someone you just met.",
+      "Avoid unlicensed taxis at night — use apps or ask the hotel to arrange.",
+      "If a place feels off, leave. Trust that instinct without needing to explain it.",
+      "Keep emergency contacts and a copy of your ID in a separate bag.",
+    ],
+  },
+];
