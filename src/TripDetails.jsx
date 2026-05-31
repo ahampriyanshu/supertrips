@@ -1,8 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { MapContainer, TileLayer, Marker, Polyline, useMap } from 'react-leaflet';
+import { CircleMarker, MapContainer, Polyline, Popup, TileLayer, useMap } from 'react-leaflet';
 import L from 'leaflet';
-import icon from 'leaflet/dist/images/marker-icon.png';
-import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import { ACCOMMODATIONS, CITIES as CITIES_DATA, CATEGORIES } from './data.js';
 import './TripDetails.css';
 
@@ -11,12 +9,13 @@ function navigateTo(href) {
   window.dispatchEvent(new Event('popstate'));
 }
 
-// Fix Leaflet default icon
-const DefaultIcon = L.icon({ iconUrl: icon, shadowUrl: iconShadow, iconSize: [25, 41], iconAnchor: [12, 41] });
-L.Marker.prototype.options.icon = DefaultIcon;
-
 const CITY_ENRICHMENT = Object.values(CITIES_DATA).reduce((acc, entry) => {
   if (!acc[entry.city]) acc[entry.city] = entry;
+  return acc;
+}, {});
+
+const CITY_CODE_BY_NAME = Object.entries(CITIES_DATA).reduce((acc, [code, entry]) => {
+  if (!acc[entry.city]) acc[entry.city] = code;
   return acc;
 }, {});
 
@@ -31,6 +30,14 @@ function formatAccommodation(value) {
 
 function getAccommodationSlug(value) {
   return ACCOMMODATIONS[value]?.slug || String(value).replace(/_/g, '-');
+}
+
+function getCityData(city) {
+  return CITIES_DATA[city?.code] || CITY_ENRICHMENT[city?.city] || city;
+}
+
+function getCityCode(city) {
+  return city?.code || CITY_CODE_BY_NAME[city?.city];
 }
 
 function InfoBadge({ label, value }) {
@@ -68,8 +75,93 @@ function CityFocuser({ position }) {
 }
 
 const routeLineOptions = { color: '#c9962a', weight: 3, opacity: 0.7, dashArray: '6, 14' };
+const stopMarkerOptions = {
+  color: '#1a1208',
+  fillColor: '#c9962a',
+  fillOpacity: 0.76,
+  opacity: 0.88,
+  weight: 1.2,
+};
+const activeStopMarkerOptions = {
+  color: '#1a1208',
+  fillColor: '#f5f0e8',
+  fillOpacity: 1,
+  opacity: 1,
+  weight: 2,
+};
 
-function LeafletMap({ positions, activePosition }) {
+function MapPopupLink({ href, className, children }) {
+  return (
+    <a
+      href={href}
+      className={className}
+      onClick={e => { e.preventDefault(); navigateTo(href); }}
+    >
+      {children}
+    </a>
+  );
+}
+
+function StopPopup({ city }) {
+  const data = getCityData(city);
+  const cityCode = getCityCode(city);
+  const categories = Array.isArray(data?.category) ? data.category.filter(Boolean) : [];
+  const accommodation = Array.isArray(data?.accommodation) ? data.accommodation.filter(Boolean) : [];
+
+  return (
+    <div className="td-map-popup-inner">
+      {cityCode ? (
+        <MapPopupLink href={`/cities/${cityCode}`} className="td-map-popup-title">
+          {city.city}
+        </MapPopupLink>
+      ) : (
+        <div className="td-map-popup-title">{city.city}</div>
+      )}
+
+      {data && (
+        <div className="td-map-popup-meta">
+          {fmt(data.state)} · {fmt(data.region)}
+        </div>
+      )}
+
+      {categories.length > 0 && (
+        <div className="td-map-popup-group">
+          <div className="td-map-popup-label">Categories</div>
+          <div className="td-map-popup-chips">
+            {categories.map(category => (
+              <MapPopupLink
+                key={category}
+                href={`/categories#category-${CATEGORIES[category]?.slug || category}`}
+                className="td-map-popup-chip"
+              >
+                {CATEGORIES[category]?.label || fmt(category)}
+              </MapPopupLink>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {accommodation.length > 0 && (
+        <div className="td-map-popup-group">
+          <div className="td-map-popup-label">Stay</div>
+          <div className="td-map-popup-chips">
+            {accommodation.map(stay => (
+              <MapPopupLink
+                key={stay}
+                href={`/stay#${getAccommodationSlug(stay)}`}
+                className="td-map-popup-chip"
+              >
+                {formatAccommodation(stay)}
+              </MapPopupLink>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function LeafletMap({ cities = [], positions, activePosition }) {
   return (
     <MapContainer
       center={[20.5937, 78.9629]}
@@ -92,22 +184,38 @@ function LeafletMap({ positions, activePosition }) {
       <BoundsInit positions={positions} />
       {activePosition && <CityFocuser position={activePosition} />}
       {positions.length > 1 && <Polyline positions={positions} pathOptions={routeLineOptions} />}
-      {activePosition && <Marker position={activePosition} />}
+      {cities.map((city, index) => {
+        if (!city?.lat || !city?.lng) return null;
+        const isActive = activePosition?.[0] === city.lat && activePosition?.[1] === city.lng;
+
+        return (
+          <CircleMarker
+            key={`${city.code || city.city}-${index}`}
+            center={[city.lat, city.lng]}
+            radius={isActive ? 7 : 5}
+            pathOptions={isActive ? activeStopMarkerOptions : stopMarkerOptions}
+          >
+            <Popup className="td-map-popup">
+              <StopPopup city={city} />
+            </Popup>
+          </CircleMarker>
+        );
+      })}
     </MapContainer>
   );
 }
 
-function MapColumn({ positions, activePosition }) {
+function MapColumn({ cities = [], positions, activePosition }) {
   return (
     <div className="td-map-column">
       <div className="td-map-frame">
-        <LeafletMap positions={positions} activePosition={activePosition} />
+        <LeafletMap cities={cities} positions={positions} activePosition={activePosition} />
       </div>
     </div>
   );
 }
 
-function MapModal({ positions, activePosition, cityName, onClose }) {
+function MapModal({ cities = [], positions, activePosition, cityName, onClose }) {
   return (
     <div className="td-map-modal">
       <div className="td-map-modal-header">
@@ -119,10 +227,10 @@ function MapModal({ positions, activePosition, cityName, onClose }) {
         </button>
       </div>
       <div className="td-map-modal-body">
-        <LeafletMap positions={positions} activePosition={activePosition} />
+        <LeafletMap cities={cities} positions={positions} activePosition={activePosition} />
       </div>
       <div className="td-map-modal-footer">
-        ↑ ↓ scroll to navigate between cities
+        ← → to navigate between cities
       </div>
     </div>
   );
@@ -368,7 +476,7 @@ export function CityDetails({ city, onBack }) {
         </div>
       </div>
       <div className="td-main">
-        <MapColumn positions={position ? [position] : []} activePosition={position} />
+        <MapColumn cities={[city]} positions={position ? [position] : []} activePosition={position} />
         <DetailColumn city={city} cityIndex={0} total={1} />
       </div>
     </div>
@@ -405,7 +513,20 @@ export default function TripDetails({ trip, index, initialCityIndex = 0, onBack,
     const THRESHOLD = 400;
 
     const onWheel = (e) => {
-      if (e.target.closest('[data-detail-scroll]')) return;
+      const detailScroll = e.target.closest?.('[data-detail-scroll]');
+
+      if (detailScroll) {
+        const scrollingDown = e.deltaY > 0;
+        const scrollingUp = e.deltaY < 0;
+        const maxScrollTop = detailScroll.scrollHeight - detailScroll.clientHeight;
+        const canScrollDown = detailScroll.scrollTop < maxScrollTop - 1;
+        const canScrollUp = detailScroll.scrollTop > 1;
+
+        if ((scrollingDown && canScrollDown) || (scrollingUp && canScrollUp)) {
+          return;
+        }
+      }
+
       e.preventDefault();
       acc += e.deltaY;
       clearTimeout(idleTimer);
@@ -514,6 +635,7 @@ export default function TripDetails({ trip, index, initialCityIndex = 0, onBack,
       {/* ── MAIN SPLIT ── */}
       <div className="td-main">
         <MapColumn
+          cities={cities}
           positions={cities.filter(c => c.lat && c.lng).map(c => [c.lat, c.lng])}
           activePosition={activeCity?.lat && activeCity?.lng ? [activeCity.lat, activeCity.lng] : null}
         />
@@ -526,6 +648,7 @@ export default function TripDetails({ trip, index, initialCityIndex = 0, onBack,
       {/* ── MAP MODAL (mobile) ── */}
       {mapOpen && (
         <MapModal
+          cities={cities}
           positions={cities.filter(c => c.lat && c.lng).map(c => [c.lat, c.lng])}
           activePosition={activeCity?.lat && activeCity?.lng ? [activeCity.lat, activeCity.lng] : null}
           cityName={activeCity?.city}

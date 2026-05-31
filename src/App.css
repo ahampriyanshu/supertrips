@@ -528,7 +528,7 @@
 /* ─── Footer ───────────────────────────────────────────────── */
 .app-footer {
   text-align: center;
-  padding: 2rem;
+  padding: 1rem 2rem;
   font-size: 13px;
   color: var(--color-faint);
   background-image: linear-gradient(

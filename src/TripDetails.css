@@ -128,6 +128,7 @@
   display: flex;
   flex-direction: row;
   overflow: hidden;
+  min-height: 0;
 }
 
 /* ── Map ── */
@@ -139,6 +140,7 @@
   background: var(--td-paper);
   display: flex;
   flex-direction: column;
+  min-height: 0;
 }
 
 .td-map-frame {
@@ -155,10 +157,94 @@
   background: #eae8e0;
 }
 
+.td-map-popup .leaflet-popup-content-wrapper {
+  background: var(--td-card);
+  border: 1px solid var(--td-border);
+  border-radius: 6px;
+  box-shadow: 0 6px 24px rgba(26,18,8,0.12);
+}
+
+.td-map-popup .leaflet-popup-content {
+  width: 230px;
+  margin: 12px;
+}
+
+.td-map-popup .leaflet-popup-tip {
+  background: var(--td-card);
+}
+
+.td-map-popup-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  color: var(--td-ink);
+}
+
+.td-map-popup-title {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--td-ink);
+  text-decoration: none;
+}
+
+.td-map-popup-title:hover {
+  color: var(--td-gold);
+}
+
+.td-map-popup-meta {
+  margin-top: -0.45rem;
+  font-size: 10px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--td-muted);
+}
+
+.td-map-popup-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.td-map-popup-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--td-ink);
+}
+
+.td-map-popup-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.td-map-popup-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  padding: 0 0.45rem;
+  border: 1px solid var(--td-border);
+  border-radius: 4px;
+  background: #fff;
+  color: #2e2416;
+  font-size: 11px;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.td-map-popup-chip:hover {
+  border-color: var(--td-gold);
+  color: var(--td-ink);
+}
+
 /* ── Detail scroll ── */
 .td-detail-scroll {
   flex: 1;
   overflow-y: auto;
+  min-height: 0;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   background: var(--td-paper);
   transition: opacity 0.15s ease;
 }

@@ -237,17 +237,17 @@ const cityMapMarkerOptions = {
   weight: 1.2,
 };
 
-function CitiesMap({ cityCodes }) {
+function CitiesMap({ cityCodes, label = "Map of all cities" }) {
   const cities = cityCodes
     .map(cityCode => ({ cityCode, city: CITIES[cityCode], position: getCityPosition(CITIES[cityCode]) }))
     .filter(item => item.city && item.position);
 
   return (
-    <section className="app-cities-map-section" aria-label="Map of all cities">
+    <section className="app-cities-map-section" aria-label={label}>
       <div className="app-cities-map-frame td-map-frame">
         <MapContainer
-          center={[22.8, 79.2]}
-          zoom={5}
+          center={[22.4, 79.2]}
+          zoom={3.75}
           scrollWheelZoom={false}
           zoomControl={false}
           style={{ height: "100%", width: "100%", background: "#eae8e0" }}
@@ -489,6 +489,9 @@ function CitiesIndexPage() {
 
 function CategoriesIndexPage() {
   const categories = Object.values(CATEGORIES).sort((a, b) => a.label.localeCompare(b.label));
+  const categoryCityCodes = sortCityCodes([
+    ...new Set(categories.flatMap(category => category.cities)),
+  ]);
 
   return (
     <div className="app-root">
@@ -497,6 +500,8 @@ function CategoriesIndexPage() {
         title="Categories"
         intro="Travel styles with matching destinations from these routes."
       />
+
+      <CitiesMap cityCodes={categoryCityCodes} label="Map of cities by category" />
 
       <main className="app-page-content">
         {categories.map((category, categoryIndex) => {
@@ -645,50 +650,52 @@ function BackpackingSection() {
 
       <div className="app-backpacking-grid">
         <div className="app-backpacking-card">
-          <div className="app-backpacking-card-title">Carry</div>
+          <div className="app-backpacking-card-title">Stay</div>
           <ul className="app-backpacking-list">
-            <li>One small day bag for walks, buses, and short stays.</li>
-            <li>Packing cubes or cloth pouches to separate clothes quickly.</li>
-            <li>A light towel, basic medicines, and a reusable water bottle.</li>
-            <li>Keep rain cover and slippers near the top of the bag.</li>
+            <li>Book the first night in advance — never arrive in a new city without a confirmed bed.</li>
+            <li>Hostels for social energy, guesthouses for quiet — pick based on what you need that week.</li>
+            <li>Check checkout time before sleeping. Delayed checkouts are usually easy to negotiate the night before.</li>
+            <li>Keep the property address saved offline and in the local language.</li>
           </ul>
         </div>
 
         <div className="app-backpacking-card">
-          <div className="app-backpacking-card-title">Work Setup</div>
+          <div className="app-backpacking-card-title">Travel</div>
           <ul className="app-backpacking-list">
-            <li>Extension board for awkward hotel, hostel, and cafe plug points.</li>
-            <li>Power bank, spare charging cable, and a small notebook.</li>
-            <li>Offline copies of tickets, IDs, bookings, and important addresses.</li>
-            <li>Carry a small mouse if you work long hours from cafes or homestays.</li>
+            <li>Overnight trains between cities save a night's accommodation and travel time.</li>
+            <li>Book sleeper class early — side lower fills fast on popular routes.</li>
+            <li>Carry snacks, a water bottle, and a light jacket for long journeys.</li>
+            <li>Keep one accessible fresh set of clothes for delayed arrivals or missed connections.</li>
           </ul>
         </div>
 
         <div className="app-backpacking-card">
-          <div className="app-backpacking-card-title">Small Hacks</div>
+          <div className="app-backpacking-card-title">Budgeting</div>
           <ul className="app-backpacking-list">
-            <li>Keep a sleep pouch ready for trains and overnight buses.</li>
-            <li>Pack one accessible fresh set for delayed check-ins.</li>
-            <li>Do laundry before moving cities, not after arriving tired.</li>
-            <li>Save the next hotel address in the local language before leaving.</li>
+            <li>Split cash across wallet, backpack, and phone cover — never keep it all together.</li>
+            <li>Small notes matter: buses, autos, tea stalls, and cloakrooms rarely give change.</li>
+            <li>Keep one backup card physically separate from your daily card.</li>
+            <li>Track spending city by city — patterns show where money leaks.</li>
           </ul>
         </div>
 
         <div className="app-backpacking-card">
-          <div className="app-backpacking-card-title">Documents</div>
+          <div className="app-backpacking-card-title">Hacks</div>
           <ul className="app-backpacking-list">
-            <li>Keep one printed ID copy in a different pocket from the original.</li>
-            <li>Save tickets, hotel bookings, and permits offline before travel days.</li>
-            <li>Keep passport photos and emergency contacts in your wallet.</li>
+            <li>Do laundry the day before you move, not the day you arrive tired.</li>
+            <li>A sleep kit for trains — earplugs, eye mask, light blanket — makes overnight travel actually restful.</li>
+            <li>Extension board for awkward plug points in hostels, hotels, and cafes.</li>
+            <li>Save offline maps, tickets, and bookings before any travel day.</li>
           </ul>
         </div>
 
         <div className="app-backpacking-card">
-          <div className="app-backpacking-card-title">Money</div>
+          <div className="app-backpacking-card-title">Red Zone</div>
           <ul className="app-backpacking-list">
-            <li>Split cash across your wallet, backpack, and phone cover.</li>
-            <li>Carry some small notes for buses, autos, tea stalls, and cloakrooms.</li>
-            <li>Keep one backup card separate from the card you use daily.</li>
+            <li>Never share your location or travel plan with someone you just met.</li>
+            <li>Avoid unlicensed taxis at night — use apps or ask the hotel to arrange.</li>
+            <li>If a place feels off, leave. Trust that instinct without needing to explain it.</li>
+            <li>Keep emergency contacts and a copy of your ID in a separate bag.</li>
           </ul>
         </div>
 
