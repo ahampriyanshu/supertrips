@@ -11,35 +11,26 @@ const totalStops = TRIPS.reduce((a, t) => a + t.cities.length, 0);
 const routeDefinitions = [
   "/",
   "/supertrips",
+  "/cities",
   "/cities/:city",
+  "/categories",
   "/states/:state",
   "/regions/:region",
   "/categories/:category",
 ];
 
-function toDirectoryItems(groups, basePath) {
-  return Object.values(groups).map(({ label, slug, cities }) => ({
-    label,
-    href: `/${basePath}/${slug}`,
-    count: cities.length,
-  }));
-}
-
-const directoryGroups = [
+const directoryLinks = [
   {
-    title: "By region",
-    description: "Browse places by broad travel zones.",
-    items: toDirectoryItems(REGIONS, "regions"),
+    title: "Cities",
+    href: "/cities",
+    count: totalCities,
+    description: "Browse by region, state, and city in one clean list.",
   },
   {
-    title: "By state",
-    description: "State-wise entry points for the destinations in these routes.",
-    items: toDirectoryItems(STATES, "states"),
-  },
-  {
-    title: "By category",
-    description: "Group destinations by the kind of trip they fit best.",
-    items: toDirectoryItems(CATEGORIES, "categories"),
+    title: "Categories",
+    href: "/categories",
+    count: Object.keys(CATEGORIES).length,
+    description: "Find destinations by the kind of trip you want to take.",
   },
 ];
 
@@ -55,8 +46,14 @@ function parseRoute(pathname) {
   if (parts.length === 1 && parts[0] === "supertrips") {
     return { name: "supertrips", path: "/supertrips" };
   }
+  if (parts.length === 1 && parts[0] === "cities") {
+    return { name: "cities", path: "/cities" };
+  }
   if (parts.length === 2 && parts[0] === "cities") {
     return { name: "city", path: pathname, value: parts[1] };
+  }
+  if (parts.length === 1 && parts[0] === "categories") {
+    return { name: "categories", path: "/categories" };
   }
   if (parts.length === 2 && parts[0] === "states") {
     return { name: "state", path: pathname, value: parts[1] };
@@ -160,6 +157,16 @@ function getTripsForCity(cityCode) {
   }).filter(Boolean);
 }
 
+function sortCityCodes(cityCodes) {
+  return cityCodes
+    .filter(cityCode => CITIES[cityCode])
+    .sort((a, b) => CITIES[a].city.localeCompare(CITIES[b].city));
+}
+
+function sortStateCodes(stateCodes) {
+  return stateCodes.sort((a, b) => getStateLabel(a).localeCompare(getStateLabel(b)));
+}
+
 const styles = {
   root: { fontFamily: "'DM Sans', 'Segoe UI', sans-serif", background: "#f5f0e8", color: "#1a1208", minHeight: "100vh" },
   hero: { background: "#1a1208", color: "#f5f0e8", padding: "3rem 2rem 2.5rem", position: "relative", overflow: "hidden" },
@@ -191,12 +198,11 @@ const styles = {
   directorySection: { maxWidth: 720, margin: "0 auto", padding: "0 0 2.5rem" },
   directoryTitle: { fontFamily: "Georgia, 'Times New Roman', serif", fontSize: "clamp(1.8rem,4vw,2.5rem)", lineHeight: 1.1, margin: "0 0 0.75rem", color: "#1a1208" },
   directoryIntro: { fontSize: 14, lineHeight: 1.7, color: "#6a5a48", maxWidth: 560, margin: "0 0 2rem" },
-  directoryGroup: { borderTop: "1px solid #e0d8cc", paddingTop: "1.25rem", marginTop: "1.25rem" },
-  directoryGroupTitle: { fontFamily: "Georgia, serif", fontSize: "1.1rem", fontWeight: 700, marginBottom: 4, color: "#1a1208" },
-  directoryGroupDescription: { fontSize: 12, lineHeight: 1.6, color: "#8a7a65", margin: "0 0 0.85rem" },
-  directoryLinks: { display: "flex", flexWrap: "wrap", gap: 8 },
-  directoryLink: { display: "inline-flex", alignItems: "center", gap: 6, minHeight: 30, border: "1px solid #e0d8cc", borderRadius: 4, padding: "0 0.65rem", color: "#6a5a48", background: "#faf7f2", fontSize: 12, textDecoration: "none" },
   directoryCount: { fontSize: 10, color: "#c9962a", fontWeight: 700 },
+  directoryShortcut: { display: "block", borderTop: "1px solid #e0d8cc", padding: "1rem 0", color: "#1a1208", textDecoration: "none" },
+  directoryShortcutTop: { display: "flex", alignItems: "baseline", gap: 8, marginBottom: 4 },
+  directoryShortcutTitle: { fontFamily: "Georgia, serif", fontSize: "1.1rem", fontWeight: 700 },
+  directoryShortcutText: { fontSize: 12, lineHeight: 1.6, color: "#8a7a65", margin: 0 },
   pageHeader: { background: "#1a1208", color: "#f5f0e8", padding: "2rem 2rem 2.25rem", position: "relative", overflow: "hidden" },
   pageContent: { maxWidth: 720, margin: "0 auto", padding: "2rem 0 3rem" },
   pageBack: { display: "inline-flex", alignItems: "center", color: "#c9962a", fontSize: 12, textDecoration: "none", marginBottom: "1.4rem" },
@@ -214,12 +220,12 @@ const styles = {
   panelTitle: { fontFamily: "Georgia, serif", fontSize: "1rem", fontWeight: 700, color: "#1a1208", margin: "0 0 0.65rem" },
   panelList: { margin: 0, paddingLeft: "1.1rem", color: "#6a5a48", fontSize: 13, lineHeight: 1.7 },
   panelListPlain: { margin: 0, padding: 0, listStyle: "none", color: "#6a5a48", fontSize: 13, lineHeight: 1.7 },
-  cityGrid: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(210px, 1fr))", gap: 12 },
-  cityCard: { display: "block", background: "#faf7f2", border: "1px solid #e0d8cc", borderRadius: 4, padding: "1rem", color: "#1a1208", textDecoration: "none" },
-  cityCardTitle: { fontFamily: "Georgia, serif", fontSize: "1.05rem", fontWeight: 700, marginBottom: 4 },
-  cityCardMeta: { fontSize: 12, color: "#8a7a65", lineHeight: 1.5, marginBottom: 10 },
-  miniChipRow: { display: "flex", flexWrap: "wrap", gap: 6 },
-  miniChip: { display: "inline-flex", alignItems: "center", minHeight: 24, border: "1px solid #e0d8cc", borderRadius: 4, padding: "0 0.5rem", color: "#6a5a48", background: "#f5f0e8", fontSize: 11 },
+  indexBlock: { borderTop: "1px solid #d8cec0", paddingTop: "1.5rem", marginTop: "1.5rem" },
+  indexHeading: { fontFamily: "Georgia, 'Times New Roman', serif", fontSize: "1.55rem", lineHeight: 1.2, margin: "0 0 1rem", color: "#1a1208" },
+  indexSubheading: { fontFamily: "Georgia, serif", fontSize: "1rem", margin: "1rem 0 0.45rem", color: "#1a1208" },
+  cityList: { margin: 0, padding: 0, listStyle: "none", borderTop: "1px solid #e0d8cc" },
+  cityListLink: { display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: 12, padding: "0.55rem 0", borderBottom: "1px solid #e0d8cc", color: "#1a1208", fontSize: 14, textDecoration: "none" },
+  cityListMeta: { color: "#8a7a65", fontSize: 12, textAlign: "right" },
   footer: { textAlign: "center", padding: "2rem", fontSize: 11, color: "#8a7a65", letterSpacing: 1, textTransform: "uppercase" }
 };
 
@@ -285,24 +291,102 @@ function ListPanel({ title, items, ordered = true }) {
   );
 }
 
-function CityCard({ cityCode }) {
+function CityListItem({ cityCode, meta }) {
   const city = CITIES[cityCode];
   if (!city) return null;
 
   return (
-    <Link href={`/cities/${cityCode}`} style={styles.cityCard}>
-      <div style={styles.cityCardTitle}>{city.city}</div>
-      <div style={styles.cityCardMeta}>
-        {getStateLabel(city.state)} - {getRegionLabel(city.region)}
-      </div>
-      <div style={styles.miniChipRow}>
-        {normalizeList(city.category).slice(0, 3).map(category => (
-          <span key={category} style={styles.miniChip}>
-            {getCategoryLabel(category)}
-          </span>
-        ))}
-      </div>
-    </Link>
+    <li>
+      <Link href={`/cities/${cityCode}`} style={styles.cityListLink}>
+        <span>{city.city}</span>
+        {meta && <span style={styles.cityListMeta}>{meta}</span>}
+      </Link>
+    </li>
+  );
+}
+
+function CitiesIndexPage() {
+  const regions = Object.values(REGIONS).sort((a, b) => a.label.localeCompare(b.label));
+
+  return (
+    <div style={styles.root}>
+      <PageHeader
+        eyebrow="Cities"
+        title="Cities"
+        intro="All destinations grouped by region, state, and city."
+      />
+
+      <main style={styles.pageContent}>
+        {regions.map(region => {
+          const regionCityCodes = sortCityCodes(region.cities);
+          const stateCodes = sortStateCodes([
+            ...new Set(regionCityCodes.map(cityCode => CITIES[cityCode].state)),
+          ]);
+
+          return (
+            <section key={region.slug} style={styles.indexBlock}>
+              <h2 style={styles.indexHeading}>{region.label}</h2>
+
+              {stateCodes.map(stateCode => {
+                const stateCityCodes = sortCityCodes(
+                  regionCityCodes.filter(cityCode => CITIES[cityCode].state === stateCode)
+                );
+
+                return (
+                  <div key={`${region.slug}-${stateCode}`}>
+                    <h3 style={styles.indexSubheading}>{getStateLabel(stateCode)}</h3>
+                    <ul style={styles.cityList}>
+                      {stateCityCodes.map(cityCode => (
+                        <CityListItem
+                          key={cityCode}
+                          cityCode={cityCode}
+                          meta={CITIES[cityCode].ideal_stay}
+                        />
+                      ))}
+                    </ul>
+                  </div>
+                );
+              })}
+            </section>
+          );
+        })}
+      </main>
+    </div>
+  );
+}
+
+function CategoriesIndexPage() {
+  const categories = Object.values(CATEGORIES).sort((a, b) => a.label.localeCompare(b.label));
+
+  return (
+    <div style={styles.root}>
+      <PageHeader
+        eyebrow="Categories"
+        title="Categories"
+        intro="Travel styles with matching destinations from these routes."
+      />
+
+      <main style={styles.pageContent}>
+        {categories.map(category => {
+          const cityCodes = sortCityCodes(category.cities);
+
+          return (
+            <section key={category.slug} style={styles.indexBlock}>
+              <h2 style={styles.indexHeading}>{category.label}</h2>
+              <ul style={styles.cityList}>
+                {cityCodes.map(cityCode => (
+                  <CityListItem
+                    key={cityCode}
+                    cityCode={cityCode}
+                    meta={`${getStateLabel(CITIES[cityCode].state)} - ${getRegionLabel(CITIES[cityCode].region)}`}
+                  />
+                ))}
+              </ul>
+            </section>
+          );
+        })}
+      </main>
+    </div>
   );
 }
 
@@ -330,16 +414,16 @@ function CityPage({ cityCode }) {
 
       <main style={styles.pageContent}>
         <div style={styles.chipRow}>
-          <Link href={`/states/${STATES[city.state]?.slug || city.state}`} style={styles.chip}>
+          <Link href="/cities" style={styles.chip}>
             {getStateLabel(city.state)}
           </Link>
-          <Link href={`/regions/${REGIONS[city.region]?.slug || city.region}`} style={styles.chip}>
+          <Link href="/cities" style={styles.chip}>
             {getRegionLabel(city.region)}
           </Link>
           {normalizeList(city.category).map(category => (
             <Link
               key={category}
-              href={`/categories/${CATEGORIES[category]?.slug || category}`}
+              href="/categories"
               style={styles.chip}
             >
               {getCategoryLabel(category)}
@@ -416,11 +500,15 @@ function GroupPage({ type, value }) {
       <PageHeader eyebrow={typeLabel} title={group.label} intro={intro} />
 
       <main style={styles.pageContent}>
-        <div style={styles.cityGrid}>
+        <ul style={styles.cityList}>
           {cityCodes.map(cityCode => (
-            <CityCard key={cityCode} cityCode={cityCode} />
+            <CityListItem
+              key={cityCode}
+              cityCode={cityCode}
+              meta={`${getStateLabel(CITIES[cityCode].state)} - ${getRegionLabel(CITIES[cityCode].region)}`}
+            />
           ))}
-        </div>
+        </ul>
       </main>
     </div>
   );
@@ -512,8 +600,16 @@ export default function App() {
     if (typeof window !== "undefined") window.scrollTo(0, 0);
   }, [route.path]);
 
+  if (route.name === "cities") {
+    return <CitiesIndexPage />;
+  }
+
   if (route.name === "city") {
     return <CityPage cityCode={route.value} />;
+  }
+
+  if (route.name === "categories") {
+    return <CategoriesIndexPage />;
   }
 
   if (route.name === "state") {
@@ -604,19 +700,14 @@ export default function App() {
           the places that fit your time, pace, and mood.
         </p>
 
-        {directoryGroups.map(group => (
-          <div key={group.title} style={styles.directoryGroup}>
-            <div style={styles.directoryGroupTitle}>{group.title}</div>
-            <p style={styles.directoryGroupDescription}>{group.description}</p>
-            <div style={styles.directoryLinks}>
-              {group.items.map(({ label, href, count }) => (
-                <Link key={href} href={href} style={styles.directoryLink}>
-                  <span>{label}</span>
-                  <span style={styles.directoryCount}>{count}</span>
-                </Link>
-              ))}
+        {directoryLinks.map(link => (
+          <Link key={link.href} href={link.href} style={styles.directoryShortcut}>
+            <div style={styles.directoryShortcutTop}>
+              <span style={styles.directoryShortcutTitle}>{link.title}</span>
+              <span style={styles.directoryCount}>{link.count}</span>
             </div>
-          </div>
+            <p style={styles.directoryShortcutText}>{link.description}</p>
+          </Link>
         ))}
       </section>
     </div>

@@ -1,0 +1,215 @@
+<h2>TripDetails — Design Direction</h2>
+<p class="subtitle">Three distinct visual directions for the trip detail view. Click a card to select your preferred direction.</p>
+
+<div class="cards">
+
+  <!-- Option A: Dark Cinematic -->
+  <div class="card" data-choice="dark-cinematic" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0d0d0d;padding:0;overflow:hidden;height:340px;position:relative;font-family:'Segoe UI',sans-serif;">
+      <!-- Header -->
+      <div style="background:#0d0d0d;color:#fff;padding:10px 14px;display:flex;align-items:center;gap:10px;border-bottom:1px solid #222;">
+        <span style="color:#e8a020;font-size:16px;">←</span>
+        <div style="flex:1;">
+          <div style="font-size:12px;font-weight:700;letter-spacing:.5px;">South India Loop</div>
+          <div style="font-size:9px;color:#555;margin-top:1px;">23 days · 14 stops · 3,200 km</div>
+        </div>
+        <div style="font-size:10px;color:#888;font-style:italic;">SuperTrip <span style="color:#e8a020">3</span></div>
+      </div>
+      <!-- Main split -->
+      <div style="display:flex;height:260px;">
+        <!-- Map placeholder (dark) -->
+        <div style="width:42%;background:#141414;position:relative;overflow:hidden;border-right:1px solid #222;">
+          <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 55% 45%,#1e1e1e 0%,#0d0d0d 70%)"></div>
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;">
+            <div style="width:8px;height:8px;background:#e8a020;border-radius:50%;margin:0 auto 4px;box-shadow:0 0 10px #e8a02066;"></div>
+            <div style="font-size:7px;color:#444;letter-spacing:1px;text-transform:uppercase;">MAP</div>
+          </div>
+          <!-- Route dots -->
+          <div style="position:absolute;top:35%;left:30%;width:4px;height:4px;background:#333;border-radius:50%;"></div>
+          <div style="position:absolute;top:55%;left:50%;width:4px;height:4px;background:#333;border-radius:50%;"></div>
+          <div style="position:absolute;top:65%;left:40%;width:4px;height:4px;background:#333;border-radius:50%;"></div>
+        </div>
+        <!-- Detail panel -->
+        <div style="flex:1;background:#111;padding:14px 16px;overflow:hidden;">
+          <div style="font-size:22px;font-weight:800;color:#fff;letter-spacing:-.5px;line-height:1;margin-bottom:2px;">Mysuru</div>
+          <div style="font-size:8px;color:#444;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;">Karnataka · South</div>
+          <!-- Tags -->
+          <div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:10px;">
+            <span style="background:#1a1a1a;border:1px solid #2a2a2a;color:#888;font-size:7px;padding:2px 7px;border-radius:2px;letter-spacing:.5px;">Heritage</span>
+            <span style="background:#1a1a1a;border:1px solid #2a2a2a;color:#888;font-size:7px;padding:2px 7px;border-radius:2px;letter-spacing:.5px;">Cultural</span>
+          </div>
+          <!-- Badges -->
+          <div style="display:flex;gap:6px;margin-bottom:10px;">
+            <div style="background:#1a1a1a;border:1px solid #2a2a2a;border-radius:2px;padding:4px 8px;">
+              <div style="font-size:7px;color:#444;letter-spacing:1px;text-transform:uppercase;">Stayed</div>
+              <div style="font-size:10px;color:#ccc;font-weight:600;margin-top:1px;">3 days</div>
+            </div>
+            <div style="background:#1a1a1a;border:1px solid #2a2a2a;border-radius:2px;padding:4px 8px;">
+              <div style="font-size:7px;color:#444;letter-spacing:1px;text-transform:uppercase;">Best time</div>
+              <div style="font-size:10px;color:#ccc;font-weight:600;margin-top:1px;">Oct–Mar</div>
+            </div>
+          </div>
+          <!-- Lists side by side -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+            <div>
+              <div style="font-size:7px;color:#444;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;">Must Visit</div>
+              <div style="font-size:8px;color:#666;line-height:1.8;"><span style="color:#e8a020;">▸</span> Mysore Palace<br><span style="color:#e8a020;">▸</span> Chamundi Hills<br><span style="color:#e8a020;">▸</span> Devaraja Market</div>
+            </div>
+            <div>
+              <div style="font-size:7px;color:#444;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;">Must Try</div>
+              <div style="font-size:8px;color:#666;line-height:1.8;"><span style="color:#e8a020;">▸</span> Mysore Pak<br><span style="color:#e8a020;">▸</span> Filter Coffee<br><span style="color:#e8a020;">▸</span> Bisi Bele Bath</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer tape -->
+      <div style="height:30px;background:#0a0a0a;border-top:1px solid #1a1a1a;display:flex;align-items:center;justify-content:center;gap:12px;overflow:hidden;">
+        <span style="font-size:7px;color:#2a2a2a;">Kochi</span>
+        <span style="font-size:8px;color:#333;">Kozhikode</span>
+        <span style="font-size:12px;color:#e8a020;font-style:italic;font-weight:700;">Mysuru</span>
+        <span style="font-size:8px;color:#333;">Bengaluru</span>
+        <span style="font-size:7px;color:#2a2a2a;">Ooty</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Dark Cinematic</h3>
+      <p>Deep blacks, near-zero chrome, amber accents. Immersive and premium — like a high-end travel app at night. Strong contrast, subtle gradients, data stays sharp.</p>
+    </div>
+  </div>
+
+  <!-- Option B: Clean Editorial -->
+  <div class="card" data-choice="clean-editorial" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#f8f8f6;padding:0;overflow:hidden;height:340px;position:relative;font-family:'Segoe UI',sans-serif;">
+      <!-- Header -->
+      <div style="background:#fff;color:#111;padding:10px 14px;display:flex;align-items:center;gap:10px;border-bottom:1px solid #e8e8e4;box-shadow:0 1px 0 #f0f0ec;">
+        <span style="color:#2563eb;font-size:16px;">←</span>
+        <div style="flex:1;">
+          <div style="font-size:12px;font-weight:700;color:#111;letter-spacing:.3px;">South India Loop</div>
+          <div style="font-size:9px;color:#999;margin-top:1px;">23 days · 14 stops · 3,200 km</div>
+        </div>
+        <div style="font-size:10px;color:#bbb;">Trip <span style="color:#2563eb;font-weight:700;">3</span></div>
+      </div>
+      <!-- Main split -->
+      <div style="display:flex;height:270px;">
+        <!-- Map placeholder (light) -->
+        <div style="width:42%;background:#e8ede8;position:relative;overflow:hidden;border-right:1px solid #e0e0dc;">
+          <div style="position:absolute;inset:0;background:linear-gradient(135deg,#dde8dd 0%,#e8ede8 100%)"></div>
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;">
+            <div style="width:10px;height:10px;background:#2563eb;border-radius:50%;margin:0 auto 4px;box-shadow:0 0 0 3px rgba(37,99,235,.15);"></div>
+            <div style="font-size:7px;color:#999;letter-spacing:1px;text-transform:uppercase;">MAP</div>
+          </div>
+          <div style="position:absolute;top:35%;left:30%;width:4px;height:4px;background:#c8d8c8;border-radius:50%;"></div>
+          <div style="position:absolute;top:55%;left:55%;width:4px;height:4px;background:#c8d8c8;border-radius:50%;"></div>
+        </div>
+        <!-- Detail panel (white card feel) -->
+        <div style="flex:1;background:#fff;padding:16px;overflow:hidden;">
+          <div style="font-size:11px;color:#999;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;">Karnataka · South India</div>
+          <div style="font-size:26px;font-weight:800;color:#111;letter-spacing:-.8px;line-height:1;margin-bottom:8px;">Mysuru</div>
+          <!-- Star rating -->
+          <div style="display:flex;gap:2px;margin-bottom:8px;">
+            <span style="color:#f59e0b;font-size:10px;">★★★★</span><span style="color:#e5e7eb;font-size:10px;">★</span>
+          </div>
+          <!-- Tags -->
+          <div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:10px;">
+            <span style="background:#eff6ff;color:#2563eb;font-size:7px;padding:2px 8px;border-radius:20px;border:1px solid #dbeafe;">Heritage</span>
+            <span style="background:#eff6ff;color:#2563eb;font-size:7px;padding:2px 8px;border-radius:20px;border:1px solid #dbeafe;">Cultural</span>
+          </div>
+          <!-- Divider -->
+          <div style="height:1px;background:#f0f0ec;margin-bottom:10px;"></div>
+          <!-- Lists side by side -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+            <div>
+              <div style="font-size:7px;color:#bbb;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;">Must Visit</div>
+              <div style="font-size:8px;color:#555;line-height:1.9;"><span style="color:#f59e0b;">•</span> Mysore Palace<br><span style="color:#f59e0b;">•</span> Chamundi Hills<br><span style="color:#f59e0b;">•</span> Devaraja Market</div>
+            </div>
+            <div>
+              <div style="font-size:7px;color:#bbb;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;">Must Try</div>
+              <div style="font-size:8px;color:#555;line-height:1.9;"><span style="color:#f59e0b;">•</span> Mysore Pak<br><span style="color:#f59e0b;">•</span> Filter Coffee<br><span style="color:#f59e0b;">•</span> Bisi Bele Bath</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer tape (light) -->
+      <div style="height:30px;background:#fafaf8;border-top:1px solid #ececea;display:flex;align-items:center;justify-content:center;gap:12px;overflow:hidden;">
+        <span style="font-size:7px;color:#ddd;">Kochi</span>
+        <span style="font-size:8px;color:#ccc;">Kozhikode</span>
+        <span style="font-size:12px;color:#111;font-weight:700;">Mysuru</span>
+        <span style="font-size:8px;color:#ccc;">Bengaluru</span>
+        <span style="font-size:7px;color:#ddd;">Ooty</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Clean Editorial</h3>
+      <p>White cards, airy spacing, blue accent. Modern app-like look — think Airbnb or Notion. Light and readable, the map feels like a functional tool rather than decoration.</p>
+    </div>
+  </div>
+
+  <!-- Option C: Warm Parchment Evolved -->
+  <div class="card" data-choice="warm-evolved" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#f2ece0;padding:0;overflow:hidden;height:340px;position:relative;font-family:'Segoe UI',sans-serif;">
+      <!-- Header: more refined, map-banner style -->
+      <div style="background:#1c1409;color:#fff;padding:10px 14px;display:flex;align-items:center;gap:10px;border-bottom:2px solid #c9962a;">
+        <span style="color:#c9962a;font-size:16px;">←</span>
+        <div style="flex:1;">
+          <div style="font-size:12px;font-weight:700;letter-spacing:.3px;font-family:Georgia,serif;font-style:italic;">South India Loop</div>
+          <div style="font-size:9px;color:#7a6a50;margin-top:1px;">23 days · 14 stops · 3,200 km</div>
+        </div>
+        <div style="font-size:9px;font-family:Georgia,serif;color:#c9962a;font-style:italic;">SuperTrip 3</div>
+      </div>
+      <!-- Main split -->
+      <div style="display:flex;height:270px;">
+        <!-- Map (warm beige tones) -->
+        <div style="width:42%;background:#e8e0d0;position:relative;overflow:hidden;border-right:2px solid #d4c8b4;">
+          <div style="position:absolute;inset:0;background:linear-gradient(135deg,#ddd4c0 0%,#e8e0d0 100%)"></div>
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;">
+            <div style="width:10px;height:10px;background:#c9962a;border-radius:50%;margin:0 auto 4px;box-shadow:0 0 0 4px rgba(201,150,42,.2),0 0 12px rgba(201,150,42,.3);"></div>
+            <div style="font-size:7px;color:#aaa;letter-spacing:1px;text-transform:uppercase;">MAP</div>
+          </div>
+          <div style="position:absolute;top:35%;left:30%;width:4px;height:4px;background:#c0b8a8;border-radius:50%;"></div>
+          <div style="position:absolute;top:55%;left:55%;width:4px;height:4px;background:#c0b8a8;border-radius:50%;"></div>
+        </div>
+        <!-- Detail panel (evolved warm) -->
+        <div style="flex:1;background:#f5ede0;padding:16px;overflow:hidden;">
+          <!-- Links row -->
+          <div style="display:flex;gap:5px;margin-bottom:8px;">
+            <a style="font-size:7px;padding:2px 8px;border:1px solid #d4c4a8;border-radius:3px;color:#8a7a65;text-decoration:none;background:#faf5ec;">Wikipedia</a>
+            <a style="font-size:7px;padding:2px 8px;border:1px solid #d4c4a8;border-radius:3px;color:#8a7a65;text-decoration:none;background:#faf5ec;">ChatGPT</a>
+          </div>
+          <div style="font-size:24px;font-weight:700;color:#1a1208;font-family:Georgia,serif;line-height:1;margin-bottom:2px;">Mysuru</div>
+          <div style="font-size:8px;color:#9a8a72;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;">Karnataka · South</div>
+          <!-- Stars -->
+          <div style="display:flex;gap:2px;margin-bottom:8px;"><span style="color:#c9962a;font-size:11px;">★★★★</span><span style="color:#e8dfd0;font-size:11px;">★</span></div>
+          <!-- Tags with warm pill style -->
+          <div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:10px;">
+            <span style="background:rgba(201,150,42,.12);color:#7a6a40;font-size:7px;padding:2px 9px;border-radius:12px;border:1px solid rgba(201,150,42,.25);">Heritage</span>
+            <span style="background:rgba(201,150,42,.12);color:#7a6a40;font-size:7px;padding:2px 9px;border-radius:12px;border:1px solid rgba(201,150,42,.25);">Cultural</span>
+          </div>
+          <div style="height:1px;background:#dfd4c0;margin-bottom:10px;"></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+            <div>
+              <div style="font-size:7px;color:#9a8a72;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;">Must Visit</div>
+              <div style="font-size:8px;color:#3a2e20;line-height:1.9;"><span style="color:#c9962a;font-size:7px;">▸</span> Mysore Palace<br><span style="color:#c9962a;font-size:7px;">▸</span> Chamundi Hills<br><span style="color:#c9962a;font-size:7px;">▸</span> Devaraja Market</div>
+            </div>
+            <div>
+              <div style="font-size:7px;color:#9a8a72;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;">Must Try</div>
+              <div style="font-size:8px;color:#3a2e20;line-height:1.9;"><span style="color:#c9962a;font-size:7px;">▸</span> Mysore Pak<br><span style="color:#c9962a;font-size:7px;">▸</span> Filter Coffee<br><span style="color:#c9962a;font-size:7px;">▸</span> Bisi Bele Bath</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer tape (warm, refined) -->
+      <div style="height:30px;background:#1c1409;border-top:2px solid #c9962a;display:flex;align-items:center;justify-content:center;gap:12px;overflow:hidden;">
+        <span style="font-size:7px;color:#2e2010;opacity:.5;">Kochi</span>
+        <span style="font-size:8px;color:#5a4a30;">Kozhikode</span>
+        <span style="font-size:13px;color:#c9962a;font-family:Georgia,serif;font-style:italic;font-weight:700;">Mysuru</span>
+        <span style="font-size:8px;color:#5a4a30;">Bengaluru</span>
+        <span style="font-size:7px;color:#2e2010;opacity:.5;">Ooty</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Warm Parchment Evolved</h3>
+      <p>Keeps the existing soul (parchment, gold, Georgia serif) but fixes the outdated feel — tighter spacing, better typographic hierarchy, and a bolder gold accent line on the header/footer border.</p>
+    </div>
+  </div>
+
+</div>
