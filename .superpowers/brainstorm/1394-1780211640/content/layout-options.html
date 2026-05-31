@@ -1,0 +1,229 @@
+<h2>TripDetails Layout Options</h2>
+<p class="subtitle">Which approach feels best for reducing the left-side congestion?</p>
+
+<div class="cards" style="grid-template-columns: 1fr 1fr 1fr; gap: 20px;">
+
+  <!-- Option A -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="card-image" style="padding: 0; overflow: hidden; border-radius: 6px 6px 0 0;">
+      <!-- Mockup A: Header enriched with badges -->
+      <div style="font-family: 'DM Sans', sans-serif; font-size: 11px; background: #f5f0e8; border: 1px solid #e0d8cc; border-radius: 6px; overflow: hidden;">
+
+        <!-- Header -->
+        <div style="background: #1a1208; padding: 7px 12px; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+          <div style="display: flex; align-items: center; gap: 6px; min-width: 0; flex: 1;">
+            <span style="color: #c9962a; font-size: 10px;">←</span>
+            <div style="min-width: 0;">
+              <div style="color: #f5f0e8; font-weight: 700; font-size: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Northeast Circuit</div>
+              <div style="color: #a09888; font-size: 8px;">3 weeks · 12 stops · 4,200 km</div>
+            </div>
+          </div>
+          <!-- Badges moved to header -->
+          <div style="display: flex; gap: 4px; flex-shrink: 0;">
+            <div style="background: rgba(255,255,255,0.07); border: 1px solid #3a3020; border-radius: 3px; padding: 3px 6px; text-align: center;">
+              <div style="color: #8a7a65; font-size: 6px; letter-spacing: 0.8px; text-transform: uppercase;">Stayed</div>
+              <div style="color: #f5f0e8; font-size: 8px; font-weight: 600;">4 days</div>
+            </div>
+            <div style="background: rgba(255,255,255,0.07); border: 1px solid #3a3020; border-radius: 3px; padding: 3px 6px; text-align: center;">
+              <div style="color: #8a7a65; font-size: 6px; letter-spacing: 0.8px; text-transform: uppercase;">Ideal</div>
+              <div style="color: #f5f0e8; font-size: 8px; font-weight: 600;">5–7 days</div>
+            </div>
+            <div style="background: rgba(255,255,255,0.07); border: 1px solid #3a3020; border-radius: 3px; padding: 3px 6px; text-align: center;">
+              <div style="color: #8a7a65; font-size: 6px; letter-spacing: 0.8px; text-transform: uppercase;">Best Time</div>
+              <div style="color: #c9962a; font-size: 8px; font-weight: 600;">Oct–Feb</div>
+            </div>
+          </div>
+          <div style="color: #f5f0e8; font-size: 9px; flex-shrink: 0; font-style: italic;">SuperTrip 3</div>
+        </div>
+
+        <!-- Main split -->
+        <div style="display: flex; height: 110px;">
+          <!-- Map placeholder -->
+          <div style="width: 40%; background: #e8e4dc; display: flex; align-items: center; justify-content: center; border-right: 1px solid #e0d8cc;">
+            <span style="color: #a09888; font-size: 9px;">🗺 Map</span>
+          </div>
+          <!-- Detail column — less cluttered -->
+          <div style="flex: 1; padding: 8px 10px; overflow: hidden;">
+            <div style="font-size: 14px; font-weight: 700; font-family: Georgia, serif; color: #1a1208; line-height: 1.1;">Gangtok</div>
+            <div style="font-size: 8px; color: #8a7a65; letter-spacing: 0.8px; text-transform: uppercase; margin: 2px 0 5px;">Sikkim · Eastern Himalayas</div>
+            <div style="display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 5px;">
+              <span style="font-size: 7px; padding: 2px 6px; border-radius: 10px; background: rgba(201,150,42,0.1); color: #7a6a55; border: 1px solid rgba(201,150,42,0.22);">Hill Station</span>
+              <span style="font-size: 7px; padding: 2px 6px; border-radius: 10px; background: rgba(201,150,42,0.1); color: #7a6a55; border: 1px solid rgba(201,150,42,0.22);">Buddhist</span>
+            </div>
+            <div style="font-size: 8px; color: #2e2416; line-height: 1.5;">
+              <div style="color: #8a7a65; font-size: 7px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 3px;">Must Visit</div>
+              <div>▸ Rumtek Monastery</div>
+              <div>▸ Tsomgo Lake</div>
+              <div>▸ MG Marg</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer tape -->
+        <div style="background: #1a1208; height: 18px; display: flex; align-items: center; justify-content: center;">
+          <span style="color: #c9962a; font-size: 10px; font-style: italic; font-family: Georgia, serif;">Gangtok</span>
+          <span style="color: #6a6055; font-size: 7px; margin: 0 5px;">Darjeeling</span>
+          <span style="color: #6a6055; font-size: 7px; margin: 0 5px;">Siliguri</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Stats in Header</h3>
+      <p>Move the 3 stay badges (stayed / ideal / best time) into the header bar. The detail panel gets much more breathing room — just city name, categories, and content lists.</p>
+    </div>
+  </div>
+
+  <!-- Option B -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="card-image" style="padding: 0; overflow: hidden; border-radius: 6px 6px 0 0;">
+      <!-- Mockup B: Two-column detail panel -->
+      <div style="font-family: 'DM Sans', sans-serif; font-size: 11px; background: #f5f0e8; border: 1px solid #e0d8cc; border-radius: 6px; overflow: hidden;">
+
+        <!-- Header (unchanged) -->
+        <div style="background: #1a1208; padding: 7px 12px; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+          <div style="display: flex; align-items: center; gap: 6px; min-width: 0; flex: 1;">
+            <span style="color: #c9962a; font-size: 10px;">←</span>
+            <div>
+              <div style="color: #f5f0e8; font-weight: 700; font-size: 10px;">Northeast Circuit</div>
+              <div style="color: #a09888; font-size: 8px;">3 weeks · 12 stops · 4,200 km</div>
+            </div>
+          </div>
+          <div style="color: #f5f0e8; font-size: 9px; font-style: italic;">SuperTrip 3</div>
+        </div>
+
+        <!-- Main split -->
+        <div style="display: flex; height: 110px;">
+          <!-- Map placeholder -->
+          <div style="width: 40%; background: #e8e4dc; display: flex; align-items: center; justify-content: center; border-right: 1px solid #e0d8cc;">
+            <span style="color: #a09888; font-size: 9px;">🗺 Map</span>
+          </div>
+          <!-- Two-column detail -->
+          <div style="flex: 1; display: flex; overflow: hidden;">
+            <!-- Left sub-column -->
+            <div style="flex: 1; padding: 8px 8px; border-right: 1px solid #e8e2d6; overflow: hidden;">
+              <div style="font-size: 14px; font-weight: 700; font-family: Georgia, serif; color: #1a1208; line-height: 1.1;">Gangtok</div>
+              <div style="font-size: 8px; color: #8a7a65; letter-spacing: 0.8px; text-transform: uppercase; margin: 2px 0 4px;">Sikkim · Eastern Himalayas</div>
+              <div style="display: flex; gap: 4px; margin-bottom: 5px;">
+                <span style="font-size: 7px; padding: 2px 5px; border-radius: 10px; background: rgba(201,150,42,0.1); color: #7a6a55; border: 1px solid rgba(201,150,42,0.22);">Hill Station</span>
+              </div>
+              <div style="font-size: 8px; color: #2e2416; line-height: 1.5;">
+                <div style="color: #8a7a65; font-size: 7px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 2px;">Must Visit</div>
+                <div>▸ Rumtek Monastery</div>
+                <div>▸ Tsomgo Lake</div>
+              </div>
+            </div>
+            <!-- Right sub-column -->
+            <div style="width: 42%; padding: 8px 8px; overflow: hidden;">
+              <div style="display: flex; flex-direction: column; gap: 3px; margin-bottom: 6px;">
+                <div style="background: #fff; border: 1px solid #e0d8cc; border-radius: 3px; padding: 3px 6px;">
+                  <div style="font-size: 6px; color: #8a7a65; letter-spacing: 0.8px; text-transform: uppercase;">Stayed</div>
+                  <div style="font-size: 8px; font-weight: 600; color: #1a1208;">4 days</div>
+                </div>
+                <div style="background: #fff; border: 1px solid #e0d8cc; border-radius: 3px; padding: 3px 6px;">
+                  <div style="font-size: 6px; color: #8a7a65; letter-spacing: 0.8px; text-transform: uppercase;">Ideal Stay</div>
+                  <div style="font-size: 8px; font-weight: 600; color: #1a1208;">5–7 days</div>
+                </div>
+                <div style="background: #fff; border: 1px solid #e0d8cc; border-radius: 3px; padding: 3px 6px;">
+                  <div style="font-size: 6px; color: #8a7a65; letter-spacing: 0.8px; text-transform: uppercase;">Best Time</div>
+                  <div style="font-size: 8px; font-weight: 600; color: #c9962a;">Oct–Feb</div>
+                </div>
+              </div>
+              <div style="font-size: 8px; color: #2e2416; line-height: 1.5;">
+                <div style="color: #8a7a65; font-size: 7px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 2px;">Must Try</div>
+                <div>▸ Thukpa</div>
+                <div>▸ Momos</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer tape -->
+        <div style="background: #1a1208; height: 18px; display: flex; align-items: center; justify-content: center;">
+          <span style="color: #c9962a; font-size: 10px; font-style: italic; font-family: Georgia, serif;">Gangtok</span>
+          <span style="color: #6a6055; font-size: 7px; margin: 0 5px;">Darjeeling</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Two-Column Detail</h3>
+      <p>Split the right detail panel into left (name, categories, must visit) and right (stay badges, must try, getting around). Content appears side-by-side instead of stacking.</p>
+    </div>
+  </div>
+
+  <!-- Option C -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="card-image" style="padding: 0; overflow: hidden; border-radius: 6px 6px 0 0;">
+      <!-- Mockup C: Hybrid — badges in header + two-col lists -->
+      <div style="font-family: 'DM Sans', sans-serif; font-size: 11px; background: #f5f0e8; border: 1px solid #e0d8cc; border-radius: 6px; overflow: hidden;">
+
+        <!-- Header with badges -->
+        <div style="background: #1a1208; padding: 7px 12px; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+          <div style="display: flex; align-items: center; gap: 6px; min-width: 0; flex: 1;">
+            <span style="color: #c9962a; font-size: 10px;">←</span>
+            <div>
+              <div style="color: #f5f0e8; font-weight: 700; font-size: 10px;">Northeast Circuit</div>
+              <div style="color: #a09888; font-size: 8px;">3 weeks · 12 stops · 4,200 km</div>
+            </div>
+          </div>
+          <!-- Compact pill badges -->
+          <div style="display: flex; gap: 3px; flex-shrink: 0; align-items: center;">
+            <span style="background: #3a3020; color: #c9962a; font-size: 7px; padding: 2px 7px; border-radius: 10px; white-space: nowrap;">4 days stayed</span>
+            <span style="background: #3a3020; color: #a09888; font-size: 7px; padding: 2px 7px; border-radius: 10px; white-space: nowrap;">ideal: 5–7d</span>
+            <span style="background: #3a3020; color: #a09888; font-size: 7px; padding: 2px 7px; border-radius: 10px; white-space: nowrap;">Oct–Feb</span>
+          </div>
+          <div style="color: #f5f0e8; font-size: 9px; font-style: italic; flex-shrink: 0;">SuperTrip 3</div>
+        </div>
+
+        <!-- Main split -->
+        <div style="display: flex; height: 110px;">
+          <!-- Map placeholder -->
+          <div style="width: 40%; background: #e8e4dc; display: flex; align-items: center; justify-content: center; border-right: 1px solid #e0d8cc;">
+            <span style="color: #a09888; font-size: 9px;">🗺 Map</span>
+          </div>
+          <!-- Detail column — cleaner, two-col lists -->
+          <div style="flex: 1; padding: 8px 10px; overflow: hidden;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2px;">
+              <div style="font-size: 14px; font-weight: 700; font-family: Georgia, serif; color: #1a1208; line-height: 1.1;">Gangtok</div>
+              <div style="display: flex; gap: 1px;">
+                <span style="color: #c9962a; font-size: 8px;">★★★★</span><span style="color: #3a3020; font-size: 8px;">★</span>
+              </div>
+            </div>
+            <div style="font-size: 8px; color: #8a7a65; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 4px;">Sikkim · Eastern Himalayas</div>
+            <div style="display: flex; gap: 10px;">
+              <!-- Left list -->
+              <div style="flex: 1; font-size: 8px; color: #2e2416; line-height: 1.5;">
+                <div style="color: #8a7a65; font-size: 7px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 2px;">Must Visit</div>
+                <div>▸ Rumtek Monastery</div>
+                <div>▸ Tsomgo Lake</div>
+                <div>▸ MG Marg</div>
+              </div>
+              <!-- Right list -->
+              <div style="flex: 1; font-size: 8px; color: #2e2416; line-height: 1.5;">
+                <div style="color: #8a7a65; font-size: 7px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 2px;">Must Try</div>
+                <div>▸ Thukpa</div>
+                <div>▸ Momos</div>
+                <div>▸ Chhurpi</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer tape -->
+        <div style="background: #1a1208; height: 18px; display: flex; align-items: center; justify-content: center;">
+          <span style="color: #c9962a; font-size: 10px; font-style: italic; font-family: Georgia, serif;">Gangtok</span>
+          <span style="color: #6a6055; font-size: 7px; margin: 0 5px;">Darjeeling</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Hybrid — Best of Both</h3>
+      <p>Compact pill badges in the header for quick stats, plus Must Visit / Must Try shown side-by-side in two columns. Cleans up the detail panel without splitting it completely.</p>
+    </div>
+  </div>
+
+</div>
+
+<p class="subtitle" style="margin-top: 16px;">Click a card to select. All three approaches are reversible — we can mix-and-match after seeing what feels right.</p>

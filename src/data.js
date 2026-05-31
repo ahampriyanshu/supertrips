@@ -59,7 +59,7 @@ export const RAW_TRIPS = [
         "dur": "1 Day"
       },
       {
-        "code": "ahemdabad",
+        "code": "ahmedabad-gandhinagar",
         "dur": "3 Days"
       },
       {
@@ -635,7 +635,7 @@ export const RAW_TRIPS = [
         "dur": "2 Weeks"
       },
       {
-        "code": "ahemdabad",
+        "code": "ahmedabad-gandhinagar",
         "dur": "1 Week"
       },
       {
@@ -844,7 +844,7 @@ export const CITIES = {
     "region": "northern",
     "category": [
       "metro",
-      "ease_of_work"
+      "base_camp"
     ],
     "must_visit": [
       "Cyber Hub",
@@ -1005,7 +1005,8 @@ export const CITIES = {
     "category": [
       "metro",
       "heritage",
-      "backpacker"
+      "backpacker",
+      "base_camp"
     ],
     "must_visit": [
       "Victoria Memorial",
@@ -1090,7 +1091,7 @@ export const CITIES = {
     "region": "northern",
     "category": [
       "metro",
-      "ease_of_work"
+      "base_camp"
     ],
     "must_visit": [
       "Worlds of Wonder",
@@ -1131,7 +1132,8 @@ export const CITIES = {
     "category": [
       "metro",
       "heritage",
-      "pilgrimage"
+      "pilgrimage",
+      "base_camp"
     ],
     "must_visit": [
       "Red Fort",
@@ -1293,7 +1295,6 @@ export const CITIES = {
     "region": "northern",
     "category": [
       "heritage",
-      "adventure"
     ],
     "must_visit": [
       "Kumbhalgarh Fort",
@@ -1319,48 +1320,6 @@ export const CITIES = {
       "Standing on those 36-kilometre walls at sunrise with mist rolling through the Aravalli valleys — this is the image that stays with you long after you leave Rajasthan.",
       "It's a day-trip from Udaipur for most but staying overnight in the forest means you get the fort completely to yourself at dawn.",
       "The wildlife sanctuary is underrated — sloth bears and leopards live here and the forest drive is genuinely thrilling."
-    ]
-  },
-  "ahemdabad": {
-    "city": "Ahemdabad",
-    "lat": 23.02579,
-    "lng": 72.58727,
-    "state": "gujarat",
-    "region": "western",
-    "category": [
-      "metro",
-      "heritage"
-    ],
-    "must_visit": [
-      "Sabarmati Ashram",
-      "Adalaj Stepwell",
-      "Sidi Saiyyed Mosque",
-      "Calico Museum of Textiles",
-      "Kankaria Lake",
-      "Hutheesing Jain Temple"
-    ],
-    "must_try": [
-      "Thali at a traditional Gujarati restaurant",
-      "Fafda-Jalebi for breakfast",
-      "Khaman Dhokla",
-      "Undhiyu",
-      "Heritage walk in the old walled city",
-      "Riverfront evening walk"
-    ],
-    "accommodation": [],
-    "mode_of_travel": [
-      "metro",
-      "auto",
-      "ola/uber",
-      "city_bus"
-    ],
-    "ideal_season": "winter",
-    "ideal_stay": "2-3 days",
-    "rating": 4,
-    "notes": [
-      "The pol houses of the old city are a labyrinth of carved wooden facades and hidden courtyards — the UNESCO heritage walk is legitimately one of India's best urban walks.",
-      "Gujarati thali here is not just food, it's a philosophy — unlimited refills, everything sweet-salty-spicy at once, and you will absolutely overeat.",
-      "Traffic is a nightmare but the metro has made getting around surprisingly easy now."
     ]
   },
   "kevadiya": {
@@ -1406,7 +1365,8 @@ export const CITIES = {
     "state": "gujarat",
     "region": "western",
     "category": [
-      "metro"
+      "metro",
+      "base_camp"
     ],
     "must_visit": [
       "Surat Castle",
@@ -1446,7 +1406,8 @@ export const CITIES = {
     "state": "gujarat",
     "region": "western",
     "category": [
-      "heritage"
+      "heritage",
+      "base_camp"
     ],
     "must_visit": [
       "Laxmi Vilas Palace",
@@ -1596,7 +1557,7 @@ export const CITIES = {
     "state": "punjab",
     "region": "northern",
     "category": [
-      "ease_of_work"
+      "base_camp"
     ],
     "must_visit": [
       "Punjab Agricultural University Museum",
@@ -1635,7 +1596,6 @@ export const CITIES = {
     "state": "punjab",
     "region": "northern",
     "category": [
-      "ease_of_work"
     ],
     "must_visit": [
       "Devi Talab Mandir",
@@ -1715,7 +1675,8 @@ export const CITIES = {
     "state": "punjab",
     "region": "northern",
     "category": [
-      "border_town"
+      "border_town",
+      "base_camp"
     ],
     "must_visit": [
       "Mukteshwar Temple",
@@ -1791,7 +1752,8 @@ export const CITIES = {
     "region": "northern",
     "category": [
       "heritage",
-      "pilgrimage"
+      "pilgrimage",
+      "base_camp"
     ],
     "must_visit": [
       "Raghunath Temple",
@@ -1831,7 +1793,6 @@ export const CITIES = {
     "state": "jammu_and_kashmir",
     "region": "northern",
     "category": [
-      "adventure"
     ],
     "must_visit": [
       "Banihal Tunnel (Jawahar Tunnel) entrance",
@@ -1910,7 +1871,6 @@ export const CITIES = {
     "region": "northern",
     "category": [
       "hill_station",
-      "adventure"
     ],
     "must_visit": [
       "Gondola Phase 1 & 2 (Apharwat Peak)",
@@ -1948,7 +1908,6 @@ export const CITIES = {
     "region": "northern",
     "category": [
       "border_town",
-      "adventure",
       "heritage"
     ],
     "must_visit": [
@@ -1986,7 +1945,6 @@ export const CITIES = {
     "state": "ladakh",
     "region": "northern",
     "category": [
-      "adventure",
       "heritage",
       "pilgrimage",
       "backpacker"
@@ -2028,7 +1986,6 @@ export const CITIES = {
     "state": "himachal_pradesh",
     "region": "northern",
     "category": [
-      "adventure"
     ],
     "must_visit": [
       "Keylong Monastery (Kardang Gompa)",
@@ -2067,7 +2024,6 @@ export const CITIES = {
     "region": "northern",
     "category": [
       "hill_station",
-      "adventure",
       "backpacker"
     ],
     "must_visit": [
@@ -2109,7 +2065,6 @@ export const CITIES = {
     "region": "northern",
     "category": [
       "heritage",
-      "adventure"
     ],
     "must_visit": [
       "Raghunath Temple",
@@ -2147,8 +2102,8 @@ export const CITIES = {
     "state": "chandigarh",
     "region": "northern",
     "category": [
-      "ease_of_work",
-      "heritage"
+      "heritage",
+      "base_camp"
     ],
     "must_visit": [
       "Rock Garden (Nek Chand)",
@@ -2226,7 +2181,6 @@ export const CITIES = {
     "region": "northern",
     "category": [
       "desert",
-      "adventure"
     ],
     "must_visit": [
       "Sam Sand Dunes",
@@ -2389,15 +2343,20 @@ export const CITIES = {
       "GIFT City",
       "Akshardham Temple Gandhinagar",
       "Sidi Saiyyed Mosque",
-      "Science City Ahmedabad"
+      "Science City Ahmedabad",
+      "Calico Museum of Textiles",
+      "Kankaria Lake",
+      "Hutheesing Jain Temple"
     ],
     "must_try": [
       "Gujarati thali",
       "Fafda-Jalebi breakfast",
       "Khaman and Khandvi",
+      "Undhiyu",
       "Heritage walk in pol area",
       "Kite festival experience (January)",
-      "Manek Chowk night food market"
+      "Manek Chowk night food market",
+      "Sabarmati Riverfront evening walk"
     ],
     "accommodation": [],
     "mode_of_travel": [
@@ -2412,7 +2371,8 @@ export const CITIES = {
     "notes": [
       "The UNESCO heritage walk through Ahmedabad's old city pols is genuinely one of the finest urban heritage experiences in all of India.",
       "Gandhinagar is that rare Indian state capital that actually feels planned — clean, green, and oddly calming after Ahmedabad's intensity.",
-      "Manek Chowk transforms from a jewellery market by day to a street food paradise by night — don't make dinner plans, just go there."
+      "Manek Chowk transforms from a jewellery market by day to a street food paradise by night — don't make dinner plans, just go there.",
+      "Traffic is a nightmare but the metro has made getting around surprisingly easy now."
     ]
   },
   "indore": {
@@ -2614,7 +2574,7 @@ export const CITIES = {
     "category": [
       "metro",
       "heritage",
-      "ease_of_work"
+      "base_camp"
     ],
     "must_visit": [
       "Shaniwar Wada",
@@ -2657,7 +2617,7 @@ export const CITIES = {
     "category": [
       "metro",
       "coastal",
-      "ease_of_work"
+      "base_camp"
     ],
     "must_visit": [
       "Gateway of India",
@@ -2746,7 +2706,7 @@ export const CITIES = {
       "heritage",
       "coastal",
       "backpacker",
-      "ease_of_work"
+      "base_camp"
     ],
     "must_visit": [
       "Fort Kochi",
@@ -2877,7 +2837,6 @@ export const CITIES = {
       "metro",
       "pilgrimage",
       "coastal",
-      "ease_of_work"
     ],
     "must_visit": [
       "Padmanabhaswamy Temple",
@@ -2919,7 +2878,6 @@ export const CITIES = {
     "region": "southern",
     "category": [
       "hill_station",
-      "adventure",
       "backpacker"
     ],
     "must_visit": [
@@ -2960,7 +2918,7 @@ export const CITIES = {
     "region": "southern",
     "category": [
       "metro",
-      "ease_of_work"
+      "base_camp"
     ],
     "must_visit": [
       "Isha Yoga Centre & Dhyanalinga",
@@ -3088,7 +3046,7 @@ export const CITIES = {
     "region": "southern",
     "category": [
       "metro",
-      "ease_of_work"
+      "base_camp"
     ],
     "must_visit": [
       "Cubbon Park",
@@ -3131,7 +3089,7 @@ export const CITIES = {
     "region": "southern",
     "category": [
       "metro",
-      "ease_of_work"
+      "base_camp"
     ],
     "must_visit": [
       "Cubbon Park",
@@ -3174,7 +3132,6 @@ export const CITIES = {
     "region": "southern",
     "category": [
       "hill_station",
-      "adventure",
       "heritage"
     ],
     "must_visit": [
@@ -3301,7 +3258,8 @@ export const CITIES = {
     "category": [
       "metro",
       "pilgrimage",
-      "backpacker"
+      "backpacker",
+      "base_camp"
     ],
     "must_visit": [
       "Kamakhya Temple",
@@ -3343,7 +3301,6 @@ export const CITIES = {
     "region": "northeastern",
     "category": [
       "hill_station",
-      "adventure",
       "backpacker"
     ],
     "must_visit": [
@@ -3385,7 +3342,6 @@ export const CITIES = {
     "state": "meghalaya",
     "region": "northeastern",
     "category": [
-      "adventure",
       "backpacker",
       "border_town"
     ],
@@ -3425,7 +3381,8 @@ export const CITIES = {
     "region": "northeastern",
     "category": [
       "backpacker",
-      "heritage"
+      "heritage",
+      "base_camp"
     ],
     "must_visit": [
       "Khaspur Ruins",
@@ -3465,7 +3422,8 @@ export const CITIES = {
     "category": [
       "backpacker",
       "heritage",
-      "border_town"
+      "border_town",
+      "base_camp"
     ],
     "must_visit": [
       "Kachari Ruins",
@@ -3504,7 +3462,6 @@ export const CITIES = {
     "region": "northeastern",
     "category": [
       "heritage",
-      "adventure",
       "backpacker"
     ],
     "must_visit": [
@@ -3544,7 +3501,6 @@ export const CITIES = {
     "state": "assam",
     "region": "northeastern",
     "category": [
-      "adventure",
       "backpacker"
     ],
     "must_visit": [
@@ -3583,7 +3539,6 @@ export const CITIES = {
     "region": "northeastern",
     "category": [
       "heritage",
-      "adventure",
       "backpacker"
     ],
     "must_visit": [
@@ -3622,7 +3577,6 @@ export const CITIES = {
     "region": "northeastern",
     "category": [
       "pilgrimage",
-      "adventure",
       "hill_station",
       "border_town"
     ],
@@ -3664,7 +3618,6 @@ export const CITIES = {
     "category": [
       "hill_station",
       "heritage",
-      "adventure"
     ],
     "must_visit": [
       "Tiger Hill sunrise",
@@ -3704,7 +3657,6 @@ export const CITIES = {
     "region": "northeastern",
     "category": [
       "hill_station",
-      "adventure",
       "pilgrimage"
     ],
     "must_visit": [
@@ -3744,7 +3696,6 @@ export const CITIES = {
     "region": "northeastern",
     "category": [
       "hill_station",
-      "adventure",
       "heritage"
     ],
     "must_visit": [
@@ -3785,7 +3736,8 @@ export const CITIES = {
     "state": "west_bengal",
     "region": "eastern",
     "category": [
-      "backpacker"
+      "backpacker",
+      "base_camp"
     ],
     "must_visit": [
       "North Bengal State Zoo (Bengal Safari)",
@@ -3825,7 +3777,7 @@ export const CITIES = {
     "region": "southern",
     "category": [
       "metro",
-      "ease_of_work"
+      "base_camp"
     ],
     "must_visit": [
       "Cubbon Park",
@@ -3950,7 +3902,6 @@ export const CITIES = {
     "category": [
       "pilgrimage",
       "heritage",
-      "adventure"
     ],
     "must_visit": [
       "Mallikarjuna Jyotirlinga Temple",
@@ -3990,7 +3941,7 @@ export const CITIES = {
     "category": [
       "metro",
       "heritage",
-      "ease_of_work"
+      "base_camp"
     ],
     "must_visit": [
       "Charminar",
@@ -4032,7 +3983,6 @@ export const CITIES = {
     "state": "karnataka",
     "region": "southern",
     "category": [
-      "adventure",
       "heritage"
     ],
     "must_visit": [
@@ -4118,7 +4068,7 @@ export const CITIES = {
       "metro",
       "coastal",
       "heritage",
-      "ease_of_work"
+      "base_camp"
     ],
     "must_visit": [
       "Marina Beach",
@@ -4161,7 +4111,6 @@ export const CITIES = {
     "region": "northern",
     "category": [
       "hill_station",
-      "adventure"
     ],
     "must_visit": [
       "Thajiwas Glacier",
@@ -4199,7 +4148,6 @@ export const CITIES = {
     "region": "northern",
     "category": [
       "pilgrimage",
-      "adventure"
     ],
     "must_visit": [
       "Amarnath Cave Temple (trek from Baltal)",
@@ -4235,7 +4183,6 @@ export const CITIES = {
     "state": "jammu_and_kashmir",
     "region": "northern",
     "category": [
-      "adventure"
     ],
     "must_visit": [
       "Banihal Railway Station (highest broad-gauge section)",
@@ -4466,7 +4413,6 @@ export const CITIES = {
     "region": "northern",
     "category": [
       "heritage",
-      "ease_of_work"
     ],
     "must_visit": [
       "Bara Imambara",
@@ -4626,8 +4572,8 @@ export const CITIES = {
     "state": "west_bengal",
     "region": "eastern",
     "category": [
-      "ease_of_work",
-      "backpacker"
+      "backpacker",
+      "base_camp"
     ],
     "must_visit": [
       "IIT Kharagpur Campus",
@@ -4751,7 +4697,6 @@ export const CITIES = {
     "category": [
       "hill_station",
       "heritage",
-      "adventure"
     ],
     "must_visit": [
       "Borra Caves",
@@ -4791,7 +4736,6 @@ export const CITIES = {
     "region": "southern",
     "category": [
       "hill_station",
-      "adventure",
       "heritage"
     ],
     "must_visit": [
@@ -4832,7 +4776,6 @@ export const CITIES = {
     "region": "southern",
     "category": [
       "hill_station",
-      "adventure"
     ],
     "must_visit": [
       "Mullayanagiri Peak",
@@ -4873,7 +4816,6 @@ export const CITIES = {
     "category": [
       "heritage",
       "backpacker",
-      "adventure"
     ],
     "must_visit": [
       "Virupaksha Temple",
@@ -4999,7 +4941,6 @@ export const CITIES = {
     "category": [
       "hill_station",
       "backpacker",
-      "adventure"
     ],
     "must_visit": [
       "Poombarai Village viewpoint",
@@ -5038,7 +4979,6 @@ export const CITIES = {
     "state": "tamil_nadu",
     "region": "southern",
     "category": [
-      "adventure",
       "hill_station"
     ],
     "must_visit": [
@@ -5079,7 +5019,6 @@ export const CITIES = {
     "region": "southern",
     "category": [
       "hill_station",
-      "adventure"
     ],
     "must_visit": [
       "Eravikulam National Park (Nilgiri Tahr)",
@@ -5161,7 +5100,6 @@ export const CITIES = {
     "region": "southern",
     "category": [
       "heritage",
-      "adventure"
     ],
     "must_visit": [
       "Palakkad Fort",
@@ -5238,7 +5176,8 @@ export const CITIES = {
     "state": "maharashtra",
     "region": "central",
     "category": [
-      "metro"
+      "metro",
+      "base_camp"
     ],
     "must_visit": [
       "Deekshabhoomi",
@@ -5322,7 +5261,6 @@ export const CITIES = {
     "category": [
       "heritage",
       "desert",
-      "adventure"
     ],
     "must_visit": [
       "Bhuj Swaminarayan Temple",
@@ -5364,7 +5302,6 @@ export const CITIES = {
     "category": [
       "heritage",
       "desert",
-      "adventure"
     ],
     "must_visit": [
       "White Rann",
@@ -5403,7 +5340,8 @@ export const CITIES = {
     "region": "central",
     "category": [
       "metro",
-      "heritage"
+      "heritage",
+      "base_camp"
     ],
     "must_visit": [
       "Bhimbetka Rock Shelters",
@@ -5701,7 +5639,6 @@ export const CITIES = {
       "hill_station",
       "pilgrimage",
       "backpacker",
-      "adventure"
     ],
     "must_visit": [
       "Namgyal Monastery & Tsuglagkhang Complex",
@@ -5740,7 +5677,6 @@ export const CITIES = {
     "state": "himachal_pradesh",
     "region": "northern",
     "category": [
-      "adventure",
       "backpacker"
     ],
     "must_visit": [
@@ -5780,7 +5716,6 @@ export const CITIES = {
     "region": "southern",
     "category": [
       "hill_station",
-      "adventure",
       "heritage"
     ],
     "must_visit": [
@@ -6183,7 +6118,8 @@ export const CITIES = {
     "category": [
       "metro",
       "heritage",
-      "pilgrimage"
+      "pilgrimage",
+      "base_camp"
     ],
     "must_visit": [
       "Golghar",
@@ -6220,35 +6156,6 @@ export const CITIES = {
 };
 
 export const CATEGORIES = {
-  "adventure": {
-    "label": "Adventure",
-    "slug": "adventure",
-    "cities": [
-      "araku",
-      "bir",
-      "chikkmanglore",
-      "coorg",
-      "dawki",
-      "gokarna",
-      "gulmarg",
-      "hampi",
-      "kargil",
-      "keylong",
-      "kohima",
-      "kullu",
-      "kumbhalgarh",
-      "leh",
-      "manali",
-      "munnar",
-      "ooty",
-      "sam",
-      "shivamogga",
-      "tawang",
-      "vagamon",
-      "wayanad",
-      "wayanad-vyithri"
-    ]
-  },
   "backpacker": {
     "label": "Backpacker",
     "slug": "backpacker",
@@ -6310,41 +6217,10 @@ export const CATEGORIES = {
       "sam"
     ]
   },
-  "ease_of_work": {
-    "label": "Ease Of Work",
-    "slug": "ease-of-work",
-    "cities": [
-      "ahemdabad",
-      "ahmedabad-gandhinagar",
-      "banglore",
-      "bengalauru",
-      "bengaluru",
-      "bhopal",
-      "chandigarh",
-      "chennai",
-      "coimbatore",
-      "delhi",
-      "goa",
-      "gurugram",
-      "hyderabad",
-      "indore",
-      "kochi",
-      "kolkata",
-      "mumbai",
-      "mysore",
-      "nagpur",
-      "noida",
-      "pune",
-      "surat",
-      "trivandrum",
-      "vadodara"
-    ]
-  },
   "food": {
     "label": "Food",
     "slug": "food",
     "cities": [
-      "ahemdabad",
       "ahmedabad-gandhinagar",
       "amristar",
       "amritsar",
@@ -6371,7 +6247,6 @@ export const CATEGORIES = {
     "slug": "heritage",
     "cities": [
       "agra",
-      "ahemdabad",
       "ahmedabad-gandhinagar",
       "ajmer-pushkar",
       "amristar",
@@ -6419,8 +6294,8 @@ export const CATEGORIES = {
     ]
   },
   "hill_station": {
-    "label": "Hill Station",
-    "slug": "hill-station",
+    "label": "Mountains",
+    "slug": "mountains",
     "cities": [
       "araku",
       "banihal-udhampur",
@@ -6461,7 +6336,6 @@ export const CATEGORIES = {
     "label": "Metro",
     "slug": "metro",
     "cities": [
-      "ahemdabad",
       "ahmedabad-gandhinagar",
       "banglore",
       "bengalauru",
@@ -6494,8 +6368,8 @@ export const CATEGORIES = {
     ]
   },
   "nature": {
-    "label": "Nature",
-    "slug": "nature",
+    "label": "Scenic",
+    "slug": "scenic",
     "cities": [
       "allepey",
       "araku",
@@ -6569,9 +6443,9 @@ export const CATEGORIES = {
       "varanasi"
     ]
   },
-  "transit_hub": {
-    "label": "Transit Hub",
-    "slug": "transit-hub",
+  "base_camp": {
+    "label": "Base Camp",
+    "slug": "base-camp",
     "cities": [
       "banglore",
       "bengalauru",
@@ -6755,7 +6629,6 @@ export const REGIONS = {
     "label": "Western",
     "slug": "western",
     "cities": [
-      "ahemdabad",
       "ahmedabad-gandhinagar",
       "bhuj",
       "dwarka",
@@ -6837,7 +6710,6 @@ export const STATES = {
     "label": "Gujarat",
     "slug": "gujarat",
     "cities": [
-      "ahemdabad",
       "ahmedabad-gandhinagar",
       "bhuj",
       "dwarka",

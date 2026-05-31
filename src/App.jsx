@@ -19,24 +19,47 @@ const routeDefinitions = [
   "/categories/:category",
 ];
 
-const directoryLinks = [
+function toDirectoryItems(groups, basePath, hashPrefix) {
+  return Object.values(groups).map(({ label, slug, cities }) => ({
+    label,
+    href: `/${basePath}#${hashPrefix}-${slug}`,
+    count: cities.length,
+  }));
+}
+
+const directoryGroups = [
   {
-    title: "Cities",
-    href: "/cities",
-    count: totalCities,
-    description: "Browse by region, state, and city in one clean list.",
+    title: "By region",
+    description: "Browse places by broad travel zones.",
+    items: toDirectoryItems(REGIONS, "cities", "region"),
   },
   {
-    title: "Categories",
-    href: "/categories",
-    count: Object.keys(CATEGORIES).length,
-    description: "Find destinations by the kind of trip you want to take.",
+    title: "By state",
+    description: "State-wise entry points for the destinations in these routes.",
+    items: toDirectoryItems(STATES, "cities", "state"),
+  },
+  {
+    title: "By category",
+    description: "Group destinations by the kind of trip they fit best.",
+    items: toDirectoryItems(CATEGORIES, "categories", "category"),
   },
 ];
 
 function getPathname() {
   if (typeof window === "undefined") return "/";
   return window.location.pathname.replace(/\/+$/, "") || "/";
+}
+
+function getHash() {
+  if (typeof window === "undefined") return "";
+  return window.location.hash || "";
+}
+
+function getCurrentRoute() {
+  return {
+    ...parseRoute(getPathname()),
+    hash: getHash(),
+  };
 }
 
 function parseRoute(pathname) {
@@ -69,12 +92,16 @@ function parseRoute(pathname) {
 }
 
 function useCurrentRoute() {
-  const [route, setRoute] = useState(() => parseRoute(getPathname()));
+  const [route, setRoute] = useState(getCurrentRoute);
 
   useEffect(() => {
-    const onPopState = () => setRoute(parseRoute(getPathname()));
+    const onPopState = () => setRoute(getCurrentRoute());
     window.addEventListener("popstate", onPopState);
-    return () => window.removeEventListener("popstate", onPopState);
+    window.addEventListener("hashchange", onPopState);
+    return () => {
+      window.removeEventListener("popstate", onPopState);
+      window.removeEventListener("hashchange", onPopState);
+    };
   }, []);
 
   return route;
@@ -198,17 +225,18 @@ const styles = {
   directorySection: { maxWidth: 720, margin: "0 auto", padding: "0 0 2.5rem" },
   directoryTitle: { fontFamily: "Georgia, 'Times New Roman', serif", fontSize: "clamp(1.8rem,4vw,2.5rem)", lineHeight: 1.1, margin: "0 0 0.75rem", color: "#1a1208" },
   directoryIntro: { fontSize: 14, lineHeight: 1.7, color: "#6a5a48", maxWidth: 560, margin: "0 0 2rem" },
+  directoryGroup: { paddingTop: "1.25rem", marginTop: "1.25rem" },
+  directoryGroupTitle: { fontFamily: "Georgia, serif", fontSize: "1.1rem", fontWeight: 700, marginBottom: 4, color: "#1a1208" },
+  directoryGroupDescription: { fontSize: 12, lineHeight: 1.6, color: "#8a7a65", margin: "0 0 0.85rem" },
+  directoryLinks: { display: "flex", flexWrap: "wrap", gap: 8 },
+  directoryLink: { display: "inline-flex", alignItems: "center", gap: 6, minHeight: 30, border: "1px solid #e0d8cc", borderRadius: 4, padding: "0 0.65rem", color: "#6a5a48", background: "#faf7f2", fontSize: 12, textDecoration: "none" },
   directoryCount: { fontSize: 10, color: "#c9962a", fontWeight: 700 },
-  directoryShortcut: { display: "block", borderTop: "1px solid #e0d8cc", padding: "1rem 0", color: "#1a1208", textDecoration: "none" },
-  directoryShortcutTop: { display: "flex", alignItems: "baseline", gap: 8, marginBottom: 4 },
-  directoryShortcutTitle: { fontFamily: "Georgia, serif", fontSize: "1.1rem", fontWeight: 700 },
-  directoryShortcutText: { fontSize: 12, lineHeight: 1.6, color: "#8a7a65", margin: 0 },
-  pageHeader: { background: "#1a1208", color: "#f5f0e8", padding: "2rem 2rem 2.25rem", position: "relative", overflow: "hidden" },
-  pageContent: { maxWidth: 720, margin: "0 auto", padding: "2rem 0 3rem" },
-  pageBack: { display: "inline-flex", alignItems: "center", color: "#c9962a", fontSize: 12, textDecoration: "none", marginBottom: "1.4rem" },
-  pageEyebrow: { fontSize: 11, letterSpacing: 1.4, textTransform: "uppercase", color: "#9e8e7a", marginBottom: 8 },
-  pageTitle: { fontFamily: "Georgia, 'Times New Roman', serif", fontSize: "clamp(2rem,5vw,3.2rem)", lineHeight: 1.1, margin: "0 0 0.85rem", fontWeight: 700 },
-  pageIntro: { fontSize: 14, color: "#a09888", maxWidth: 560, lineHeight: 1.7, margin: 0 },
+  pageContent: { maxWidth: 720, margin: "0 auto", padding: "0.85rem 0 3rem" },
+  breadcrumbWrap: { maxWidth: 720, margin: "0 auto", padding: "1.45rem 0 0.25rem" },
+  breadcrumb: { display: "flex", alignItems: "center", flexWrap: "wrap", gap: 10, color: "#8a7a65", fontSize: 14, lineHeight: 1.4 },
+  breadcrumbHome: { color: "#8a7a65", fontWeight: 700, textDecoration: "none" },
+  breadcrumbSeparator: { color: "#c9962a" },
+  breadcrumbCurrent: { color: "#1a1208", fontWeight: 700 },
   chipRow: { display: "flex", flexWrap: "wrap", gap: 8, marginBottom: "1.5rem" },
   chip: { display: "inline-flex", alignItems: "center", minHeight: 28, border: "1px solid #e0d8cc", borderRadius: 4, padding: "0 0.65rem", color: "#6a5a48", background: "#faf7f2", fontSize: 12, textDecoration: "none" },
   statGrid: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 10, marginBottom: "1.5rem" },
@@ -220,12 +248,17 @@ const styles = {
   panelTitle: { fontFamily: "Georgia, serif", fontSize: "1rem", fontWeight: 700, color: "#1a1208", margin: "0 0 0.65rem" },
   panelList: { margin: 0, paddingLeft: "1.1rem", color: "#6a5a48", fontSize: 13, lineHeight: 1.7 },
   panelListPlain: { margin: 0, padding: 0, listStyle: "none", color: "#6a5a48", fontSize: 13, lineHeight: 1.7 },
-  indexBlock: { borderTop: "1px solid #d8cec0", paddingTop: "1.5rem", marginTop: "1.5rem" },
+  indexBlock: { paddingTop: "1.5rem", marginTop: "1.5rem", scrollMarginTop: 16 },
+  indexBlockFirst: { paddingTop: 0, marginTop: 0 },
   indexHeading: { fontFamily: "Georgia, 'Times New Roman', serif", fontSize: "1.55rem", lineHeight: 1.2, margin: "0 0 1rem", color: "#1a1208" },
+  indexSubBlock: { scrollMarginTop: 16 },
   indexSubheading: { fontFamily: "Georgia, serif", fontSize: "1rem", margin: "1rem 0 0.45rem", color: "#1a1208" },
-  cityList: { margin: 0, padding: 0, listStyle: "none", borderTop: "1px solid #e0d8cc" },
-  cityListLink: { display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: 12, padding: "0.55rem 0", borderBottom: "1px solid #e0d8cc", color: "#1a1208", fontSize: 14, textDecoration: "none" },
-  cityListMeta: { color: "#8a7a65", fontSize: 12, textAlign: "right" },
+  cityList: { margin: 0, padding: 0, listStyle: "none" },
+  cityListItem: { borderBottom: "1px dashed rgba(201,150,42,0.5)" },
+  cityListItemLast: { borderBottom: "none" },
+  cityListLink: { display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12, padding: "0.65rem 0", color: "#1a1208", fontSize: 14, textDecoration: "none" },
+  cityListTags: { display: "flex", flexWrap: "wrap", justifyContent: "flex-end", gap: 6 },
+  cityListTag: { display: "inline-flex", alignItems: "center", minHeight: 22, border: "1px solid #e0d8cc", borderRadius: 4, padding: "0 0.45rem", color: "#8a7a65", background: "#faf7f2", fontSize: 11 },
   footer: { textAlign: "center", padding: "2rem", fontSize: 11, color: "#8a7a65", letterSpacing: 1, textTransform: "uppercase" }
 };
 
@@ -256,17 +289,48 @@ function TripCard({ trip, index, onSelect }) {
   );
 }
 
-function PageHeader({ eyebrow, title, intro }) {
+function HeroHeader() {
   return (
-    <div style={styles.pageHeader}>
+    <div style={styles.hero}>
       <div style={styles.heroPattern} />
       <div style={styles.heroInner}>
-        <Link href="/" style={styles.pageBack}>Back to SuperTrips</Link>
-        <div style={styles.pageEyebrow}>{eyebrow}</div>
-        <h1 style={styles.pageTitle}>{title}</h1>
-        {intro && <p style={styles.pageIntro}>{intro}</p>}
+        <h1 style={styles.heroTitle}>
+          Super<em style={styles.heroTitleEm}>Trips</em>
+        </h1>
+        <p style={styles.heroSub}>
+          A personal diary of the routes I took while backpacking across India.
+          Kept as notes from the road, and shared in case they help someone
+          plan their own journey.
+        </p>
+        <div style={styles.heroStats}>
+          {[
+            ["10", "Trips"],
+            [totalCities, "Unique cities"],
+            [totalStops, "Total stops"],
+          ].map(([n, l]) => (
+            <div key={l}>
+              <div style={styles.heroStatN}>{n}</div>
+              <div style={styles.heroStatL}>{l}</div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
+  );
+}
+
+function PageHeader({ title }) {
+  return (
+    <>
+      <HeroHeader />
+      <div style={styles.breadcrumbWrap}>
+        <div style={styles.breadcrumb}>
+          <Link href="/" style={styles.breadcrumbHome}>SuperTrips</Link>
+          <span style={styles.breadcrumbSeparator}>/</span>
+          <span style={styles.breadcrumbCurrent}>{title}</span>
+        </div>
+      </div>
+    </>
   );
 }
 
@@ -291,15 +355,22 @@ function ListPanel({ title, items, ordered = true }) {
   );
 }
 
-function CityListItem({ cityCode, meta }) {
+function CityListItem({ cityCode, isLast = false }) {
   const city = CITIES[cityCode];
   if (!city) return null;
+  const tags = normalizeList(city.category).slice(0, 3);
 
   return (
-    <li>
+    <li style={isLast ? styles.cityListItemLast : styles.cityListItem}>
       <Link href={`/cities/${cityCode}`} style={styles.cityListLink}>
         <span>{city.city}</span>
-        {meta && <span style={styles.cityListMeta}>{meta}</span>}
+        <span style={styles.cityListTags}>
+          {tags.map(tag => (
+            <span key={tag} style={styles.cityListTag}>
+              {getCategoryLabel(tag)}
+            </span>
+          ))}
+        </span>
       </Link>
     </li>
   );
@@ -317,30 +388,39 @@ function CitiesIndexPage() {
       />
 
       <main style={styles.pageContent}>
-        {regions.map(region => {
+        {regions.map((region, regionIndex) => {
           const regionCityCodes = sortCityCodes(region.cities);
           const stateCodes = sortStateCodes([
             ...new Set(regionCityCodes.map(cityCode => CITIES[cityCode].state)),
           ]);
 
           return (
-            <section key={region.slug} style={styles.indexBlock}>
+            <section
+              key={region.slug}
+              id={`region-${region.slug}`}
+              style={regionIndex === 0 ? { ...styles.indexBlock, ...styles.indexBlockFirst } : styles.indexBlock}
+            >
               <h2 style={styles.indexHeading}>{region.label}</h2>
 
               {stateCodes.map(stateCode => {
                 const stateCityCodes = sortCityCodes(
                   regionCityCodes.filter(cityCode => CITIES[cityCode].state === stateCode)
                 );
+                const stateSlug = STATES[stateCode]?.slug || stateCode;
 
                 return (
-                  <div key={`${region.slug}-${stateCode}`}>
+                  <div
+                    key={`${region.slug}-${stateCode}`}
+                    id={`state-${stateSlug}`}
+                    style={styles.indexSubBlock}
+                  >
                     <h3 style={styles.indexSubheading}>{getStateLabel(stateCode)}</h3>
                     <ul style={styles.cityList}>
-                      {stateCityCodes.map(cityCode => (
+                      {stateCityCodes.map((cityCode, index) => (
                         <CityListItem
                           key={cityCode}
                           cityCode={cityCode}
-                          meta={CITIES[cityCode].ideal_stay}
+                          isLast={index === stateCityCodes.length - 1}
                         />
                       ))}
                     </ul>
@@ -367,18 +447,22 @@ function CategoriesIndexPage() {
       />
 
       <main style={styles.pageContent}>
-        {categories.map(category => {
+        {categories.map((category, categoryIndex) => {
           const cityCodes = sortCityCodes(category.cities);
 
           return (
-            <section key={category.slug} style={styles.indexBlock}>
+            <section
+              key={category.slug}
+              id={`category-${category.slug}`}
+              style={categoryIndex === 0 ? { ...styles.indexBlock, ...styles.indexBlockFirst } : styles.indexBlock}
+            >
               <h2 style={styles.indexHeading}>{category.label}</h2>
               <ul style={styles.cityList}>
-                {cityCodes.map(cityCode => (
+                {cityCodes.map((cityCode, index) => (
                   <CityListItem
                     key={cityCode}
                     cityCode={cityCode}
-                    meta={`${getStateLabel(CITIES[cityCode].state)} - ${getRegionLabel(CITIES[cityCode].region)}`}
+                    isLast={index === cityCodes.length - 1}
                   />
                 ))}
               </ul>
@@ -414,16 +498,16 @@ function CityPage({ cityCode }) {
 
       <main style={styles.pageContent}>
         <div style={styles.chipRow}>
-          <Link href="/cities" style={styles.chip}>
+          <Link href={`/cities#state-${STATES[city.state]?.slug || city.state}`} style={styles.chip}>
             {getStateLabel(city.state)}
           </Link>
-          <Link href="/cities" style={styles.chip}>
+          <Link href={`/cities#region-${REGIONS[city.region]?.slug || city.region}`} style={styles.chip}>
             {getRegionLabel(city.region)}
           </Link>
           {normalizeList(city.category).map(category => (
             <Link
               key={category}
-              href="/categories"
+              href={`/categories#category-${CATEGORIES[category]?.slug || category}`}
               style={styles.chip}
             >
               {getCategoryLabel(category)}
@@ -501,11 +585,11 @@ function GroupPage({ type, value }) {
 
       <main style={styles.pageContent}>
         <ul style={styles.cityList}>
-          {cityCodes.map(cityCode => (
+          {cityCodes.map((cityCode, index) => (
             <CityListItem
               key={cityCode}
               cityCode={cityCode}
-              meta={`${getStateLabel(CITIES[cityCode].state)} - ${getRegionLabel(CITIES[cityCode].region)}`}
+              isLast={index === cityCodes.length - 1}
             />
           ))}
         </ul>
@@ -597,8 +681,22 @@ export default function App() {
   useEffect(() => {
     setSelectedTripIndex(null);
     setInitialCityIndex(0);
-    if (typeof window !== "undefined") window.scrollTo(0, 0);
-  }, [route.path]);
+    if (typeof window === "undefined") return;
+
+    if (!route.hash) {
+      window.scrollTo(0, 0);
+      return;
+    }
+
+    requestAnimationFrame(() => {
+      const target = document.getElementById(route.hash.slice(1));
+      if (target) {
+        target.scrollIntoView({ block: "start" });
+      } else {
+        window.scrollTo(0, 0);
+      }
+    });
+  }, [route.path, route.hash]);
 
   if (route.name === "cities") {
     return <CitiesIndexPage />;
@@ -654,31 +752,7 @@ export default function App() {
 
   return (
     <div style={styles.root}>
-      <div style={styles.hero}>
-        <div style={styles.heroPattern} />
-        <div style={styles.heroInner}>
-          <h1 style={styles.heroTitle}>
-            Super<em style={styles.heroTitleEm}>Trips</em>
-          </h1>
-          <p style={styles.heroSub}>
-            A personal diary of the routes I took while backpacking across India.
-            Kept as notes from the road, and shared in case they help someone
-            plan their own journey.
-          </p>
-          <div style={styles.heroStats}>
-            {[
-              ["10", "Trips"],
-              [totalCities, "Unique cities"],
-              [totalStops, "Total stops"],
-            ].map(([n, l]) => (
-              <div key={l}>
-                <div style={styles.heroStatN}>{n}</div>
-                <div style={styles.heroStatL}>{l}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+      <HeroHeader />
 
       <div style={styles.section}>
         {TRIPS.map((trip, i) => (
@@ -700,14 +774,19 @@ export default function App() {
           the places that fit your time, pace, and mood.
         </p>
 
-        {directoryLinks.map(link => (
-          <Link key={link.href} href={link.href} style={styles.directoryShortcut}>
-            <div style={styles.directoryShortcutTop}>
-              <span style={styles.directoryShortcutTitle}>{link.title}</span>
-              <span style={styles.directoryCount}>{link.count}</span>
+        {directoryGroups.map(group => (
+          <div key={group.title} style={styles.directoryGroup}>
+            <div style={styles.directoryGroupTitle}>{group.title}</div>
+            <p style={styles.directoryGroupDescription}>{group.description}</p>
+            <div style={styles.directoryLinks}>
+              {group.items.map(({ label, href, count }) => (
+                <Link key={href} href={href} style={styles.directoryLink}>
+                  <span>{label}</span>
+                  <span style={styles.directoryCount}>{count}</span>
+                </Link>
+              ))}
             </div>
-            <p style={styles.directoryShortcutText}>{link.description}</p>
-          </Link>
+          </div>
         ))}
       </section>
     </div>
