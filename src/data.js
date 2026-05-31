@@ -7276,10 +7276,10 @@ export const BACKPACKING_101 = [
   {
     title: "Stuff you will need",
     tips: [
-      "One medium backpack (40–50L) and a small day bag for city walks and short hops.",
+      "100L rucksack bag + 20-30L foldable bags",
       "Packing cubes or pouches to separate clothes, cables, and toiletries.",
-      "Light towel, basic medicines, reusable water bottle, and a rain cover.",
-      "Extension board, power bank, and a spare charging cable — non-negotiable.",
+      "Basic medicines, reusable water bottle, and a rain cover.",
+      "Power bank, 4m usb-c cable, ",
       "A small padlock for lockers, and a cheap but sturdy money belt.",
     ],
   },

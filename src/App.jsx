@@ -772,8 +772,7 @@ export default function App() {
       <section className="app-directory-section">
         <h2 className="app-directory-title">Plan your next itinerary</h2>
         <p className="app-directory-intro">
-          Start with a region, state, or travel style, then build a route around
-          the places that fit your time, pace, and mood.
+          Pick a region, a state, a travel style, or a place to stay — and build your own route from there.
         </p>
 
         {directoryGroups.map(group => (

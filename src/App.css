@@ -588,4 +588,8 @@
   .app-city-list-tag:nth-child(n+2) {
     display: none;
   }
+
+  .app-backpacking-grid {
+    grid-template-columns: 1fr;
+  }
 }
