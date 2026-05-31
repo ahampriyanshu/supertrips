@@ -7320,7 +7320,7 @@ export const BACKPACKING_101 = [
     ],
   },
   {
-    title: "Red Zone",
+    title: "No No No",
     tips: [
       "Never share your location or travel plan with someone you just met.",
       "Avoid unlicensed taxis at night — use apps or ask the hotel to arrange.",

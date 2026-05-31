@@ -330,6 +330,7 @@
 }
 
 .app-route-city {
+  display: inline-block;
   font-size: 11px;
   color: var(--color-muted);
   white-space: nowrap;
@@ -587,6 +588,21 @@
 
   .app-city-list-tag:nth-child(n+2) {
     display: none;
+  }
+
+  .app-route-strip {
+    overflow-x: hidden;
+  }
+
+  .app-route-city {
+    max-width: 86px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: bottom;
+  }
+
+  .app-route-city--extra {
+    flex-shrink: 0;
   }
 
   .app-backpacking-grid {

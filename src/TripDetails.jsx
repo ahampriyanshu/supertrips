@@ -565,6 +565,43 @@ export default function TripDetails({ trip, index, initialCityIndex = 0, onBack,
       }
     };
 
+    let touchScrollStart = null;
+    const onTouchStart = (e) => {
+      const detailScroll = e.target.closest?.('[data-detail-scroll]');
+      const touch = e.touches?.[0];
+      if (!detailScroll || !touch) {
+        touchScrollStart = null;
+        return;
+      }
+
+      const maxScrollTop = detailScroll.scrollHeight - detailScroll.clientHeight;
+      touchScrollStart = {
+        x: touch.clientX,
+        y: touch.clientY,
+        t: Date.now(),
+        atTop: detailScroll.scrollTop <= 1,
+        atBottom: detailScroll.scrollTop >= maxScrollTop - 1,
+      };
+    };
+    const onTouchEnd = (e) => {
+      if (!touchScrollStart) return;
+      const touch = e.changedTouches?.[0];
+      if (!touch) return;
+
+      const dx = touch.clientX - touchScrollStart.x;
+      const dy = touch.clientY - touchScrollStart.y;
+      const dt = Date.now() - touchScrollStart.t;
+      const isVerticalSwipe = dt < 900 && Math.abs(dy) > 70 && Math.abs(dy) > Math.abs(dx) * 1.5;
+      const startedAtTop = touchScrollStart.atTop;
+      const startedAtBottom = touchScrollStart.atBottom;
+      touchScrollStart = null;
+
+      if (!isVerticalSwipe) return;
+      if (dy > 0 && startedAtTop) advance(-1);
+      if (dy < 0 && startedAtBottom) advance(1);
+    };
+    const onTouchCancel = () => { touchScrollStart = null; };
+
     let swipeStart = null;
     const onPointerDown = (e) => {
       if (e.button !== undefined && e.button !== 0) return;
@@ -589,6 +626,9 @@ export default function TripDetails({ trip, index, initialCityIndex = 0, onBack,
     };
 
     document.addEventListener('wheel',         onWheel,       { passive: false });
+    document.addEventListener('touchstart',    onTouchStart,  { passive: true });
+    document.addEventListener('touchend',      onTouchEnd,    { passive: true });
+    document.addEventListener('touchcancel',   onTouchCancel);
     document.addEventListener('pointerdown',   onPointerDown);
     document.addEventListener('pointerup',     onPointerUp);
     document.addEventListener('pointercancel', onPointerCancel);
@@ -597,6 +637,9 @@ export default function TripDetails({ trip, index, initialCityIndex = 0, onBack,
     return () => {
       clearTimeout(idleTimer);
       document.removeEventListener('wheel',         onWheel);
+      document.removeEventListener('touchstart',    onTouchStart);
+      document.removeEventListener('touchend',      onTouchEnd);
+      document.removeEventListener('touchcancel',   onTouchCancel);
       document.removeEventListener('pointerdown',   onPointerDown);
       document.removeEventListener('pointerup',     onPointerUp);
       document.removeEventListener('pointercancel', onPointerCancel);
@@ -621,9 +664,15 @@ export default function TripDetails({ trip, index, initialCityIndex = 0, onBack,
           <div className="td-trip-meta">{totalDuration} · {cities.length} stops · {trip.distanceKm.toLocaleString()} km</div>
         </div>
 
+        <button onClick={onBack} className="td-icon-btn td-mobile-back">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <path d="M14 17L8 11L14 5" stroke="#c9962a" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+
         <div className="td-title-block td-mobile-only">
           <div className="td-trip-title">{trip.name}</div>
-          <div className="td-trip-meta">stop {currentIndex + 1} of {cities.length}</div>
+          <div className="td-trip-meta">{currentIndex + 1} of {cities.length}</div>
         </div>
 
         <div className="td-trip-switcher td-desktop-only">

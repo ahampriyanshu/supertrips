@@ -164,10 +164,6 @@ function formatParam(value) {
     .join(" ");
 }
 
-function pluralize(count, singular) {
-  return `${count} ${singular}${count === 1 ? "" : "s"}`;
-}
-
 function getGroupBySlug(groups, slug) {
   return Object.entries(groups).find(([key, group]) => group.slug === slug || key === slug)?.[1];
 }
@@ -556,18 +552,6 @@ function GroupPage({ type, value }) {
   const cityCodes = group.cities
     .filter(cityCode => CITIES[cityCode])
     .sort((a, b) => CITIES[a].city.localeCompare(CITIES[b].city));
-
-  const typeLabel = {
-    state: "State",
-    region: "Region",
-    category: "Category",
-  }[type];
-
-  const intro = {
-    state: `${pluralize(cityCodes.length, "destination")} from ${group.label}.`,
-    region: `${pluralize(cityCodes.length, "destination")} from the ${group.label.toLowerCase()} travel zone.`,
-    category: `${pluralize(cityCodes.length, "destination")} that fit the ${group.label.toLowerCase()} style of travel.`,
-  }[type];
 
   return (
     <div className="app-root">

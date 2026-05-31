@@ -261,6 +261,7 @@
   overflow-y: auto;
   min-height: 0;
   overscroll-behavior: contain;
+  touch-action: pan-y;
   -webkit-overflow-scrolling: touch;
   background: var(--td-paper);
   transition: opacity 0.15s ease;
@@ -539,10 +540,12 @@
 
 /* ── Responsive visibility ── */
 .td-mobile-only { display: none; }
+.td-mobile-back { display: none; }
 
 /* ── Mobile ── */
 @media (max-width: 639px) {
   .td-mobile-only  { display: contents; }
+  .td-mobile-back { display: flex; }
   .td-desktop-only { display: none !important; }
   .td-topbar {
     padding: 0 1rem;
@@ -561,21 +564,28 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    background: var(--td-ink);
-    color: var(--td-paper);
-    border: none;
+    background: var(--td-card);
+    color: var(--td-ink);
+    border: 1px solid var(--td-border);
     border-radius: 4px;
     padding: 7px 14px;
     font-size: 13px;
     font-family: inherit;
     cursor: pointer;
-    opacity: 0.9;
   }
 
-  .td-map-widget:hover { opacity: 1; }
+  .td-map-widget:hover {
+    border-color: var(--td-gold);
+  }
 
   .td-detail-inner {
     padding: 1rem 1.25rem 1.5rem;
+  }
+
+  .td-category-row.td-mobile-only {
+    display: flex;
+    column-gap: 0.55rem;
+    row-gap: 0.25rem;
   }
 
   .td-footer-tape {
