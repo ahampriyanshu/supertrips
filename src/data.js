@@ -6414,8 +6414,8 @@ export const CATEGORIES = {
     ]
   },
   "pilgrimage": {
-    "label": "Pilgrimage",
-    "slug": "pilgrimage",
+    "label": "Temple Tour",
+    "slug": "temple-tour",
     "cities": [
       "ajmer-pushkar",
       "amristar",

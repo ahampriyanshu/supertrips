@@ -30,17 +30,14 @@ function toDirectoryItems(groups, basePath, hashPrefix) {
 const directoryGroups = [
   {
     title: "By region",
-    description: "Browse places by broad travel zones.",
     items: toDirectoryItems(REGIONS, "cities", "region"),
   },
   {
     title: "By state",
-    description: "State-wise entry points for the destinations in these routes.",
     items: toDirectoryItems(STATES, "cities", "state"),
   },
   {
     title: "By category",
-    description: "Group destinations by the kind of trip they fit best.",
     items: toDirectoryItems(CATEGORIES, "categories", "category"),
   },
 ];
@@ -199,6 +196,7 @@ const styles = {
   hero: { background: "#1a1208", color: "#f5f0e8", padding: "3rem 2rem 2.5rem", position: "relative", overflow: "hidden" },
   heroPattern: { position: "absolute", inset: 0, backgroundImage: "repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(201,150,42,0.04) 40px, rgba(201,150,42,0.04) 41px)" },
   heroInner: { position: "relative", maxWidth: 720, margin: "0 auto" },
+  heroTitleLink: { color: "inherit", textDecoration: "none" },
   heroTitle: { fontFamily: "Georgia, 'Times New Roman', serif", fontSize: "clamp(2.4rem,6vw,3.8rem)", lineHeight: 1.1, marginBottom: "1rem", fontWeight: 700 },
   heroTitleEm: { fontStyle: "italic", color: "#c9962a" },
   heroSub: { fontSize: 14, color: "#a09888", maxWidth: 480, lineHeight: 1.7, marginBottom: "2rem" },
@@ -227,7 +225,6 @@ const styles = {
   directoryIntro: { fontSize: 14, lineHeight: 1.7, color: "#6a5a48", maxWidth: 560, margin: "0 0 2rem" },
   directoryGroup: { paddingTop: "1.25rem", marginTop: "1.25rem" },
   directoryGroupTitle: { fontFamily: "Georgia, serif", fontSize: "1.1rem", fontWeight: 700, marginBottom: 4, color: "#1a1208" },
-  directoryGroupDescription: { fontSize: 12, lineHeight: 1.6, color: "#8a7a65", margin: "0 0 0.85rem" },
   directoryLinks: { display: "flex", flexWrap: "wrap", gap: 8 },
   directoryLink: { display: "inline-flex", alignItems: "center", gap: 6, minHeight: 30, border: "1px solid #e0d8cc", borderRadius: 4, padding: "0 0.65rem", color: "#6a5a48", background: "#faf7f2", fontSize: 12, textDecoration: "none" },
   directoryCount: { fontSize: 10, color: "#c9962a", fontWeight: 700 },
@@ -295,7 +292,9 @@ function HeroHeader() {
       <div style={styles.heroPattern} />
       <div style={styles.heroInner}>
         <h1 style={styles.heroTitle}>
-          Super<em style={styles.heroTitleEm}>Trips</em>
+          <Link href="/" style={styles.heroTitleLink}>
+            Super<em style={styles.heroTitleEm}>Trips</em>
+          </Link>
         </h1>
         <p style={styles.heroSub}>
           A personal diary of the routes I took while backpacking across India.
@@ -777,7 +776,6 @@ export default function App() {
         {directoryGroups.map(group => (
           <div key={group.title} style={styles.directoryGroup}>
             <div style={styles.directoryGroupTitle}>{group.title}</div>
-            <p style={styles.directoryGroupDescription}>{group.description}</p>
             <div style={styles.directoryLinks}>
               {group.items.map(({ label, href, count }) => (
                 <Link key={href} href={href} style={styles.directoryLink}>

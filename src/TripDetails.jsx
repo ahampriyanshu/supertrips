@@ -3,7 +3,12 @@ import { MapContainer, TileLayer, Marker, Polyline, useMap } from 'react-leaflet
 import L from 'leaflet';
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
-import { CITIES as CITIES_DATA } from './data.js';
+import { CITIES as CITIES_DATA, CATEGORIES } from './data.js';
+
+function navigateTo(href) {
+  window.history.pushState(null, '', href);
+  window.dispatchEvent(new Event('popstate'));
+}
 
 // Fix Leaflet default icon
 const DefaultIcon = L.icon({ iconUrl: icon, shadowUrl: iconShadow, iconSize: [25, 41], iconAnchor: [12, 41] });
@@ -227,12 +232,16 @@ function DetailColumn({ city, cityIndex, total }) {
         {data && data.category.length > 0 && (
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 5, marginBottom: '1rem' }}>
             {data.category.map(cat => (
-              <span key={cat} style={{
-                fontSize: 12.5, padding: '5px 13px', borderRadius: 20,
-                background: '#fff', color: '#1a1208', border: '1px solid #d8d0c4',
-              }}>
-                {fmt(cat)}
-              </span>
+              <a
+                key={cat}
+                href={`/categories#category-${CATEGORIES[cat]?.slug || cat}`}
+                onClick={e => { e.preventDefault(); navigateTo(`/categories#category-${CATEGORIES[cat]?.slug || cat}`); }}
+                style={{ fontSize: 12.5, color: '#8a7a65', textDecoration: 'none' }}
+                onMouseEnter={e => e.currentTarget.style.textDecoration = 'underline'}
+                onMouseLeave={e => e.currentTarget.style.textDecoration = 'none'}
+              >
+                {CATEGORIES[cat]?.label || fmt(cat)}
+              </a>
             ))}
           </div>
         )}
