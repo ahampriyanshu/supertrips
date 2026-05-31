@@ -1,4 +1,3 @@
-import React from 'react';
 import { RAW_TRIPS as tripData } from '../data.js';
 import { Briefcase } from 'lucide-react';
 

@@ -27,9 +27,9 @@ function fmt(s) {
 
 function Stars({ n }) {
   return (
-    <span style={{ display: 'flex', gap: 2 }}>
+    <span style={styles.stars}>
       {[1, 2, 3, 4, 5].map(i => (
-        <span key={i} style={{ color: i <= n ? '#c9962a' : '#3a3020', fontSize: 13, lineHeight: 1 }}>★</span>
+        <span key={i} style={{ ...styles.star, color: i <= n ? colors.gold : colors.darkLine }}>★</span>
       ))}
     </span>
   );
@@ -37,9 +37,9 @@ function Stars({ n }) {
 
 function InfoBadge({ label, value }) {
   return (
-    <div style={{ background: '#faf7f2', border: '1px solid #e0d8cc', borderRadius: 4, padding: '5px 12px' }}>
-      <div style={{ fontSize: 9, letterSpacing: 1.5, textTransform: 'uppercase', color: '#8a7a65' }}>{label}</div>
-      <div style={{ fontSize: 13, fontWeight: 500, color: '#1a1208', marginTop: 1 }}>{value}</div>
+    <div style={styles.badge}>
+      <div style={styles.badgeLabel}>{label}</div>
+      <div style={styles.badgeValue}>{value}</div>
     </div>
   );
 }
@@ -76,7 +76,7 @@ function ExternalLinks({ cityName }) {
     { href: `https://claude.ai/new?q=${q}`, label: 'Claude', Icon: ClaudeIcon },
   ];
   return (
-    <div style={{ display: 'flex', gap: 10, marginBottom: '0.85rem' }}>
+    <div style={styles.externalLinks}>
       {links.map(({ href, label, Icon }) => (
         <a
           key={label}
@@ -84,14 +84,9 @@ function ExternalLinks({ cityName }) {
           target="_blank"
           rel="noopener noreferrer"
           title={label}
-          style={{
-            display: 'flex', alignItems: 'center',
-            color: '#8a7a65', textDecoration: 'none',
-            opacity: 0.75,
-            transition: 'opacity 0.15s, color 0.15s',
-          }}
-          onMouseEnter={e => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.color = '#c9962a'; }}
-          onMouseLeave={e => { e.currentTarget.style.opacity = '0.75'; e.currentTarget.style.color = '#8a7a65'; }}
+          style={styles.externalLink}
+          onMouseEnter={e => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.color = colors.gold; }}
+          onMouseLeave={e => { e.currentTarget.style.opacity = '0.75'; e.currentTarget.style.color = colors.muted; }}
         >
           <Icon />
         </a>
@@ -107,6 +102,11 @@ function BoundsInit({ positions }) {
   const done = useRef(false);
   useEffect(() => {
     if (done.current || positions.length === 0) return;
+    if (positions.length === 1) {
+      map.setView(positions[0], 11);
+      done.current = true;
+      return;
+    }
     map.fitBounds(L.latLngBounds(positions), { padding: [50, 50] });
     done.current = true;
   }, [positions, map]);
@@ -129,38 +129,38 @@ function CityFocuser({ position }) {
 
 function MapColumn({ positions, activePosition }) {
   return (
-    <div style={{ width: '40%', flexShrink: 0, position: 'relative', padding: '1.25rem', background: '#f5f0e8' }}>
-      <div style={{ height: '100%', borderRadius: 8, overflow: 'hidden', border: '1px solid #e0d8cc', boxShadow: '0 2px 16px rgba(26,18,8,0.06)' }}>
-      <MapContainer
-        center={[20.5937, 78.9629]}
-        zoom={5}
-        scrollWheelZoom={false}
-        zoomControl={false}
-        style={{ height: '100%', width: '100%', background: '#eae8e0' }}
-      >
-        {import.meta.env.VITE_MAPPLS_KEY ? (
-          <TileLayer
-            attribution='&copy; <a href="https://www.mappls.com/">MapmyIndia</a>'
-            url={`https://apis.mappls.com/advancedmaps/v1/${import.meta.env.VITE_MAPPLS_KEY}/still_map/{z}/{x}/{y}.png`}
-          />
-        ) : (
-          <TileLayer
-            attribution='&copy; OpenStreetMap contributors'
-            url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
-          />
-        )}
-        <BoundsInit positions={positions} />
-        {activePosition && <CityFocuser position={activePosition} />}
-        {positions.length > 1 && (
-          <Polyline
-            positions={positions}
-            pathOptions={{ color: '#c9962a', weight: 3, opacity: 0.7, dashArray: '6, 14' }}
-          />
-        )}
-        {activePosition && (
-          <Marker position={activePosition} />
-        )}
-      </MapContainer>
+    <div style={styles.mapColumn}>
+      <div style={styles.mapFrame}>
+        <MapContainer
+          center={[20.5937, 78.9629]}
+          zoom={5}
+          scrollWheelZoom={false}
+          zoomControl={false}
+          style={styles.map}
+        >
+          {import.meta.env.VITE_MAPPLS_KEY ? (
+            <TileLayer
+              attribution='&copy; <a href="https://www.mappls.com/">MapmyIndia</a>'
+              url={`https://apis.mappls.com/advancedmaps/v1/${import.meta.env.VITE_MAPPLS_KEY}/still_map/{z}/{x}/{y}.png`}
+            />
+          ) : (
+            <TileLayer
+              attribution='&copy; OpenStreetMap contributors'
+              url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
+            />
+          )}
+          <BoundsInit positions={positions} />
+          {activePosition && <CityFocuser position={activePosition} />}
+          {positions.length > 1 && (
+            <Polyline
+              positions={positions}
+              pathOptions={routeLineOptions}
+            />
+          )}
+          {activePosition && (
+            <Marker position={activePosition} />
+          )}
+        </MapContainer>
       </div>
     </div>
   );
@@ -184,6 +184,353 @@ function formatDuration(days) {
   return formatUnit(Math.round(days), 'day');
 }
 
+const colors = {
+  ink: '#1a1208',
+  paper: '#f5f0e8',
+  card: '#faf7f2',
+  gold: '#c9962a',
+  muted: '#8a7a65',
+  softText: '#a09888',
+  border: '#e0d8cc',
+  borderStrong: '#d8d0c4',
+  darkLine: '#3a3020',
+};
+
+const styles = {
+  root: {
+    position: 'fixed',
+    inset: 0,
+    display: 'flex',
+    flexDirection: 'column',
+    fontFamily: "'DM Sans', 'Segoe UI', sans-serif",
+    background: colors.paper,
+  },
+  topBar: {
+    background: colors.ink,
+    color: colors.paper,
+    flexShrink: 0,
+    height: 68,
+    padding: '0 2rem',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1.25rem',
+    position: 'relative',
+    overflow: 'hidden',
+  },
+  pattern: {
+    position: 'absolute',
+    inset: 0,
+    pointerEvents: 'none',
+    backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(201,150,42,0.04) 40px, rgba(201,150,42,0.04) 41px)',
+  },
+  iconButton: {
+    position: 'relative',
+    background: 'none',
+    border: 'none',
+    cursor: 'pointer',
+    padding: 0,
+    display: 'flex',
+    alignItems: 'center',
+    flexShrink: 0,
+  },
+  iconButtonPadded: {
+    background: 'none',
+    border: 'none',
+    cursor: 'pointer',
+    padding: 4,
+    display: 'flex',
+    alignItems: 'center',
+    transition: 'opacity 0.2s',
+  },
+  divider: {
+    width: 1,
+    height: 32,
+    background: colors.darkLine,
+    flexShrink: 0,
+  },
+  topDivider: {
+    width: 1,
+    height: 32,
+    background: colors.darkLine,
+    flexShrink: 0,
+    position: 'relative',
+  },
+  titleBlock: {
+    position: 'relative',
+    flex: 1,
+    minWidth: 0,
+  },
+  tripTitle: {
+    fontFamily: 'Georgia, serif',
+    fontSize: '1.1rem',
+    fontWeight: 700,
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    lineHeight: 1.1,
+  },
+  tripMeta: {
+    fontSize: 11,
+    color: colors.softText,
+    marginTop: 4,
+  },
+  tripSwitcher: {
+    position: 'relative',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '0.5rem',
+    flexShrink: 0,
+  },
+  tripNumber: {
+    textAlign: 'center',
+    lineHeight: 1.1,
+    whiteSpace: 'nowrap',
+    fontFamily: "Georgia, 'Times New Roman', serif",
+    fontSize: '1.1rem',
+    fontWeight: 700,
+    color: colors.paper,
+  },
+  tripNumberEm: {
+    fontStyle: 'italic',
+    color: colors.gold,
+  },
+  main: {
+    flex: 1,
+    display: 'flex',
+    overflow: 'hidden',
+  },
+  mapColumn: {
+    width: '40%',
+    flexShrink: 0,
+    position: 'relative',
+    padding: '1.25rem',
+    background: colors.paper,
+  },
+  mapFrame: {
+    height: '100%',
+    borderRadius: 8,
+    overflow: 'hidden',
+    border: `1px solid ${colors.border}`,
+    boxShadow: '0 2px 16px rgba(26,18,8,0.06)',
+  },
+  map: {
+    height: '100%',
+    width: '100%',
+    background: '#eae8e0',
+  },
+  detailScroll: {
+    flex: 1,
+    overflowY: 'auto',
+    background: colors.paper,
+    transition: 'opacity 0.15s ease',
+  },
+  detailInner: {
+    padding: '1.75rem 2rem 2.5rem',
+  },
+  cityHeader: {
+    display: 'flex',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
+    gap: '1rem',
+    marginBottom: '0.35rem',
+  },
+  cityTitle: {
+    fontFamily: 'Georgia, serif',
+    fontSize: 'clamp(1.8rem, 3vw, 2.4rem)',
+    fontWeight: 700,
+    lineHeight: 1.1,
+    color: colors.ink,
+  },
+  cityMeta: {
+    fontSize: 11,
+    color: colors.muted,
+    letterSpacing: 1,
+    textTransform: 'uppercase',
+    marginBottom: '0.9rem',
+  },
+  stars: {
+    display: 'flex',
+    gap: 2,
+  },
+  star: {
+    fontSize: 13,
+    lineHeight: 1,
+  },
+  externalLinks: {
+    display: 'flex',
+    gap: 10,
+    marginBottom: '0.85rem',
+  },
+  externalLink: {
+    display: 'flex',
+    alignItems: 'center',
+    color: colors.muted,
+    textDecoration: 'none',
+    opacity: 0.75,
+    transition: 'opacity 0.15s, color 0.15s',
+  },
+  categoryLinks: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    gap: 5,
+    marginBottom: '1rem',
+  },
+  categoryLink: {
+    fontSize: 12.5,
+    color: colors.muted,
+    textDecoration: 'none',
+  },
+  badgeRow: {
+    display: 'flex',
+    gap: 8,
+    flexWrap: 'wrap',
+    marginBottom: '1.25rem',
+  },
+  badge: {
+    background: colors.card,
+    border: `1px solid ${colors.border}`,
+    borderRadius: 4,
+    padding: '5px 12px',
+  },
+  badgeLabel: {
+    fontSize: 9,
+    letterSpacing: 1.5,
+    textTransform: 'uppercase',
+    color: colors.muted,
+  },
+  badgeValue: {
+    fontSize: 13,
+    fontWeight: 500,
+    color: colors.ink,
+    marginTop: 1,
+  },
+  detailSection: {
+    marginBottom: '1.25rem',
+  },
+  sectionLabel: {
+    fontSize: 10,
+    letterSpacing: 1.5,
+    textTransform: 'uppercase',
+    color: colors.muted,
+    marginBottom: 7,
+  },
+  chipRow: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    gap: 6,
+  },
+  chip: {
+    fontSize: 12.5,
+    padding: '5px 13px',
+    borderRadius: 20,
+    background: '#fff',
+    color: colors.ink,
+    border: `1px solid ${colors.borderStrong}`,
+  },
+  notesList: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '0.85rem',
+  },
+  note: {
+    fontFamily: 'Georgia, serif',
+    fontStyle: 'italic',
+    fontSize: 13,
+    color: '#6a5a48',
+    lineHeight: 1.8,
+    margin: 0,
+  },
+  stackedSections: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '1.25rem',
+  },
+  fallback: {
+    color: colors.muted,
+    fontSize: 13,
+  },
+  footerTape: {
+    height: 72,
+    background: colors.ink,
+    flexShrink: 0,
+    display: 'flex',
+    alignItems: 'center',
+  },
+  footerControls: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '0.75rem',
+    padding: '0 1.25rem',
+    flexShrink: 0,
+  },
+  footerCounter: {
+    fontFamily: 'Georgia, serif',
+    lineHeight: 1,
+    minWidth: 42,
+    textAlign: 'center',
+  },
+  footerCounterCurrent: {
+    fontSize: '1.2rem',
+    color: colors.gold,
+  },
+  footerCounterSlash: {
+    fontSize: '0.8rem',
+    color: colors.darkLine,
+    margin: '0 3px',
+  },
+  footerCounterTotal: {
+    fontSize: '0.85rem',
+    color: '#6a6055',
+  },
+  tapeWindow: {
+    flex: 1,
+    overflow: 'hidden',
+    position: 'relative',
+    height: '100%',
+  },
+  tapeFadeLeft: {
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    bottom: 0,
+    width: 72,
+    background: `linear-gradient(to right, ${colors.ink} 40%, transparent)`,
+    zIndex: 2,
+    pointerEvents: 'none',
+  },
+  tapeFadeRight: {
+    position: 'absolute',
+    right: 0,
+    top: 0,
+    bottom: 0,
+    width: 72,
+    background: `linear-gradient(to left, ${colors.ink} 40%, transparent)`,
+    zIndex: 2,
+    pointerEvents: 'none',
+  },
+  tapeTrack: {
+    display: 'flex',
+    alignItems: 'center',
+    height: '100%',
+    transition: 'transform 0.35s cubic-bezier(.4,0,.2,1)',
+    willChange: 'transform',
+  },
+  tapeCity: {
+    padding: '4px 14px',
+    color: colors.paper,
+    whiteSpace: 'nowrap',
+    flexShrink: 0,
+    transition: 'opacity 0.35s ease, font-size 0.35s ease, color 0.35s ease',
+  },
+};
+
+const routeLineOptions = {
+  color: colors.gold,
+  weight: 3,
+  opacity: 0.7,
+  dashArray: '6, 14',
+};
+
 function DetailColumn({ city, cityIndex, total }) {
   const [visible, setVisible] = useState(true);
   const [displayed, setDisplayed] = useState({ city, cityIndex });
@@ -203,16 +550,13 @@ function DetailColumn({ city, cityIndex, total }) {
   return (
     <div
       data-detail-scroll=""
-      style={{
-        flex: 1, overflowY: 'auto', background: '#f5f0e8',
-        transition: 'opacity 0.15s ease', opacity: visible ? 1 : 0,
-      }}
+      style={{ ...styles.detailScroll, opacity: visible ? 1 : 0 }}
     >
-      <div style={{ padding: '1.75rem 2rem 2.5rem' }}>
+      <div style={styles.detailInner}>
 
         {/* City name + rating */}
-        <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '1rem', marginBottom: '0.35rem' }}>
-          <div style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(1.8rem, 3vw, 2.4rem)', fontWeight: 700, lineHeight: 1.1, color: '#1a1208' }}>
+        <div style={styles.cityHeader}>
+          <div style={styles.cityTitle}>
             {c?.city}
           </div>
           {data && <Stars n={data.rating} />}
@@ -220,7 +564,7 @@ function DetailColumn({ city, cityIndex, total }) {
 
         {/* State · region */}
         {data && (
-          <div style={{ fontSize: 11, color: '#8a7a65', letterSpacing: 1, textTransform: 'uppercase', marginBottom: '0.9rem' }}>
+          <div style={styles.cityMeta}>
             {fmt(data.state)} &middot; {fmt(data.region)}
           </div>
         )}
@@ -230,13 +574,13 @@ function DetailColumn({ city, cityIndex, total }) {
 
         {/* Category chips */}
         {data && data.category.length > 0 && (
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 5, marginBottom: '1rem' }}>
+          <div style={styles.categoryLinks}>
             {data.category.map(cat => (
               <a
                 key={cat}
                 href={`/categories#category-${CATEGORIES[cat]?.slug || cat}`}
                 onClick={e => { e.preventDefault(); navigateTo(`/categories#category-${CATEGORIES[cat]?.slug || cat}`); }}
-                style={{ fontSize: 12.5, color: '#8a7a65', textDecoration: 'none' }}
+                style={styles.categoryLink}
                 onMouseEnter={e => e.currentTarget.style.textDecoration = 'underline'}
                 onMouseLeave={e => e.currentTarget.style.textDecoration = 'none'}
               >
@@ -247,7 +591,7 @@ function DetailColumn({ city, cityIndex, total }) {
         )}
 
         {/* Stay badges */}
-        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: '1.25rem' }}>
+        <div style={styles.badgeRow}>
           {c?.dur && <InfoBadge label="stayed" value={c.dur} />}
           {data?.ideal_stay && <InfoBadge label="ideal stay" value={data.ideal_stay} />}
           {data?.ideal_season && <InfoBadge label="best time" value={fmt(data.ideal_season)} />}
@@ -255,16 +599,13 @@ function DetailColumn({ city, cityIndex, total }) {
 
         {/* Getting Around */}
         {data?.mode_of_travel?.length > 0 && (
-          <div style={{ marginBottom: '1.25rem' }}>
-            <div style={{ fontSize: 10, letterSpacing: 1.5, textTransform: 'uppercase', color: '#8a7a65', marginBottom: 7 }}>
+          <div style={styles.detailSection}>
+            <div style={styles.sectionLabel}>
               Getting Around
             </div>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 5 }}>
+            <div style={styles.chipRow}>
               {data.mode_of_travel.map(m => (
-                <span key={m} style={{
-                  fontSize: 12.5, padding: '5px 13px', borderRadius: 20,
-                  background: '#fff', color: '#1a1208', border: '1px solid #d8d0c4',
-                }}>
+                <span key={m} style={styles.chip}>
                   {fmt(m)}
                 </span>
               ))}
@@ -274,16 +615,13 @@ function DetailColumn({ city, cityIndex, total }) {
 
         {/* Notes */}
         {data?.notes?.length > 0 && (
-          <div style={{ marginBottom: '1.25rem' }}>
-            <div style={{ fontSize: 10, letterSpacing: 1.5, textTransform: 'uppercase', color: '#8a7a65', marginBottom: 7 }}>
+          <div style={styles.detailSection}>
+            <div style={styles.sectionLabel}>
               Notes from the Road
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
+            <div style={styles.notesList}>
               {data.notes.map((note, i) => (
-                <p key={i} style={{
-                  fontFamily: 'Georgia, serif', fontStyle: 'italic',
-                  fontSize: 13, color: '#6a5a48', lineHeight: 1.8, margin: 0,
-                }}>
+                <p key={i} style={styles.note}>
                   &ldquo;{note}&rdquo;
                 </p>
               ))}
@@ -293,23 +631,23 @@ function DetailColumn({ city, cityIndex, total }) {
 
         {/* Must Visit + Must Try — tag style, last */}
         {data && (data.must_visit?.length > 0 || data.must_try?.length > 0) && (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+          <div style={styles.stackedSections}>
             {data.must_visit?.length > 0 && (
               <div>
-                <div style={{ fontSize: 10, letterSpacing: 1.5, textTransform: 'uppercase', color: '#8a7a65', marginBottom: 7 }}>Must Visit</div>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+                <div style={styles.sectionLabel}>Must Visit</div>
+                <div style={styles.chipRow}>
                   {data.must_visit.slice(0, 6).map((item, i) => (
-                    <span key={i} style={{ fontSize: 12.5, padding: '5px 13px', borderRadius: 20, background: '#fff', color: '#1a1208', border: '1px solid #d8d0c4' }}>{item}</span>
+                    <span key={i} style={styles.chip}>{item}</span>
                   ))}
                 </div>
               </div>
             )}
             {data.must_try?.length > 0 && (
               <div>
-                <div style={{ fontSize: 10, letterSpacing: 1.5, textTransform: 'uppercase', color: '#8a7a65', marginBottom: 7 }}>Must Try</div>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+                <div style={styles.sectionLabel}>Must Try</div>
+                <div style={styles.chipRow}>
                   {data.must_try.slice(0, 6).map((item, i) => (
-                    <span key={i} style={{ fontSize: 12.5, padding: '5px 13px', borderRadius: 20, background: '#fff', color: '#1a1208', border: '1px solid #d8d0c4' }}>{item}</span>
+                    <span key={i} style={styles.chip}>{item}</span>
                   ))}
                 </div>
               </div>
@@ -319,7 +657,7 @@ function DetailColumn({ city, cityIndex, total }) {
 
         {/* Fallback when no enrichment data */}
         {!data && (
-          <div style={{ color: '#8a7a65', fontSize: 13 }}>
+          <div style={styles.fallback}>
             City {ci + 1} of {total}
           </div>
         )}
@@ -344,44 +682,37 @@ function FooterTape({ cities, currentIndex, onPrev, onNext }) {
   }, [currentIndex]);
 
   return (
-    <div style={{
-      height: 72, background: '#1a1208', flexShrink: 0,
-      display: 'flex', alignItems: 'center',
-    }}>
+    <div style={styles.footerTape}>
       {/* City navigation — left panel */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0 1.25rem', flexShrink: 0 }}>
-        <button onClick={onPrev} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4, display: 'flex', alignItems: 'center', opacity: currentIndex === 0 ? 0.2 : 1, transition: 'opacity 0.2s' }}>
+      <div style={styles.footerControls}>
+        <button onClick={onPrev} style={{ ...styles.iconButtonPadded, opacity: currentIndex === 0 ? 0.2 : 1 }}>
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-            <path d="M11 14L6 9L11 4" stroke="#c9962a" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M11 14L6 9L11 4" stroke={colors.gold} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </button>
-        <div style={{ fontFamily: 'Georgia, serif', lineHeight: 1, minWidth: 42, textAlign: 'center' }}>
-          <span style={{ fontSize: '1.2rem', color: '#c9962a' }}>{currentIndex + 1}</span>
-          <span style={{ fontSize: '0.8rem', color: '#3a3020', margin: '0 3px' }}>/</span>
-          <span style={{ fontSize: '0.85rem', color: '#6a6055' }}>{cities.length}</span>
+        <div style={styles.footerCounter}>
+          <span style={styles.footerCounterCurrent}>{currentIndex + 1}</span>
+          <span style={styles.footerCounterSlash}>/</span>
+          <span style={styles.footerCounterTotal}>{cities.length}</span>
         </div>
-        <button onClick={onNext} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4, display: 'flex', alignItems: 'center', opacity: currentIndex === cities.length - 1 ? 0.2 : 1, transition: 'opacity 0.2s' }}>
+        <button onClick={onNext} style={{ ...styles.iconButtonPadded, opacity: currentIndex === cities.length - 1 ? 0.2 : 1 }}>
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-            <path d="M7 4L12 9L7 14" stroke="#c9962a" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M7 4L12 9L7 14" stroke={colors.gold} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </button>
       </div>
 
       {/* Divider */}
-      <div style={{ width: 1, height: 32, background: '#3a3020', flexShrink: 0 }} />
+      <div style={styles.divider} />
 
       {/* City tape */}
-      <div style={{ flex: 1, overflow: 'hidden', position: 'relative', height: '100%' }}>
-        <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 72, background: 'linear-gradient(to right, #1a1208 40%, transparent)', zIndex: 2, pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 72, background: 'linear-gradient(to left, #1a1208 40%, transparent)', zIndex: 2, pointerEvents: 'none' }} />
+      <div style={styles.tapeWindow}>
+        <div style={styles.tapeFadeLeft} />
+        <div style={styles.tapeFadeRight} />
 
         <div
           ref={tapeRef}
-          style={{
-            display: 'flex', alignItems: 'center', height: '100%',
-            transition: 'transform 0.35s cubic-bezier(.4,0,.2,1)',
-            willChange: 'transform',
-          }}
+          style={styles.tapeTrack}
         >
           {cities.map((city, i) => {
             const dist = Math.abs(i - currentIndex);
@@ -394,17 +725,14 @@ function FooterTape({ cities, currentIndex, onPrev, onNext }) {
                 key={i}
                 ref={el => cityRefs.current[i] = el}
                 style={{
-                  padding: '4px 14px',
+                  ...styles.tapeCity,
                   fontSize,
                   fontWeight: isActive ? 700 : 400,
                   fontFamily: isActive ? "Georgia, 'Times New Roman', serif" : 'inherit',
                   fontStyle: isActive ? 'italic' : 'normal',
-                  color: isActive ? '#c9962a' : '#f5f0e8',
+                  color: isActive ? colors.gold : colors.paper,
                   opacity,
                   letterSpacing: isActive ? 0.2 : 0.1,
-                  whiteSpace: 'nowrap',
-                  flexShrink: 0,
-                  transition: 'opacity 0.35s ease, font-size 0.35s ease, color 0.35s ease',
                 }}
               >
                 {city.city}
@@ -412,6 +740,44 @@ function FooterTape({ cities, currentIndex, onPrev, onNext }) {
             );
           })}
         </div>
+      </div>
+    </div>
+  );
+}
+
+export function CityDetails({ city, onBack }) {
+  const position = city?.lat && city?.lng ? [city.lat, city.lng] : null;
+
+  return (
+    <div style={styles.root}>
+      <div style={styles.topBar}>
+        <div style={styles.pattern} />
+
+        <button onClick={onBack} style={styles.iconButton}>
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <path d="M14 17L8 11L14 5" stroke={colors.gold} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+
+        <div style={styles.topDivider} />
+
+        <div style={styles.titleBlock}>
+          <div style={styles.tripTitle}>
+            {city.city}
+          </div>
+          <div style={styles.tripMeta}>
+            {fmt(city.state)} · {fmt(city.region)}
+          </div>
+        </div>
+
+      </div>
+
+      <div style={styles.main}>
+        <MapColumn
+          positions={position ? [position] : []}
+          activePosition={position}
+        />
+        <DetailColumn city={city} cityIndex={0} total={1} />
       </div>
     </div>
   );
@@ -514,59 +880,47 @@ export default function TripDetails({ trip, index, initialCityIndex = 0, onBack,
   }, [advance]);
 
   return (
-    <div style={{
-      position: 'fixed', inset: 0,
-      display: 'flex', flexDirection: 'column',
-      fontFamily: "'DM Sans', 'Segoe UI', sans-serif",
-      background: '#f5f0e8',
-    }}>
+    <div style={styles.root}>
       {/* ── HEADER ── */}
-      <div style={{
-        background: '#1a1208', color: '#f5f0e8', flexShrink: 0,
-        padding: '0 2rem', height: 68, display: 'flex', alignItems: 'center',
-        gap: '1.25rem', position: 'relative', overflow: 'hidden',
-      }}>
-        <div style={{
-          position: 'absolute', inset: 0, pointerEvents: 'none',
-          backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(201,150,42,0.04) 40px, rgba(201,150,42,0.04) 41px)',
-        }} />
+      <div style={styles.topBar}>
+        <div style={styles.pattern} />
 
-        <button onClick={onBack} style={{ position: 'relative', background: 'none', border: 'none', cursor: 'pointer', padding: 0, display: 'flex', alignItems: 'center', flexShrink: 0 }}>
+        <button onClick={onBack} style={styles.iconButton}>
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-            <path d="M14 17L8 11L14 5" stroke="#c9962a" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M14 17L8 11L14 5" stroke={colors.gold} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </button>
 
-        <div style={{ width: 1, height: 32, background: '#3a3020', flexShrink: 0, position: 'relative' }} />
+        <div style={styles.topDivider} />
 
-        <div style={{ position: 'relative', flex: 1, minWidth: 0 }}>
-          <div style={{ fontFamily: 'Georgia, serif', fontSize: '1.1rem', fontWeight: 700, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', lineHeight: 1.1 }}>
+        <div style={styles.titleBlock}>
+          <div style={styles.tripTitle}>
             {trip.name}
           </div>
-          <div style={{ fontSize: 11, color: '#a09888', marginTop: 4 }}>
+          <div style={styles.tripMeta}>
             {totalDuration} · {cities.length} stops · {trip.distanceKm.toLocaleString()} km
           </div>
         </div>
 
-        <div style={{ position: 'relative', display: 'flex', alignItems: 'center', gap: '0.5rem', flexShrink: 0 }}>
-          <button onClick={onPrevTrip} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, display: 'flex', alignItems: 'center' }}>
+        <div style={styles.tripSwitcher}>
+          <button onClick={onPrevTrip} style={styles.iconButton}>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M10 12L6 8L10 4" stroke="#c9962a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M10 12L6 8L10 4" stroke={colors.gold} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </button>
-          <div style={{ textAlign: 'center', lineHeight: 1.1, whiteSpace: 'nowrap', fontFamily: "Georgia, 'Times New Roman', serif", fontSize: '1.1rem', fontWeight: 700, color: '#f5f0e8' }}>
-            Super<em style={{ fontStyle: 'italic', color: '#c9962a' }}>Trip </em>{index + 1}
+          <div style={styles.tripNumber}>
+            Super<em style={styles.tripNumberEm}>Trip </em>{index + 1}
           </div>
-          <button onClick={onNextTrip} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, display: 'flex', alignItems: 'center' }}>
+          <button onClick={onNextTrip} style={styles.iconButton}>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M6 4L10 8L6 12" stroke="#c9962a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M6 4L10 8L6 12" stroke={colors.gold} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </button>
         </div>
       </div>
 
       {/* ── MAIN SPLIT ── */}
-      <div style={{ flex: 1, display: 'flex', overflow: 'hidden' }}>
+      <div style={styles.main}>
         <MapColumn
           positions={cities.filter(c => c.lat && c.lng).map(c => [c.lat, c.lng])}
           activePosition={activeCity?.lat && activeCity?.lng ? [activeCity.lat, activeCity.lng] : null}

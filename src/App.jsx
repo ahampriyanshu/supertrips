@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 
-import TripDetails from "./TripDetails";
+import TripDetails, { CityDetails } from "./TripDetails";
 import { CATEGORIES, CITIES, REGIONS, STATES, TRIPS } from "./data.js";
 
 
@@ -11,6 +11,7 @@ const totalStops = TRIPS.reduce((a, t) => a + t.cities.length, 0);
 const routeDefinitions = [
   "/",
   "/supertrips",
+  "/routes/:route",
   "/cities",
   "/cities/:city",
   "/categories",
@@ -42,6 +43,24 @@ const directoryGroups = [
   },
 ];
 
+function slugify(value) {
+  return value
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+const tripSlugs = TRIPS.map(trip => slugify(trip.name));
+
+function getTripHref(index) {
+  return `/routes/${tripSlugs[index]}`;
+}
+
+function getTripIndexBySlug(slug) {
+  return tripSlugs.indexOf(slug);
+}
+
 function getPathname() {
   if (typeof window === "undefined") return "/";
   return window.location.pathname.replace(/\/+$/, "") || "/";
@@ -56,6 +75,7 @@ function getCurrentRoute() {
   return {
     ...parseRoute(getPathname()),
     hash: getHash(),
+    state: typeof window === "undefined" ? null : window.history.state,
   };
 }
 
@@ -65,6 +85,9 @@ function parseRoute(pathname) {
   if (parts.length === 0) return { name: "home", path: "/" };
   if (parts.length === 1 && parts[0] === "supertrips") {
     return { name: "supertrips", path: "/supertrips" };
+  }
+  if (parts.length === 2 && parts[0] === "routes") {
+    return { name: "route", path: pathname, value: parts[1] };
   }
   if (parts.length === 1 && parts[0] === "cities") {
     return { name: "cities", path: "/cities" };
@@ -104,9 +127,9 @@ function useCurrentRoute() {
   return route;
 }
 
-function navigateTo(href) {
+function navigateTo(href, state = null) {
   if (typeof window === "undefined") return;
-  window.history.pushState(null, "", href);
+  window.history.pushState(state, "", href);
   window.dispatchEvent(new Event("popstate"));
 }
 
@@ -157,10 +180,6 @@ function getStateLabel(stateCode) {
   return STATES[stateCode]?.label || formatParam(stateCode || "");
 }
 
-function getRegionLabel(regionCode) {
-  return REGIONS[regionCode]?.label || formatParam(regionCode || "");
-}
-
 function getCategoryLabel(categoryCode) {
   return CATEGORIES[categoryCode]?.label || formatParam(categoryCode || "");
 }
@@ -169,16 +188,6 @@ function normalizeList(value) {
   if (Array.isArray(value)) return value.filter(Boolean);
   if (typeof value === "string" && value.trim()) return [value.trim()];
   return [];
-}
-
-function getTripsForCity(cityCode) {
-  return TRIPS.map((trip, tripIndex) => {
-    const stops = trip.cities
-      .map((city, cityIndex) => city.code === cityCode ? { city, cityIndex } : null)
-      .filter(Boolean);
-
-    return stops.length ? { trip, tripIndex, stops } : null;
-  }).filter(Boolean);
 }
 
 function sortCityCodes(cityCodes) {
@@ -204,7 +213,7 @@ const styles = {
   heroStatN: { fontFamily: "Georgia, serif", fontSize: "2rem", color: "#c9962a", lineHeight: 1 },
   heroStatL: { fontSize: 11, letterSpacing: 1.5, textTransform: "uppercase", color: "#9e8e7a", marginTop: 3 },
   section: { maxWidth: 720, margin: "0 auto", padding: "2rem 0" },
-  card: { background: "#faf7f2", border: "1px solid #e0d8cc", borderRadius: 4, marginBottom: 12, overflow: "hidden", cursor: "pointer", transition: "border-color 0.2s, box-shadow 0.2s" },
+  card: { display: "block", background: "#faf7f2", border: "1px solid #e0d8cc", borderRadius: 4, marginBottom: 12, overflow: "hidden", cursor: "pointer", color: "inherit", textDecoration: "none", transition: "border-color 0.2s, box-shadow 0.2s" },
   cardHeader: { display: "flex", alignItems: "center", gap: "1rem", padding: "1rem 1.25rem" },
   tripNum: { fontFamily: "Georgia, serif", fontSize: "1.6rem", fontStyle: "italic", color: "#c9962a", opacity: 0.5, minWidth: 36, lineHeight: 1 },
   tripName: { fontFamily: "Georgia, serif", fontSize: "1rem", fontWeight: 700 },
@@ -234,17 +243,6 @@ const styles = {
   breadcrumbHome: { color: "#8a7a65", fontWeight: 700, textDecoration: "none" },
   breadcrumbSeparator: { color: "#c9962a" },
   breadcrumbCurrent: { color: "#1a1208", fontWeight: 700 },
-  chipRow: { display: "flex", flexWrap: "wrap", gap: 8, marginBottom: "1.5rem" },
-  chip: { display: "inline-flex", alignItems: "center", minHeight: 28, border: "1px solid #e0d8cc", borderRadius: 4, padding: "0 0.65rem", color: "#6a5a48", background: "#faf7f2", fontSize: 12, textDecoration: "none" },
-  statGrid: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 10, marginBottom: "1.5rem" },
-  statBox: { background: "#faf7f2", border: "1px solid #e0d8cc", borderRadius: 4, padding: "0.9rem 1rem" },
-  statLabel: { fontSize: 10, letterSpacing: 1.2, textTransform: "uppercase", color: "#8a7a65", marginBottom: 5 },
-  statValue: { fontFamily: "Georgia, serif", fontSize: "1.1rem", color: "#1a1208" },
-  panelGrid: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 12, alignItems: "start" },
-  panel: { background: "#faf7f2", border: "1px solid #e0d8cc", borderRadius: 4, padding: "1rem" },
-  panelTitle: { fontFamily: "Georgia, serif", fontSize: "1rem", fontWeight: 700, color: "#1a1208", margin: "0 0 0.65rem" },
-  panelList: { margin: 0, paddingLeft: "1.1rem", color: "#6a5a48", fontSize: 13, lineHeight: 1.7 },
-  panelListPlain: { margin: 0, padding: 0, listStyle: "none", color: "#6a5a48", fontSize: 13, lineHeight: 1.7 },
   indexBlock: { paddingTop: "1.5rem", marginTop: "1.5rem", scrollMarginTop: 16 },
   indexBlockFirst: { paddingTop: 0, marginTop: 0 },
   indexHeading: { fontFamily: "Georgia, 'Times New Roman', serif", fontSize: "1.55rem", lineHeight: 1.2, margin: "0 0 1rem", color: "#1a1208" },
@@ -256,15 +254,15 @@ const styles = {
   cityListLink: { display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12, padding: "0.65rem 0", color: "#1a1208", fontSize: 14, textDecoration: "none" },
   cityListTags: { display: "flex", flexWrap: "wrap", justifyContent: "flex-end", gap: 6 },
   cityListTag: { display: "inline-flex", alignItems: "center", minHeight: 22, border: "1px solid #e0d8cc", borderRadius: 4, padding: "0 0.45rem", color: "#8a7a65", background: "#faf7f2", fontSize: 11 },
-  footer: { textAlign: "center", padding: "2rem", fontSize: 11, color: "#8a7a65", letterSpacing: 1, textTransform: "uppercase" }
+  footer: { textAlign: "center", padding: "2rem", fontSize: 13, color: "#8a7a65", borderTop: "1px solid #e0d8cc" }
 };
 
-function TripCard({ trip, index, onSelect }) {
+function TripCard({ trip, index }) {
   const preview = trip.cities.slice(0, 8);
   const extra = trip.cities.length - 8;
 
   return (
-    <div style={styles.card} className="trip-card" onClick={onSelect}>
+    <Link href={getTripHref(index)} style={styles.card} className="trip-card">
       <div style={styles.cardHeader}>
         <div style={styles.tripNum}>{String(index + 1).padStart(2, "0")}</div>
         <div style={{ flex: 1 }}>
@@ -282,7 +280,7 @@ function TripCard({ trip, index, onSelect }) {
         ))}
         {extra > 0 && <span style={{ display: "flex", alignItems: "center", flexShrink: 0 }}><span style={{ ...styles.routeCity, color: "#c9962a", marginLeft: "8px" }}>+{extra} more</span></span>}
       </div>
-    </div>
+    </Link>
   );
 }
 
@@ -297,9 +295,7 @@ function HeroHeader() {
           </Link>
         </h1>
         <p style={styles.heroSub}>
-          A personal diary of the routes I took while backpacking across India.
-          Kept as notes from the road, and shared in case they help someone
-          plan their own journey.
+          My routes across India, city by city. Kept for memory — sharing it with anyone planning to backpack through India.
         </p>
         <div style={styles.heroStats}>
           {[
@@ -330,27 +326,6 @@ function PageHeader({ title }) {
         </div>
       </div>
     </>
-  );
-}
-
-function ListPanel({ title, items, ordered = true }) {
-  const normalizedItems = normalizeList(items);
-
-  if (!normalizedItems.length) return null;
-
-  const ListTag = ordered ? "ul" : "div";
-
-  return (
-    <div style={styles.panel}>
-      <h2 style={styles.panelTitle}>{title}</h2>
-      <ListTag style={ordered ? styles.panelList : styles.panelListPlain}>
-        {normalizedItems.map((item) => ordered ? (
-          <li key={item}>{item}</li>
-        ) : (
-          <div key={item}>{item}</div>
-        ))}
-      </ListTag>
-    </div>
   );
 }
 
@@ -480,74 +455,7 @@ function CityPage({ cityCode }) {
     return <NotFoundPage />;
   }
 
-  const cityTrips = getTripsForCity(cityCode);
-  const statItems = [
-    ["Ideal stay", city.ideal_stay],
-    ["Best season", formatParam(city.ideal_season || "")],
-    ["Rating", city.rating ? `${city.rating}/5` : ""],
-  ].filter(([, value]) => value);
-
-  return (
-    <div style={styles.root}>
-      <PageHeader
-        eyebrow="City"
-        title={city.city}
-        intro={`${getStateLabel(city.state)} - ${getRegionLabel(city.region)} India`}
-      />
-
-      <main style={styles.pageContent}>
-        <div style={styles.chipRow}>
-          <Link href={`/cities#state-${STATES[city.state]?.slug || city.state}`} style={styles.chip}>
-            {getStateLabel(city.state)}
-          </Link>
-          <Link href={`/cities#region-${REGIONS[city.region]?.slug || city.region}`} style={styles.chip}>
-            {getRegionLabel(city.region)}
-          </Link>
-          {normalizeList(city.category).map(category => (
-            <Link
-              key={category}
-              href={`/categories#category-${CATEGORIES[category]?.slug || category}`}
-              style={styles.chip}
-            >
-              {getCategoryLabel(category)}
-            </Link>
-          ))}
-        </div>
-
-        {!!statItems.length && (
-          <div style={styles.statGrid}>
-            {statItems.map(([label, value]) => (
-              <div key={label} style={styles.statBox}>
-                <div style={styles.statLabel}>{label}</div>
-                <div style={styles.statValue}>{value}</div>
-              </div>
-            ))}
-          </div>
-        )}
-
-        <div style={styles.panelGrid}>
-          <ListPanel title="Must visit" items={city.must_visit} />
-          <ListPanel title="Must try" items={city.must_try} />
-          <ListPanel title="Mode of travel" items={normalizeList(city.mode_of_travel).map(formatParam)} />
-          <ListPanel title="Accommodation" items={city.accommodation} />
-          <ListPanel title="Notes" items={city.notes} />
-
-          {!!cityTrips.length && (
-            <div style={styles.panel}>
-              <h2 style={styles.panelTitle}>Appears in trips</h2>
-              <ul style={styles.panelList}>
-                {cityTrips.map(({ trip, tripIndex, stops }) => (
-                  <li key={`${trip.name}-${tripIndex}`}>
-                    {trip.name} - stop {stops.map(({ cityIndex }) => cityIndex + 1).join(", ")}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
-      </main>
-    </div>
-  );
+  return <CityDetails city={city} onBack={() => navigateTo("/cities")} />;
 }
 
 function GroupPage({ type, value }) {
@@ -674,13 +582,11 @@ function BackpackingSection() {
 
 export default function App() {
   const route = useCurrentRoute();
-  const [selectedTripIndex, setSelectedTripIndex] = useState(null);
-  const [initialCityIndex, setInitialCityIndex] = useState(0);
 
   useEffect(() => {
-    setSelectedTripIndex(null);
-    setInitialCityIndex(0);
     if (typeof window === "undefined") return;
+
+    if (route.name === "route") return;
 
     if (!route.hash) {
       window.scrollTo(0, 0);
@@ -695,7 +601,44 @@ export default function App() {
         window.scrollTo(0, 0);
       }
     });
-  }, [route.path, route.hash]);
+  }, [route.path, route.hash, route.name]);
+
+  if (route.name === "route") {
+    const tripIndex = getTripIndexBySlug(route.value);
+
+    if (tripIndex === -1) {
+      return <NotFoundPage />;
+    }
+
+    const prevIdx = (tripIndex - 1 + TRIPS.length) % TRIPS.length;
+    const nextIdx = (tripIndex + 1) % TRIPS.length;
+    const requestedCityIndex = Number(route.state?.initialCityIndex ?? 0);
+    const initialCityIndex = Math.min(
+      Math.max(Number.isFinite(requestedCityIndex) ? requestedCityIndex : 0, 0),
+      TRIPS[tripIndex].cities.length - 1
+    );
+
+    return (
+      <div style={styles.root}>
+        <TripDetails
+          key={`${tripIndex}-${initialCityIndex}`}
+          trip={TRIPS[tripIndex]}
+          index={tripIndex}
+          initialCityIndex={initialCityIndex}
+          onBack={() => navigateTo("/")}
+          onPrevTrip={(fromEnd = false) => {
+            navigateTo(
+              getTripHref(prevIdx),
+              { initialCityIndex: fromEnd === true ? TRIPS[prevIdx].cities.length - 1 : 0 }
+            );
+          }}
+          onNextTrip={() => {
+            navigateTo(getTripHref(nextIdx), { initialCityIndex: 0 });
+          }}
+        />
+      </div>
+    );
+  }
 
   if (route.name === "cities") {
     return <CitiesIndexPage />;
@@ -725,30 +668,6 @@ export default function App() {
     return <NotFoundPage />;
   }
 
-  if (selectedTripIndex !== null) {
-    const prevIdx = (selectedTripIndex - 1 + TRIPS.length) % TRIPS.length;
-    const nextIdx = (selectedTripIndex + 1) % TRIPS.length;
-    return (
-      <div style={styles.root}>
-        <TripDetails
-          key={selectedTripIndex}
-          trip={TRIPS[selectedTripIndex]}
-          index={selectedTripIndex}
-          initialCityIndex={initialCityIndex}
-          onBack={() => { setInitialCityIndex(0); setSelectedTripIndex(null); }}
-          onPrevTrip={(fromEnd = false) => {
-            setInitialCityIndex(fromEnd === true ? TRIPS[prevIdx].cities.length - 1 : 0);
-            setSelectedTripIndex(prevIdx);
-          }}
-          onNextTrip={() => {
-            setInitialCityIndex(0);
-            setSelectedTripIndex(nextIdx);
-          }}
-        />
-      </div>
-    );
-  }
-
   return (
     <div style={styles.root}>
       <HeroHeader />
@@ -759,7 +678,6 @@ export default function App() {
             key={i}
             trip={trip}
             index={i}
-            onSelect={() => setSelectedTripIndex(i)}
           />
         ))}
       </div>
@@ -787,6 +705,16 @@ export default function App() {
           </div>
         ))}
       </section>
+
+      <footer style={styles.footer}>
+        made by{' '}
+        <a href="https://ahampriyanshu.com" target="_blank" rel="noopener noreferrer" style={{ color: '#8a7a65', textDecoration: 'none' }}
+          onMouseEnter={e => e.currentTarget.style.color = '#c9962a'}
+          onMouseLeave={e => e.currentTarget.style.color = '#8a7a65'}
+        >
+          ahampriyanshu
+        </a>
+      </footer>
     </div>
   );
 }

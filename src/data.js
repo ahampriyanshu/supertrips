@@ -1,5 +1,3 @@
-// Keep trip, city, category, region, and state data in this file.
-
 export const RAW_TRIPS = [
   {
     "name": "Braj, Kashi & Kalinga",
@@ -662,7 +660,7 @@ export const RAW_TRIPS = [
     "distanceKm": 8133
   },
   {
-    "name": "Coastal Karnataka, Kozhikode & Himachal",
+    "name": "Coastal Karnataka, MP & Himachal",
     "cities": [
       {
         "code": "gurugram",
@@ -1127,7 +1125,7 @@ export const CITIES = {
     "city": "Delhi",
     "lat": 28.65195,
     "lng": 77.23149,
-    "state": "national_capital_territory_delhi",
+    "state": "delhi",
     "region": "northern",
     "category": [
       "metro",
@@ -1710,7 +1708,7 @@ export const CITIES = {
     "city": "Katra",
     "lat": 32.99167,
     "lng": 74.93195,
-    "state": "jammu_and_kashmir",
+    "state": "jammu_kashmir",
     "region": "northern",
     "category": [
       "pilgrimage"
@@ -1748,7 +1746,7 @@ export const CITIES = {
     "city": "Jammu",
     "lat": 32.73569,
     "lng": 74.86911,
-    "state": "jammu_and_kashmir",
+    "state": "jammu_kashmir",
     "region": "northern",
     "category": [
       "heritage",
@@ -1790,7 +1788,7 @@ export const CITIES = {
     "city": "Banihar & Qazigund",
     "lat": 33.5167,
     "lng": 75.2005,
-    "state": "jammu_and_kashmir",
+    "state": "jammu_kashmir",
     "region": "northern",
     "category": [
     ],
@@ -1824,7 +1822,7 @@ export const CITIES = {
     "city": "Srinagar",
     "lat": 34.08565,
     "lng": 74.80555,
-    "state": "jammu_and_kashmir",
+    "state": "jammu_kashmir",
     "region": "northern",
     "category": [
       "heritage",
@@ -1867,7 +1865,7 @@ export const CITIES = {
     "city": "Gulmarg",
     "lat": 34.0485,
     "lng": 74.3806,
-    "state": "jammu_and_kashmir",
+    "state": "jammu_kashmir",
     "region": "northern",
     "category": [
       "hill_station",
@@ -4019,7 +4017,7 @@ export const CITIES = {
     "city": "Pondicherry",
     "lat": 11.93381,
     "lng": 79.82979,
-    "state": "puducherry",
+    "state": "pondicherry",
     "region": "southern",
     "category": [
       "coastal",
@@ -4107,7 +4105,7 @@ export const CITIES = {
     "city": "Sonmarg",
     "lat": 34.3027,
     "lng": 75.2948,
-    "state": "jammu_and_kashmir",
+    "state": "jammu_kashmir",
     "region": "northern",
     "category": [
       "hill_station",
@@ -4144,7 +4142,7 @@ export const CITIES = {
     "city": "Baltal",
     "lat": 34.2139,
     "lng": 75.4767,
-    "state": "jammu_and_kashmir",
+    "state": "jammu_kashmir",
     "region": "northern",
     "category": [
       "pilgrimage",
@@ -4180,7 +4178,7 @@ export const CITIES = {
     "city": "Banihal & Udhampur",
     "lat": 33.43647,
     "lng": 75.19684,
-    "state": "jammu_and_kashmir",
+    "state": "jammu_kashmir",
     "region": "northern",
     "category": [
     ],

@@ -1,4 +1,3 @@
-import React from 'react';
 import { MapPin, Calendar, Compass } from 'lucide-react';
 import { RAW_TRIPS as tripData } from '../data.js';
 
