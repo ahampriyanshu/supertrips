@@ -738,7 +738,7 @@ export const RAW_TRIPS = [
     "distanceKm": 9070
   },
   {
-    "name": "Coromandel, Kochi & Bengal",
+    "name": "Coromandel, Malabar & Bengal",
     "cities": [
       {
         "code": "gurugram",
@@ -845,19 +845,11 @@ export const CITIES = {
       "base_camp"
     ],
     "must_visit": [
-      "Cyber Hub",
-      "Kingdom of Dreams",
-      "Ambience Mall",
       "Sultanpur Bird Sanctuary",
-      "Leisure Valley Park"
     ],
     "must_try": [
-      "Biryani at Cyber Hub restaurants",
-      "Desi ghee parathas at Old Gurugram dhabas",
-      "Craft beer at microbreweries",
-      "Street food at Sadar Bazar",
-      "Gurugram food truck trail",
-      "Corporate networking walkabout in Sector 29"
+      "Biryani at Cyber Hub",
+      "Re-releases of 50s-70s movies at Ambience PVR (Wednesday and Saturday)"
     ],
     "accommodation": [
       "gostops",
@@ -1146,25 +1138,26 @@ export const CITIES = {
       "metro",
       "forts_palaces",
       "monuments_museums",
-      "pilgrimage",
       "base_camp"
     ],
     "must_visit": [
       "Red Fort",
       "Qutub Minar",
       "Humayun's Tomb",
-      "Jama Masjid & Chandni Chowk",
+      "Jama Masjid",
       "Lodhi Garden",
-      "Akshardham Temple"
+      "Old Fort",
+      "Akshardham Temple",
+      "India Gate",
+      "Lotus Temple"
     ],
     "must_try": [
-      "Parathe wali gali parathas",
-      "Nihari at Karim's Jama Masjid",
       "Chole bhature at Sitaram Diwan Chand",
-      "Jalebi from Old Delhi halwais",
-      "Daulat ki chaat in winter",
-      "Cycling in Lodhi Garden at dawn",
-      "Walk through Mehrauli Archaeological Park"
+      "Street food at Chandni Chowk",
+      "Daulat ki chaat",
+      "Museum Tour: National Museum, Modern Art Gallery, President's Museum, PM's Museum",
+      "Walk through Mehrauli Archaeological Park or Lodhi Garden",
+      "Tour at Rashtrapati Bhawan"
     ],
     "accommodation": [
       "zostel",
@@ -1609,18 +1602,12 @@ export const CITIES = {
       "base_camp"
     ],
     "must_visit": [
-      "Punjab Agricultural University Museum",
-      "Nehru Rose Garden",
       "Lodhi Fort",
-      "Deer Park",
-      "Rakh Bagh"
+      "Punjab Agricultural University Museum",
+      "War Museum",
     ],
     "must_try": [
-      "Makki di roti and sarson da saag",
-      "Lassi at local dairy shops",
-      "Amritsari kulcha at highway dhabas",
-      "Pinni and gajak in winter",
-      "Street chaat near Ghanta Ghar"
+      "Punjabi dhaba meal"
     ],
     "accommodation": [
       "budget_hotels"
