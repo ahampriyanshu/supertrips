@@ -229,7 +229,7 @@ export const RAW_TRIPS = [
         "dur": "3 Days"
       },
       {
-        "code": "allepey",
+        "code": "alleppey",
         "dur": "2 Day"
       },
       {
@@ -467,7 +467,7 @@ export const RAW_TRIPS = [
         "dur": "1 Day"
       },
       {
-        "code": "khajurao",
+        "code": "khajuraho",
         "dur": "2 Days"
       },
       {
@@ -479,7 +479,7 @@ export const RAW_TRIPS = [
         "dur": "2 Days"
       },
       {
-        "code": "lukhnow",
+        "code": "lucknow",
         "dur": "1 Day"
       },
       {
@@ -507,11 +507,11 @@ export const RAW_TRIPS = [
         "dur": "1 Day"
       },
       {
-        "code": "cuttak",
+        "code": "cuttack",
         "dur": "1 Day"
       },
       {
-        "code": "vishakhapatnam",
+        "code": "visakhapatnam",
         "dur": "1 Week"
       },
       {
@@ -535,7 +535,7 @@ export const RAW_TRIPS = [
         "dur": "2 Days"
       },
       {
-        "code": "chikkmanglore",
+        "code": "chikkamagaluru",
         "dur": "3 Days"
       },
       {
@@ -547,11 +547,11 @@ export const RAW_TRIPS = [
         "dur": "1 Week"
       },
       {
-        "code": "mudurai",
+        "code": "madurai",
         "dur": "1 Day"
       },
       {
-        "code": "kodaikannal",
+        "code": "kodaikanal",
         "dur": "1 Week"
       },
       {
@@ -695,7 +695,7 @@ export const RAW_TRIPS = [
         "dur": "2 Days"
       },
       {
-        "code": "manglore",
+        "code": "mangalore",
         "dur": "2 Days"
       },
       {
@@ -719,11 +719,11 @@ export const RAW_TRIPS = [
         "dur": "3 Days"
       },
       {
-        "code": "dalhouisie",
+        "code": "dalhousie",
         "dur": "3 Days"
       },
       {
-        "code": "dharamshala-mcleond-gang",
+        "code": "dharamshala-mcleod-ganj",
         "dur": "1 Week"
       },
       {
@@ -2873,8 +2873,8 @@ export const CITIES = {
       // "Mattancherry's Jew Town is chaotic and crowded but the antique shops are genuinely fascinating — stumbled upon 200-year-old maps."
     // ]
   },
-  "allepey": {
-    "city": "Allepey",
+  "alleppey": {
+    "city": "Alleppey",
     "lat": 9.49004,
     "lng": 76.3264,
     "state": "kerala",
@@ -4401,8 +4401,8 @@ export const CITIES = {
       // "The town's Bundeli food — particularly the tehri and bedai — is distinct from both UP and MP cuisines and should not be missed."
     // ]
   },
-  "khajurao": {
-    "city": "Khajurao",
+  "khajuraho": {
+    "city": "Khajuraho",
     "lat": 24.8318,
     "lng": 79.9229,
     "state": "madhya_pradesh",
@@ -4524,8 +4524,8 @@ export const CITIES = {
       // "Crowds during Ram Navami and Diwali are immense — plan accordingly or avoid peak days."
     // ]
   },
-  "lukhnow": {
-    "city": "Lukhnow",
+  "lucknow": {
+    "city": "Lucknow",
     "lat": 26.83928,
     "lng": 80.92313,
     "state": "uttar_pradesh",
@@ -4729,8 +4729,8 @@ export const CITIES = {
       // "A useful overnight break on the Kolkata-Bhubaneswar road trip rather than a standalone trip."
     // ]
   },
-  "cuttak": {
-    "city": "Cuttak",
+  "cuttack": {
+    "city": "Cuttack",
     "lat": 20.46497,
     "lng": 85.87927,
     "state": "odisha",
@@ -4774,8 +4774,8 @@ export const CITIES = {
       // "Netaji Subhas Chandra Bose was born here — the museum is small but sincere."
     // ]
   },
-  "vishakhapatnam": {
-    "city": "Vishakhapatnam",
+  "visakhapatnam": {
+    "city": "Visakhapatnam",
     "lat": 17.68009,
     "lng": 83.20161,
     "state": "andhra_pradesh",
@@ -4901,8 +4901,8 @@ export const CITIES = {
       // "Monsoon Coorg is lush but the roads get bad; October-March is the sweet spot."
     // ]
   },
-  "chikkmanglore": {
-    "city": "Chikkmanglore",
+  "chikkamagaluru": {
+    "city": "Chikkamagaluru",
     "lat": 13.32231,
     "lng": 75.774,
     "state": "karnataka",
@@ -4921,7 +4921,7 @@ export const CITIES = {
     "must_try": [
       "Mullayanagiri peak trek (highest in Karnataka)",
       "Kudremukh jungle trek (requires forest permit)",
-      "local filter coffee at Chikmagalur town",
+      "local filter coffee at Chikkamagaluru town",
       "pepper and cardamom estate tour",
       "night stay at coffee estate homestay",
       "kadubu (steamed rice dumpling) breakfast"
@@ -4937,7 +4937,7 @@ export const CITIES = {
     "rating": 4,
     // "notes": [
       // "Mullayanagiri at dawn is magnificent — you're above the clouds and can see all the way to the coast on a clear day.",
-      // "Chikmagalur is overrun by Bangaloreans on weekends; plan for weekdays if you want the quiet coffee estate vibe.",
+      // "Chikkamagaluru is overrun by Bangaloreans on weekends; plan for weekdays if you want the quiet coffee estate vibe.",
       // "Kudremukh requires advance forest department permits but is one of the most pristine treks in the Western Ghats."
     // ]
   },
@@ -4984,52 +4984,8 @@ export const CITIES = {
       // "Hire a bicycle, not an auto — the ruins are spread out and half the joy is cycling through paddy fields between temples."
     // ]
   },
-  "mudurai": {
-    "city": "Mudurai",
-    "lat": 9.919,
-    "lng": 78.11953,
-    "state": "tamil_nadu",
-    "region": "southern",
-    "category": [
-      "forts_palaces",
-      "monuments_museums",
-      "pilgrimage"
-    ],
-    "must_visit": [
-      "Meenakshi Amman Temple",
-      "Thirumalai Nayak Palace",
-      "Gandhi Memorial Museum",
-      "Koodal Azhagar Temple",
-      "Vandiyur Mariamman Teppakulam",
-      "Alagar Koil"
-    ],
-    "must_try": [
-      "Meenakshi Temple corridor walk at night",
-      "jigarthanda (local cooling drink)",
-      "Madurai mutton biryani",
-      "kari dosa at Murugan Idli Shop",
-      "rooftop view of temple gopurams from nearby buildings",
-      "parotta with Madurai-style salna",
-      "jasmine garland buying at Nethaji market"
-    ],
-    "accommodation": [
-      "budget_hotels"
-    ],
-    "mode_of_travel": [
-      "auto",
-      "city_bus"
-    ],
-    "ideal_season": "winter",
-    "ideal_stay": "2-3 days",
-    "rating": 5,
-    // "notes": [
-      // "Meenakshi Temple at night is other-worldly — the lit gopurams and the chanting create an atmosphere unlike anywhere else.",
-      // "Jigarthanda is mandatory — it's a sweet, milky, nannari-flavoured cold drink unique to this city.",
-      // "Madurai is hot, loud, and chaotic but has more concentrated temple architecture per square kilometre than almost anywhere."
-    // ]
-  },
-  "kodaikannal": {
-    "city": "Kodaikannal",
+  "kodaikanal": {
+    "city": "Kodaikanal",
     "lat": 10.2381,
     "lng": 77.4892,
     "state": "tamil_nadu",
@@ -5583,8 +5539,8 @@ export const CITIES = {
       // "The Krishna Temple has a fascinating tradition where you view the deity only through a hole in a window — unique to Udupi."
     // ]
   },
-  "manglore": {
-    "city": "Manglore",
+  "mangalore": {
+    "city": "Mangalore",
     "lat": 12.91723,
     "lng": 74.85603,
     "state": "karnataka",
@@ -5717,8 +5673,8 @@ export const CITIES = {
       // "SM Street's halwa shops have been operating for generations; the black halwa is unique to Kozhikode and worth bringing home."
     // ]
   },
-  "dalhouisie": {
-    "city": "Dalhouisie",
+  "dalhousie": {
+    "city": "Dalhousie",
     "lat": 32.55219,
     "lng": 75.94663,
     "state": "himachal_pradesh",
@@ -5756,8 +5712,8 @@ export const CITIES = {
       // "It is significantly less crowded than Shimla or Manali, which in itself is a reason to come."
     // ]
   },
-  "dharamshala-mcleond-gang": {
-    "city": "Dharamshala & Mcleond Gang",
+  "dharamshala-mcleod-ganj": {
+    "city": "Dharamshala & McLeod Ganj",
     "lat": 32.22006,
     "lng": 76.32013,
     "state": "himachal_pradesh",
@@ -6357,11 +6313,11 @@ export const CATEGORIES = {
     "label": "Backpacker",
     "slug": "backpacker",
     "cities": [
-      "allepey",
+      "alleppey",
       "bir",
       "bodh-gaya",
       "dawki",
-      "dharamshala-mcleond-gang",
+      "dharamshala-mcleod-ganj",
       "digha",
       "dimapur",
       "goa",
@@ -6372,7 +6328,7 @@ export const CATEGORIES = {
       "kalimpong",
       "kharagpur",
       "kochi",
-      "kodaikannal",
+      "kodaikanal",
       "kohima",
       "kolkata",
       "kozhikode",
@@ -6397,7 +6353,7 @@ export const CATEGORIES = {
     "label": "Coastal",
     "slug": "coastal",
     "cities": [
-      "allepey",
+      "alleppey",
       "chennai",
       "digha",
       "dwarka",
@@ -6408,7 +6364,7 @@ export const CATEGORIES = {
       "kochi",
       "kozhikode",
       "mahabalipuram",
-      "manglore",
+      "mangalore",
       "mumbai",
       "pondicherry",
       "puri-konark",
@@ -6417,7 +6373,7 @@ export const CATEGORIES = {
       "trivandrum",
       "udupi",
       "varkala",
-      "vishakhapatnam"
+      "visakhapatnam"
     ]
   },
   "desert": {
@@ -6445,10 +6401,9 @@ export const CATEGORIES = {
       "kochi",
       "kolkata",
       "kozhikode",
-      "lukhnow",
+      "lucknow",
       "madurai",
       "mumbai",
-      "mudurai",
       "nashik",
       "pune",
       "surat",
@@ -6465,7 +6420,7 @@ export const CATEGORIES = {
       "bikaner",
       "chennai",
       "chittorgarh",
-      "cuttak",
+      "cuttack",
       "delhi",
       "goa",
       "gwalior",
@@ -6482,7 +6437,6 @@ export const CATEGORIES = {
       "kumbhalgarh",
       "leh",
       "madurai",
-      "mudurai",
       "mysore",
       "orchha",
       "palakkad",
@@ -6501,16 +6455,16 @@ export const CATEGORIES = {
     "slug": "mountains",
     "cities": [
       "araku",
-      "chikkmanglore",
+      "chikkamagaluru",
       "coorg",
-      "dalhouisie",
+      "dalhousie",
       "darjeeling",
-      "dharamshala-mcleond-gang",
+      "dharamshala-mcleod-ganj",
       "gangtok",
       "ghoom",
       "gulmarg",
       "kalimpong",
-      "kodaikannal",
+      "kodaikanal",
       "kullu",
       "kurseong",
       "manali",
@@ -6546,7 +6500,7 @@ export const CATEGORIES = {
       "jaipur",
       "kochi",
       "kolkata",
-      "manglore",
+      "mangalore",
       "mumbai",
       "nagpur",
       "noida",
@@ -6555,7 +6509,7 @@ export const CATEGORIES = {
       "rajkot",
       "surat",
       "trivandrum",
-      "vishakhapatnam"
+      "visakhapatnam"
     ]
   },
   "in_transit": {
@@ -6564,7 +6518,7 @@ export const CATEGORIES = {
     "cities": [
       "bhopal",
       "coimbatore",
-      "cuttak",
+      "cuttack",
       "dimapur",
       "gwalior",
       "indore",
@@ -6573,7 +6527,7 @@ export const CATEGORIES = {
       "jhansi",
       "kharagpur",
       "ludhiana",
-      "manglore",
+      "mangalore",
       "nagpur",
       "palakkad",
       "pathankot",
@@ -6601,7 +6555,7 @@ export const CATEGORIES = {
       "chandigarh",
       "chennai",
       "chittorgarh",
-      "cuttak",
+      "cuttack",
       "darjeeling",
       "delhi",
       "dimapur",
@@ -6620,7 +6574,7 @@ export const CATEGORIES = {
       "kanchipuram",
       "kargil",
       "kevadiya",
-      "khajurao",
+      "khajuraho",
       "kochi",
       "kohima",
       "kolkata",
@@ -6628,11 +6582,10 @@ export const CATEGORIES = {
       "kurseong",
       "kutchh",
       "leh",
-      "lukhnow",
+      "lucknow",
       "madurai",
       "mahabalipuram",
-      "manglore",
-      "mudurai",
+      "mangalore",
       "mysore",
       "orchha",
       "patna",
@@ -6648,7 +6601,7 @@ export const CATEGORIES = {
       "thrissur",
       "tiruchirappalli",
       "varanasi",
-      "vishakhapatnam",
+      "visakhapatnam",
       "wayanad",
       "wayanad-vyithri"
     ]
@@ -6657,12 +6610,12 @@ export const CATEGORIES = {
     "label": "Scenic",
     "slug": "scenic",
     "cities": [
-      "allepey",
+      "alleppey",
       "araku",
       "baltal",
       "bhuj",
       "bir",
-      "chikkmanglore",
+      "chikkamagaluru",
       "coorg",
       "dawki",
       "digha",
@@ -6672,7 +6625,7 @@ export const CATEGORIES = {
       "itanagar",
       "kannur",
       "kanyakumari",
-      "kodaikannal",
+      "kodaikanal",
       "kohima",
       "kullu",
       "kutchh",
@@ -6708,10 +6661,10 @@ export const CATEGORIES = {
       "ayodhya",
       "baltal",
       "bodh-gaya",
-      "cuttak",
+      "cuttack",
       "delhi",
       "deoghar",
-      "dharamshala-mcleond-gang",
+      "dharamshala-mcleod-ganj",
       "dwarka",
       "ghoom",
       "gokarna",
@@ -6725,7 +6678,6 @@ export const CATEGORIES = {
       "madurai",
       "mathura",
       "mayapur",
-      "mudurai",
       "mysore",
       "nashik",
       "omkareshwar",
@@ -6801,7 +6753,7 @@ export const REGIONS = {
       "bhopal",
       "gwalior",
       "indore",
-      "khajurao",
+      "khajuraho",
       "omkareshwar",
       "orchha"
     ]
@@ -6811,7 +6763,7 @@ export const REGIONS = {
     "slug": "eastern",
     "cities": [
       "bodh-gaya",
-      "cuttak",
+      "cuttack",
       "darjeeling",
       "deoghar",
       "digha",
@@ -6859,9 +6811,9 @@ export const REGIONS = {
       "bir",
       "chandigarh",
       "chittorgarh",
-      "dalhouisie",
+      "dalhousie",
       "delhi",
-      "dharamshala-mcleond-gang",
+      "dharamshala-mcleod-ganj",
       "gulmarg",
       "gurugram",
       "jaipur",
@@ -6877,7 +6829,7 @@ export const REGIONS = {
       "kumbhalgarh",
       "leh",
       "ludhiana",
-      "lukhnow",
+      "lucknow",
       "manali",
       "mathura",
       "noida",
@@ -6894,11 +6846,11 @@ export const REGIONS = {
     "label": "Southern",
     "slug": "southern",
     "cities": [
-      "allepey",
+      "alleppey",
       "araku",
       "bengaluru",
       "chennai",
-      "chikkmanglore",
+      "chikkamagaluru",
       "coimbatore",
       "coorg",
       "gokarna",
@@ -6908,12 +6860,11 @@ export const REGIONS = {
       "kannur",
       "kanyakumari",
       "kochi",
-      "kodaikannal",
+      "kodaikanal",
       "kozhikode",
       "madurai",
       "mahabalipuram",
-      "manglore",
-      "mudurai",
+      "mangalore",
       "munnar",
       "mysore",
       "ooty",
@@ -6932,7 +6883,7 @@ export const REGIONS = {
       "udupi",
       "vagamon",
       "varkala",
-      "vishakhapatnam",
+      "visakhapatnam",
       "wayanad",
       "wayanad-vyithri"
     ]
@@ -6969,7 +6920,7 @@ export const STATES = {
       "araku",
       "srisailam",
       "tirupati",
-      "vishakhapatnam"
+      "visakhapatnam"
     ]
   },
   "arunachal_pradesh": {
@@ -7045,8 +6996,8 @@ export const STATES = {
     "slug": "himachal-pradesh",
     "cities": [
       "bir",
-      "dalhouisie",
-      "dharamshala-mcleond-gang",
+      "dalhousie",
+      "dharamshala-mcleod-ganj",
       "keylong",
       "kullu",
       "manali"
@@ -7078,11 +7029,11 @@ export const STATES = {
     "slug": "karnataka",
     "cities": [
       "bengaluru",
-      "chikkmanglore",
+      "chikkamagaluru",
       "coorg",
       "gokarna",
       "hampi",
-      "manglore",
+      "mangalore",
       "mysore",
       "shivamogga",
       "udupi"
@@ -7092,7 +7043,7 @@ export const STATES = {
     "label": "Kerala",
     "slug": "kerala",
     "cities": [
-      "allepey",
+      "alleppey",
       "kannur",
       "kochi",
       "kozhikode",
@@ -7121,7 +7072,7 @@ export const STATES = {
       "bhopal",
       "gwalior",
       "indore",
-      "khajurao",
+      "khajuraho",
       "omkareshwar",
       "orchha"
     ]
@@ -7158,7 +7109,7 @@ export const STATES = {
     "label": "Odisha",
     "slug": "odisha",
     "cities": [
-      "cuttak",
+      "cuttack",
       "puri-konark"
     ]
   },
@@ -7210,10 +7161,9 @@ export const STATES = {
       "coimbatore",
       "kanyakumari",
       "kanchipuram",
-      "kodaikannal",
+      "kodaikanal",
       "madurai",
       "mahabalipuram",
-      "mudurai",
       "ooty",
       "poombarai",
       "rameshwaram",
@@ -7236,7 +7186,7 @@ export const STATES = {
       "agra",
       "ayodhya",
       "jhansi",
-      "lukhnow",
+      "lucknow",
       "mathura",
       "noida",
       "prayagraj",
