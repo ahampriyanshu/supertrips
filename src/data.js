@@ -7306,7 +7306,7 @@ export const BACKPACKING_101 = [
     tips: [
       "Do your laundry two days before you move, not on the last day.",
       "Never trust someone you just met, especially with your valuables.",
-      "Visit palaces, forts, and museums on weekends, and temples and shrines on weekdays.",
+      "Visit palaces, forts, and museums on weekends, temples and shrines on weekdays.",
       "Split cash across wallet, backpack, and phone cover — never keep it all together.",
     ],
   },

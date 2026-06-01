@@ -327,6 +327,7 @@
   display: flex;
   align-items: center;
   flex-shrink: 0;
+  min-width: 0;
 }
 
 .app-route-city {
@@ -594,8 +595,16 @@
     overflow-x: hidden;
   }
 
+  .app-route-city-wrap {
+    flex-shrink: 1;
+  }
+
+  .app-route-city-wrap--extra {
+    flex-shrink: 0;
+  }
+
   .app-route-city {
-    max-width: 86px;
+    max-width: 76px;
     overflow: hidden;
     text-overflow: ellipsis;
     vertical-align: bottom;

@@ -129,6 +129,26 @@ function useCurrentRoute() {
   return route;
 }
 
+function useMediaQuery(query) {
+  const [matches, setMatches] = useState(() => (
+    typeof window !== "undefined" ? window.matchMedia(query).matches : false
+  ));
+
+  useEffect(() => {
+    if (typeof window === "undefined") return undefined;
+
+    const mediaQuery = window.matchMedia(query);
+    const handleChange = () => setMatches(mediaQuery.matches);
+
+    handleChange();
+    mediaQuery.addEventListener("change", handleChange);
+
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  }, [query]);
+
+  return matches;
+}
+
 function Link({ href, className, children, ...props }) {
   return (
     <a
@@ -297,9 +317,9 @@ function CitiesMap({ cityCodes, label = "Map of all cities" }) {
   );
 }
 
-function TripCard({ trip, index }) {
-  const preview = trip.cities.slice(0, 8);
-  const extra = trip.cities.length - 8;
+function TripCard({ trip, index, previewCount = 8 }) {
+  const preview = trip.cities.slice(0, previewCount);
+  const extra = trip.cities.length - preview.length;
 
   return (
     <Link href={getTripHref(index)} className="app-card trip-card">
@@ -319,7 +339,7 @@ function TripCard({ trip, index }) {
           </span>
         ))}
         {extra > 0 && (
-          <span className="app-route-city-wrap">
+          <span className="app-route-city-wrap app-route-city-wrap--extra">
             <span className="app-route-city--extra">+{extra} more</span>
           </span>
         )}
@@ -604,6 +624,8 @@ function BackpackingSection() {
 
 export default function App() {
   const route = useCurrentRoute();
+  const isMobile = useMediaQuery("(max-width: 639px)");
+  const tripCardPreviewCount = isMobile ? 3 : 8;
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -704,6 +726,7 @@ export default function App() {
             key={i}
             trip={trip}
             index={i}
+            previewCount={tripCardPreviewCount}
           />
         ))}
       </div>
