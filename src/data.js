@@ -7274,12 +7274,12 @@ export default TRIPS;
 
 export const BACKPACKING_101 = [
   {
-    title: "Stuff you will need",
+    title: "Stuff",
     tips: [
-      "100L rucksack + 20-30L foldable daypack + hard case for laptop and tablet",
-      "Packing pouches to keep clothes sorted, power bank with a USB-C cable, and a combination padlock.",
-      "Basic medicines: Montelukast, Levocetirizine, Ibuprofen, PCM and ORS",
-      "1 pair of shoes, 1 pair of sandals, 2 sets of casual clothes, 1 set of formal clothes, and a packable blanket.",
+      "A 100L rucksack, a 20-30L foldable daypack, and a hard case for your laptop and tablet.",
+      "Packing pouches to keep clothes sorted, a power bank with a USB-C cable, and a combination padlock.",
+      "Basic medicines: Montelukast, Levocetirizine, Ibuprofen, PCM, and ORS.",
+      "One pair of shoes, one pair of sandals, two sets of casual clothes, one set of formal clothes, and a packable blanket.",
     ],
   },
   {
@@ -7287,26 +7287,26 @@ export const BACKPACKING_101 = [
     tips: [
       "When travelling solo, skip budget hotels and try hostels and homestays.",
       "Hostels for metros, homestays for coastal towns and mountains.",
-      "Confirm check-in/check-out time before you travel.",
+      "Confirm check-in and check-out time before you travel.",
       "Save offline maps, tickets, and bookings before any travel day.",
     ],
   },
   {
     title: "Travel",
     tips: [
-      "Take overnight trains/buses: saves a day of travel and a night's accommodation.",
+      "Take overnight trains or buses, saves a day of travel and a night's accommodation.",
       "Travel overnight or leave very early. Avoid wasting a full day just getting somewhere.",
       "Carry snacks, water, cash, and a rain jacket.",
-      "Ask your host or locals for the best route to your next stop, usually better than Google Maps.",
-      "100 km in the mountains >= 200 km in plains. Plan by hours, not distance.",
+      "Ask your host or locals for the best route to your next stop.",
+      "100 km in the mountains >= 200 km on the plains. Plan by hours, not distance.",
     ],
   },
   {
     title: "Hacks",
     tips: [
-      "Do laundry two days before you move, not on the last day.",
+      "Do your laundry two days before you move, not on the last day.",
       "Never trust someone you just met, especially with your valuables.",
-      "Visit palaces, forts, and museums on weekends, temples and shrines on weekdays.",
+      "Visit palaces, forts, and museums on weekends, and temples and shrines on weekdays.",
       "Split cash across wallet, backpack, and phone cover — never keep it all together.",
     ],
   },

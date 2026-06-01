@@ -287,10 +287,15 @@ function formatDuration(days) {
 function DetailColumn({ city, cityIndex, total, onOpenMap }) {
   const [visible, setVisible] = useState(true);
   const [displayed, setDisplayed] = useState({ city, cityIndex });
+  const scrollRef = useRef(null);
 
   useEffect(() => {
     const hide = setTimeout(() => setVisible(false), 0);
-    const show = setTimeout(() => { setDisplayed({ city, cityIndex }); setVisible(true); }, 150);
+    const show = setTimeout(() => {
+      setDisplayed({ city, cityIndex });
+      scrollRef.current?.scrollTo({ top: 0 });
+      setVisible(true);
+    }, 150);
     return () => { clearTimeout(hide); clearTimeout(show); };
   }, [city, cityIndex]);
 
@@ -301,7 +306,7 @@ function DetailColumn({ city, cityIndex, total, onOpenMap }) {
     : [];
 
   return (
-    <div data-detail-scroll="" className="td-detail-scroll" style={{ opacity: visible ? 1 : 0 }}>
+    <div ref={scrollRef} data-detail-scroll="" className="td-detail-scroll" style={{ opacity: visible ? 1 : 0 }}>
       <div className="td-detail-inner">
 
         {onOpenMap && (
@@ -605,15 +610,26 @@ export default function TripDetails({ trip, index, initialCityIndex = 0, onBack,
     let swipeStart = null;
     const onPointerDown = (e) => {
       if (e.button !== undefined && e.button !== 0) return;
-      swipeStart = { x: e.clientX, y: e.clientY, t: Date.now() };
+      swipeStart = {
+        x: e.clientX,
+        y: e.clientY,
+        t: Date.now(),
+        inCityMap: Boolean(e.target.closest?.('.td-map-modal, .td-map-column')),
+      };
     };
     const onPointerUp = (e) => {
       if (!swipeStart) return;
       const dx = e.clientX - swipeStart.x;
       const dy = e.clientY - swipeStart.y;
       const dt = Date.now() - swipeStart.t;
+      const inCityMap = swipeStart.inCityMap;
       swipeStart = null;
       if (dt < 500 && Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 2) {
+        if (inCityMap) {
+          advance(dx > 0 ? -1 : 1);
+          return;
+        }
+
         dx > 0 ? prevTripRef.current() : nextTripRef.current();
       }
     };
