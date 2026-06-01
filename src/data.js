@@ -4293,7 +4293,7 @@ export const CITIES = {
     "lng": 75.19684,
     "state": "jammu_kashmir",
     "region": "northern",
-    "category": [],
+    "category": ["in_transit", "mountains"],
     "must_visit": [
       "Banihal Railway Station (highest broad-gauge section)",
       "Patnitop Hill Station",
