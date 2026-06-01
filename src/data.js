@@ -7276,56 +7276,38 @@ export const BACKPACKING_101 = [
   {
     title: "Stuff you will need",
     tips: [
-      "100L rucksack bag + 20-30L foldable bags",
-      "Packing cubes or pouches to separate clothes, cables, and toiletries.",
-      "Basic medicines, reusable water bottle, and a rain cover.",
-      "Power bank, 4m usb-c cable, wired earphones",
-      "A small padlock for lockers, and a cheap but sturdy money belt.",
+      "100L rucksack + 20-30L foldable daypack + hard case for laptop and tablet",
+      "Packing pouches to keep clothes sorted, power bank with a USB-C cable, and a combination padlock.",
+      "Basic medicines: Montelukast, Levocetirizine, Ibuprofen, PCM and ORS",
+      "1 pair of shoes, 1 pair of sandals, 2 sets of casual clothes, 1 set of formal clothes, and a packable blanket.",
     ],
   },
   {
     title: "Stay",
     tips: [
-      "Book the first night in advance — never arrive in a new city without a confirmed bed.",
-      "Hostels for social energy, guesthouses for quiet — pick based on what you need that week.",
-      "Check checkout time before sleeping. Delayed checkouts are usually easy to negotiate the night before.",
-      "Keep the property address saved offline and in the local language.",
+      "When travelling solo, skip budget hotels and try hostels and homestays.",
+      "Hostels for metros, homestays for coastal towns and mountains.",
+      "Confirm check-in/check-out time before you travel.",
+      "Save offline maps, tickets, and bookings before any travel day.",
     ],
   },
   {
     title: "Travel",
     tips: [
-      "Overnight trains between cities save a night's accommodation and travel time.",
-      "Book sleeper class early — side lower fills fast on popular routes.",
-      "Carry snacks, a water bottle, and a light jacket for long journeys.",
-      "Keep one accessible fresh set of clothes for delayed arrivals or missed connections.",
-    ],
-  },
-  {
-    title: "Budgeting",
-    tips: [
-      "Split cash across wallet, backpack, and phone cover — never keep it all together.",
-      "Small notes matter: buses, autos, tea stalls, and cloakrooms rarely give change.",
-      "Keep one backup card physically separate from your daily card.",
-      "Track spending city by city — patterns show where money leaks.",
+      "Take overnight trains/buses: saves a day of travel and a night's accommodation.",
+      "Travel overnight or leave very early. Avoid wasting a full day just getting somewhere.",
+      "Carry snacks, water, cash, and a rain jacket.",
+      "Ask your host or locals for the best route to your next stop, usually better than Google Maps.",
+      "100 km in the mountains >= 200 km in plains. Plan by hours, not distance.",
     ],
   },
   {
     title: "Hacks",
     tips: [
-      "Do laundry the day before you move, not the day you arrive tired.",
-      "A sleep kit for trains — earplugs, eye mask, light blanket — makes overnight travel actually restful.",
-      "Extension board for awkward plug points in hostels, hotels, and cafes.",
-      "Save offline maps, tickets, and bookings before any travel day.",
-    ],
-  },
-  {
-    title: "No No No",
-    tips: [
-      "Never share your location or travel plan with someone you just met.",
-      "Avoid unlicensed taxis at night — use apps or ask the hotel to arrange.",
-      "If a place feels off, leave. Trust that instinct without needing to explain it.",
-      "Keep emergency contacts and a copy of your ID in a separate bag.",
+      "Do laundry two days before you move, not on the last day.",
+      "Never trust someone you just met, especially with your valuables.",
+      "Visit palaces, forts, and museums on weekends, temples and shrines on weekdays.",
+      "Split cash across wallet, backpack, and phone cover — never keep it all together.",
     ],
   },
 ];
