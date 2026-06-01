@@ -626,6 +626,7 @@ export default function App() {
   const route = useCurrentRoute();
   const isMobile = useMediaQuery("(max-width: 639px)");
   const tripCardPreviewCount = isMobile ? 3 : 8;
+  const allCityCodes = sortCityCodes(Object.keys(CITIES));
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -753,6 +754,8 @@ export default function App() {
           </div>
         ))}
       </section>
+
+      <CitiesMap cityCodes={allCityCodes} label="Map of all destinations" />
 
       <footer className="app-footer">
         made by{' '}

@@ -563,12 +563,13 @@
 }
 
 .app-footer-link {
-  color: var(--color-faint);
+  color: var(--color-text);
+  font-weight: 650;
   text-decoration: none;
 }
 
 .app-footer-link:hover {
-  color: var(--color-gold);
+  color: var(--color-text);
 }
 
 /* ── Mobile ── */

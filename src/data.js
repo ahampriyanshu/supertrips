@@ -162,7 +162,7 @@ export const RAW_TRIPS = [
     "distanceKm": 1367
   },
   {
-    "name": "Thar, Deccan & Alleppey",
+    "name": "Thar, Deccan & Cochin",
     "cities": [
       {
         "code": "gurugram",
@@ -268,7 +268,7 @@ export const RAW_TRIPS = [
     "distanceKm": 6305
   },
   {
-    "name": "Wayanad, Northeast & Sikkim",
+    "name": "Malabar, Northeast & Sikkim",
     "cities": [
       {
         "code": "gurugram",
@@ -452,7 +452,7 @@ export const RAW_TRIPS = [
     "distanceKm": 7065
   },
   {
-    "name": "Bundelkhand, Puravanchal & Malabar",
+    "name": "Bundelkhand, Puravanchal & Travancore",
     "cities": [
       {
         "code": "gurugram",
@@ -7278,7 +7278,7 @@ export const BACKPACKING_101 = [
     tips: [
       "A 100L rucksack, a 20-30L foldable daypack, and a hard case for your laptop and tablet.",
       "Packing pouches to keep clothes sorted, a power bank with a USB-C cable, and a combination padlock.",
-      "Basic medicines: Montelukast, Levocetirizine, Ibuprofen, PCM, and ORS.",
+      "Montelukast, Levocetirizine, Ibuprofen, PCM, and ORS.",
       "One pair of shoes, one pair of sandals, two sets of casual clothes, one set of formal clothes, and a packable blanket.",
     ],
   },

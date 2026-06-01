@@ -494,11 +494,15 @@
   flex-shrink: 0;
 }
 
-.td-map-modal-city {
+.td-map-modal-title {
   font-family: Georgia, serif;
   font-size: 1rem;
   font-weight: 700;
   color: var(--td-ink);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .td-map-modal-close {
@@ -530,12 +534,46 @@
 
 .td-map-modal-footer {
   padding: 0.6rem 1rem;
-  font-size: 11px;
-  color: var(--td-muted);
-  text-align: center;
   border-top: 1px solid var(--td-border);
   flex-shrink: 0;
-  letter-spacing: 0.2px;
+  display: grid;
+  grid-template-columns: 32px 1fr 32px;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.td-map-modal-city {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
+  font-family: Georgia, serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--td-ink);
+}
+
+.td-map-modal-nav {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--td-border);
+  border-radius: 50%;
+  background: var(--td-card);
+  color: var(--td-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.td-map-modal-nav:disabled {
+  cursor: default;
+  opacity: 0.3;
+}
+
+.td-map-modal-nav:not(:disabled):hover {
+  border-color: var(--td-gold);
 }
 
 /* ── Responsive visibility ── */

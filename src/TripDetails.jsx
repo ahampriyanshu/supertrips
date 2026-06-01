@@ -247,11 +247,24 @@ function MapColumn({ cities = [], positions, activePosition }) {
   );
 }
 
-function MapModal({ cities = [], positions, activePosition, cityName, onClose }) {
+function MapModal({
+  cities = [],
+  positions,
+  activePosition,
+  title,
+  cityName,
+  currentIndex,
+  onPrevCity,
+  onNextCity,
+  onClose,
+}) {
+  const canGoPrev = currentIndex > 0;
+  const canGoNext = currentIndex < cities.length - 1;
+
   return (
     <div className="td-map-modal">
       <div className="td-map-modal-header">
-        <span className="td-map-modal-city">{cityName}</span>
+        <span className="td-map-modal-title">{title}</span>
         <button className="td-map-modal-close" onClick={onClose}>
           <svg width="14" height="14" viewBox="0 0 20 20" fill="none">
             <path d="M15 5L5 15M5 5l10 10" stroke="#1a1208" strokeWidth="2" strokeLinecap="round"/>
@@ -262,7 +275,27 @@ function MapModal({ cities = [], positions, activePosition, cityName, onClose })
         <LeafletMap cities={cities} positions={positions} activePosition={activePosition} />
       </div>
       <div className="td-map-modal-footer">
-        ← → to navigate between cities
+        <button
+          className="td-map-modal-nav"
+          onClick={onPrevCity}
+          disabled={!canGoPrev}
+          aria-label="Previous city"
+        >
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M10 12L6 8L10 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+        <span className="td-map-modal-city">{cityName}</span>
+        <button
+          className="td-map-modal-nav"
+          onClick={onNextCity}
+          disabled={!canGoNext}
+          aria-label="Next city"
+        >
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M6 4L10 8L6 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
       </div>
     </div>
   );
@@ -540,6 +573,13 @@ export default function TripDetails({ trip, index, initialCityIndex = 0, onBack,
     setCurrentIndex(next);
   }, [cities.length]);
 
+  const moveCity = useCallback((dir) => {
+    const next = currentIndexRef.current + dir;
+    if (next < 0 || next >= cities.length) return;
+    currentIndexRef.current = next;
+    setCurrentIndex(next);
+  }, [cities.length]);
+
   useEffect(() => {
     let acc = 0;
     let idleTimer = null;
@@ -614,7 +654,8 @@ export default function TripDetails({ trip, index, initialCityIndex = 0, onBack,
         x: e.clientX,
         y: e.clientY,
         t: Date.now(),
-        inCityMap: Boolean(e.target.closest?.('.td-map-modal, .td-map-column')),
+        inMapModal: Boolean(e.target.closest?.('.td-map-modal')),
+        inDesktopMap: Boolean(e.target.closest?.('.td-map-column')),
       };
     };
     const onPointerUp = (e) => {
@@ -622,10 +663,15 @@ export default function TripDetails({ trip, index, initialCityIndex = 0, onBack,
       const dx = e.clientX - swipeStart.x;
       const dy = e.clientY - swipeStart.y;
       const dt = Date.now() - swipeStart.t;
-      const inCityMap = swipeStart.inCityMap;
+      const inMapModal = swipeStart.inMapModal;
+      const inDesktopMap = swipeStart.inDesktopMap;
       swipeStart = null;
       if (dt < 500 && Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 2) {
-        if (inCityMap) {
+        if (inMapModal) {
+          return;
+        }
+
+        if (inDesktopMap) {
           advance(dx > 0 ? -1 : 1);
           return;
         }
@@ -735,7 +781,11 @@ export default function TripDetails({ trip, index, initialCityIndex = 0, onBack,
           cities={cities}
           positions={cities.filter(c => c.lat && c.lng).map(c => [c.lat, c.lng])}
           activePosition={activeCity?.lat && activeCity?.lng ? [activeCity.lat, activeCity.lng] : null}
+          title={trip.name}
           cityName={activeCity?.city}
+          currentIndex={currentIndex}
+          onPrevCity={() => moveCity(-1)}
+          onNextCity={() => moveCity(1)}
           onClose={() => setMapOpen(false)}
         />
       )}
