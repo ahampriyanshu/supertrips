@@ -1093,21 +1093,15 @@ export const CITIES = {
     "region": "northern",
     "category": [
       "metro",
-      "base_camp"
+      "in_transit"
     ],
     "must_visit": [
       "Worlds of Wonder",
       "Botanical Garden",
       "Okhla Bird Sanctuary",
-      "Great India Place Mall",
-      "Sector 18 Market"
     ],
     "must_try": [
-      "UP-style kachori sabzi",
-      "Kulfi from Sector 18 stalls",
-      "Chaat at Atta Market",
-      "Street momos near Film City",
-      "Imarti and jalebi at Old Noida sweet shops"
+      "Kulfi from Sector 18 market",
     ],
     "accommodation": [
       "zostel",
@@ -1847,9 +1841,9 @@ export const CITIES = {
     "lng": 75.2005,
     "state": "jammu_kashmir",
     "region": "northern",
-    "category": [],
+    "category": ["scenic", "in_transit"],
     "must_visit": [
-      "Banihal Tunnel (Jawahar Tunnel) entrance",
+      "Banihal Tunnel",
       "Banihal Pass viewpoint",
       "Qazigund railway station",
       "Himalayan landscapes along NH44",

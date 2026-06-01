@@ -563,13 +563,13 @@
 }
 
 .app-footer-link {
-  color: var(--color-text);
-  font-weight: 650;
+  color: inherit;
+  font-weight: 600;
   text-decoration: none;
 }
 
 .app-footer-link:hover {
-  color: var(--color-text);
+  color: var(--color-muted);
 }
 
 /* ── Mobile ── */
