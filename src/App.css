@@ -25,7 +25,7 @@
 
 /* ─── Root ─────────────────────────────────────────────────── */
 .app-root {
-  font-family: 'DM Sans', 'Segoe UI', sans-serif;
+  font-family: var(--font-body);
   background: var(--color-bg);
   color: var(--color-text);
   min-height: 100vh;
@@ -64,7 +64,7 @@
 }
 
 .app-hero-title {
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-brand);
   font-size: clamp(2.4rem, 6vw, 3.8rem);
   line-height: 1.1;
   margin-bottom: 1rem;
@@ -72,7 +72,7 @@
 }
 
 .app-hero-title-em {
-  font-style: italic;
+  font-style: normal;
   color: var(--color-gold);
 }
 
@@ -91,7 +91,7 @@
 }
 
 .app-hero-stat-n {
-  font-family: Georgia, serif;
+  font-family: var(--font-body);
   font-size: 2rem;
   color: var(--color-gold);
   line-height: 1;
@@ -179,7 +179,7 @@
 .app-map-popup .leaflet-popup-content {
   width: 230px;
   margin: 12px;
-  font-family: 'DM Sans', 'Segoe UI', sans-serif;
+  font-family: var(--font-body);
 }
 
 .app-map-popup .leaflet-popup-tip {
@@ -194,7 +194,7 @@
 }
 
 .app-map-popup-title {
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-brand);
   font-size: 1.05rem;
   font-weight: 700;
   line-height: 1.15;
@@ -220,6 +220,16 @@
   letter-spacing: 0.8px;
   text-transform: uppercase;
   color: var(--color-faint);
+}
+
+.app-map-popup-meta a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.app-map-popup-meta a:hover {
+  color: var(--color-gold);
+  text-decoration: underline;
 }
 
 .app-map-popup-group {
@@ -289,9 +299,9 @@
 }
 
 .app-trip-num {
-  font-family: Georgia, serif;
+  font-family: var(--font-body);
   font-size: 1.6rem;
-  font-style: italic;
+  font-style: normal;
   color: var(--color-gold);
   opacity: 0.5;
   min-width: 36px;
@@ -303,8 +313,8 @@
 }
 
 .app-trip-name {
-  font-family: Georgia, serif;
-  font-size: 1rem;
+  font-family: var(--font-brand);
+  font-size: 1.2rem;
   font-weight: 700;
 }
 
@@ -361,7 +371,7 @@
 }
 
 .app-backpacking-title {
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-body);
   font-size: clamp(1.8rem, 4vw, 2.5rem);
   line-height: 1.1;
   margin: 0 0 0.75rem;
@@ -390,7 +400,7 @@
 }
 
 .app-backpacking-card-title {
-  font-family: Georgia, serif;
+  font-family: var(--font-body);
   font-size: 1rem;
   font-weight: 700;
   color: var(--color-text);
@@ -413,7 +423,7 @@
 }
 
 .app-directory-title {
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-body);
   font-size: clamp(1.8rem, 4vw, 2.5rem);
   line-height: 1.1;
   margin: 0 0 0.75rem;
@@ -434,7 +444,7 @@
 }
 
 .app-directory-group-title {
-  font-family: Georgia, serif;
+  font-family: var(--font-body);
   font-size: 1.1rem;
   font-weight: 700;
   margin-bottom: 4px;
@@ -480,7 +490,7 @@
 }
 
 .app-index-heading {
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-body);
   font-size: 1.55rem;
   line-height: 1.2;
   margin: 0 0 1rem;
@@ -492,7 +502,7 @@
 }
 
 .app-index-subheading {
-  font-family: Georgia, serif;
+  font-family: var(--font-body);
   font-size: 1rem;
   margin: 1rem 0 0.45rem;
   color: var(--color-text);

@@ -192,6 +192,18 @@ function getStateLabel(stateCode) {
   return STATES[stateCode]?.label || formatParam(stateCode || "");
 }
 
+function getStateSlug(stateCode) {
+  return STATES[stateCode]?.slug || String(stateCode || "").replace(/_/g, "-");
+}
+
+function getRegionLabel(regionCode) {
+  return REGIONS[regionCode]?.label || formatParam(regionCode || "");
+}
+
+function getRegionSlug(regionCode) {
+  return REGIONS[regionCode]?.slug || String(regionCode || "").replace(/_/g, "-");
+}
+
 function getCategoryLabel(categoryCode) {
   return CATEGORIES[categoryCode]?.label || formatParam(categoryCode || "");
 }
@@ -270,7 +282,13 @@ function CitiesMap({ cityCodes, label = "Map of all cities" }) {
                       {city.city}
                     </Link>
                     <div className="app-map-popup-meta">
-                      {getStateLabel(city.state)} · {formatParam(city.region)}
+                      <Link href={`/cities#state-${getStateSlug(city.state)}`}>
+                        {getStateLabel(city.state)}
+                      </Link>
+                      <span> · </span>
+                      <Link href={`/cities#region-${getRegionSlug(city.region)}`}>
+                        {getRegionLabel(city.region)}
+                      </Link>
                     </div>
 
                     {categories.length > 0 && (

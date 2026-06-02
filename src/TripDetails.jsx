@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { CircleMarker, MapContainer, Polyline, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
-import { ACCOMMODATIONS, CITIES as CITIES_DATA, CATEGORIES } from './data.js';
+import { ACCOMMODATIONS, CITIES as CITIES_DATA, CATEGORIES, REGIONS, STATES } from './data.js';
 import './TripDetails.css';
 import MapTileLayer from './components/MapTileLayer.jsx';
 import { navigateTo } from './nav.js';
@@ -23,6 +23,22 @@ function fmt(s) {
 
 function formatAccommodation(value) {
   return ACCOMMODATIONS[value]?.label || fmt(value);
+}
+
+function getStateLabel(value) {
+  return STATES[value]?.label || fmt(value);
+}
+
+function getStateSlug(value) {
+  return STATES[value]?.slug || String(value || '').replace(/_/g, '-');
+}
+
+function getRegionLabel(value) {
+  return REGIONS[value]?.label || fmt(value);
+}
+
+function getRegionSlug(value) {
+  return REGIONS[value]?.slug || String(value || '').replace(/_/g, '-');
 }
 
 function getAccommodationSlug(value) {
@@ -138,7 +154,13 @@ function StopPopup({ city }) {
 
       {data && (
         <div className="td-map-popup-meta">
-          {fmt(data.state)} · {fmt(data.region)}
+          <MapPopupLink href={`/cities#state-${getStateSlug(data.state)}`}>
+            {getStateLabel(data.state)}
+          </MapPopupLink>
+          <span> · </span>
+          <MapPopupLink href={`/cities#region-${getRegionSlug(data.region)}`}>
+            {getRegionLabel(data.region)}
+          </MapPopupLink>
         </div>
       )}
 
@@ -487,8 +509,8 @@ function FooterTape({ cities, currentIndex, onPrev, onNext }) {
                 style={{
                   fontSize: isActive ? 22 : dist === 1 ? 14 : dist === 2 ? 11 : 9,
                   fontWeight: isActive ? 700 : 400,
-                  fontFamily: isActive ? "Georgia, 'Times New Roman', serif" : 'inherit',
-                  fontStyle: isActive ? 'italic' : 'normal',
+                  fontFamily: 'var(--font-brand)',
+                  fontStyle: 'normal',
                   color: isActive ? '#c9962a' : '#f5f0e8',
                   opacity: isActive ? 1 : dist === 1 ? 0.5 : dist === 2 ? 0.28 : 0.1,
                   letterSpacing: isActive ? 0.2 : 0.1,

@@ -4,13 +4,18 @@
   padding: 0;
 }
 
+:root {
+  --font-brand: 'Lobster Two', cursive;
+  --font-body: 'Poppins', 'Segoe UI', sans-serif;
+}
+
 ::selection {
   background: #c9962a;
   color: #1a1208;
 }
 
 body {
-  font-family: 'DM Sans', 'Segoe UI', sans-serif;
+  font-family: var(--font-body);
   background-color: #f5f0e8;
   color: #1a1208;
   line-height: 1.6;
