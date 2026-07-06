@@ -4,6 +4,54 @@
   padding: 0;
 }
 
+@font-face {
+  font-family: 'Lobster Two';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('/fonts/lobster-two-400-latin.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Lobster Two';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url('/fonts/lobster-two-700-latin.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('/fonts/poppins-400-latin.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+  src: url('/fonts/poppins-500-latin.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: block;
+  src: url('/fonts/poppins-600-latin.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url('/fonts/poppins-700-latin.woff2') format('woff2');
+}
+
 :root {
   --font-brand: 'Lobster Two', cursive;
   --font-body: 'Poppins', 'Segoe UI', sans-serif;
