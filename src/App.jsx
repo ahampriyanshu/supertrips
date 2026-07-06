@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react";
-import { CircleMarker, MapContainer, Popup } from "react-leaflet";
+import { lazy, Suspense, useEffect, useState, useSyncExternalStore } from "react";
 import "./App.css";
 
 import TripDetails, { CityDetails } from "./TripDetails";
 import { ACCOMMODATIONS, BACKPACKING_101, CATEGORIES, CITIES, REGIONS, STATES, TRIPS } from "./data.js";
-import MapTileLayer from "./components/MapTileLayer.jsx";
 import { navigateTo } from "./nav.js";
 
+const CitiesLeafletMap = lazy(() => import("./components/CitiesLeafletMap.jsx"));
 
 const totalCities = new Set(TRIPS.flatMap(t => t.cities.map(c => c.city))).size;
 const totalStops = TRIPS.reduce((a, t) => a + t.cities.length, 0);
@@ -78,6 +77,14 @@ function getCurrentRoute() {
   };
 }
 
+function getInitialRoute(path, hash = "", state = null) {
+  return {
+    ...parseRoute(path || "/"),
+    hash,
+    state,
+  };
+}
+
 function parseRoute(pathname) {
   const parts = pathname.split("/").filter(Boolean).map(decodeURIComponent);
 
@@ -113,8 +120,8 @@ function parseRoute(pathname) {
   return { name: "not-found", path: pathname };
 }
 
-function useCurrentRoute() {
-  const [route, setRoute] = useState(getCurrentRoute);
+function useCurrentRoute(initialRoute) {
+  const [route, setRoute] = useState(() => initialRoute || getCurrentRoute());
 
   useEffect(() => {
     const onPopState = () => setRoute(getCurrentRoute());
@@ -129,24 +136,15 @@ function useCurrentRoute() {
   return route;
 }
 
-function useMediaQuery(query) {
-  const [matches, setMatches] = useState(() => (
-    typeof window !== "undefined" ? window.matchMedia(query).matches : false
-  ));
-
-  useEffect(() => {
-    if (typeof window === "undefined") return undefined;
-
-    const mediaQuery = window.matchMedia(query);
-    const handleChange = () => setMatches(mediaQuery.matches);
-
-    handleChange();
-    mediaQuery.addEventListener("change", handleChange);
-
-    return () => mediaQuery.removeEventListener("change", handleChange);
-  }, [query]);
-
-  return matches;
+function useClientReady() {
+  return useSyncExternalStore(
+    (onStoreChange) => {
+      const frame = requestAnimationFrame(onStoreChange);
+      return () => cancelAnimationFrame(frame);
+    },
+    () => true,
+    () => false
+  );
 }
 
 function Link({ href, className, children, ...props }) {
@@ -192,28 +190,8 @@ function getStateLabel(stateCode) {
   return STATES[stateCode]?.label || formatParam(stateCode || "");
 }
 
-function getStateSlug(stateCode) {
-  return STATES[stateCode]?.slug || String(stateCode || "").replace(/_/g, "-");
-}
-
-function getRegionLabel(regionCode) {
-  return REGIONS[regionCode]?.label || formatParam(regionCode || "");
-}
-
-function getRegionSlug(regionCode) {
-  return REGIONS[regionCode]?.slug || String(regionCode || "").replace(/_/g, "-");
-}
-
 function getCategoryLabel(categoryCode) {
   return CATEGORIES[categoryCode]?.label || formatParam(categoryCode || "");
-}
-
-function getAccommodationLabel(accommodationCode) {
-  return ACCOMMODATIONS[accommodationCode]?.label || formatParam(accommodationCode || "");
-}
-
-function getAccommodationSlug(accommodationCode) {
-  return ACCOMMODATIONS[accommodationCode]?.slug || String(accommodationCode || "").replace(/_/g, "-");
 }
 
 function normalizeList(value) {
@@ -240,15 +218,8 @@ function getCityPosition(city) {
   return [lat, lng];
 }
 
-const cityMapMarkerOptions = {
-  color: "#1a1208",
-  fillColor: "#c9962a",
-  fillOpacity: 0.82,
-  opacity: 0.9,
-  weight: 1.2,
-};
-
 function CitiesMap({ cityCodes, label = "Map of all cities" }) {
+  const isClientReady = useClientReady();
   const cities = cityCodes
     .map(cityCode => ({ cityCode, city: CITIES[cityCode], position: getCityPosition(CITIES[cityCode]) }))
     .filter(item => item.city && item.position);
@@ -256,83 +227,20 @@ function CitiesMap({ cityCodes, label = "Map of all cities" }) {
   return (
     <section className="app-cities-map-section" aria-label={label}>
       <div className="app-cities-map-frame td-map-frame">
-        <MapContainer
-          center={[22.4, 79.2]}
-          zoom={3.75}
-          scrollWheelZoom={false}
-          zoomControl={false}
-          style={{ height: "100%", width: "100%", background: "#eae8e0" }}
-        >
-          <MapTileLayer />
-
-          {cities.map(({ cityCode, city, position }) => {
-            const categories = normalizeList(city.category);
-            const accommodation = normalizeList(city.accommodation);
-
-            return (
-              <CircleMarker
-                key={cityCode}
-                center={position}
-                radius={5}
-                pathOptions={cityMapMarkerOptions}
-              >
-                <Popup className="app-map-popup" closeButton={false}>
-                  <div className="app-map-popup-inner">
-                    <Link href={`/cities/${cityCode}`} className="app-map-popup-title">
-                      {city.city}
-                    </Link>
-                    <div className="app-map-popup-meta">
-                      <Link href={`/cities#state-${getStateSlug(city.state)}`}>
-                        {getStateLabel(city.state)}
-                      </Link>
-                      <span> · </span>
-                      <Link href={`/cities#region-${getRegionSlug(city.region)}`}>
-                        {getRegionLabel(city.region)}
-                      </Link>
-                    </div>
-
-                    {categories.length > 0 && (
-                      <div className="app-map-popup-group">
-                        <div className="app-map-popup-label">Categories</div>
-                        <div className="app-map-popup-chips">
-                          {categories.map(category => (
-                            <Link
-                              key={category}
-                              href={`/categories#category-${CATEGORIES[category]?.slug || category}`}
-                              className="app-map-popup-chip"
-                            >
-                              {getCategoryLabel(category)}
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {accommodation.length > 0 && (
-                      <div className="app-map-popup-group">
-                        <div className="app-map-popup-label">Stay</div>
-                        <div className="app-map-popup-chips">
-                          {accommodation.map(stay => (
-                            <Link
-                              key={stay}
-                              href={`/stay#${getAccommodationSlug(stay)}`}
-                              className="app-map-popup-chip"
-                            >
-                              {getAccommodationLabel(stay)}
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </Popup>
-              </CircleMarker>
-            );
-          })}
-        </MapContainer>
+        {isClientReady ? (
+          <Suspense fallback={<MapPlaceholder />}>
+            <CitiesLeafletMap cities={cities} />
+          </Suspense>
+        ) : (
+          <MapPlaceholder />
+        )}
       </div>
     </section>
   );
+}
+
+function MapPlaceholder() {
+  return <div className="app-map-placeholder" aria-hidden="true" />;
 }
 
 function TripCard({ trip, index, previewCount = 8 }) {
@@ -640,10 +548,11 @@ function BackpackingSection() {
   );
 }
 
-export default function App() {
-  const route = useCurrentRoute();
-  const isMobile = useMediaQuery("(max-width: 639px)");
-  const tripCardPreviewCount = isMobile ? 3 : 8;
+export default function App({ initialPath, initialHash = "", initialState = null } = {}) {
+  const route = useCurrentRoute(
+    initialPath ? getInitialRoute(initialPath, initialHash, initialState) : null
+  );
+  const tripCardPreviewCount = 8;
   const allCityCodes = sortCityCodes(Object.keys(CITIES));
 
   useEffect(() => {
