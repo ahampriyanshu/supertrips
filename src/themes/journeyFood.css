@@ -1,0 +1,64 @@
+.journey-food { margin: 0; color: #79634e; }
+.journey-food svg { display: block; width: 100%; height: auto; }
+.journey-food .food-shadow { fill: #756b51; fill-opacity: .09; stroke: none; }
+.journey-food .food-ceramic { fill: #f7f2e6; stroke: #9b9a87; }
+.journey-food .food-steel { fill: #dce0d7; stroke: #7c8a81; }
+.journey-food .food-clay { fill: #c39479; stroke: #896653; }
+.journey-food .food-cloth { fill: #b6b29a; fill-opacity: .22; stroke: none; }
+.journey-food .food-paper { fill: #f6efdf; stroke: #c5bca5; }
+.journey-food .food-bread { fill: #e6c793; stroke: #a08055; }
+.journey-food .food-toast { fill: #bd8851; fill-opacity: .45; stroke: none; }
+.journey-food .food-cream { fill: #faf3dc; stroke: #baad8e; }
+.journey-food .food-rice { fill: #ead8a9; stroke: #bda477; }
+.journey-food .food-coconut-band { fill: #fbf6e5; stroke: #c5bca1; stroke-width: 1; }
+.journey-food .food-appam-centre { fill: #fff8e5; stroke: #ddd1ac; stroke-width: 1; }
+.journey-food .food-pore { fill: #c8b68c; fill-opacity: .5; stroke: none; }
+.journey-food .food-leaf { fill: #a5b191; stroke: #819376; }
+.journey-food .food-leaf-vein { stroke: #6d8766; stroke-opacity: .4; stroke-width: 1.3; }
+.journey-food .food-curry { fill: #bf8652; stroke: none; }
+.journey-food .food-brown-curry { fill: #9d7655; stroke: none; }
+.journey-food .food-chickpea { fill: #d7ac69; stroke: #ac7c43; stroke-width: 1; }
+.journey-food .food-chickpea-dark { fill: #795e43; stroke: #614c39; stroke-width: 1; }
+.journey-food .food-tea { fill: #9c6a45; stroke: #89613d; stroke-width: 1; }
+.journey-food .food-doi { fill: #e6c69c; stroke: #b98b65; stroke-width: 1; }
+.journey-food .food-potato { fill: #b57446; stroke: #9c623c; }
+.journey-food .food-vegetable { fill: #d2a06b; stroke: #b58456; stroke-width: 1; }
+.journey-food .food-banana { fill: #d8c46e; stroke: #aa9853; }
+.journey-food .food-chilli { fill: #bb7153; stroke: none; }
+.journey-food .food-chilli-green, .journey-food .food-herb { fill: #7e9365; stroke: #687b55; stroke-width: 1; }
+.journey-food .food-herb-line { stroke: #718257; stroke-width: 2.5; }
+.journey-food .food-spice { stroke: #795331; stroke-width: 2.2; }
+.journey-food .food-pomegranate { fill: #a65b50; stroke: #96534a; stroke-width: 1; }
+.journey-food .food-peanut { fill: #d4a578; stroke: #ac7d55; stroke-width: 1; }
+.journey-food .food-sev { stroke: #dfc781; stroke-width: 2.6; }
+.journey-food .food-chutney-line { stroke: #73905d; stroke-width: 4; }
+.journey-food .food-jalebi-outline { stroke: #b77a3f; stroke-width: 9; }
+.journey-food .food-jalebi { stroke: #d6a354; stroke-width: 5; }
+.journey-food .food-rice-grain { stroke: #fff3d2; stroke-width: 2.8; }
+.journey-food .food-saffron { stroke: #bc8949; stroke-width: 2.4; }
+.journey-food .food-onion { stroke: #946343; stroke-width: 2.6; }
+.journey-food .food-highlight, .journey-food .food-cream-line { stroke: #f8ebc8; stroke-width: 2; }
+.journey-food .food-fine { fill: none; stroke-width: 1.3; stroke-opacity: .5; }
+.journey-food .food-tray-inset { fill: #e8e9dc; stroke: #a2ac99; stroke-width: 1.4; }
+.journey-food .food-khandvi { fill: #dfbd62; stroke: #b09550; stroke-width: 1.6; }
+.journey-food .food-khandvi-face { fill: #efcf7a; stroke: #b09550; stroke-width: 1.6; }
+.journey-food .food-khandvi-fold { fill: none; stroke: #af914b; stroke-width: 1.7; }
+.journey-food .food-coconut { stroke: #fff7df; stroke-width: 3; }
+.journey-food .food-mustard { fill: #625b43; stroke: none; }
+.journey-food .food-earthen { fill: #68736b; stroke: #46584e; }
+.journey-food .food-pot-line { stroke: #a5ae9b; stroke-width: 1.5; stroke-opacity: .55; }
+.journey-food .food-broth { fill: #b6a071; stroke: #897e55; stroke-width: 1; }
+.journey-food .food-broth-light { stroke: #e3cc95; stroke-width: 2; }
+.journey-food .food-fermented-leaf { fill: #707653; stroke: #626646; stroke-width: 1; }
+.journey-food .food-leaf-stem { stroke: #a5a378; stroke-width: 1.5; }
+.journey-food .food-steamed-rice { fill: #f6f0dc; stroke: #bcb59c; stroke-width: 1.5; }
+.journey-food .food-rice-detail { stroke: #cfc5a8; stroke-width: 1.6; }
+.journey-food .food-wood { fill: #c7a57e; stroke: #9b7d5b; stroke-width: 1.5; }
+.journey-food .food-woven-line { stroke: #8a9380; stroke-width: 1.3; stroke-opacity: .25; }
+.journey-food .food-steam { stroke: #8b8976; stroke-width: 2; opacity: .38; }
+.journey-food .food-steam path { animation: food-steam-rise 5s ease-in-out infinite; }
+.journey-food .food-steam path:nth-child(2) { animation-delay: -2.5s; }
+@keyframes food-steam-rise {
+  0%, 100% { transform: translateY(2px); opacity: .35; }
+  50% { transform: translateY(-6px); opacity: .8; }
+}

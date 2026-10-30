@@ -1,0 +1,277 @@
+/* Place-page themes and shared city lettering, artwork and tags. */
+.td-themed {
+  isolation: isolate;
+  color: var(--td-ink);
+  transition: background-color var(--place-duration) var(--place-easing), color var(--place-duration) ease;
+}
+.td-themed .td-main { position: relative; z-index: 1; }
+.td-themed .td-topbar {
+  z-index: 2;
+  background: color-mix(in srgb, var(--td-paper) 94%, transparent);
+}
+.td-themed .td-map-column,
+.td-themed .td-detail-scroll { background: transparent; }
+.td-themed .td-detail-scroll { transition: opacity 150ms ease; }
+.td-themed .td-map-column { padding: 24px; }
+.td-themed .td-map-frame {
+  background: var(--td-paper);
+  border-color: var(--td-border-strong);
+  box-shadow: 0 5px 24px color-mix(in srgb, var(--td-ink) 5%, transparent);
+}
+.td-themed .leaflet-tile-pane { filter: saturate(.45); opacity: .86; }
+.td-themed .leaflet-interactive {
+  transition: fill var(--place-duration) ease, stroke var(--place-duration) ease;
+}
+.td-themed .td-topbar,
+.td-themed .td-footer-tape,
+.td-themed .td-map-frame,
+.td-themed .td-stay-facts,
+.td-themed .td-essentials,
+.td-themed .td-map-modal,
+.td-themed .td-icon-btn,
+.td-themed .td-map-popup .leaflet-popup-content-wrapper {
+  transition: color var(--place-duration) ease, background-color var(--place-duration) ease, border-color var(--place-duration) ease;
+}
+.td-themed .td-tape-fade-left,
+.td-themed .td-tape-fade-right { transition: background var(--place-duration) ease; }
+.td-themed .td-detail-inner { gap: 26px; padding-top: 22px; }
+.td-themed .td-city-title {
+  overflow-wrap: anywhere;
+}
+.td-themed .td-icon-btn:hover { background: var(--place-wash); }
+.td-themed .td-icon-btn-padded:hover { background: var(--td-dark-line); }
+.td-themed .td-footer-counter-total { color: color-mix(in srgb, var(--td-paper) 75%, var(--td-ink)); }
+.td-themed :is(button, a):focus-visible { outline-color: var(--td-accent); }
+.td-themed .td-footer-tape button:focus-visible { outline-color: var(--td-paper); }
+
+.place-toolbar { display: none; align-items: center; gap: 16px; min-height: 30px; }
+.place-heading { position: relative; }
+.td-city-title-row .place-native-name { max-width: 48%; padding-block: 0; }
+/* A second rendering of the English heading: quiet lettering on the paper,
+   with no badge, border or panel. Kept decorative for screen readers. */
+.place-native-name {
+  max-width: 70%;
+  padding-block: 6px;
+  color: var(--td-muted);
+  opacity: .62;
+  font-family: 'Noto Serif Devanagari', 'Devanagari Sangam MN', 'Kohinoor Devanagari', var(--font-brand);
+  font-size: clamp(26px, 2.8vw, 38px);
+  font-weight: 400;
+  line-height: 1.6;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+.place-native-name:lang(ta) { font-family: 'Noto Serif Tamil', 'Tamil MN', serif; }
+.place-native-name:lang(ml) { font-family: 'Noto Serif Malayalam', 'Malayalam MN', serif; }
+.place-native-name:lang(kn) { font-family: 'Noto Serif Kannada', 'Kannada MN', serif; }
+.place-native-name:lang(te) { font-family: 'Noto Serif Telugu', 'Telugu MN', serif; }
+.place-native-name:lang(gu) { font-family: 'Noto Serif Gujarati', 'Gujarati MT', serif; }
+.place-native-name:lang(pa) { font-family: 'Noto Serif Gurmukhi', 'Gurmukhi MN', serif; }
+.place-native-name:lang(bn), .place-native-name:lang(as) { font-family: 'Noto Serif Bengali', 'Bangla MN', serif; }
+.place-native-name:lang(or) { font-family: 'Noto Serif Oriya', 'Oriya MN', serif; }
+.place-native-name:lang(bo), .place-native-name:lang(lbj) { font-family: 'Noto Serif Tibetan', 'Kailasa', serif; }
+.place-native-name:lang(ur), .place-native-name:lang(ks) { font-family: 'Noto Nastaliq Urdu', 'Geeza Pro', serif; line-height: 1.9; }
+.place-native-name:lang(kha), .place-native-name:lang(nag), .place-native-name:lang(njm) { font-family: var(--font-brand); font-style: italic; }
+.place-tags { display: flex; flex-wrap: wrap; gap: 8px 10px; margin-top: -8px; list-style: none; }
+.place-tag { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; color: var(--td-accent); text-decoration: none; }
+.place-tag svg { width: 26px; height: 26px; flex-shrink: 0; }
+a.place-tag:hover { color: var(--td-ink); }
+.place-postcard { margin: -10px -4px -8px; animation: place-arrive var(--place-duration) var(--place-easing) both; }
+.place-drawing { display: block; width: 100%; max-height: 175px; color: var(--td-accent); overflow: hidden; }
+.place-fill { fill: var(--place-wash); stroke: none; opacity: .65; }
+.place-fill-soft { fill: var(--place-secondary); stroke: none; opacity: .18; }
+.place-wave { animation: place-water 9s ease-in-out infinite alternate; }
+.place-boat { animation: place-bob 7s ease-in-out infinite alternate; }
+.place-dunes-back { animation: place-dune-drift 22s ease-in-out infinite alternate; }
+.place-dunes-front { animation: place-dune-drift 17s ease-in-out infinite alternate-reverse; }
+.place-mist { stroke: var(--td-card); stroke-width: 12; opacity: .48; animation: place-mist-drift 18s ease-in-out infinite alternate; }
+.place-tram { animation: place-tram-pass 24s ease-in-out infinite alternate; }
+.place-flame { fill: var(--td-accent); stroke: none; transform-origin: 50% 100%; animation: place-lamplight 4s ease-in-out infinite alternate; }
+.place-flags { transform-origin: 150px 70px; animation: place-flags-sway 7s ease-in-out infinite alternate; }
+.place-petal { animation: place-petal-float 13s ease-in-out infinite alternate; }
+.place-signal { stroke-dasharray: 8 12; animation: place-signal-travel 8s linear infinite; }
+.place-sun { animation: place-sun-glow 12s ease-in-out infinite alternate; }
+
+/* City-specific bookplates keep the buildings still; only the sky moves. */
+.place-postcard--landmarks { margin-inline: -8px; }
+.place-postcard--landmarks .place-drawing { max-height: 270px; }
+.place-stone { fill: var(--place-wash); fill-opacity: .55; }
+.place-stone-light { fill: var(--td-card); fill-opacity: .95; }
+.place-arch-shadow { fill: var(--td-accent); fill-opacity: .24; stroke: none; }
+.place-etch { stroke-width: .85; opacity: .65; }
+.place-ground { stroke-width: .9; opacity: .45; }
+.place-garden { fill: var(--place-secondary); fill-opacity: .24; stroke: none; }
+.place-garden-line { stroke: var(--place-secondary); stroke-width: 1.4; }
+.place-delhi-sun { fill: var(--place-wash); fill-opacity: .2; stroke: none; }
+.place-delhi-birds { stroke: var(--td-muted); animation: place-delhi-flight 24s ease-in-out infinite alternate; }
+.place-jaipur-hills { fill: var(--place-secondary); fill-opacity: .21; stroke: none; }
+.place-hill-contour { fill: none; stroke: var(--place-secondary); opacity: .5; }
+.place-jaigarh { stroke: var(--place-secondary); }
+.place-fort-stone { fill: color-mix(in srgb, var(--place-secondary) 38%, var(--td-card)); }
+.place-jharokha-face { fill: var(--place-wash); fill-opacity: .8; stroke-width: 1; }
+.place-jaali { stroke: var(--td-card); stroke-width: 1.2; }
+.place-jaipur-sun { fill: var(--place-secondary); fill-opacity: .18; stroke: none; }
+.place-jaipur-breeze { stroke: var(--place-secondary); opacity: .5; animation: place-jaipur-breeze 16s ease-in-out infinite alternate; }
+.place-jaipur-kite { transform-origin: 331px 90px; animation: place-jaipur-kite 9s ease-in-out infinite alternate; }
+
+.place-atmosphere {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+  contain: strict;
+}
+.place-atmosphere > span {
+  position: absolute;
+  top: -20px;
+  left: var(--particle-x);
+  width: var(--particle-size);
+  height: var(--particle-size);
+  background: var(--td-card);
+  border-radius: 50%;
+  opacity: 0;
+  animation: place-snowfall var(--particle-duration) linear var(--particle-delay) infinite;
+}
+.place-atmosphere--snow > span { box-shadow: 0 0 1px var(--place-secondary); }
+.place-atmosphere--rain > span {
+  height: 26px;
+  width: 1px;
+  border-radius: 0;
+  background: var(--place-secondary);
+  animation-name: place-rainfall;
+  animation-duration: 2.6s;
+}
+.place-atmosphere--petals > span {
+  width: 5px;
+  height: 8px;
+  border-radius: 70% 20% 70% 20%;
+  background: var(--place-secondary);
+  animation-name: place-petalfall;
+  animation-duration: 26s;
+}
+.place-atmosphere--sand > span {
+  width: 2px;
+  height: 2px;
+  background: var(--td-accent);
+  top: calc(var(--particle-x) * .8);
+  animation-name: place-sand-drift;
+  animation-duration: 19s;
+}
+
+@keyframes place-arrive { from { opacity: 0; } to { opacity: 1; } }
+@keyframes place-water { from { transform: translateX(-6px); } to { transform: translateX(8px); } }
+@keyframes place-bob { from { transform: translate(0, 0) rotate(-.3deg); } to { transform: translate(3px, 2px) rotate(.3deg); } }
+@keyframes place-dune-drift { from { transform: translateX(-14px); } to { transform: translateX(14px); } }
+@keyframes place-mist-drift { from { transform: translateX(-24px); opacity: .25; } to { transform: translateX(24px); opacity: .55; } }
+@keyframes place-tram-pass { from { transform: translateX(-28px); } to { transform: translateX(68px); } }
+@keyframes place-lamplight { from { opacity: .55; } to { opacity: 1; } }
+@keyframes place-flags-sway { from { transform: skewX(-3deg); } to { transform: skewX(4deg); } }
+@keyframes place-petal-float { from { transform: translate(-3px, -3px) rotate(-1deg); } to { transform: translate(8px, 6px) rotate(2deg); } }
+@keyframes place-signal-travel { to { stroke-dashoffset: -80; } }
+@keyframes place-sun-glow { from { opacity: .15; } to { opacity: .3; } }
+@keyframes place-delhi-flight { from { transform: translate(-7px, 2px); } to { transform: translate(15px, -4px); } }
+@keyframes place-jaipur-breeze { from { transform: translateX(-5px); opacity: .25; } to { transform: translateX(10px); opacity: .55; } }
+@keyframes place-jaipur-kite { from { transform: rotate(-5deg) translateY(0); } to { transform: rotate(4deg) translateY(-4px); } }
+@keyframes place-snowfall {
+  0% { transform: translate3d(0, 0, 0); opacity: 0; }
+  12% { opacity: .8; }
+  85% { opacity: .65; }
+  100% { transform: translate3d(var(--particle-drift), 102vh, 0); opacity: 0; }
+}
+@keyframes place-rainfall {
+  0% { transform: translate3d(0, 0, 0) rotate(12deg); opacity: 0; }
+  10%, 85% { opacity: .28; }
+  100% { transform: translate3d(-90px, 102vh, 0) rotate(12deg); opacity: 0; }
+}
+@keyframes place-petalfall {
+  0% { transform: translate3d(0, 0, 0) rotate(0); opacity: 0; }
+  20%, 75% { opacity: .28; }
+  100% { transform: translate3d(var(--particle-drift), 102vh, 0) rotate(260deg); opacity: 0; }
+}
+@keyframes place-sand-drift {
+  0% { transform: translate3d(-80px, 0, 0); opacity: 0; }
+  30%, 65% { opacity: .16; }
+  100% { transform: translate3d(180px, -50px, 0); opacity: 0; }
+}
+
+/* The device's reduced-motion preference also stops map and city transitions. */
+.td-themed[data-motion="paused"] *,
+.td-themed[data-motion="paused"] *::before,
+.td-themed[data-motion="paused"] *::after { animation-play-state: paused !important; transition: none !important; }
+.td-themed[data-motion="paused"] .place-postcard { animation: none; }
+.td-themed[data-motion="paused"] .place-atmosphere { display: none; }
+.td-themed[data-motion="paused"] { transition: none; }
+
+@media (max-width: 900px) {
+  .td-themed .td-map-column { width: 46%; padding: 16px; }
+  .td-themed .td-map-popup .leaflet-popup-content { max-width: calc(46vw - 130px); }
+  .td-themed .td-detail-inner { padding-inline: 24px; }
+}
+@media (max-width: 639px) {
+  .td-themed .td-detail-inner { padding: 16px 20px 40px; gap: 24px; }
+  .place-toolbar { display: flex; justify-content: space-between; }
+  .place-toolbar .td-map-widget { font-size: 11px; padding: 7px 9px; }
+  .td-themed .td-city-title { font-size: clamp(28px, 8.5vw, 40px); }
+  .td-city-title-row { gap: 12px; }
+  .place-native-name { font-size: clamp(16px, 5vw, 28px); max-width: 66%; }
+  .place-tags { gap: 6px 10px; }
+  .place-drawing { min-height: 100px; }
+  .place-postcard { margin-top: -4px; }
+  .place-atmosphere > span:nth-child(n+13) { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .td-themed, .td-themed *, .td-themed *::before, .td-themed *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .td-themed .place-atmosphere { display: none; }
+}
+
+/* Engraved linework, restrained local colour, and a little living scenery. */
+.art-ridge, .art-etch { stroke-width: 1; opacity: .44; fill: none; }
+.art-sun { fill: var(--place-wash); fill-opacity: .27; stroke: none; }
+.art-snowcap, .art-salt { fill: var(--td-card); stroke: none; }
+.art-water-fill { fill: var(--place-secondary); fill-opacity: .15; stroke: none; }
+.art-water { stroke: var(--place-secondary); stroke-width: 1; opacity: .6; }
+.art-arcade { fill: var(--td-card); fill-opacity: .5; stroke-width: 1.15; }
+.art-window { stroke: var(--td-accent); opacity: .6; stroke-width: 1; }
+.art-tree { stroke: var(--place-secondary); }
+.art-glass { fill: var(--place-secondary); fill-opacity: .2; }
+.art-gold, .art-golden-shrine .place-stone { fill: #c6a15b; fill-opacity: .6; }
+.art-reflection { stroke: var(--td-accent); opacity: .2; stroke-width: 3; animation: art-reflect 8s ease-in-out infinite alternate; }
+.art-tile-roof { fill: var(--place-wash); fill-opacity: .8; }
+.art-tile-band { stroke: var(--place-secondary); stroke-width: 5; opacity: .7; }
+.art-blossoms { fill: var(--td-accent); fill-opacity: .35; stroke: none; }
+.art-net { fill: var(--place-wash); fill-opacity: .13; stroke-width: .7; }
+.art-crop-row { stroke: var(--place-secondary); stroke-width: 1.2; opacity: .75; fill: none; }
+.art-coffee { stroke: var(--td-accent); }
+.art-coffee circle { fill: var(--td-accent); fill-opacity: .5; }
+.art-leaf { fill: var(--place-secondary); fill-opacity: .3; stroke: var(--place-secondary); }
+.art-tunnel, .art-cave { fill: var(--td-ink); fill-opacity: .18; }
+.art-chinar { fill: var(--place-wash); fill-opacity: .65; }
+.art-blue-house { fill: var(--place-wash); fill-opacity: .7; }
+.art-flamingos { stroke: var(--td-accent); stroke-width: 1.5; }
+.art-boat { transform-box: fill-box; transform-origin: center; animation: art-boat-bob 8s ease-in-out infinite alternate; }
+.art-birds { animation: place-delhi-flight 28s ease-in-out infinite alternate; opacity: .6; }
+.art-mist { stroke: var(--td-card); stroke-width: 9; opacity: .45; animation: place-mist-drift 18s ease-in-out infinite alternate; }
+.art-steam { stroke: var(--place-secondary); opacity: .45; animation: art-steam-rise 5s ease-out infinite; }
+.art-metro { animation: art-metro-glide 26s ease-in-out infinite alternate; }
+.art-gondola { animation: art-cable-glide 19s ease-in-out infinite alternate; }
+.art-paraglider { transform-origin: 360px 170px; animation: art-paraglider-sway 14s ease-in-out infinite alternate; }
+.art-falling-water { stroke: var(--td-card); stroke-width: 2.5; stroke-dasharray: 20 10; animation: art-water-fall 3s linear infinite; }
+.art-adiyogi-hair { fill: var(--td-ink); stroke: var(--td-ink); }
+.art-adiyogi-face { fill: color-mix(in srgb, var(--td-ink) 88%, var(--td-card)); stroke: var(--td-ink); }
+.art-adiyogi-line { stroke: var(--td-card); stroke-opacity: .65; stroke-width: 1.5; }
+.art-hair-lines { stroke-opacity: .23; }
+.art-adiyogi-mark, .art-adiyogi-moon { fill: var(--td-card); stroke: none; }
+.art-adiyogi-earring { stroke: #c4ab79; stroke-width: 3; }
+@keyframes art-reflect { from { opacity: .13; } to { opacity: .28; } }
+@keyframes art-boat-bob { from { transform: translateY(0) rotate(-.25deg); } to { transform: translateY(2px) rotate(.25deg); } }
+@keyframes art-steam-rise { from { transform: translate(0, 4px); opacity: 0; } 30% { opacity: .5; } to { transform: translate(-7px, -10px); opacity: 0; } }
+@keyframes art-metro-glide { from { transform: translateX(-30px); } to { transform: translateX(24px); } }
+@keyframes art-cable-glide { from { transform: translate(-8px, 1px); } to { transform: translate(8px, -1px); } }
+@keyframes art-paraglider-sway { from { transform: rotate(-3deg) translateX(-8px); } to { transform: rotate(3deg) translateX(8px); } }
+@keyframes art-water-fall { to { stroke-dashoffset: -90; } }
+.art-adiyogi-brow { fill: var(--td-ink); stroke: none; }

@@ -6,11 +6,16 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build && node scripts/generate-static.js",
+    "check:themes": "node scripts/check-city-themes.js",
+    "check:collection": "node scripts/check-city-collection.js",
+    "check:essentials": "node scripts/check-city-essentials.js",
     "check:ssg-shell": "node scripts/check-static-shell.js",
+    "check:trip-routes": "node scripts/check-trip-routes.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "check:artwork": "node scripts/check-city-artwork.js"
   },
   "dependencies": {
     "leaflet": "^1.9.4",

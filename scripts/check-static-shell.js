@@ -9,7 +9,8 @@ const html = await readFile(path.join(rootDir, 'dist', 'index.html'), 'utf8');
 
 assert.match(html, /<html[^>]*class="no-js"/, 'document starts in no-js mode');
 assert.match(html, /document\.documentElement\.classList\.replace\('no-js', 'js'\)/, 'document switches to js mode before paint');
-assert.match(html, /<div id="root">\s*<div class="app-root">/, 'static HTML contains the React app shell');
+// React may place image preload links before the app when rendering an <img>.
+assert.match(html, /<div id="root">\s*(?:<link\b[^>]*>\s*)*<div class="app-root(?: [^"]*)?">/, 'static HTML contains the React app shell');
 assert.doesNotMatch(html, /data-ssg-fallback/, 'static HTML is not a disposable fallback shell');
 
 const mainBundle = html.match(/<script type="module" crossorigin src="([^"]+)"><\/script>/)?.[1];

@@ -76,16 +76,17 @@ function BoundsInit({ positions }) {
   return null;
 }
 
-function CityFocuser({ position }) {
+function CityFocuser({ position, motionPaused }) {
   const map = useMap();
   const prev = useRef(null);
   useEffect(() => {
+    if (motionPaused) map.stop();
     if (!position) return;
     const key = position.join(',');
     if (prev.current === key) return;
     prev.current = key;
-    map.panTo(position, { animate: true, duration: 0.5 });
-  }, [position, map]);
+    map.panTo(position, { animate: !motionPaused, duration: 0.5 });
+  }, [position, map, motionPaused]);
   return null;
 }
 
@@ -151,23 +152,23 @@ function StopPopup({ city }) {
   );
 }
 
-const routeLineOptions = { color: '#c9962a', weight: 3, opacity: 0.7, dashArray: '6, 14' };
+const routeLineOptions = { color: '#a34630', weight: 3, opacity: 0.7, dashArray: '6, 14' };
 const stopMarkerOptions = {
-  color: '#1a1208',
-  fillColor: '#c9962a',
+  color: '#283b31',
+  fillColor: '#a34630',
   fillOpacity: 0.76,
   opacity: 0.88,
   weight: 1.2,
 };
 const activeStopMarkerOptions = {
-  color: '#1a1208',
-  fillColor: '#f5f0e8',
+  color: '#283b31',
+  fillColor: '#f7f5ef',
   fillOpacity: 1,
   opacity: 1,
   weight: 2,
 };
 
-function StopMarker({ city, index, activePosition, openActivePopup }) {
+function StopMarker({ city, index, activePosition, openActivePopup, theme }) {
   const markerRef = useRef(null);
   const isActive = activePosition?.[0] === city.lat && activePosition?.[1] === city.lng;
 
@@ -193,7 +194,11 @@ function StopMarker({ city, index, activePosition, openActivePopup }) {
       key={`${city.code || city.city}-${index}`}
       center={[city.lat, city.lng]}
       radius={isActive ? 7 : 5}
-      pathOptions={isActive ? activeStopMarkerOptions : stopMarkerOptions}
+      pathOptions={theme ? {
+        ...(isActive ? activeStopMarkerOptions : stopMarkerOptions),
+        color: theme.ink,
+        fillColor: isActive ? theme.paper : theme.accent,
+      } : isActive ? activeStopMarkerOptions : stopMarkerOptions}
     >
       <Popup
         className="td-map-popup"
@@ -209,7 +214,7 @@ function StopMarker({ city, index, activePosition, openActivePopup }) {
   );
 }
 
-export default function TripLeafletMap({ cities = [], positions, activePosition }) {
+export default function TripLeafletMap({ cities = [], positions, activePosition, theme, motionPaused = false }) {
   const openActivePopup = useDesktopView();
 
   return (
@@ -218,12 +223,12 @@ export default function TripLeafletMap({ cities = [], positions, activePosition 
       zoom={5}
       scrollWheelZoom={false}
       zoomControl={false}
-      style={{ height: '100%', width: '100%', background: '#eae8e0' }}
+      style={{ height: '100%', width: '100%', background: theme?.paper || '#eae8e0' }}
     >
       <MapTileLayer />
       <BoundsInit positions={positions} />
-      {activePosition && <CityFocuser position={activePosition} />}
-      {positions.length > 1 && <Polyline positions={positions} pathOptions={routeLineOptions} />}
+      {activePosition && <CityFocuser position={activePosition} motionPaused={motionPaused} />}
+      {positions.length > 1 && <Polyline positions={positions} pathOptions={theme ? { ...routeLineOptions, color: theme.accent } : routeLineOptions} />}
       {cities.map((city, index) => {
         if (!city?.lat || !city?.lng) return null;
 
@@ -234,6 +239,7 @@ export default function TripLeafletMap({ cities = [], positions, activePosition 
             index={index}
             activePosition={activePosition}
             openActivePopup={openActivePopup}
+            theme={theme}
           />
         );
       })}

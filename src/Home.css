@@ -1,0 +1,279 @@
+/* The journal's cover borrows its inks and drawings from the places inside. */
+.app-home,
+.app-cities-page {
+  --color-bg: #f5f1e7;
+  --color-text: #34463c;
+  --color-accent: #914b36;
+  --color-muted: #62675c;
+  --color-border: #d8d9ca;
+  --color-card-bg: #faf7ef;
+}
+
+.app-home .app-hero {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 32px;
+  padding-block: 44px 48px;
+}
+.app-home .app-hero-inner {
+  width: 100%;
+  max-width: 600px;
+  justify-self: center;
+  text-align: center;
+}
+.app-home .app-hero-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .16em;
+  font-size: clamp(48px, 5.2vw, 74px);
+  letter-spacing: -.045em;
+  margin-top: 0;
+}
+.app-home .app-hero-title em { color: var(--color-accent); }
+.app-home .app-hero-sub { max-width: 520px; margin: 18px auto 0; }
+
+.app-home .app-hero .app-atlas { max-width: none; }
+.app-home .app-atlas-frame { height: clamp(460px, 46vw, 560px); aspect-ratio: auto; }
+.app-city-postcard .place-postcard { margin: 0; animation: none; }
+.app-city-postcard .place-postcard .place-drawing { width: 100%; height: auto; max-height: none; min-height: 0; }
+
+.app-home .app-section { display: block; padding-block: 0; border-top: 0; }
+.app-journey-heading { display: flex; flex-direction: column; align-items: flex-start; gap: 18px; margin-bottom: 8px; }
+.app-journey-heading h2 { font: 400 36px/1.15 var(--font-brand); letter-spacing: -.8px; }
+.app-journey-heading h2 s { color: var(--color-muted); text-decoration-color: var(--color-accent); text-decoration-thickness: 1.5px; }
+.app-journey-stats { display: flex; flex-wrap: wrap; gap: 12px 24px; list-style: none; color: var(--color-muted); font-size: 11px; }
+.app-journey-stats li { white-space: nowrap; }
+.app-journey-stats li > span { margin-right: 4px; color: var(--color-text); font: 400 25px/1.2 var(--font-brand); }
+.app-home .app-trip-list { margin-top: 0; }
+.app-home .app-card {
+  grid-template-columns: minmax(180px, 320px) minmax(0, 1fr);
+  align-items: center;
+  gap: 26px;
+  padding-block: 25px;
+}
+.app-route-art {
+  background: var(--food-paper);
+  border-radius: 2px;
+  overflow: hidden;
+  transition: transform 450ms ease;
+}
+.app-home .app-trip-name { font-size: 25px; line-height: 1.14; }
+.app-home .app-trip-meta { margin-top: 11px; }
+.app-home .app-trip-meta > span { padding-inline: 2px; }
+.app-home .app-route-strip { margin-top: 12px; line-height: 1.9; }
+.app-home .app-card:hover .app-trip-name { color: var(--td-accent); }
+.app-home .app-card:hover .app-route-art { transform: translateY(-3px); }
+.app-route-art * { animation-play-state: paused !important; }
+.app-card:is(:hover, :focus-visible) .app-route-art * { animation-play-state: running !important; }
+
+.app-city-collection {
+  width: min(1120px, calc(100% - 96px));
+  margin-inline: auto;
+  padding-block: 46px 64px;
+  border-top: 1px solid var(--color-border);
+  scroll-margin-top: 28px;
+}
+.app-city-collection-heading {
+  display: flex;
+  align-items: end;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 36px;
+  margin-bottom: 44px;
+}
+.app-city-collection-heading h2 { font-size: 38px; }
+.app-city-collection-heading > .app-section-intro { flex: 1 1 280px; }
+.app-city-collection-heading .app-section-intro > p:not(.app-eyebrow) { max-width: 420px; }
+.app-collection-controls { display: grid; grid-template-columns: minmax(110px, .7fr) minmax(0, 1.3fr); gap: 10px 14px; flex: 1 1 380px; max-width: 430px; }
+.app-collection-picker { min-width: 0; }
+.app-collection-picker label { display: block; margin-bottom: 4px; color: var(--color-muted); font: 9px/1.5 var(--font-mono); letter-spacing: 1px; text-transform: uppercase; }
+.journal-select { position: relative; }
+.journal-select-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  min-height: 48px;
+  padding: 8px 0;
+  border: 0;
+  border-bottom: 1px solid #9b9f8f;
+  border-radius: 0;
+  background: transparent;
+  color: var(--color-text);
+  font: 400 19px/1.25 var(--font-brand);
+  text-align: left;
+  cursor: pointer;
+}
+.journal-select-trigger > span { min-width: 0; overflow-wrap: anywhere; }
+.journal-select-trigger > svg { width: 14px; height: 14px; flex-shrink: 0; stroke: currentColor; stroke-width: 1.2; transition: transform 180ms ease; }
+.journal-select-trigger:hover, .journal-select-trigger[aria-expanded="true"] { color: var(--color-accent); border-bottom-color: var(--color-accent); }
+.journal-select-trigger[aria-expanded="true"] > svg { transform: rotate(180deg); }
+.journal-select-trigger:focus-visible { outline: 1px solid var(--color-accent); outline-offset: 5px; }
+.journal-select-options {
+  position: absolute;
+  z-index: 10;
+  top: calc(100% + 8px);
+  inset-inline: -10px;
+  max-height: var(--menu-height);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 6px;
+  border: 1px solid var(--color-border);
+  border-radius: 2px;
+  background: var(--color-card-bg);
+  box-shadow: 0 8px 22px #34463c12;
+  list-style: none;
+  scrollbar-width: thin;
+  scrollbar-color: #a5ad9f transparent;
+}
+.journal-select-options[data-side="top"] { top: auto; bottom: calc(100% + 8px); }
+.journal-select-options li { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 42px; padding: 9px 10px; color: var(--color-text); font: 16px/1.3 var(--font-brand); cursor: pointer; }
+.journal-select-options li:is(:hover, [data-active="true"]) { background: #eeeee3; }
+.journal-select-options li[aria-selected="true"] { color: var(--color-accent); }
+.journal-select-options li svg { width: 14px; height: 14px; flex-shrink: 0; stroke: currentColor; stroke-width: 1.25; }
+.app-collection-count { grid-column: 1 / -1; color: var(--color-muted); font-size: 11px; line-height: 1.5; }
+.app-city-group + .app-city-group { margin-top: 36px; }
+.app-city-group { scroll-margin-top: 28px; }
+.app-city-group-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding-top: 20px;
+  margin-bottom: 18px;
+  border-top: 1px solid var(--color-border);
+}
+.app-city-group-heading :is(h2, h3) { font: 400 26px/1.2 var(--font-brand); letter-spacing: -.4px; }
+.app-city-postcards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 26px 22px;
+  list-style: none;
+}
+.app-city-postcard { min-width: 0; }
+.app-city-postcard-link { display: block; color: var(--color-text); text-decoration: none; }
+.app-city-postcard :is(a):focus-visible { outline: 2px solid var(--td-accent); outline-offset: 4px; }
+.app-city-postcard-art {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  aspect-ratio: 720 / 470;
+  padding-top: 10px;
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--td-paper);
+  /* Keep the full collection light: offscreen drawings need no layout or paint. */
+  content-visibility: auto;
+}
+.app-city-postcard-lettering {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  min-height: 48px;
+  margin-inline: 14px;
+}
+.app-city-postcard .place-native-name {
+  max-width: 100%;
+  padding-block: 2px;
+  font-size: 21px;
+}
+.app-city-postcard-art .place-drawing { transition: transform 500ms ease; }
+.app-city-postcard-art * { animation-play-state: paused !important; }
+.app-city-postcard-link:is(:hover, :focus-visible) .app-city-postcard-art * { animation-play-state: running !important; }
+.app-city-postcard-link:is(:hover, :focus-visible) .place-drawing { transform: translateY(-2px); }
+.app-city-postcard-name { display: block; margin-top: 11px; font: 400 19px/1.25 var(--font-brand); }
+.app-city-postcard-link:hover .app-city-postcard-name { color: var(--td-accent); }
+
+.app-notebook-band { background: #e8ebdf; margin-top: 12px; }
+.app-home .app-backpacking-section { border: 0; padding-block: 56px 64px; gap: 44px; }
+.app-home .app-backpacking-card-title > span { color: #68775d; }
+.app-home .app-backpacking-list li::marker { color: #829277; }
+.app-home .app-footer,
+.app-cities-page .app-footer { border-color: var(--color-border); }
+
+/* The standalone index shares the cover's illustrated city collection. */
+.app-cities-page .app-masthead { border-bottom-color: var(--color-border); }
+.app-cities-page .app-nav a[href="/cities"] { color: var(--color-accent); }
+.app-cities-page .app-city-collection { border-top: 0; padding-top: 52px; }
+.app-cities-page .app-city-collection-heading { margin-bottom: 28px; }
+.app-cities-page .app-city-collection-heading h1 {
+  margin: 12px 0 18px;
+  font: 400 clamp(38px, 4.8vw, 58px)/1.1 var(--font-brand);
+  letter-spacing: -1.5px;
+}
+.app-collection-map { margin-bottom: 30px; }
+.app-collection-map summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  padding-block: 8px;
+  color: var(--color-accent);
+  font: 14px/1.5 var(--font-body);
+  cursor: pointer;
+  list-style: none;
+}
+.app-collection-map summary::-webkit-details-marker { display: none; }
+.app-collection-map summary::after { content: '+'; font: 20px/1 var(--font-brand); }
+.app-collection-map[open] summary::after { content: '−'; }
+.app-collection-map summary:hover { text-decoration: underline; text-underline-offset: 4px; }
+.app-collection-map summary:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; }
+.app-collection-map .app-atlas { max-width: none; margin-top: 14px; }
+.app-collection-map .app-atlas-frame { height: clamp(400px, 45vw, 560px); aspect-ratio: auto; }
+
+@media (max-width: 1100px) {
+  .app-home .app-hero-title { font-size: clamp(44px, 5.5vw, 60px); }
+  .app-home .app-card { grid-template-columns: minmax(180px, .8fr) minmax(0, 1.4fr); }
+  .app-home .app-backpacking-section { gap: 36px; }
+  .app-city-postcards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 900px) {
+  .app-cities-page .app-city-collection-heading { flex-direction: column; align-items: stretch; gap: 24px; }
+  .app-cities-page .app-city-collection-heading > .app-section-intro { flex: none; }
+  .app-cities-page .app-collection-controls { flex: none; max-width: none; }
+}
+
+@media (max-width: 700px) {
+  .app-home .app-hero { gap: 28px; padding-block: 32px 40px; }
+  .app-home .app-hero-title { font-size: clamp(42px, 9vw, 62px); }
+  .app-home .app-hero-sub { max-width: 430px; }
+  .app-home .app-atlas-frame { height: 420px; }
+  .app-journey-heading h2 { font-size: 32px; }
+  .app-journey-stats { gap: 12px 20px; font-size: 10px; }
+  .app-journey-stats li > span { font-size: 23px; }
+  .app-home .app-card { grid-template-columns: minmax(130px, .8fr) minmax(0, 1.3fr); gap: 20px; }
+  .app-home .app-trip-name { font-size: 23px; }
+  .app-home .app-route-strip { line-height: 1.8; }
+  .app-home .app-backpacking-section { padding-block: 38px 44px; }
+  .app-city-collection { width: calc(100% - 40px); padding-block: 32px 44px; }
+  .app-city-collection-heading { flex-direction: column; align-items: stretch; gap: 24px; margin-bottom: 28px; }
+  .app-city-collection-heading > .app-section-intro { flex: none; }
+  .app-collection-controls { flex: none; width: 100%; max-width: none; }
+  .app-city-collection-heading h2 { font-size: 32px; }
+  .app-city-postcards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 16px; }
+  .app-city-postcard-name { font-size: 18px; }
+  .app-city-group-heading :is(h2, h3) { font-size: 24px; }
+  .app-city-group + .app-city-group { margin-top: 28px; }
+  .app-cities-page .app-city-collection { padding-top: 32px; }
+  .app-cities-page .app-masthead { flex-wrap: wrap; padding-block: 20px; }
+  .app-cities-page .app-nav { flex-wrap: wrap; }
+}
+
+@media (max-width: 480px) {
+  .app-home .app-card { grid-template-columns: minmax(0, 1fr); gap: 22px; padding-block: 24px; }
+  .app-route-art { grid-column: 1 / -1; }
+  .app-home .app-trip-name { font-size: 27px; }
+}
+
+@media (max-width: 480px) {
+  .app-city-postcards { grid-template-columns: minmax(0, 1fr); }
+  .app-city-postcard-name { font-size: 21px; }
+  .app-city-postcard .place-native-name { font-size: 24px; }
+  .journal-select-trigger { font-size: 17px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-home *, .app-home *::before, .app-home *::after { animation: none !important; transition: none !important; }
+  .app-home .app-card:hover .app-route-art, .app-city-postcard-link:is(:hover, :focus-visible) .place-drawing { transform: none; }
+}

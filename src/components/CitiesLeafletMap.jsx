@@ -1,15 +1,45 @@
-import { CircleMarker, MapContainer, Popup } from "react-leaflet";
+import { useEffect, useMemo } from "react";
+import { CircleMarker, MapContainer, Marker, Popup, useMap } from "react-leaflet";
+import L from "leaflet";
 import MapTileLayer from "./MapTileLayer.jsx";
-import { ACCOMMODATIONS, CATEGORIES, REGIONS, STATES } from "../data.js";
+import { CATEGORIES, REGIONS, STATES } from "../data.js";
 import { navigateTo } from "../nav.js";
 
 const cityMapMarkerOptions = {
-  color: "#1a1208",
-  fillColor: "#c9962a",
+  color: "#283b31",
+  fillColor: "#a34630",
   fillOpacity: 0.82,
   opacity: 0.9,
   weight: 1.2,
 };
+
+const atlasMarkerIcon = L.divIcon({
+  className: "app-atlas-marker",
+  html: '<span class="app-atlas-dot"></span>',
+  iconSize: [20, 20],
+  iconAnchor: [10, 10],
+  popupAnchor: [0, -5],
+});
+
+function AtlasBounds({ cities }) {
+  const map = useMap();
+  const bounds = useMemo(() => L.latLngBounds(cities.map(city => city.position)), [cities]);
+
+  useEffect(() => {
+    const fit = () => {
+      map.invalidateSize({ pan: false });
+      map.setMinZoom(0);
+      map.fitBounds(bounds, { padding: [24, 24], animate: false });
+      map.setMinZoom(map.getZoom());
+    };
+    const observer = new ResizeObserver(fit);
+    observer.observe(map.getContainer());
+    fit();
+    return () => observer.disconnect();
+  }, [bounds, map]);
+
+  return null;
+}
 
 function formatParam(value) {
   return value
@@ -45,20 +75,13 @@ function getCategoryLabel(categoryCode) {
   return CATEGORIES[categoryCode]?.label || formatParam(categoryCode || "");
 }
 
-function getAccommodationLabel(accommodationCode) {
-  return ACCOMMODATIONS[accommodationCode]?.label || formatParam(accommodationCode || "");
-}
-
-function getAccommodationSlug(accommodationCode) {
-  return ACCOMMODATIONS[accommodationCode]?.slug || String(accommodationCode || "").replace(/_/g, "-");
-}
-
 function MapPopupLink({ href, className, children }) {
   return (
     <a
       href={href}
       className={className}
       onClick={(event) => {
+        if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
         event.preventDefault();
         navigateTo(href);
       }}
@@ -68,29 +91,34 @@ function MapPopupLink({ href, className, children }) {
   );
 }
 
-export default function CitiesLeafletMap({ cities }) {
+export default function CitiesLeafletMap({ cities, hero = false }) {
+  const MapMarker = hero ? Marker : CircleMarker;
   return (
     <MapContainer
       center={[22.4, 79.2]}
       zoom={3.75}
       scrollWheelZoom={false}
       zoomControl={false}
+      zoomSnap={hero ? .25 : 1}
+      zoomDelta={hero ? .5 : 1}
+      maxZoom={19}
+      fadeAnimation={!hero}
+      zoomAnimation={!hero}
+      markerZoomAnimation={!hero}
       style={{ height: "100%", width: "100%", background: "#eae8e0" }}
     >
       <MapTileLayer />
+      {hero && <AtlasBounds cities={cities} />}
 
       {cities.map(({ cityCode, city, position }) => {
         const categories = normalizeList(city.category);
-        const accommodation = normalizeList(city.accommodation);
 
         return (
-          <CircleMarker
+          <MapMarker
             key={cityCode}
-            center={position}
-            radius={5}
-            pathOptions={cityMapMarkerOptions}
+            {...(hero ? { position, icon: atlasMarkerIcon, title: city.city, riseOnHover: true } : { center: position, radius: 5, pathOptions: cityMapMarkerOptions })}
           >
-            <Popup className="app-map-popup" closeButton={false}>
+            <Popup className="app-map-popup" closeButton={false} maxHeight={hero ? 200 : undefined} autoPanPaddingBottomRight={hero ? [5, 22] : undefined}>
               <div className="app-map-popup-inner">
                 <MapPopupLink href={`/cities/${cityCode}`} className="app-map-popup-title">
                   {city.city}
@@ -122,25 +150,9 @@ export default function CitiesLeafletMap({ cities }) {
                   </div>
                 )}
 
-                {accommodation.length > 0 && (
-                  <div className="app-map-popup-group">
-                    <div className="app-map-popup-label">Stay</div>
-                    <div className="app-map-popup-chips">
-                      {accommodation.map(stay => (
-                        <MapPopupLink
-                          key={stay}
-                          href={`/stay#${getAccommodationSlug(stay)}`}
-                          className="app-map-popup-chip"
-                        >
-                          {getAccommodationLabel(stay)}
-                        </MapPopupLink>
-                      ))}
-                    </div>
-                  </div>
-                )}
               </div>
             </Popup>
-          </CircleMarker>
+          </MapMarker>
         );
       })}
     </MapContainer>

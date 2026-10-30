@@ -1,7 +1,16 @@
 import { lazy, Suspense, useState, useEffect, useRef, useCallback, useSyncExternalStore } from 'react';
-import { ACCOMMODATIONS, CITIES as CITIES_DATA, CATEGORIES } from './data.js';
+import { CITIES as CITIES_DATA } from './data.js';
 import './TripDetails.css';
 import { navigateTo } from './nav.js';
+import { getTripDuration } from './tripDuration.js';
+import { getCityTheme, getThemeStyle } from './themes/cityThemes.js';
+import usePlaceMotion from './themes/usePlaceMotion.js';
+import CityScenery from './components/CityScenery.jsx';
+import CityTags from './components/CityTags.jsx';
+import LocalEssentials from './components/LocalEssentials.jsx';
+import { CITY_LOCAL_NAMES } from './themes/cityIdentity.js';
+import PlaceAtmosphere from './components/PlaceAtmosphere.jsx';
+import './themes/cityThemes.css';
 
 const TripLeafletMap = lazy(() => import('./components/TripLeafletMap.jsx'));
 
@@ -15,19 +24,11 @@ function fmt(s) {
   return String(s).replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
 }
 
-function formatAccommodation(value) {
-  return ACCOMMODATIONS[value]?.label || fmt(value);
-}
-
-function getAccommodationSlug(value) {
-  return ACCOMMODATIONS[value]?.slug || String(value).replace(/_/g, '-');
-}
-
-function InfoBadge({ label, value }) {
+function StayFact({ label, value }) {
   return (
-    <div className="td-badge">
-      <div className="td-badge-label">{label}</div>
-      <div className="td-badge-value">{value}</div>
+    <div className="td-stay-fact">
+      <dt>{label}</dt>
+      <dd>{value}</dd>
     </div>
   );
 }
@@ -47,7 +48,7 @@ function MapPlaceholder() {
   return <div className="app-map-placeholder" aria-hidden="true" />;
 }
 
-function MapColumn({ cities = [], positions, activePosition }) {
+function MapColumn({ cities = [], positions, activePosition, theme, motionPaused }) {
   const isClientReady = useClientReady();
 
   return (
@@ -55,7 +56,7 @@ function MapColumn({ cities = [], positions, activePosition }) {
       <div className="td-map-frame">
         {isClientReady ? (
           <Suspense fallback={<MapPlaceholder />}>
-            <TripLeafletMap cities={cities} positions={positions} activePosition={activePosition} />
+            <TripLeafletMap cities={cities} positions={positions} activePosition={activePosition} theme={theme} motionPaused={motionPaused} />
           </Suspense>
         ) : (
           <MapPlaceholder />
@@ -72,6 +73,8 @@ function MapModal({
   title,
   cityName,
   currentIndex,
+  theme,
+  motionPaused,
   onPrevCity,
   onNextCity,
   onClose,
@@ -84,16 +87,16 @@ function MapModal({
     <div className="td-map-modal">
       <div className="td-map-modal-header">
         <span className="td-map-modal-title">{title}</span>
-        <button className="td-map-modal-close" onClick={onClose}>
+        <button className="td-map-modal-close" onClick={onClose} aria-label="Close map">
           <svg width="14" height="14" viewBox="0 0 20 20" fill="none">
-            <path d="M15 5L5 15M5 5l10 10" stroke="#1a1208" strokeWidth="2" strokeLinecap="round"/>
+            <path d="M15 5L5 15M5 5l10 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
           </svg>
         </button>
       </div>
       <div className="td-map-modal-body">
         {isClientReady ? (
           <Suspense fallback={<MapPlaceholder />}>
-            <TripLeafletMap cities={cities} positions={positions} activePosition={activePosition} />
+            <TripLeafletMap cities={cities} positions={positions} activePosition={activePosition} theme={theme} motionPaused={motionPaused} />
           </Suspense>
         ) : (
           <MapPlaceholder />
@@ -126,26 +129,12 @@ function MapModal({
   );
 }
 
-function parseDurationDays(duration) {
-  const d = duration.toLowerCase();
-  if (d.includes('month')) return parseFloat(d) * 30;
-  if (d.includes('week')) return parseFloat(d) * 7;
-  if (d.includes('½') || d.includes('0.5')) return 0.5;
-  return parseFloat(d) || 1;
-}
-
-function formatUnit(value, unit) { return `${value} ${unit}${value === 1 ? '' : 's'}`; }
-
-function formatDuration(days) {
-  if (days >= 30) return formatUnit(Math.round(days / 30), 'month');
-  if (days >= 7) return formatUnit(Math.round(days / 7), 'week');
-  return formatUnit(Math.round(days), 'day');
-}
-
-function DetailColumn({ city, cityIndex, total, onOpenMap }) {
+function DetailColumn({ city, cityIndex, total, onOpenMap, motion }) {
   const [visible, setVisible] = useState(true);
   const [displayed, setDisplayed] = useState({ city, cityIndex });
   const scrollRef = useRef(null);
+  const pausedRef = useRef(motion.paused);
+  useEffect(() => { pausedRef.current = motion.paused; }, [motion.paused]);
 
   useEffect(() => {
     const hide = setTimeout(() => setVisible(false), 0);
@@ -153,11 +142,13 @@ function DetailColumn({ city, cityIndex, total, onOpenMap }) {
       setDisplayed({ city, cityIndex });
       scrollRef.current?.scrollTo({ top: 0 });
       setVisible(true);
-    }, 150);
+    }, pausedRef.current ? 0 : 150);
     return () => { clearTimeout(hide); clearTimeout(show); };
   }, [city, cityIndex]);
 
   const { city: c, cityIndex: ci } = displayed;
+  const theme = getCityTheme(c);
+  const localName = CITY_LOCAL_NAMES[theme.id];
   const data = c ? CITY_ENRICHMENT[c.city] : null;
   const notes = Array.isArray(data?.notes)
     ? data.notes.map(note => String(note).trim()).filter(Boolean)
@@ -168,35 +159,22 @@ function DetailColumn({ city, cityIndex, total, onOpenMap }) {
       <div className="td-detail-inner">
 
         {onOpenMap && (
-          <button className="td-map-widget td-mobile-only" onClick={onOpenMap}>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/>
-              <line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/>
-            </svg>
-            View on map
-          </button>
+          <div className="place-toolbar td-mobile-only">
+            <button className="td-map-widget td-mobile-only" onClick={onOpenMap}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/>
+                <line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/>
+              </svg>
+              View on map
+            </button>
+          </div>
         )}
 
-        <div>
+        <div className="place-heading">
           <div className="td-city-title-row">
-            <div className="td-city-title">{c?.city}</div>
+            <h1 className="td-city-title">{c?.city}</h1>
+            {localName && <span className="place-native-name" lang={localName.lang} dir={localName.dir} aria-hidden="true">{localName.text}</span>}
           </div>
-          {data && data.category.length > 0 && (
-            <div className="td-category-row td-mobile-only">
-              {data.category.map((cat, i) => (
-                <span key={cat} className="td-category-link">
-                  <a
-                    href={`/categories#category-${CATEGORIES[cat]?.slug || cat}`}
-                    onClick={e => { e.preventDefault(); navigateTo(`/categories#category-${CATEGORIES[cat]?.slug || cat}`); }}
-                    className="td-category-link"
-                  >
-                    {CATEGORIES[cat]?.label || fmt(cat)}
-                  </a>
-                  {i < data.category.length - 1 && ','}
-                </span>
-              ))}
-            </div>
-          )}
           {data && (
             <div className="td-city-meta">
               <a href={`/cities#state-${data.state}`} onClick={e => { e.preventDefault(); navigateTo(`/cities#state-${data.state}`); }}>
@@ -210,69 +188,45 @@ function DetailColumn({ city, cityIndex, total, onOpenMap }) {
           )}
         </div>
 
-        <div className="td-badge-row">
-          {c?.dur && <InfoBadge label="My stay" value={c.dur} />}
-          {data?.ideal_stay && <InfoBadge label="Ideal stay" value={data.ideal_stay} />}
-          {data?.ideal_season && <InfoBadge label="Ideal time" value={fmt(data.ideal_season)} />}
-        </div>
+        <CityTags city={data || c} theme={theme} />
 
-        {data?.accommodation?.length > 0 && (
-          <div>
-            <div className="td-section-label">Accommodation</div>
-            <div className="td-chip-row">
-              {data.accommodation.map(item => (
-                <a key={item} href={`/stay#${getAccommodationSlug(item)}`}
-                  onClick={e => { e.preventDefault(); navigateTo(`/stay#${getAccommodationSlug(item)}`); }}
-                  className="td-chip" style={{ textDecoration: 'none' }}>
-                  {formatAccommodation(item)}
-                </a>
-              ))}
-            </div>
-          </div>
+        <CityScenery theme={theme} animated />
+
+        {(c?.dur || data?.ideal_stay || data?.ideal_season) && (
+          <dl className="td-stay-facts">
+            {c?.dur && <StayFact label="My stay" value={c.dur} />}
+            {data?.ideal_stay && <StayFact label="Ideal stay" value={data.ideal_stay} />}
+            {data?.ideal_season && <StayFact label="Ideal time" value={fmt(data.ideal_season)} />}
+          </dl>
         )}
 
-        {data?.mode_of_travel?.length > 0 && (
-          <div>
-            <div className="td-section-label">Travel</div>
-            <div className="td-chip-row">
-              {data.mode_of_travel.map(m => (
-                <span key={m} className="td-chip">{fmt(m)}</span>
-              ))}
-            </div>
-          </div>
-        )}
+        <LocalEssentials city={data} />
 
         {data?.must_visit?.length > 0 && (
-          <div>
-            <div className="td-section-label">Must Visit</div>
-            <div className="td-chip-row">
-              {data.must_visit.slice(0, 6).map((item, i) => (
-                <span key={i} className="td-chip">{item}</span>
-              ))}
-            </div>
-          </div>
+          <section className="td-journal-section" aria-labelledby="td-visit-heading">
+            <h2 id="td-visit-heading" className="td-section-label">Must Visit</h2>
+            <ul className="td-journal-list td-places-list" role="list">
+              {data.must_visit.slice(0, 6).map((item, i) => <li key={i}>{item}</li>)}
+            </ul>
+          </section>
         )}
 
         {data?.must_try?.length > 0 && (
-          <div>
-            <div className="td-section-label">Must Try</div>
-            <div className="td-chip-row">
-              {data.must_try.slice(0, 6).map((item, i) => (
-                <span key={i} className="td-chip">{item}</span>
-              ))}
-            </div>
-          </div>
+          <section className="td-journal-section" aria-labelledby="td-try-heading">
+            <h2 id="td-try-heading" className="td-section-label">Must Try</h2>
+            <ul className="td-journal-list" role="list">
+              {data.must_try.slice(0, 6).map((item, i) => <li key={i}>{item}</li>)}
+            </ul>
+          </section>
         )}
 
         {notes.length > 0 && (
-          <div>
-            <div className="td-section-label">My Notes</div>
-            <ul className="td-notes-list">
-              {notes.map((note, i) => (
-                <li key={i} className="td-note">{note}</li>
-              ))}
+          <section className="td-journal-section" aria-labelledby="td-notes-heading">
+            <h2 id="td-notes-heading" className="td-section-label">My Notes</h2>
+            <ul className="td-journal-list td-notes-list" role="list">
+              {notes.map((note, i) => <li key={i}>{note}</li>)}
             </ul>
-          </div>
+          </section>
         )}
 
         {!data && <div className="td-fallback">City {ci + 1} of {total}</div>}
@@ -314,8 +268,8 @@ function FooterTape({ cities, currentIndex, onPrev, onNext }) {
                   fontWeight: isActive ? 700 : 400,
                   fontFamily: 'var(--font-brand)',
                   fontStyle: 'normal',
-                  color: isActive ? '#c9962a' : '#f5f0e8',
-                  opacity: isActive ? 1 : dist === 1 ? 0.5 : dist === 2 ? 0.28 : 0.1,
+                  color: 'var(--td-paper)',
+                  opacity: isActive ? 1 : dist === 1 ? 0.7 : dist === 2 ? 0.45 : 0.25,
                   letterSpacing: isActive ? 0.2 : 0.1,
                 }}
               >
@@ -329,9 +283,9 @@ function FooterTape({ cities, currentIndex, onPrev, onNext }) {
       <div className="td-divider" />
 
       <div className="td-footer-controls">
-        <button onClick={onPrev} className="td-icon-btn-padded" style={{ opacity: currentIndex === 0 ? 0.2 : 1 }}>
+        <button aria-label="Previous stop" onClick={onPrev} className="td-icon-btn-padded" style={{ opacity: currentIndex === 0 ? 0.2 : 1 }}>
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-            <path d="M11 14L6 9L11 4" stroke="#c9962a" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M11 14L6 9L11 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </button>
         <div className="td-footer-counter">
@@ -339,9 +293,9 @@ function FooterTape({ cities, currentIndex, onPrev, onNext }) {
           <span className="td-footer-counter-slash">/</span>
           <span className="td-footer-counter-total">{cities.length}</span>
         </div>
-        <button onClick={onNext} className="td-icon-btn-padded" style={{ opacity: currentIndex === cities.length - 1 ? 0.2 : 1 }}>
+        <button aria-label="Next stop" onClick={onNext} className="td-icon-btn-padded" style={{ opacity: currentIndex === cities.length - 1 ? 0.2 : 1 }}>
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-            <path d="M7 4L12 9L7 14" stroke="#c9962a" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M7 4L12 9L7 14" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </button>
       </div>
@@ -351,13 +305,15 @@ function FooterTape({ cities, currentIndex, onPrev, onNext }) {
 
 export function CityDetails({ city, onBack }) {
   const position = city?.lat && city?.lng ? [city.lat, city.lng] : null;
+  const theme = getCityTheme(city);
+  const motion = usePlaceMotion();
   return (
-    <div className="td-root">
+    <div className="td-root td-themed" style={getThemeStyle(theme)} data-place={theme.scene} data-motion={motion.paused ? 'paused' : 'running'}>
+      <PlaceAtmosphere theme={theme} />
       <div className="td-topbar">
-        <div className="td-pattern" />
-        <button onClick={onBack} className="td-icon-btn">
+        <button aria-label="Back to index" onClick={onBack} className="td-icon-btn">
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-            <path d="M14 17L8 11L14 5" stroke="#c9962a" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M14 17L8 11L14 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </button>
         <div className="td-divider" />
@@ -367,8 +323,8 @@ export function CityDetails({ city, onBack }) {
         </div>
       </div>
       <div className="td-main">
-        <MapColumn cities={[city]} positions={position ? [position] : []} activePosition={position} />
-        <DetailColumn city={city} cityIndex={0} total={1} />
+        <MapColumn cities={[city]} positions={position ? [position] : []} activePosition={position} theme={theme} motionPaused={motion.paused} />
+        <DetailColumn city={city} cityIndex={0} total={1} motion={motion} />
       </div>
     </div>
   );
@@ -380,7 +336,9 @@ export default function TripDetails({ trip, index, initialCityIndex = 0, onBack,
 
   const cities = trip.cities;
   const activeCity = cities[currentIndex];
-  const totalDuration = formatDuration(cities.reduce((s, c) => s + parseDurationDays(c.dur), 0));
+  const theme = getCityTheme(activeCity);
+  const motion = usePlaceMotion();
+  const totalDuration = getTripDuration(cities);
 
   const currentIndexRef = useRef(initialCityIndex);
   useEffect(() => { currentIndexRef.current = currentIndex; }, [currentIndex]);
@@ -535,13 +493,13 @@ export default function TripDetails({ trip, index, initialCityIndex = 0, onBack,
   }, [advance]);
 
   return (
-    <div className="td-root">
+    <div className="td-root td-themed" style={getThemeStyle(theme)} data-place={theme.scene} data-motion={motion.paused ? 'paused' : 'running'}>
+      <PlaceAtmosphere theme={theme} />
       <div className="td-topbar">
-        <div className="td-pattern" />
 
-        <button onClick={onBack} className="td-icon-btn td-desktop-only">
+        <button aria-label="Back to index" onClick={onBack} className="td-icon-btn td-desktop-only">
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-            <path d="M14 17L8 11L14 5" stroke="#c9962a" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M14 17L8 11L14 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </button>
         <div className="td-divider td-desktop-only" />
@@ -551,9 +509,9 @@ export default function TripDetails({ trip, index, initialCityIndex = 0, onBack,
           <div className="td-trip-meta">{totalDuration} · {cities.length} stops · {trip.distanceKm.toLocaleString()} km</div>
         </div>
 
-        <button onClick={onBack} className="td-icon-btn td-mobile-back">
+        <button aria-label="Back to index" onClick={onBack} className="td-icon-btn td-mobile-back">
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-            <path d="M14 17L8 11L14 5" stroke="#c9962a" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M14 17L8 11L14 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </button>
 
@@ -563,28 +521,28 @@ export default function TripDetails({ trip, index, initialCityIndex = 0, onBack,
         </div>
 
         <div className="td-trip-switcher td-desktop-only">
-          <button onClick={onPrevTrip} className="td-icon-btn">
+          <button aria-label="Previous trip" onClick={onPrevTrip} className="td-icon-btn">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M10 12L6 8L10 4" stroke="#c9962a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M10 12L6 8L10 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </button>
-          <div className="td-trip-number">Super<em>Trip </em>{index + 1}</div>
-          <button onClick={onNextTrip} className="td-icon-btn">
+          <div className="td-trip-number">Supertrip {String(index + 1).padStart(2, '0')}</div>
+          <button aria-label="Next trip" onClick={onNextTrip} className="td-icon-btn">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M6 4L10 8L6 12" stroke="#c9962a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M6 4L10 8L6 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </button>
         </div>
 
         <div className="td-trip-switcher td-mobile-only">
-          <button onClick={() => advance(-1)} className="td-icon-btn">
+          <button aria-label="Previous stop" onClick={() => advance(-1)} className="td-icon-btn">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M10 12L6 8L10 4" stroke="#c9962a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M10 12L6 8L10 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </button>
-          <button onClick={() => advance(1)} className="td-icon-btn">
+          <button aria-label="Next stop" onClick={() => advance(1)} className="td-icon-btn">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M6 4L10 8L6 12" stroke="#c9962a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M6 4L10 8L6 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </button>
         </div>
@@ -595,8 +553,10 @@ export default function TripDetails({ trip, index, initialCityIndex = 0, onBack,
           cities={cities}
           positions={cities.filter(c => c.lat && c.lng).map(c => [c.lat, c.lng])}
           activePosition={activeCity?.lat && activeCity?.lng ? [activeCity.lat, activeCity.lng] : null}
+          theme={theme}
+          motionPaused={motion.paused}
         />
-        <DetailColumn city={activeCity} cityIndex={currentIndex} total={cities.length} onOpenMap={() => setMapOpen(true)} />
+        <DetailColumn city={activeCity} cityIndex={currentIndex} total={cities.length} motion={motion} onOpenMap={() => setMapOpen(true)} />
       </div>
 
       <FooterTape cities={cities} currentIndex={currentIndex} onPrev={() => advance(-1)} onNext={() => advance(1)} />
@@ -606,6 +566,8 @@ export default function TripDetails({ trip, index, initialCityIndex = 0, onBack,
           cities={cities}
           positions={cities.filter(c => c.lat && c.lng).map(c => [c.lat, c.lng])}
           activePosition={activeCity?.lat && activeCity?.lng ? [activeCity.lat, activeCity.lng] : null}
+          theme={theme}
+          motionPaused={motion.paused}
           title={trip.name}
           cityName={activeCity?.city}
           currentIndex={currentIndex}

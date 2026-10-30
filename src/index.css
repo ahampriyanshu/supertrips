@@ -4,68 +4,47 @@
   padding: 0;
 }
 
-@font-face {
-  font-family: 'Lobster Two';
-  font-style: normal;
-  font-weight: 400;
-  font-display: block;
-  src: url('/fonts/lobster-two-400-latin.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Lobster Two';
-  font-style: normal;
-  font-weight: 700;
-  font-display: block;
-  src: url('/fonts/lobster-two-700-latin.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 400;
-  font-display: block;
-  src: url('/fonts/poppins-400-latin.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-display: block;
-  src: url('/fonts/poppins-500-latin.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 600;
-  font-display: block;
-  src: url('/fonts/poppins-600-latin.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 700;
-  font-display: block;
-  src: url('/fonts/poppins-700-latin.woff2') format('woff2');
-}
-
 :root {
-  --font-brand: 'Lobster Two', cursive;
-  --font-body: 'Poppins', 'Segoe UI', sans-serif;
+  --font-brand: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+  --font-body: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+  --color-bg: #f7f5ef;
+  --color-text: #283b31;
+  --color-dark-bg: #283b31;
+  --color-dark-text: #f7f5ef;
+  --color-accent: #a34630;
+  --color-muted: #62675e;
+  --color-faint: #74776c;
+  --color-pale: #a5ad9f;
+  --color-border: #d9dbd0;
+  --color-card-bg: #fbfaf6;
+  --color-sub: #bec5b9;
 }
 
-::selection {
-  background: #c9962a;
-  color: #1a1208;
-}
+::selection { background: #dfd9bb; color: #283b31; }
 
 body {
   font-family: var(--font-body);
-  background-color: #f5f0e8;
-  color: #1a1208;
+  background: var(--color-bg);
+  color: var(--color-text);
   line-height: 1.6;
+  min-width: 320px;
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+button, input, select, textarea { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+a { text-underline-offset: 4px; }
+button:focus-visible, a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 5px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

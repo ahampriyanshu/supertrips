@@ -1,0 +1,90 @@
+/* Detail-page postcards share motion; collection thumbnails stay unchanged. */
+.place-postcard.place-postcard--alive {
+  animation: scenery-arrive 900ms var(--place-easing) both;
+}
+.place-postcard--alive :is(.art-sun, .place-delhi-sun, .place-jaipur-sun) {
+  animation: scenery-daylight 12s ease-in-out infinite alternate;
+}
+.place-postcard--alive .art-tree-sway {
+  transform-origin: 0 0;
+  animation: scenery-foliage 6s ease-in-out infinite alternate;
+}
+.place-postcard--alive .art-tree:nth-of-type(even) .art-tree-sway {
+  animation-delay: -5s;
+  animation-duration: 8s;
+}
+.place-postcard--alive :is(.art-leaf, .art-coffee, .art-chinar, .art-pennant) {
+  transform-box: fill-box;
+  transform-origin: bottom center;
+  animation: scenery-foliage 7s ease-in-out infinite alternate;
+}
+.place-postcard--alive :is(.art-birds, .place-delhi-birds) {
+  animation: scenery-birds 11s ease-in-out -4s infinite alternate;
+}
+.place-postcard--alive :is(.art-mist, .place-mist) {
+  animation: scenery-mist 10s ease-in-out -3s infinite alternate;
+}
+.place-postcard--alive .place-wave {
+  animation: scenery-water 6.5s ease-in-out infinite alternate;
+}
+.place-postcard--alive .art-window {
+  animation: scenery-window-light 7s ease-in-out infinite alternate;
+}
+.place-postcard--alive .art-window:nth-of-type(3n) { animation-delay: -4s; }
+.place-postcard--alive .art-window:nth-of-type(3n + 1) { animation-delay: -9s; }
+.place-postcard--alive .art-water-fill {
+  animation: scenery-water-light 8s ease-in-out infinite alternate;
+}
+.place-postcard--alive .scenery-wisp {
+  stroke: var(--place-secondary);
+  stroke-width: 1.6;
+  opacity: .35;
+  animation: scenery-breeze 10s ease-in-out -3s infinite alternate;
+}
+.place-postcard--alive .scenery-wisp--far { animation-delay: -8s; animation-duration: 14s; }
+.place-postcard--alive .scenery-particle {
+  animation: scenery-snow 12s linear var(--scenery-delay) infinite;
+}
+.place-postcard--alive .scenery-weather--snow { fill: var(--td-card); stroke: var(--place-secondary); stroke-width: .3; }
+.place-postcard--alive .scenery-weather--rain { stroke: var(--place-secondary); stroke-width: .85; }
+.place-postcard--alive .scenery-weather--rain .scenery-particle { animation-name: scenery-rain; animation-duration: 2.8s; }
+.place-postcard--alive .scenery-weather--petals { fill: var(--td-accent); stroke: none; }
+.place-postcard--alive .scenery-weather--petals .scenery-particle { animation-name: scenery-petal; animation-duration: 18s; }
+.place-postcard--alive .scenery-weather--sand { fill: var(--td-accent); stroke: none; }
+.place-postcard--alive .scenery-weather--sand .scenery-particle { animation-name: scenery-sand; animation-duration: 14s; }
+
+@keyframes scenery-arrive { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes scenery-daylight { from { opacity: .55; } to { opacity: 1; } }
+@keyframes scenery-foliage { from { transform: rotate(-2deg); } to { transform: rotate(2deg); } }
+@keyframes scenery-birds { from { transform: translate(-24px, 3px); } to { transform: translate(38px, -8px); } }
+@keyframes scenery-mist { from { transform: translateX(-32px); opacity: .3; } to { transform: translateX(32px); opacity: .6; } }
+@keyframes scenery-water { from { transform: translateX(-10px); } to { transform: translateX(14px); } }
+@keyframes scenery-window-light { from { opacity: .3; } to { opacity: .75; } }
+@keyframes scenery-water-light { from { fill-opacity: .12; } to { fill-opacity: .2; } }
+@keyframes scenery-breeze { from { transform: translateX(-24px); opacity: .25; } to { transform: translateX(40px); opacity: .5; } }
+@keyframes scenery-snow {
+  0% { opacity: 0; transform: translate(-7px, -24px); }
+  20%, 75% { opacity: .6; }
+  100% { opacity: 0; transform: translate(12px, 42px); }
+}
+@keyframes scenery-rain {
+  0% { opacity: 0; transform: translate(6px, -20px); }
+  20%, 65% { opacity: .3; }
+  100% { opacity: 0; transform: translate(-10px, 32px); }
+}
+@keyframes scenery-petal {
+  0% { opacity: 0; transform: translate(-8px, -12px) rotate(-15deg); }
+  25%, 70% { opacity: .25; }
+  100% { opacity: 0; transform: translate(20px, 35px) rotate(70deg); }
+}
+@keyframes scenery-sand {
+  0% { opacity: 0; transform: translate(-18px, 10px); }
+  25%, 70% { opacity: .25; }
+  100% { opacity: 0; transform: translate(35px, -5px); }
+}
+
+.td-themed[data-motion="paused"] .place-postcard--alive .scenery-weather { display: none; }
+@media (prefers-reduced-motion: reduce) {
+  .place-postcard--alive, .place-postcard--alive * { animation: none !important; transition: none !important; }
+  .place-postcard--alive .scenery-weather { display: none; }
+}

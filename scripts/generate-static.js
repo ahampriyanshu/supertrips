@@ -5,7 +5,7 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { createServer } from 'vite';
 
-import { ACCOMMODATIONS, CATEGORIES, CITIES, REGIONS, STATES, TRIPS } from '../src/data.js';
+import { CATEGORIES, CITIES, REGIONS, STATES, TRIPS } from '../src/data.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, '..');
@@ -128,19 +128,11 @@ function buildRoutes() {
       description: 'Browse destinations by travel style, from forts and museums to mountains, coastlines, temples, and food.',
       priority: '0.9',
     },
-    {
-      path: '/stay',
-      type: 'stay',
-      heading: 'Stay',
-      title: 'Stay | SuperTrips',
-      description: 'Browse destinations by accommodation options, from hostel chains and Bloom to homestays and hotels.',
-      priority: '0.8',
-    },
   ];
 
   TRIPS.forEach((trip) => {
     routes.push({
-      path: `/routes/${slugify(trip.name)}`,
+      path: `/supertrips/${slugify(trip.name)}`,
       type: 'trip',
       heading: trip.name,
       trip,
@@ -290,9 +282,6 @@ function buildItemList(route, siteUrl) {
   if (route.type === 'categories') {
     cityCodes = sortCityCodes(uniqueList(Object.values(CATEGORIES).flatMap(category => category.cities)));
   }
-  if (route.type === 'stay') {
-    cityCodes = sortCityCodes(uniqueList(Object.values(ACCOMMODATIONS).flatMap(stay => stay.cities)));
-  }
 
   if (cityCodes.length > 0) {
     return {
@@ -319,7 +308,7 @@ function buildItemList(route, siteUrl) {
         '@type': 'ListItem',
         position: index + 1,
         name: trip.name,
-        url: absoluteUrl(siteUrl, `/routes/${slugify(trip.name)}`),
+        url: absoluteUrl(siteUrl, `/supertrips/${slugify(trip.name)}`),
       })),
     };
   }
@@ -471,6 +460,23 @@ async function writeRoute(route, html) {
   await writeFile(outputPath, html);
 }
 
+function buildTripRedirect(route, siteUrl) {
+  const destination = escapeHtml(route.path);
+  return `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>${escapeHtml(route.title)}</title>
+  <link rel="canonical" href="${escapeHtml(absoluteUrl(siteUrl, route.path))}" />
+  <meta name="robots" content="noindex, follow" />
+  <script>window.location.replace(${escapeJsonForHtml(route.path)} + window.location.search + window.location.hash);</script>
+  <noscript><meta http-equiv="refresh" content="0; url=${destination}" /></noscript>
+</head>
+<body><a href="${destination}">Continue to ${escapeHtml(route.heading)}</a></body>
+</html>
+`;
+}
+
 function buildSitemap(routes, siteUrl) {
   const lastmod = new Date().toISOString().slice(0, 10);
   const urls = routes.map(route => [
@@ -511,6 +517,9 @@ async function main() {
       const appHtml = renderToString(React.createElement(App, { initialPath: route.path }));
       return writeRoute(route, injectMeta(template, route, siteUrl, appHtml));
     }));
+    await Promise.all(routes.filter(route => route.type === 'trip').map(route =>
+      writeRoute({ path: route.path.replace('/supertrips/', '/routes/') }, buildTripRedirect(route, siteUrl))
+    ));
     await writeFile(path.join(distDir, 'sitemap.xml'), buildSitemap(routes, siteUrl));
     await writeFile(path.join(distDir, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${siteUrl}/sitemap.xml\n`);
   } finally {
@@ -526,7 +535,7 @@ async function main() {
     // Custom domains are optional.
   }
 
-  console.log(`Generated ${routes.length} static route files and sitemap.xml`);
+  console.log(`Generated ${routes.length} static route files, ${TRIPS.length} legacy trip redirects and sitemap.xml`);
 }
 
 main().catch((error) => {

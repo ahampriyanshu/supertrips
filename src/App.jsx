@@ -1,44 +1,28 @@
 import { lazy, Suspense, useEffect, useState, useSyncExternalStore } from "react";
 import "./App.css";
+import "./Home.css";
 
 import TripDetails, { CityDetails } from "./TripDetails";
-import { ACCOMMODATIONS, BACKPACKING_101, CATEGORIES, CITIES, REGIONS, STATES, TRIPS } from "./data.js";
+import { BACKPACKING_101, CATEGORIES, CITIES, REGIONS, STATES, TRIPS } from "./data.js";
 import { navigateTo } from "./nav.js";
+import RouteAtlas from "./components/RouteAtlas.jsx";
+import CityScenery from "./components/CityScenery.jsx";
+import JourneyFood from "./components/JourneyFood.jsx";
+import JournalSelect from "./components/JournalSelect.jsx";
+import BrandLogo from "./components/BrandLogo.jsx";
+import { getCityTheme, getThemeStyle } from "./themes/cityThemes.js";
+import { CITY_LOCAL_NAMES } from "./themes/cityIdentity.js";
+import { JOURNEY_FOOD } from "./themes/journeyFood.js";
+import { CITY_COLLECTION_VIEWS, getCityCollection } from "./cityCollection.js";
+import { getTripDuration } from "./tripDuration.js";
 
 const CitiesLeafletMap = lazy(() => import("./components/CitiesLeafletMap.jsx"));
 
-const totalCities = new Set(TRIPS.flatMap(t => t.cities.map(c => c.city))).size;
-const totalStops = TRIPS.reduce((a, t) => a + t.cities.length, 0);
-
-function toDirectoryItems(groups, basePath, hashPrefix) {
-  return Object.values(groups).map(({ label, slug, cities }) => ({
-    label,
-    href: `/${basePath}#${hashPrefix ? `${hashPrefix}-` : ""}${slug}`,
-    count: cities.length,
-  }));
-}
-
-const directoryGroups = [
-  {
-    title: "By region",
-    items: toDirectoryItems(REGIONS, "cities", "region"),
-  },
-  {
-    title: "By state",
-    items: toDirectoryItems(STATES, "cities", "state"),
-  },
-  {
-    title: "By category",
-    items: toDirectoryItems(CATEGORIES, "categories", "category"),
-  },
-  {
-    title: "By stay",
-    items: toDirectoryItems(
-      Object.fromEntries(Object.entries(ACCOMMODATIONS).filter(([key]) => key !== "budget_hotels")),
-      "stay",
-      ""
-    ),
-  },
+const journeyCities = TRIPS.flatMap(trip => trip.cities);
+const journeyStats = [
+  [TRIPS.length, 'journeys'],
+  [new Set(journeyCities.map(city => city.state)).size, 'states & UTs'],
+  [new Set(journeyCities.map(city => city.code)).size, 'cities'],
 ];
 
 function slugify(value) {
@@ -52,7 +36,7 @@ function slugify(value) {
 const tripSlugs = TRIPS.map(trip => slugify(trip.name));
 
 function getTripHref(index) {
-  return `/routes/${tripSlugs[index]}`;
+  return `/supertrips/${tripSlugs[index]}`;
 }
 
 function getTripIndexBySlug(slug) {
@@ -92,7 +76,7 @@ function parseRoute(pathname) {
   if (parts.length === 1 && parts[0] === "supertrips") {
     return { name: "supertrips", path: "/supertrips" };
   }
-  if (parts.length === 2 && parts[0] === "routes") {
+  if (parts.length === 2 && ["supertrips", "routes"].includes(parts[0])) {
     return { name: "route", path: pathname, value: parts[1] };
   }
   if (parts.length === 1 && parts[0] === "cities") {
@@ -103,9 +87,6 @@ function parseRoute(pathname) {
   }
   if (parts.length === 1 && parts[0] === "categories") {
     return { name: "categories", path: "/categories" };
-  }
-  if (parts.length === 1 && parts[0] === "stay") {
-    return { name: "stay", path: "/stay" };
   }
   if (parts.length === 2 && parts[0] === "states") {
     return { name: "state", path: pathname, value: parts[1] };
@@ -186,10 +167,6 @@ function getGroupBySlug(groups, slug) {
   return Object.entries(groups).find(([key, group]) => group.slug === slug || key === slug)?.[1];
 }
 
-function getStateLabel(stateCode) {
-  return STATES[stateCode]?.label || formatParam(stateCode || "");
-}
-
 function getCategoryLabel(categoryCode) {
   return CATEGORIES[categoryCode]?.label || formatParam(categoryCode || "");
 }
@@ -204,10 +181,6 @@ function sortCityCodes(cityCodes) {
   return cityCodes
     .filter(cityCode => CITIES[cityCode])
     .sort((a, b) => CITIES[a].city.localeCompare(CITIES[b].city));
-}
-
-function sortStateCodes(stateCodes) {
-  return stateCodes.sort((a, b) => getStateLabel(a).localeCompare(getStateLabel(b)));
 }
 
 function getCityPosition(city) {
@@ -246,68 +219,76 @@ function MapPlaceholder() {
 function TripCard({ trip, index, previewCount = 8 }) {
   const preview = trip.cities.slice(0, previewCount);
   const extra = trip.cities.length - preview.length;
+  const food = JOURNEY_FOOD[trip.name];
+  const theme = getCityTheme(CITIES[food.city]);
 
   return (
-    <Link href={getTripHref(index)} className="app-card trip-card">
-      <div className="app-card-header">
-        <div className="app-trip-num">{String(index + 1).padStart(2, "0")}</div>
-        <div className="app-trip-name-wrap">
-          <div className="app-trip-name">{trip.name}</div>
-          <div className="app-trip-meta">{trip.cities.length} stops</div>
+    <Link href={getTripHref(index)} className="app-card" style={{ ...getThemeStyle(theme), '--food-paper': food.paper }}>
+      <div className="app-route-art" aria-hidden="true"><JourneyFood art={food} /></div>
+      <div className="app-card-body">
+        <div className="app-card-header">
+          <div className="app-trip-name-wrap">
+            <h3 className="app-trip-name">{trip.name}</h3>
+            <div className="app-trip-meta">
+              {getTripDuration(trip.cities)} <span aria-hidden="true">·</span> {trip.cities.length} stops <span aria-hidden="true">·</span> {trip.distanceKm.toLocaleString('en-IN')} km
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div className="app-route-strip hide-scroll">
-        {preview.map((c, i) => (
-          <span key={i} className="app-route-city-wrap">
-            <span className="app-route-city">{c.city}</span>
-            {i < preview.length - 1 && <span className="app-route-dot" />}
-          </span>
-        ))}
-        {extra > 0 && (
-          <span className="app-route-city-wrap app-route-city-wrap--extra">
-            <span className="app-route-city--extra">+{extra} more</span>
-          </span>
-        )}
+        <div className="app-route-strip">
+          {preview.map((c, i) => (
+            <span key={i} className="app-route-city-wrap">
+              <span className="app-route-city">{c.city}</span>
+              {i < preview.length - 1 && <span className="app-route-dot" />}
+            </span>
+          ))}
+          {extra > 0 && (
+            <span className="app-route-city-wrap app-route-city-wrap--extra">
+              <span className="app-route-city--extra">+{extra} more</span>
+            </span>
+          )}
+        </div>
       </div>
     </Link>
   );
 }
 
-function HeroHeader() {
+function Masthead({ cityHref = '/cities' }) {
   return (
-    <div className="app-hero">
-      <div className="app-hero-pattern" />
+    <header className="app-masthead">
+      <Link href="/" className="app-wordmark" aria-label="SuperTrips home"><BrandLogo /></Link>
+      <span className="app-masthead-note">A personal travel journal</span>
+      <nav className="app-nav" aria-label="Main navigation">
+        <Link href="/#routes">Routes</Link>
+        <Link href={cityHref}>Cities</Link>
+        <Link href="/#field-notes">Field notes</Link>
+      </nav>
+    </header>
+  );
+}
+
+function HeroHeader() {
+  const isClientReady = useClientReady();
+  return (
+    <section className="app-hero" aria-labelledby="journal-title">
       <div className="app-hero-inner">
-        <h1 className="app-hero-title">
-          <Link href="/" className="app-hero-title-link">
-            Super<em className="app-hero-title-em">Trips</em>
-          </Link>
+        <h1 id="journal-title" className="app-hero-title">
+          <BrandLogo showMark={false} />
         </h1>
         <p className="app-hero-sub">
-          My routes across India, city by city. Kept for memory, sharing it with anyone planning to backpack through India.
+          My routes across India, city by city. Kept for the memories,
+          shared for anyone planning to backpack through it.
         </p>
-        <div className="app-hero-stats">
-          {[
-            ["10", "Trips"],
-            [totalCities, "Cities"],
-            [totalStops, "Total stops"],
-          ].map(([n, l]) => (
-            <div key={l}>
-              <div className="app-hero-stat-n">{n}</div>
-              <div className="app-hero-stat-l">{l}</div>
-            </div>
-          ))}
-        </div>
       </div>
-    </div>
+      <RouteAtlas interactive={isClientReady} />
+    </section>
   );
 }
 
 function PageHeader({ title }) {
   return (
     <>
-      <HeroHeader />
+      <Masthead />
       <div className="app-breadcrumb-wrap">
         <div className="app-breadcrumb">
           <Link href="/" className="app-breadcrumb-home">SuperTrips</Link>
@@ -315,6 +296,7 @@ function PageHeader({ title }) {
           <span className="app-breadcrumb-current">{title}</span>
         </div>
       </div>
+      <div className="app-page-title"><p className="app-eyebrow">The place index</p><h1>{title}</h1></div>
     </>
   );
 }
@@ -340,60 +322,29 @@ function CityListItem({ cityCode, isLast = false }) {
   );
 }
 
-function CitiesIndexPage() {
-  const regions = Object.values(REGIONS).sort((a, b) => a.label.localeCompare(b.label));
-  const allCityCodes = sortCityCodes(Object.keys(CITIES));
+function CitiesIndexPage({ hash }) {
+  const [mapOpen, setMapOpen] = useState(false);
+  const isClientReady = useClientReady();
+  const initialGroupBy = isClientReady && hash.startsWith('#region-') ? 'region' : 'state';
+
+  useEffect(() => {
+    if (!isClientReady || !hash) return;
+    const targetId = hash.slice(1).replace(/_/g, '-');
+    document.getElementById(targetId)?.scrollIntoView({ block: 'start' });
+  }, [hash, isClientReady]);
 
   return (
-    <div className="app-root">
-      <PageHeader title="Cities" />
-
-      <CitiesMap cityCodes={allCityCodes} />
-
-      <main className="app-page-content">
-        {regions.map((region, regionIndex) => {
-          const regionCityCodes = sortCityCodes(region.cities);
-          const stateCodes = sortStateCodes([
-            ...new Set(regionCityCodes.map(cityCode => CITIES[cityCode].state)),
-          ]);
-
-          return (
-            <section
-              key={region.slug}
-              id={`region-${region.slug}`}
-              className={regionIndex === 0 ? "app-index-block app-index-block--first" : "app-index-block"}
-            >
-              <h2 className="app-index-heading">{region.label}</h2>
-
-              {stateCodes.map(stateCode => {
-                const stateCityCodes = sortCityCodes(
-                  regionCityCodes.filter(cityCode => CITIES[cityCode].state === stateCode)
-                );
-                const stateSlug = STATES[stateCode]?.slug || stateCode;
-
-                return (
-                  <div
-                    key={`${region.slug}-${stateCode}`}
-                    id={`state-${stateSlug}`}
-                    className="app-index-sub-block"
-                  >
-                    <h3 className="app-index-subheading">{getStateLabel(stateCode)}</h3>
-                    <ul className="app-city-list">
-                      {stateCityCodes.map((cityCode, index) => (
-                        <CityListItem
-                          key={cityCode}
-                          cityCode={cityCode}
-                          isLast={index === stateCityCodes.length - 1}
-                        />
-                      ))}
-                    </ul>
-                  </div>
-                );
-              })}
-            </section>
-          );
-        })}
+    <div className="app-root app-cities-page">
+      <Masthead />
+      <main>
+        <CityCollection key={initialGroupBy} page initialGroupBy={initialGroupBy}>
+          <details className="app-collection-map" onToggle={event => setMapOpen(event.currentTarget.open)}>
+            <summary>Explore on the map</summary>
+            <RouteAtlas interactive={mapOpen} />
+          </details>
+        </CityCollection>
       </main>
+      <JournalFooter />
     </div>
   );
 }
@@ -421,41 +372,6 @@ function CategoriesIndexPage() {
               className={categoryIndex === 0 ? "app-index-block app-index-block--first" : "app-index-block"}
             >
               <h2 className="app-index-heading">{category.label}</h2>
-              <ul className="app-city-list">
-                {cityCodes.map((cityCode, index) => (
-                  <CityListItem
-                    key={cityCode}
-                    cityCode={cityCode}
-                    isLast={index === cityCodes.length - 1}
-                  />
-                ))}
-              </ul>
-            </section>
-          );
-        })}
-      </main>
-    </div>
-  );
-}
-
-function StayIndexPage() {
-  const stayGroups = Object.values(ACCOMMODATIONS);
-
-  return (
-    <div className="app-root">
-      <PageHeader title="Stay" />
-
-      <main className="app-page-content">
-        {stayGroups.map((stay, stayIndex) => {
-          const cityCodes = sortCityCodes(stay.cities);
-
-          return (
-            <section
-              key={stay.slug}
-              id={stay.slug}
-              className={stayIndex === 0 ? "app-index-block app-index-block--first" : "app-index-block"}
-            >
-              <h2 className="app-index-heading">{stay.label}</h2>
               <ul className="app-city-list">
                 {cityCodes.map((cityCode, index) => (
                   <CityListItem
@@ -526,25 +442,102 @@ function NotFoundPage() {
   );
 }
 
+function CityCollection({ page = false, initialGroupBy = 'state', children }) {
+  const [{ groupBy, selectedGroup }, setCollection] = useState({ groupBy: initialGroupBy, selectedGroup: 'all' });
+  const { view, groups, cityCount } = getCityCollection(groupBy, selectedGroup);
+  const prefix = page ? 'cities' : 'home';
+  const Heading = page ? 'h1' : 'h2';
+  const GroupHeading = page ? 'h2' : 'h3';
+
+  return (
+    <section id="places" className="app-city-collection" aria-labelledby="city-collection-title">
+      <div className="app-city-collection-heading">
+        <div className="app-section-intro">
+          <p className="app-eyebrow">The city collection</p>
+          <Heading id="city-collection-title">{page ? 'Cities across India.' : 'Find your next stop.'}</Heading>
+          <p>Find a familiar place, or somewhere you haven’t been yet.</p>
+        </div>
+        <div className="app-collection-controls">
+          <JournalSelect id={`${prefix}-group-by`} label="Group by" value={groupBy}
+            options={Object.entries(CITY_COLLECTION_VIEWS).map(([key, option]) => ({ value: key, label: option.label }))}
+            onChange={next => setCollection({ groupBy: next, selectedGroup: 'all' })} />
+          <JournalSelect key={groupBy} id={`${prefix}-group-filter`} label={view.filterLabel} value={selectedGroup}
+            options={[{ value: 'all', label: view.allLabel }, ...view.groups.map(group => ({ value: group.slug, label: group.label }))]}
+            onChange={next => setCollection({ groupBy, selectedGroup: next })} />
+          <p className="app-collection-count" role="status" aria-atomic="true">{cityCount} {cityCount === 1 ? 'city' : 'cities'}{selectedGroup === 'all' ? ` across ${view.groups.length} ${view.plural}` : ` · ${groups[0].label}`}</p>
+        </div>
+      </div>
+
+      {children}
+
+      <div id={`${prefix}-city-groups`}>
+        {groups.map(group => (
+          <section key={`${groupBy}-${group.slug}`} id={page ? `${groupBy}-${group.slug}` : undefined} className="app-city-group" aria-labelledby={`${prefix}-${groupBy}-${group.slug}`}>
+            <div className="app-city-group-heading">
+              <GroupHeading id={`${prefix}-${groupBy}-${group.slug}`}>{group.label}</GroupHeading>
+            </div>
+            <ul className="app-city-postcards">
+              {group.cities.map(code => {
+                const city = CITIES[code];
+                const theme = getCityTheme(city);
+                const localName = CITY_LOCAL_NAMES[code];
+                return (
+                  <li key={code} className="app-city-postcard" style={getThemeStyle(theme)}>
+                    <Link href={`/cities/${code}`} className="app-city-postcard-link">
+                      <div className="app-city-postcard-art" aria-hidden="true">
+                        <div className="app-city-postcard-lettering">
+                          <span className="place-native-name" lang={localName.lang} dir={localName.dir}>{localName.text}</span>
+                        </div>
+                        <CityScenery theme={theme} />
+                      </div>
+                      <span className="app-city-postcard-name">{city.city}</span>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function BackpackingSection() {
   return (
-    <section className="app-backpacking-section">
-      <h2 className="app-backpacking-title">Backpacking 101</h2>
-      <p className="app-backpacking-intro">
-        Few things I learned after and during my backpacking days.
-      </p>
+    <div className="app-notebook-band"><section id="field-notes" className="app-backpacking-section">
+      <div className="app-section-intro">
+        <p className="app-eyebrow">From the notebook</p>
+        <h2 className="app-backpacking-title">Backpacking 101</h2>
+        <p className="app-backpacking-intro">
+          A few things I learned during my backpacking days.
+        </p>
+      </div>
 
       <div className="app-backpacking-grid">
-        {BACKPACKING_101.map(({ title, tips }) => (
+        {BACKPACKING_101.map(({ title, tips }, index) => (
           <div key={title} className="app-backpacking-card">
-            <div className="app-backpacking-card-title">{title}</div>
+            <h3 className="app-backpacking-card-title"><span>{String(index + 1).padStart(2, '0')}</span>{title}</h3>
             <ul className="app-backpacking-list">
               {tips.map((tip, i) => <li key={i}>{tip}</li>)}
             </ul>
           </div>
         ))}
       </div>
-    </section>
+    </section></div>
+  );
+}
+
+function JournalFooter() {
+  return (
+    <footer className="app-footer">
+      <span>made by{' '}
+        <a href="https://ahampriyanshu.com" target="_blank" rel="noopener noreferrer" className="app-footer-link">
+          ahampriyanshu
+        </a>
+      </span>
+      <span className="app-footer-note">India, city by city.</span>
+    </footer>
   );
 }
 
@@ -552,8 +545,15 @@ export default function App({ initialPath, initialHash = "", initialState = null
   const route = useCurrentRoute(
     initialPath ? getInitialRoute(initialPath, initialHash, initialState) : null
   );
+
+  useEffect(() => {
+    if (route.name !== "route" || !route.path.startsWith("/routes/")) return;
+    const index = getTripIndexBySlug(route.value);
+    if (index === -1) return;
+    window.history.replaceState(window.history.state, "", `${getTripHref(index)}${window.location.search}${window.location.hash}`);
+    window.dispatchEvent(new Event("popstate"));
+  }, [route.name, route.path, route.value]);
   const tripCardPreviewCount = 8;
-  const allCityCodes = sortCityCodes(Object.keys(CITIES));
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -566,7 +566,8 @@ export default function App({ initialPath, initialHash = "", initialState = null
     }
 
     requestAnimationFrame(() => {
-      const target = document.getElementById(route.hash.slice(1));
+      const targetId = route.hash.slice(1);
+      const target = document.getElementById(targetId) || document.getElementById(targetId.replace(/_/g, '-'));
       if (target) {
         target.scrollIntoView({ block: "start" });
       } else {
@@ -613,7 +614,7 @@ export default function App({ initialPath, initialHash = "", initialState = null
   }
 
   if (route.name === "cities") {
-    return <CitiesIndexPage />;
+    return <CitiesIndexPage key={route.hash} hash={route.hash} />;
   }
 
   if (route.name === "city") {
@@ -622,10 +623,6 @@ export default function App({ initialPath, initialHash = "", initialState = null
 
   if (route.name === "categories") {
     return <CategoriesIndexPage />;
-  }
-
-  if (route.name === "stay") {
-    return <StayIndexPage />;
   }
 
   if (route.name === "state") {
@@ -645,56 +642,38 @@ export default function App({ initialPath, initialHash = "", initialState = null
   }
 
   return (
-    <div className="app-root">
+    <div className="app-root app-home">
       <HeroHeader />
 
-      <div className="app-section">
-        {TRIPS.map((trip, i) => (
-          <TripCard
-            key={i}
-            trip={trip}
-            index={i}
-            previewCount={tripCardPreviewCount}
-          />
-        ))}
-      </div>
-
-      <BackpackingSection />
-
-      <section className="app-directory-section">
-        <h2 className="app-directory-title">Plan your next itinerary</h2>
-        <p className="app-directory-intro">
-          Pick a region, a state, a travel style and build your own route from there.
-        </p>
-
-        {directoryGroups.map(group => (
-          <div key={group.title} className="app-directory-group">
-            <div className="app-directory-group-title">{group.title}</div>
-            <div className="app-directory-links">
-              {group.items.map(({ label, href, count }) => (
-                <Link key={href} href={href} className="app-directory-link">
-                  <span>{label}</span>
-                  <span className="app-directory-count">{count}</span>
-                </Link>
+      <main>
+        <section id="routes" className="app-section" aria-labelledby="journeys-title">
+          <div className="app-journey-heading">
+            <h2 id="journeys-title"><s>Off</s> On the road</h2>
+            <ul className="app-journey-stats" aria-label="Journey collection in numbers">
+              {journeyStats.map(([count, label]) => (
+                <li key={label}><span>{count}</span>{' '}{label}</li>
               ))}
-            </div>
+            </ul>
           </div>
-        ))}
-      </section>
+          <div className="app-trip-list">
+            {TRIPS.map((trip, i) => (
+              <TripCard
+                key={i}
+                trip={trip}
+                index={i}
+                previewCount={tripCardPreviewCount}
+              />
+            ))}
+          </div>
+        </section>
 
-      <CitiesMap cityCodes={allCityCodes} label="Map of all destinations" />
+        <CityCollection />
 
-      <footer className="app-footer">
-        made by{' '}
-        <a
-          href="https://ahampriyanshu.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="app-footer-link"
-        >
-          ahampriyanshu
-        </a>
-      </footer>
+        <BackpackingSection />
+
+      </main>
+
+      <JournalFooter />
     </div>
   );
 }
