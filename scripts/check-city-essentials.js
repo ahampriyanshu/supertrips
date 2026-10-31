@@ -23,7 +23,7 @@ assert.ok(getCityEssentials().every(item => item.description === 'Not available'
 assert.ok(getCityEssentials({ category: ['metro'] }).find(item => item.key === 'metro').status === 'unknown', 'A metropolitan city category does not prove a metro service exists');
 
 const home = await readFile(new URL('../dist/index.html', import.meta.url), 'utf8');
-const directory = await readFile(new URL('../dist/cities/index.html', import.meta.url), 'utf8');
+const directory = await readFile(new URL('../dist/find/index.html', import.meta.url), 'utf8');
 for (const html of [home, directory]) {
   assert.doesNotMatch(html, /value="stay"|href="\/stay(?:[#/"?])|place to stay/, 'The directory has no stay filter or links');
 }

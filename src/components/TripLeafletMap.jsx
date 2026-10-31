@@ -1,3 +1,4 @@
+import { getFindHref } from '../findRoutes.js';
 import { useEffect, useRef, useState } from 'react';
 import { CircleMarker, MapContainer, Polyline, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
@@ -122,11 +123,11 @@ function StopPopup({ city }) {
 
       {data && (
         <div className="td-map-popup-meta">
-          <MapPopupLink href={`/cities#state-${getStateSlug(data.state)}`}>
+          <MapPopupLink href={getFindHref('state', getStateSlug(data.state))}>
             {getStateLabel(data.state)}
           </MapPopupLink>
           <span> · </span>
-          <MapPopupLink href={`/cities#region-${getRegionSlug(data.region)}`}>
+          <MapPopupLink href={getFindHref('region', getRegionSlug(data.region))}>
             {getRegionLabel(data.region)}
           </MapPopupLink>
         </div>
@@ -139,7 +140,7 @@ function StopPopup({ city }) {
             {categories.map(category => (
               <MapPopupLink
                 key={category}
-                href={`/categories#category-${CATEGORIES[category]?.slug || category}`}
+                href={getFindHref('category', category)}
                 className="td-map-popup-chip"
               >
                 {CATEGORIES[category]?.label || fmt(category)}

@@ -1,3 +1,4 @@
+import { getFindHref } from '../findRoutes.js';
 import { useEffect, useMemo } from "react";
 import { CircleMarker, MapContainer, Marker, Popup, useMap } from "react-leaflet";
 import L from "leaflet";
@@ -124,11 +125,11 @@ export default function CitiesLeafletMap({ cities, hero = false }) {
                   {city.city}
                 </MapPopupLink>
                 <div className="app-map-popup-meta">
-                  <MapPopupLink href={`/cities#state-${getStateSlug(city.state)}`}>
+                  <MapPopupLink href={getFindHref('state', getStateSlug(city.state))}>
                     {getStateLabel(city.state)}
                   </MapPopupLink>
                   <span> · </span>
-                  <MapPopupLink href={`/cities#region-${getRegionSlug(city.region)}`}>
+                  <MapPopupLink href={getFindHref('region', getRegionSlug(city.region))}>
                     {getRegionLabel(city.region)}
                   </MapPopupLink>
                 </div>
@@ -140,7 +141,7 @@ export default function CitiesLeafletMap({ cities, hero = false }) {
                       {categories.map(category => (
                         <MapPopupLink
                           key={category}
-                          href={`/categories#category-${CATEGORIES[category]?.slug || category}`}
+                          href={getFindHref('category', category)}
                           className="app-map-popup-chip"
                         >
                           {getCategoryLabel(category)}

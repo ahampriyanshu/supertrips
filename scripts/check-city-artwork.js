@@ -37,7 +37,7 @@ for (const [code, landmarks] of Object.entries({
 }
 const home = await readFile(new URL('../dist/index.html', import.meta.url), 'utf8');
 assert.doesNotMatch(home, /place-postcard--alive|class="scenery-weather/, 'Homepage thumbnails do not opt into detail-page motion');
-const directory = await readFile(new URL('../dist/cities/index.html', import.meta.url), 'utf8');
+const directory = await readFile(new URL('../dist/find/index.html', import.meta.url), 'utf8');
 assert.doesNotMatch(directory, /place-postcard--alive|class="scenery-weather/, 'City directory thumbnails do not opt into detail-page motion');
 const tripPaths = [...home.matchAll(/<a\b[^>]*href="(\/supertrips\/[^"#?]+)"/g)].map(match => match[1]);
 for (const tripPath of tripPaths) {

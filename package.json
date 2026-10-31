@@ -11,6 +11,7 @@
     "check:essentials": "node scripts/check-city-essentials.js",
     "check:ssg-shell": "node scripts/check-static-shell.js",
     "check:trip-routes": "node scripts/check-trip-routes.js",
+    "check:find": "node scripts/check-find-routes.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "lint": "eslint .",

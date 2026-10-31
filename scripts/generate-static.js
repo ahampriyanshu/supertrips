@@ -5,7 +5,8 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { createServer } from 'vite';
 
-import { CATEGORIES, CITIES, REGIONS, STATES, TRIPS } from '../src/data.js';
+import { CATEGORIES, CITIES, STATES, TRIPS } from '../src/data.js';
+import { LEGACY_FIND_ROUTES } from '../src/findRoutes.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, '..');
@@ -113,19 +114,11 @@ function buildRoutes() {
       priority: '0.9',
     },
     {
-      path: '/cities',
-      type: 'cities',
-      heading: 'Cities',
-      title: 'Cities | SuperTrips',
-      description: `Browse ${Object.keys(CITIES).length} Indian cities by region and state.`,
-      priority: '0.9',
-    },
-    {
-      path: '/categories',
-      type: 'categories',
-      heading: 'Categories',
-      title: 'Categories | SuperTrips',
-      description: 'Browse destinations by travel style, from forts and museums to mountains, coastlines, temples, and food.',
+      path: '/find',
+      type: 'find',
+      heading: 'Find your next stop',
+      title: 'Find a city | SuperTrips',
+      description: `Browse ${Object.keys(CITIES).length} Indian cities by state, region, or travel style.`,
       priority: '0.9',
     },
   ];
@@ -154,45 +147,6 @@ function buildRoutes() {
       title: `${city.city} | SuperTrips`,
       description: `${city.city}, ${stateLabel}: places to visit, food to try, travel notes, and map.`,
       priority: '0.7',
-    });
-  });
-
-  Object.values(REGIONS).forEach((region) => {
-    routes.push({
-      path: `/regions/${region.slug}`,
-      type: 'group',
-      group: region,
-      groupType: 'region',
-      heading: `${region.label} India`,
-      title: `${region.label} India | SuperTrips`,
-      description: `${region.cities.length} destinations from ${region.label.toLowerCase()} India.`,
-      priority: '0.6',
-    });
-  });
-
-  Object.values(STATES).forEach((state) => {
-    routes.push({
-      path: `/states/${state.slug}`,
-      type: 'group',
-      group: state,
-      groupType: 'state',
-      heading: state.label,
-      title: `${state.label} | SuperTrips`,
-      description: `${state.cities.length} destinations from ${state.label}.`,
-      priority: '0.6',
-    });
-  });
-
-  Object.values(CATEGORIES).forEach((category) => {
-    routes.push({
-      path: `/categories/${category.slug}`,
-      type: 'group',
-      group: category,
-      groupType: 'category',
-      heading: `${category.label} Destinations`,
-      title: `${category.label} Destinations | SuperTrips`,
-      description: `${category.cities.length} ${category.label.toLowerCase()} destinations from these routes.`,
-      priority: '0.6',
     });
   });
 
@@ -227,14 +181,6 @@ function getRouteKeywords(route) {
     return uniqueList([
       route.trip.name,
       ...route.trip.cities.map(city => city.city),
-      ...base,
-    ]).slice(0, 18).join(', ');
-  }
-
-  if (route.type === 'group') {
-    return uniqueList([
-      route.group.label,
-      ...sortCityCodes(route.group.cities).slice(0, 8).map(cityCode => CITIES[cityCode].city),
       ...base,
     ]).slice(0, 18).join(', ');
   }
@@ -277,11 +223,7 @@ function buildBreadcrumb(route, siteUrl) {
 function buildItemList(route, siteUrl) {
   let cityCodes = [];
 
-  if (route.type === 'group') cityCodes = sortCityCodes(route.group.cities);
-  if (route.type === 'cities') cityCodes = sortCityCodes(Object.keys(CITIES));
-  if (route.type === 'categories') {
-    cityCodes = sortCityCodes(uniqueList(Object.values(CATEGORIES).flatMap(category => category.cities)));
-  }
+  if (route.type === 'find') cityCodes = sortCityCodes(Object.keys(CITIES));
 
   if (cityCodes.length > 0) {
     return {
@@ -477,6 +419,29 @@ function buildTripRedirect(route, siteUrl) {
 `;
 }
 
+function buildFindRedirect(destination, siteUrl) {
+  return `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Find a city | SuperTrips</title>
+  <link rel="canonical" href="${escapeHtml(absoluteUrl(siteUrl, '/find'))}" />
+  <meta name="robots" content="noindex, follow" />
+  <script>
+    const target = new URL(${escapeJsonForHtml(destination)}, window.location.href);
+    for (const [key, value] of new URLSearchParams(window.location.search)) {
+      if (!target.searchParams.has(key)) target.searchParams.append(key, value);
+    }
+    target.hash = window.location.hash;
+    window.location.replace(target.pathname + target.search + target.hash);
+  </script>
+  <noscript><meta http-equiv="refresh" content="0; url=${escapeHtml(destination)}" /></noscript>
+</head>
+<body><a href="${escapeHtml(destination)}">Find a city</a></body>
+</html>
+`;
+}
+
 function buildSitemap(routes, siteUrl) {
   const lastmod = new Date().toISOString().slice(0, 10);
   const urls = routes.map(route => [
@@ -520,6 +485,9 @@ async function main() {
     await Promise.all(routes.filter(route => route.type === 'trip').map(route =>
       writeRoute({ path: route.path.replace('/supertrips/', '/routes/') }, buildTripRedirect(route, siteUrl))
     ));
+    await Promise.all(LEGACY_FIND_ROUTES.map(route =>
+      writeRoute(route, buildFindRedirect(route.destination, siteUrl))
+    ));
     await writeFile(path.join(distDir, 'sitemap.xml'), buildSitemap(routes, siteUrl));
     await writeFile(path.join(distDir, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${siteUrl}/sitemap.xml\n`);
   } finally {
@@ -535,7 +503,7 @@ async function main() {
     // Custom domains are optional.
   }
 
-  console.log(`Generated ${routes.length} static route files, ${TRIPS.length} legacy trip redirects and sitemap.xml`);
+  console.log(`Generated ${routes.length} static route files, ${TRIPS.length} legacy trip redirects, ${LEGACY_FIND_ROUTES.length} browse redirects and sitemap.xml`);
 }
 
 main().catch((error) => {

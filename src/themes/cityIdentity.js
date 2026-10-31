@@ -1,3 +1,4 @@
+import { getFindHref } from '../findRoutes.js';
 import { CATEGORIES } from '../data.js';
 
 // City-level spellings, rather than a transliteration based only on the state.
@@ -78,7 +79,7 @@ const cityTags = { coimbatore: ['Yoga', null], kutchh: ['Salt desert', 'desert']
 export function getCityTags(city, theme) {
   const categories = [...new Set((city?.category || []).map(code => code === 'mountains' ? 'hill_station' : code))];
   const [label, primaryCategory] = cityTags[theme.id] || familyTags[theme.family] || ['A place to wander', null];
-  const hrefFor = category => CATEGORIES[category] ? `/categories#category-${CATEGORIES[category].slug}` : undefined;
+  const hrefFor = category => CATEGORIES[category] ? getFindHref('category', category) : undefined;
   const primary = {
     id: 'character', label, icon: theme.icon,
     href: categories.includes(primaryCategory) ? hrefFor(primaryCategory) : undefined,

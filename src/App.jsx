@@ -1,9 +1,9 @@
-import { lazy, Suspense, useEffect, useState, useSyncExternalStore } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import "./App.css";
 import "./Home.css";
 
 import TripDetails, { CityDetails } from "./TripDetails";
-import { BACKPACKING_101, CATEGORIES, CITIES, REGIONS, STATES, TRIPS } from "./data.js";
+import { BACKPACKING_101, CITIES, TRIPS } from "./data.js";
 import { navigateTo } from "./nav.js";
 import RouteAtlas from "./components/RouteAtlas.jsx";
 import CityScenery from "./components/CityScenery.jsx";
@@ -16,7 +16,7 @@ import { JOURNEY_FOOD } from "./themes/journeyFood.js";
 import { CITY_COLLECTION_VIEWS, getCityCollection } from "./cityCollection.js";
 import { getTripDuration } from "./tripDuration.js";
 
-const CitiesLeafletMap = lazy(() => import("./components/CitiesLeafletMap.jsx"));
+import { getFindHref, getFindSelection, getLegacyFindHref } from "./findRoutes.js";
 
 const journeyCities = TRIPS.flatMap(trip => trip.cities);
 const journeyStats = [
@@ -57,6 +57,7 @@ function getCurrentRoute() {
   return {
     ...parseRoute(getPathname()),
     hash: getHash(),
+    search: typeof window === "undefined" ? "" : window.location.search,
     state: typeof window === "undefined" ? null : window.history.state,
   };
 }
@@ -65,6 +66,7 @@ function getInitialRoute(path, hash = "", state = null) {
   return {
     ...parseRoute(path || "/"),
     hash,
+    search: "",
     state,
   };
 }
@@ -79,23 +81,13 @@ function parseRoute(pathname) {
   if (parts.length === 2 && ["supertrips", "routes"].includes(parts[0])) {
     return { name: "route", path: pathname, value: parts[1] };
   }
-  if (parts.length === 1 && parts[0] === "cities") {
-    return { name: "cities", path: "/cities" };
+  if (parts.length === 1 && parts[0] === "find") {
+    return { name: "find", path: "/find" };
   }
+  const redirect = getLegacyFindHref(pathname);
+  if (redirect) return { name: "find", path: pathname, redirect };
   if (parts.length === 2 && parts[0] === "cities") {
     return { name: "city", path: pathname, value: parts[1] };
-  }
-  if (parts.length === 1 && parts[0] === "categories") {
-    return { name: "categories", path: "/categories" };
-  }
-  if (parts.length === 2 && parts[0] === "states") {
-    return { name: "state", path: pathname, value: parts[1] };
-  }
-  if (parts.length === 2 && parts[0] === "regions") {
-    return { name: "region", path: pathname, value: parts[1] };
-  }
-  if (parts.length === 2 && parts[0] === "categories") {
-    return { name: "category", path: pathname, value: parts[1] };
   }
 
   return { name: "not-found", path: pathname };
@@ -128,7 +120,7 @@ function useClientReady() {
   );
 }
 
-function Link({ href, className, children, ...props }) {
+function Link({ href, state, className, children, ...props }) {
   return (
     <a
       {...props}
@@ -147,73 +139,12 @@ function Link({ href, className, children, ...props }) {
         }
 
         event.preventDefault();
-        navigateTo(href);
+        navigateTo(href, state);
       }}
     >
       {children}
     </a>
   );
-}
-
-function formatParam(value) {
-  return value
-    .split(/[-_]/)
-    .filter(Boolean)
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ");
-}
-
-function getGroupBySlug(groups, slug) {
-  return Object.entries(groups).find(([key, group]) => group.slug === slug || key === slug)?.[1];
-}
-
-function getCategoryLabel(categoryCode) {
-  return CATEGORIES[categoryCode]?.label || formatParam(categoryCode || "");
-}
-
-function normalizeList(value) {
-  if (Array.isArray(value)) return value.filter(Boolean);
-  if (typeof value === "string" && value.trim()) return [value.trim()];
-  return [];
-}
-
-function sortCityCodes(cityCodes) {
-  return cityCodes
-    .filter(cityCode => CITIES[cityCode])
-    .sort((a, b) => CITIES[a].city.localeCompare(CITIES[b].city));
-}
-
-function getCityPosition(city) {
-  const lat = Number(city?.lat);
-  const lng = Number(city?.lng);
-
-  if (!Number.isFinite(lat) || !Number.isFinite(lng)) return null;
-  return [lat, lng];
-}
-
-function CitiesMap({ cityCodes, label = "Map of all cities" }) {
-  const isClientReady = useClientReady();
-  const cities = cityCodes
-    .map(cityCode => ({ cityCode, city: CITIES[cityCode], position: getCityPosition(CITIES[cityCode]) }))
-    .filter(item => item.city && item.position);
-
-  return (
-    <section className="app-cities-map-section" aria-label={label}>
-      <div className="app-cities-map-frame td-map-frame">
-        {isClientReady ? (
-          <Suspense fallback={<MapPlaceholder />}>
-            <CitiesLeafletMap cities={cities} />
-          </Suspense>
-        ) : (
-          <MapPlaceholder />
-        )}
-      </div>
-    </section>
-  );
-}
-
-function MapPlaceholder() {
-  return <div className="app-map-placeholder" aria-hidden="true" />;
 }
 
 function TripCard({ trip, index, previewCount = 8 }) {
@@ -253,14 +184,14 @@ function TripCard({ trip, index, previewCount = 8 }) {
   );
 }
 
-function Masthead({ cityHref = '/cities' }) {
+function Masthead() {
   return (
     <header className="app-masthead">
       <Link href="/" className="app-wordmark" aria-label="SuperTrips home"><BrandLogo /></Link>
       <span className="app-masthead-note">A personal travel journal</span>
       <nav className="app-nav" aria-label="Main navigation">
         <Link href="/#routes">Routes</Link>
-        <Link href={cityHref}>Cities</Link>
+        <Link href="/find">Find a city</Link>
         <Link href="/#field-notes">Field notes</Link>
       </nav>
     </header>
@@ -301,43 +232,24 @@ function PageHeader({ title }) {
   );
 }
 
-function CityListItem({ cityCode, isLast = false }) {
-  const city = CITIES[cityCode];
-  if (!city) return null;
-  const tags = normalizeList(city.category).slice(0, 2);
-
-  return (
-    <li className={isLast ? "app-city-list-item app-city-list-item--last" : "app-city-list-item"}>
-      <Link href={`/cities/${cityCode}`} className="app-city-list-link">
-        <span>{city.city}</span>
-        <span className="app-city-list-tags">
-          {tags.map(tag => (
-            <span key={tag} className="app-city-list-tag">
-              {getCategoryLabel(tag)}
-            </span>
-          ))}
-        </span>
-      </Link>
-    </li>
-  );
-}
-
-function CitiesIndexPage({ hash }) {
+function FindPage({ search, hash }) {
   const [mapOpen, setMapOpen] = useState(false);
   const isClientReady = useClientReady();
-  const initialGroupBy = isClientReady && hash.startsWith('#region-') ? 'region' : 'state';
-
-  useEffect(() => {
-    if (!isClientReady || !hash) return;
-    const targetId = hash.slice(1).replace(/_/g, '-');
-    document.getElementById(targetId)?.scrollIntoView({ block: 'start' });
-  }, [hash, isClientReady]);
+  // Static HTML always starts with all cities; apply the URL after hydration.
+  const collection = getFindSelection(isClientReady ? search : '', isClientReady ? hash : '');
 
   return (
-    <div className="app-root app-cities-page">
-      <Masthead />
+    <div className="app-root app-find-page">
+      <nav className="app-breadcrumb-wrap" aria-label="Breadcrumb">
+        <div className="app-breadcrumb">
+          <Link href="/" className="app-breadcrumb-home">Home</Link>
+          <span className="app-breadcrumb-separator" aria-hidden="true">/</span>
+          <span className="app-breadcrumb-current" aria-current="page">Find</span>
+        </div>
+      </nav>
       <main>
-        <CityCollection key={initialGroupBy} page initialGroupBy={initialGroupBy}>
+        <CityCollection page collection={collection}
+          onCollectionChange={({ groupBy, selectedGroup }) => navigateTo(getFindHref(groupBy, selectedGroup))}>
           <details className="app-collection-map" onToggle={event => setMapOpen(event.currentTarget.open)}>
             <summary>Explore on the map</summary>
             <RouteAtlas interactive={mapOpen} />
@@ -349,89 +261,14 @@ function CitiesIndexPage({ hash }) {
   );
 }
 
-function CategoriesIndexPage() {
-  const categories = Object.values(CATEGORIES).sort((a, b) => a.label.localeCompare(b.label));
-  const categoryCityCodes = sortCityCodes([
-    ...new Set(categories.flatMap(category => category.cities)),
-  ]);
-
-  return (
-    <div className="app-root">
-      <PageHeader title="Categories" />
-
-      <CitiesMap cityCodes={categoryCityCodes} label="Map of cities by category" />
-
-      <main className="app-page-content">
-        {categories.map((category, categoryIndex) => {
-          const cityCodes = sortCityCodes(category.cities);
-
-          return (
-            <section
-              key={category.slug}
-              id={`category-${category.slug}`}
-              className={categoryIndex === 0 ? "app-index-block app-index-block--first" : "app-index-block"}
-            >
-              <h2 className="app-index-heading">{category.label}</h2>
-              <ul className="app-city-list">
-                {cityCodes.map((cityCode, index) => (
-                  <CityListItem
-                    key={cityCode}
-                    cityCode={cityCode}
-                    isLast={index === cityCodes.length - 1}
-                  />
-                ))}
-              </ul>
-            </section>
-          );
-        })}
-      </main>
-    </div>
-  );
-}
-
-function CityPage({ cityCode }) {
+function CityPage({ cityCode, fromFind }) {
   const city = CITIES[cityCode];
 
   if (!city) {
     return <NotFoundPage />;
   }
 
-  return <CityDetails city={city} onBack={() => navigateTo("/cities")} />;
-}
-
-function GroupPage({ type, value }) {
-  const groups = {
-    state: STATES,
-    region: REGIONS,
-    category: CATEGORIES,
-  }[type];
-  const group = getGroupBySlug(groups, value);
-
-  if (!group) {
-    return <NotFoundPage />;
-  }
-
-  const cityCodes = group.cities
-    .filter(cityCode => CITIES[cityCode])
-    .sort((a, b) => CITIES[a].city.localeCompare(CITIES[b].city));
-
-  return (
-    <div className="app-root">
-      <PageHeader title={group.label} />
-
-      <main className="app-page-content">
-        <ul className="app-city-list">
-          {cityCodes.map((cityCode, index) => (
-            <CityListItem
-              key={cityCode}
-              cityCode={cityCode}
-              isLast={index === cityCodes.length - 1}
-            />
-          ))}
-        </ul>
-      </main>
-    </div>
-  );
+  return <CityDetails city={city} onBack={() => navigateTo(fromFind?.match(/^\/find(?:[?#]|$)/) ? fromFind : "/find")} />;
 }
 
 function NotFoundPage() {
@@ -442,10 +279,12 @@ function NotFoundPage() {
   );
 }
 
-function CityCollection({ page = false, initialGroupBy = 'state', children }) {
-  const [{ groupBy, selectedGroup }, setCollection] = useState({ groupBy: initialGroupBy, selectedGroup: 'all' });
+function CityCollection({ page = false, collection, onCollectionChange, children }) {
+  const [localCollection, setLocalCollection] = useState({ groupBy: 'state', selectedGroup: 'all' });
+  const { groupBy, selectedGroup } = collection || localCollection;
+  const setCollection = onCollectionChange || setLocalCollection;
   const { view, groups, cityCount } = getCityCollection(groupBy, selectedGroup);
-  const prefix = page ? 'cities' : 'home';
+  const prefix = page ? 'find' : 'home';
   const Heading = page ? 'h1' : 'h2';
   const GroupHeading = page ? 'h2' : 'h3';
 
@@ -453,9 +292,7 @@ function CityCollection({ page = false, initialGroupBy = 'state', children }) {
     <section id="places" className="app-city-collection" aria-labelledby="city-collection-title">
       <div className="app-city-collection-heading">
         <div className="app-section-intro">
-          <p className="app-eyebrow">The city collection</p>
-          <Heading id="city-collection-title">{page ? 'Cities across India.' : 'Find your next stop.'}</Heading>
-          <p>Find a familiar place, or somewhere you haven’t been yet.</p>
+          <Heading id="city-collection-title">Find your next stop.</Heading>
         </div>
         <div className="app-collection-controls">
           <JournalSelect id={`${prefix}-group-by`} label="Group by" value={groupBy}
@@ -483,7 +320,7 @@ function CityCollection({ page = false, initialGroupBy = 'state', children }) {
                 const localName = CITY_LOCAL_NAMES[code];
                 return (
                   <li key={code} className="app-city-postcard" style={getThemeStyle(theme)}>
-                    <Link href={`/cities/${code}`} className="app-city-postcard-link">
+                    <Link href={`/cities/${code}`} state={page ? { fromFind: getFindHref(groupBy, selectedGroup) } : null} className="app-city-postcard-link">
                       <div className="app-city-postcard-art" aria-hidden="true">
                         <div className="app-city-postcard-lettering">
                           <span className="place-native-name" lang={localName.lang} dir={localName.dir}>{localName.text}</span>
@@ -545,6 +382,13 @@ export default function App({ initialPath, initialHash = "", initialState = null
   const route = useCurrentRoute(
     initialPath ? getInitialRoute(initialPath, initialHash, initialState) : null
   );
+
+  useEffect(() => {
+    if (!route.redirect) return;
+    const destination = getLegacyFindHref(route.path, route.search, route.hash);
+    window.history.replaceState(window.history.state, "", destination);
+    window.dispatchEvent(new Event("popstate"));
+  }, [route.redirect, route.path, route.search, route.hash]);
 
   useEffect(() => {
     if (route.name !== "route" || !route.path.startsWith("/routes/")) return;
@@ -613,28 +457,12 @@ export default function App({ initialPath, initialHash = "", initialState = null
     );
   }
 
-  if (route.name === "cities") {
-    return <CitiesIndexPage key={route.hash} hash={route.hash} />;
+  if (route.name === "find") {
+    return <FindPage search={route.search} hash={route.hash} />;
   }
 
   if (route.name === "city") {
-    return <CityPage cityCode={route.value} />;
-  }
-
-  if (route.name === "categories") {
-    return <CategoriesIndexPage />;
-  }
-
-  if (route.name === "state") {
-    return <GroupPage type="state" value={route.value} />;
-  }
-
-  if (route.name === "region") {
-    return <GroupPage type="region" value={route.value} />;
-  }
-
-  if (route.name === "category") {
-    return <GroupPage type="category" value={route.value} />;
+    return <CityPage cityCode={route.value} fromFind={route.state?.fromFind} />;
   }
 
   if (route.name === "not-found") {

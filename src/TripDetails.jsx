@@ -2,6 +2,7 @@ import { lazy, Suspense, useState, useEffect, useRef, useCallback, useSyncExtern
 import { CITIES as CITIES_DATA } from './data.js';
 import './TripDetails.css';
 import { navigateTo } from './nav.js';
+import { getFindHref } from './findRoutes.js';
 import { getTripDuration } from './tripDuration.js';
 import { getCityTheme, getThemeStyle } from './themes/cityThemes.js';
 import usePlaceMotion from './themes/usePlaceMotion.js';
@@ -177,11 +178,11 @@ function DetailColumn({ city, cityIndex, total, onOpenMap, motion }) {
           </div>
           {data && (
             <div className="td-city-meta">
-              <a href={`/cities#state-${data.state}`} onClick={e => { e.preventDefault(); navigateTo(`/cities#state-${data.state}`); }}>
+              <a href={getFindHref('state', data.state)} onClick={e => { e.preventDefault(); navigateTo(getFindHref('state', data.state)); }}>
                 {fmt(data.state)}
               </a>
               {' '}&middot;{' '}
-              <a href={`/cities#region-${data.region}`} onClick={e => { e.preventDefault(); navigateTo(`/cities#region-${data.region}`); }}>
+              <a href={getFindHref('region', data.region)} onClick={e => { e.preventDefault(); navigateTo(getFindHref('region', data.region)); }}>
                 {fmt(data.region)}
               </a>
             </div>
