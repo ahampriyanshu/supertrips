@@ -26,6 +26,7 @@ for (const code of Object.keys(CITIES)) {
   assert.ok(tags, `${code}: icon tags render`);
   const tagCount = (tags.match(/<li>/g) || []).length;
   assert.ok(tagCount >= 1 && tagCount <= 6, `${code}: rendered tag count stays in bounds`);
+  assert.equal((tags.match(/<a class="place-tag" href=/g) || []).length, tagCount, `${code}: every rendered tag is a link`);
   assert.ok(html.indexOf('class="place-native-name"') < html.indexOf('class="place-postcard') && html.indexOf('class="place-tags"') < html.indexOf('class="place-postcard'), `${code}: native name and tags appear above the illustration`);
 }
 for (const [code, landmarks] of Object.entries({

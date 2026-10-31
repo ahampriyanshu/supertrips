@@ -18,9 +18,9 @@ assert.ok(coastal.groups[0].cities.includes('kochi') && coastal.groups[0].cities
 assert.ok(!coastal.groups[0].cities.includes('jaipur'));
 assert.ok(getCityCollection('category', 'other-stops').groups[0].cities.includes('keylong'), 'Uncategorised cities remain available');
 const categories = getCityCollection('category');
-assert.equal(getCityCollection('category', 'in-transit').cityCount, 62, 'Transit includes the former backpacker and base-camp cities without duplicates');
+assert.equal(getCityCollection('category', 'in-transit').cityCount, 64, 'Transit includes the merged categories and both Kashmir transit stops without duplicates');
 assert.equal(getCityCollection('category', 'heritage').cityCount, 67, 'Heritage includes the union of forts, palaces, monuments and museums');
-assert.equal(getCityCollection('category', 'nature').cityCount, 40);
+assert.equal(getCityCollection('category', 'nature').cityCount, 41, 'Nature includes Qazigund, formerly stored as scenic');
 assert.equal(CATEGORIES.nature.label, 'Nature');
 for (const code of ['backpacker', 'base_camp', 'forts_palaces', 'monuments_museums']) {
   assert.ok(!Object.hasOwn(CATEGORIES, code), `${code}: no separate filter remains`);

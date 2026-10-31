@@ -59,7 +59,7 @@ names('njm', { kohima: 'Kewhira' });
 
 const categoryIcons = {
   coastal: 'shell', desert: 'sun', food: 'food', heritage: 'arch',
-  hill_station: 'mountain', mountains: 'mountain', metro: 'building', in_transit: 'train',
+  hill_station: 'mountain', metro: 'building', in_transit: 'train',
   nature: 'leaf', pilgrimage: 'bell', border_town: 'flag',
 };
 const familyTags = {
@@ -73,16 +73,20 @@ const familyTags = {
 const cityTags = { coimbatore: ['Yoga', null], kutchh: ['Salt desert', 'desert'], hampi: ['Ruins', 'heritage'], siliguri: ['In Transit', 'in_transit'] };
 
 export function getCityTags(city, theme) {
-  const categories = [...new Set((city?.category || []).map(code => code === 'mountains' ? 'hill_station' : code))];
+  const cityCode = city?.code || theme.id;
+  // Use the same membership as Find, so a tag always leads back to this city.
+  const categories = Object.keys(CATEGORIES).filter(code => CATEGORIES[code].cities.includes(cityCode));
   const [label, primaryCategory] = cityTags[theme.id] || familyTags[theme.family] || ['A place to wander', null];
-  const hrefFor = category => CATEGORIES[category] ? getFindHref('category', category) : undefined;
-  const primary = {
-    id: 'character', label, icon: theme.icon,
-    href: categories.includes(primaryCategory) ? hrefFor(primaryCategory) : undefined,
-  };
-  const extra = categories.filter(code => code !== primaryCategory && CATEGORIES[code]).map(code => ({
-    id: code, label: CATEGORIES[code].label,
-    icon: categoryIcons[code] || 'window', href: hrefFor(code),
+  if (!categories.length) {
+    return [{ id: 'other-stops', label: 'Other stops', icon: 'pin', href: getFindHref('category', 'other-stops') }];
+  }
+  const ordered = categories.includes(primaryCategory)
+    ? [primaryCategory, ...categories.filter(code => code !== primaryCategory)]
+    : categories;
+  return ordered.slice(0, 6).map(code => ({
+    id: code,
+    label: code === primaryCategory ? label : CATEGORIES[code].label,
+    icon: code === primaryCategory && theme.icon !== 'tea' ? theme.icon : categoryIcons[code],
+    href: getFindHref('category', code),
   }));
-  return [primary, ...extra].slice(0, 6);
 }

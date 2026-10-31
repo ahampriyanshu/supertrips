@@ -1,6 +1,7 @@
 // Small line drawings keep each place recognisable without turning navigation
 // into a different interface at every stop.
 const drawings = {
+  pin: <><path d="M26 12c0 8-10 18-10 18S6 20 6 12a10 10 0 0 1 20 0Z"/><circle cx="16" cy="12" r="3"/></>,
   backpack: <><path d="M7 29V13c0-9 18-9 18 0v16Zm4-21V5c0-4 10-4 10 0v3M7 17H4v10h3m18-10h3v10h-3"/><rect x="11" y="18" width="10" height="7" rx="2"/><path d="M12 12h8"/></>,
   food: <><path d="M7 3v9m-4-9v6q0 5 4 5t4-5V3M7 14v16M24 3v27m0-27q-9 7-6 14h6"/></>,
   train: <><rect x="7" y="3" width="18" height="23" rx="5"/><path d="M7 15h18M16 6v9M11 21h1m8 0h1M10 26l-4 5m16-5 4 5M9 29h14"/></>,

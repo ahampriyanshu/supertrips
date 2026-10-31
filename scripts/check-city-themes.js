@@ -3,6 +3,8 @@ import { CATEGORIES, CITIES, TRIPS } from '../src/data.js';
 import { getCityTheme, getThemeStyle } from '../src/themes/cityThemes.js';
 import { CITY_ILLUSTRATIONS } from '../src/themes/cityIllustrations.js';
 import { CITY_LOCAL_NAMES, getCityTags } from '../src/themes/cityIdentity.js';
+import { getCityCollection } from '../src/cityCollection.js';
+import { getFindSelection } from '../src/findRoutes.js';
 
 assert.deepEqual(Object.keys(CITY_ILLUSTRATIONS).sort(), Object.keys(CITIES).sort(), 'Every existing city gets an explicit illustration');
 assert.deepEqual(Object.keys(CITY_LOCAL_NAMES).sort(), Object.keys(CITIES).sort(), 'Every city has an explicit local name');
@@ -31,7 +33,20 @@ for (const [code, city] of Object.entries(CITIES)) {
   assert.ok(localName.text.trim() && localName.lang && ['ltr', 'rtl'].includes(localName.dir), `${code}: local name and writing direction`);
   const tags = getCityTags(city, theme);
   assert.ok(tags.length >= 1 && tags.length <= 6, `${code}: one to six tags`);
-  assert.equal(tags[0].icon, theme.icon, `${code}: original city symbol is retained below the artwork`);
+  for (const tag of tags) {
+    assert.ok(tag.href, `${code}: ${tag.label} must be a working tag, not a decorative dead end`);
+    const url = new URL(tag.href, 'https://supertrips.example');
+    assert.equal(url.pathname, '/find', `${code}: tag opens the shared collection`);
+    const { groupBy, selectedGroup } = getFindSelection(url.search);
+    assert.equal(groupBy, 'category');
+    assert.notEqual(selectedGroup, 'all', `${code}: tag opens a specific collection`);
+    assert.ok(getCityCollection(groupBy, selectedGroup).groups.some(group => group.cities.includes(code)), `${code}: ${tag.label} collection includes this city`);
+    assert.notEqual(tag.icon, 'tea', `${code}: a cup must not represent an unrelated category`);
+  }
+  for (const category of city.category) {
+    assert.ok(CATEGORIES[category], `${code}: category codes are current`);
+    assert.ok(CATEGORIES[category].cities.includes(code), `${code}: recorded categories include the city in their collections`);
+  }
   assert.equal(new Set(tags.map(tag => tag.id)).size, tags.length, `${code}: no duplicate tags`);
   const categoryLinks = tags.map(tag => tag.href).filter(Boolean);
   assert.equal(new Set(categoryLinks).size, categoryLinks.length, `${code}: merged categories appear once`);
@@ -44,7 +59,10 @@ for (const [code, city] of Object.entries(CITIES)) {
   assert.equal(getThemeStyle(theme)['--td-paper'], theme.paper);
 }
 for (const trip of TRIPS) {
-  for (const city of trip.cities) assert.equal(getCityTheme(city).id, city.code);
+  for (const city of trip.cities) {
+    assert.equal(getCityTheme(city).id, city.code);
+    assert.deepEqual(getCityTags(city, getCityTheme(city)), getCityTags(CITIES[city.code], getCityTheme(CITIES[city.code])), `${trip.name}: ${city.city} uses the same working tags as its city page`);
+  }
 }
 
 const themeFor = code => getCityTheme(CITIES[code]);
@@ -62,8 +80,10 @@ assert.equal(themeFor('coimbatore').illustration.kind, 'adiyogi');
 assert.equal(CITY_LOCAL_NAMES.coimbatore.text, 'கோயம்புத்தூர்');
 assert.equal(CITY_LOCAL_NAMES.srinagar.dir, 'rtl');
 assert.equal(CITY_LOCAL_NAMES.kurseong.lang, 'ne');
-assert.equal(getCityTags(CITIES.keylong, themeFor('keylong')).length, 1, 'A city without categories still has its character tag');
-assert.equal(getCityTags({ ...CITIES.kochi, category: Object.keys(CATEGORIES) }, themeFor('kochi')).length, 6, 'A city with many categories is capped at six tags');
+assert.deepEqual(getCityTags(CITIES.keylong, themeFor('keylong')), [{ id: 'other-stops', label: 'Other stops', icon: 'pin', href: '/find?by=category&place=other-stops' }], 'A city without a category has a working Other stops tag');
+assert.deepEqual(getCityTags(CITIES['banihar-qazigund'], themeFor('banihar-qazigund')).map(tag => tag.label).sort(), ['In Transit', 'Nature'], 'Qazigund has both recorded categories without a dead snow icon');
+assert.equal(getCityTags(CITIES.mathura, themeFor('mathura'))[0].icon, 'flute', 'Meaningful local symbols remain attached to their category');
+assert.ok(getCityTags(CITIES.kochi, themeFor('kochi')).some(tag => tag.label === 'Food'), 'Tags include categories listed in the shared city collection');
 assert.equal(themeFor('kutchh').illustration.kind, 'salt-rann');
 assert.equal(themeFor('gulmarg').illustration.kind, 'gondola');
 assert.equal(themeFor('srinagar').illustration.kind, 'shikara');
@@ -82,4 +102,4 @@ assert.ok(!themeFor('mayapur').caption.includes('Yamuna'));
 assert.equal(getCityTheme({ city: 'A new stop', state: 'kerala', category: [] }).scene, 'forest');
 assert.ok(getCityTheme(null).paper);
 assert.ok(getCityTheme({ city: 'Somewhere new', category: [] }).paper);
-console.log(`City themes: all ${Object.keys(CITIES).length} cities and ${TRIPS.length} trips covered; text contrast passes.`);
+console.log(`City themes: all ${Object.keys(CITIES).length} cities and ${TRIPS.length} trips covered; every tag links to a collection containing the city; text contrast passes.`);

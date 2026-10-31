@@ -1801,7 +1801,7 @@ export const CITIES = {
     "lng": 75.2005,
     "state": "jammu_kashmir",
     "region": "northern",
-    "category": ["scenic", "in_transit"],
+    "category": ["nature", "in_transit"],
     "must_visit": [
       "Banihal Tunnel",
       "Banihal Pass viewpoint",
@@ -4188,7 +4188,7 @@ export const CITIES = {
     "lng": 75.19684,
     "state": "jammu_kashmir",
     "region": "northern",
-    "category": ["in_transit", "mountains"],
+    "category": ["in_transit", "hill_station"],
     "must_visit": [
       "Banihal Railway Station (highest broad-gauge section)",
       "Patnitop Hill Station",
@@ -6154,6 +6154,8 @@ export const CATEGORIES = {
     "slug": "in-transit",
     "cities": [
       "alleppey",
+      "banihal-udhampur",
+      "banihar-qazigund",
       "bengaluru",
       "bhopal",
       "bir",
@@ -6356,6 +6358,7 @@ export const CATEGORIES = {
     "slug": "mountains",
     "cities": [
       "araku",
+      "banihal-udhampur",
       "chikkamagaluru",
       "coorg",
       "dalhousie",
@@ -6419,6 +6422,7 @@ export const CATEGORIES = {
       "alleppey",
       "araku",
       "baltal",
+      "banihar-qazigund",
       "bhuj",
       "bir",
       "chikkamagaluru",
