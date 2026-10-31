@@ -58,23 +58,19 @@ names('nag', { dimapur: 'Dimapur' });
 names('njm', { kohima: 'Kewhira' });
 
 const categoryIcons = {
-  backpacker: 'backpack', coastal: 'shell', desert: 'sun', food: 'food', forts_palaces: 'arch',
+  coastal: 'shell', desert: 'sun', food: 'food', heritage: 'arch',
   hill_station: 'mountain', mountains: 'mountain', metro: 'building', in_transit: 'train',
-  monuments_museums: 'museum', nature: 'leaf', pilgrimage: 'bell', border_town: 'flag', base_camp: 'tent',
-};
-const categoryLabels = {
-  backpacker: 'Backpacking', forts_palaces: 'Forts & palaces', monuments_museums: 'History',
-  pilgrimage: 'Pilgrimage', in_transit: 'On the way', nature: 'Nature',
+  nature: 'leaf', pilgrimage: 'bell', border_town: 'flag',
 };
 const familyTags = {
-  tech: ['Technology', 'metro'], braj: ['Braj', 'pilgrimage'], marble: ['Architecture', 'monuments_museums'],
-  ghats: ['Ghats', 'pilgrimage'], bengal: ['Culture', 'monuments_museums'], templeCoast: ['Temple coast', 'coastal'],
+  tech: ['Technology', 'metro'], braj: ['Braj', 'pilgrimage'], marble: ['Architecture', 'heritage'],
+  ghats: ['Ghats', 'pilgrimage'], bengal: ['Culture', 'heritage'], templeCoast: ['Temple coast', 'coastal'],
   towers: ['City life', 'metro'], desert: ['Desert', 'desert'], snow: ['Himalayas', 'hill_station'],
   forest: ['Nature', 'nature'], coast: ['Coastal', 'coastal'], hills: ['Hill country', 'hill_station'],
-  monastery: ['Mountains', 'hill_station'], palace: ['Heritage', 'forts_palaces'], river: ['Waterways', 'nature'],
-  temple: ['Pilgrimage', 'pilgrimage'], city: ['City life', 'metro'], delhi: ['Capital', 'metro'], jaipur: ['Pink City', 'forts_palaces'],
+  monastery: ['Mountains', 'hill_station'], palace: ['Heritage', 'heritage'], river: ['Waterways', 'nature'],
+  temple: ['Pilgrimage', 'pilgrimage'], city: ['City life', 'metro'], delhi: ['Capital', 'metro'], jaipur: ['Pink City', 'heritage'],
 };
-const cityTags = { coimbatore: ['Yoga', null], kutchh: ['Salt desert', 'desert'], hampi: ['Ruins', 'monuments_museums'] };
+const cityTags = { coimbatore: ['Yoga', null], kutchh: ['Salt desert', 'desert'], hampi: ['Ruins', 'heritage'], siliguri: ['In Transit', 'in_transit'] };
 
 export function getCityTags(city, theme) {
   const categories = [...new Set((city?.category || []).map(code => code === 'mountains' ? 'hill_station' : code))];
@@ -85,7 +81,7 @@ export function getCityTags(city, theme) {
     href: categories.includes(primaryCategory) ? hrefFor(primaryCategory) : undefined,
   };
   const extra = categories.filter(code => code !== primaryCategory && CATEGORIES[code]).map(code => ({
-    id: code, label: categoryLabels[code] || CATEGORIES[code].label,
+    id: code, label: CATEGORIES[code].label,
     icon: categoryIcons[code] || 'window', href: hrefFor(code),
   }));
   return [primary, ...extra].slice(0, 6);

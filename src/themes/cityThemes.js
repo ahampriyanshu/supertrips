@@ -96,7 +96,7 @@ assign('bodh-gaya', 'temple', { palette: 'moss', motion: 'wind' });
 assign('kutchh', 'desert', { palette: 'salt', motion: 'haze' });
 assign('bikaner', 'palace', { palette: 'rose' });
 assign('bhuj', 'palace', { palette: 'sand' });
-assign('siliguri', 'hills');
+assign('siliguri', 'hills', { icon: 'train' });
 assign('kharagpur', 'city');
 assign('mayapur', 'temple', { palette: 'indigo', motion: 'ripples' });
 assign('khajuraho', 'temple', { palette: 'sand' });

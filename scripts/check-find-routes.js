@@ -18,7 +18,16 @@ assert.doesNotMatch(sitemap, /\/(?:categories|states|regions)(?:\/|<)|\/cities<\
 
 assert.equal(getFindHref(), '/find');
 assert.equal(getFindHref('state', 'tamil_nadu'), '/find?by=state&place=tamil-nadu');
-assert.equal(getFindHref('category', 'forts_palaces'), '/find?by=category&place=forts-and-palaces');
+assert.equal(getFindHref('category', 'forts_palaces'), '/find?by=category&place=heritage');
+for (const [oldValue, selectedGroup] of Object.entries({
+  backpacker: 'in-transit', base_camp: 'in-transit', 'base-camp': 'in-transit',
+  forts_palaces: 'heritage', 'forts-and-palaces': 'heritage',
+  monuments_museums: 'heritage', 'monuments-and-museums': 'heritage', scenic: 'nature',
+})) {
+  assert.equal(getFindHref('category', oldValue), `/find?by=category&place=${selectedGroup}`);
+  assert.deepEqual(getFindSelection(`?by=category&place=${oldValue}`), { groupBy: 'category', selectedGroup });
+  assert.deepEqual(getFindSelection('', `#category-${oldValue}`), { groupBy: 'category', selectedGroup });
+}
 assert.deepEqual(getFindSelection('?by=category&place=coastal'), { groupBy: 'category', selectedGroup: 'coastal' });
 assert.deepEqual(getFindSelection('', '#state-tamil_nadu'), { groupBy: 'state', selectedGroup: 'tamil-nadu' });
 assert.deepEqual(getFindSelection('?by=region&place=western'), { groupBy: 'region', selectedGroup: 'western' });

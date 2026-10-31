@@ -20,13 +20,13 @@ function CitySketch() {
   );
 }
 
-export default function RouteAtlas({ interactive = false }) {
+export default function RouteAtlas({ interactive = false, mobilePageScroll = false }) {
   return (
     <figure className="app-atlas">
       <div className="app-atlas-frame" role="region" aria-label="Map of all destinations">
         {interactive ? (
           <Suspense fallback={<CitySketch />}>
-            <CitiesLeafletMap cities={cities} hero />
+            <CitiesLeafletMap cities={cities} hero mobilePageScroll={mobilePageScroll} />
           </Suspense>
         ) : <CitySketch />}
       </div>

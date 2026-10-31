@@ -34,6 +34,9 @@
 
 .app-home .app-hero .app-atlas { max-width: none; }
 .app-home .app-atlas-frame { height: clamp(460px, 46vw, 560px); aspect-ratio: auto; }
+@media (max-width: 700px), (pointer: coarse) {
+  .app-home .app-hero .leaflet-container { touch-action: pan-y pinch-zoom; }
+}
 .app-city-postcard .place-postcard { margin: 0; animation: none; }
 .app-city-postcard .place-postcard .place-drawing { width: 100%; height: auto; max-height: none; min-height: 0; }
 
@@ -186,7 +189,6 @@
 
 .app-notebook-band { background: #e8ebdf; margin-top: 12px; }
 .app-home .app-backpacking-section { border: 0; padding-block: 56px 64px; gap: 44px; }
-.app-home .app-backpacking-card-title > span { color: #68775d; }
 .app-home .app-backpacking-list li::marker { color: #829277; }
 .app-home .app-footer,
 .app-find-page .app-footer { border-color: var(--color-border); }

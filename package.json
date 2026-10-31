@@ -12,6 +12,7 @@
     "check:ssg-shell": "node scripts/check-static-shell.js",
     "check:trip-routes": "node scripts/check-trip-routes.js",
     "check:find": "node scripts/check-find-routes.js",
+    "check:popups": "node scripts/check-city-popups.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "lint": "eslint .",

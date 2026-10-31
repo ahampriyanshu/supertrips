@@ -1,48 +1,17 @@
-import { getFindHref } from '../findRoutes.js';
 import { useEffect, useRef, useState } from 'react';
 import { CircleMarker, MapContainer, Polyline, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
-import { CATEGORIES, CITIES as CITIES_DATA, REGIONS, STATES } from '../data.js';
-import { navigateTo } from '../nav.js';
+import { CITIES as CITIES_DATA } from '../data.js';
+import CityMapPopup from './CityMapPopup.jsx';
 import MapTileLayer from './MapTileLayer.jsx';
-
-const CITY_ENRICHMENT = Object.values(CITIES_DATA).reduce((acc, entry) => {
-  if (!acc[entry.city]) acc[entry.city] = entry;
-  return acc;
-}, {});
 
 const CITY_CODE_BY_NAME = Object.entries(CITIES_DATA).reduce((acc, [code, entry]) => {
   if (!acc[entry.city]) acc[entry.city] = code;
   return acc;
 }, {});
 
-function fmt(s) {
-  if (!s) return '';
-  return String(s).replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
-}
-
-function getCityData(city) {
-  return CITIES_DATA[city?.code] || CITY_ENRICHMENT[city?.city] || city;
-}
-
 function getCityCode(city) {
   return city?.code || CITY_CODE_BY_NAME[city?.city];
-}
-
-function getStateLabel(value) {
-  return STATES[value]?.label || fmt(value);
-}
-
-function getStateSlug(value) {
-  return STATES[value]?.slug || String(value || '').replace(/_/g, '-');
-}
-
-function getRegionLabel(value) {
-  return REGIONS[value]?.label || fmt(value);
-}
-
-function getRegionSlug(value) {
-  return REGIONS[value]?.slug || String(value || '').replace(/_/g, '-');
 }
 
 function useDesktopView() {
@@ -89,68 +58,6 @@ function CityFocuser({ position, motionPaused }) {
     map.panTo(position, { animate: !motionPaused, duration: 0.5 });
   }, [position, map, motionPaused]);
   return null;
-}
-
-function MapPopupLink({ href, className, children }) {
-  return (
-    <a
-      href={href}
-      className={className}
-      onClick={e => {
-        e.preventDefault();
-        navigateTo(href);
-      }}
-    >
-      {children}
-    </a>
-  );
-}
-
-function StopPopup({ city }) {
-  const data = getCityData(city);
-  const cityCode = getCityCode(city);
-  const categories = Array.isArray(data?.category) ? data.category.filter(Boolean) : [];
-
-  return (
-    <div className="td-map-popup-inner">
-      {cityCode ? (
-        <MapPopupLink href={`/cities/${cityCode}`} className="td-map-popup-title">
-          {city.city}
-        </MapPopupLink>
-      ) : (
-        <div className="td-map-popup-title">{city.city}</div>
-      )}
-
-      {data && (
-        <div className="td-map-popup-meta">
-          <MapPopupLink href={getFindHref('state', getStateSlug(data.state))}>
-            {getStateLabel(data.state)}
-          </MapPopupLink>
-          <span> · </span>
-          <MapPopupLink href={getFindHref('region', getRegionSlug(data.region))}>
-            {getRegionLabel(data.region)}
-          </MapPopupLink>
-        </div>
-      )}
-
-      {categories.length > 0 && (
-        <div className="td-map-popup-group">
-          <div className="td-map-popup-label">Categories</div>
-          <div className="td-map-popup-chips">
-            {categories.map(category => (
-              <MapPopupLink
-                key={category}
-                href={getFindHref('category', category)}
-                className="td-map-popup-chip"
-              >
-                {CATEGORIES[category]?.label || fmt(category)}
-              </MapPopupLink>
-            ))}
-          </div>
-        </div>
-      )}
-    </div>
-  );
 }
 
 const routeLineOptions = { color: '#a34630', weight: 3, opacity: 0.7, dashArray: '6, 14' };
@@ -209,7 +116,7 @@ function StopMarker({ city, index, activePosition, openActivePopup, theme }) {
         autoPanPaddingTopLeft={[32, 72]}
         autoPanPaddingBottomRight={[32, 32]}
       >
-        <StopPopup city={city} />
+        <CityMapPopup city={city} cityCode={getCityCode(city)} />
       </Popup>
     </CircleMarker>
   );

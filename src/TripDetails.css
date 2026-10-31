@@ -86,7 +86,9 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  line-height: 1.1;
+  line-height: 1.3;
+  padding-block: 0.12em;
+  margin-block: -0.12em;
 }
 
 .td-trip-meta {
@@ -156,7 +158,7 @@
 }
 
 .td-map-popup .leaflet-popup-content {
-  width: 230px;
+  width: 260px;
   margin: 16px;
   font-family: var(--font-body);
 }
@@ -193,65 +195,22 @@
   color: var(--td-accent);
 }
 
-.td-map-popup-meta {
-  margin-top: -0.45rem;
-  font-size: 11px;
+.td-map-popup .td-map-popup-intro {
+  margin: 0;
   color: var(--td-muted);
+  font: 13px/1.65 var(--font-body);
 }
 
-.td-map-popup-meta a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.td-map-popup-meta a:hover {
+.leaflet-container .td-map-popup-wikipedia {
+  align-self: flex-start;
   color: var(--td-accent);
-  text-decoration: underline;
-}
-
-.td-map-popup-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-
-.td-map-popup-label {
-  font-size: 10px;
-  font-weight: 600;
-  color: var(--td-ink);
-}
-
-.td-map-popup-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-}
-
-.td-map-popup-chip {
-  display: inline-flex;
-  align-items: center;
-  min-height: 22px;
-  padding: 0 0.45rem;
-  border: 1px solid var(--td-border);
-  border-radius: 2px;
-  background: transparent;
-  color: var(--td-ink);
-  font-size: 11px;
-  line-height: 1;
+  font: 12px/1.5 var(--font-body);
   text-decoration: none;
 }
 
-.td-map-popup-chip:hover {
-  border-color: var(--td-accent);
-  color: var(--td-ink);
-}
-
-.leaflet-container .td-map-popup-chip {
-  color: var(--td-ink);
-}
-
-.leaflet-container .td-map-popup-chip:hover {
-  color: var(--td-ink);
+.leaflet-container .td-map-popup-wikipedia:is(:hover, :focus-visible) {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 /* ── Detail scroll ── */
@@ -361,7 +320,6 @@
 
 .td-essentials {
   padding-bottom: 26px;
-  border-bottom: 1px solid var(--td-border);
 }
 
 .td-essentials-list {
@@ -380,7 +338,6 @@
   font-size: 13px;
   line-height: 1.6;
   color: var(--td-ink);
-  border-bottom: 1px dotted var(--td-border);
 }
 
 .td-essential-status {

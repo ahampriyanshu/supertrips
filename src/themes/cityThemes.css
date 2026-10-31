@@ -206,10 +206,11 @@ a.place-tag:hover { color: var(--td-ink); }
 
 @media (max-width: 900px) {
   .td-themed .td-map-column { width: 46%; padding: 16px; }
-  .td-themed .td-map-popup .leaflet-popup-content { max-width: calc(46vw - 130px); }
+  .td-themed .td-map-column .td-map-popup .leaflet-popup-content { max-width: calc(46vw - 100px); }
   .td-themed .td-detail-inner { padding-inline: 24px; }
 }
 @media (max-width: 639px) {
+  .td-themed .td-map-modal .td-map-popup .leaflet-popup-content { max-width: calc(100vw - 100px); }
   .td-themed .td-detail-inner { padding: 16px 20px 40px; gap: 24px; }
   .place-toolbar { display: flex; justify-content: space-between; }
   .place-toolbar .td-map-widget { font-size: 11px; padding: 7px 9px; }

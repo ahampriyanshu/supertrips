@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { CITIES, TRIPS } from '../src/data.js';
+import { CATEGORIES, CITIES, TRIPS } from '../src/data.js';
 import { getCityTheme, getThemeStyle } from '../src/themes/cityThemes.js';
 import { CITY_ILLUSTRATIONS } from '../src/themes/cityIllustrations.js';
 import { CITY_LOCAL_NAMES, getCityTags } from '../src/themes/cityIdentity.js';
@@ -33,6 +33,8 @@ for (const [code, city] of Object.entries(CITIES)) {
   assert.ok(tags.length >= 1 && tags.length <= 6, `${code}: one to six tags`);
   assert.equal(tags[0].icon, theme.icon, `${code}: original city symbol is retained below the artwork`);
   assert.equal(new Set(tags.map(tag => tag.id)).size, tags.length, `${code}: no duplicate tags`);
+  const categoryLinks = tags.map(tag => tag.href).filter(Boolean);
+  assert.equal(new Set(categoryLinks).size, categoryLinks.length, `${code}: merged categories appear once`);
   assert.ok(tags.every(tag => tag.label && tag.icon), `${code}: tags have meaningful labels and symbols`);
   for (const text of ['ink', 'muted', 'accent']) {
     for (const surface of ['paper', 'card']) {
@@ -61,7 +63,7 @@ assert.equal(CITY_LOCAL_NAMES.coimbatore.text, 'கோயம்புத்த�
 assert.equal(CITY_LOCAL_NAMES.srinagar.dir, 'rtl');
 assert.equal(CITY_LOCAL_NAMES.kurseong.lang, 'ne');
 assert.equal(getCityTags(CITIES.keylong, themeFor('keylong')).length, 1, 'A city without categories still has its character tag');
-assert.equal(getCityTags(CITIES.kochi, themeFor('kochi')).length, 6, 'A city with many categories is capped at six tags');
+assert.equal(getCityTags({ ...CITIES.kochi, category: Object.keys(CATEGORIES) }, themeFor('kochi')).length, 6, 'A city with many categories is capped at six tags');
 assert.equal(themeFor('kutchh').illustration.kind, 'salt-rann');
 assert.equal(themeFor('gulmarg').illustration.kind, 'gondola');
 assert.equal(themeFor('srinagar').illustration.kind, 'shikara');

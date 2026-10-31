@@ -42,6 +42,35 @@ function AtlasBounds({ cities }) {
   return null;
 }
 
+function MobilePageScroll() {
+  const map = useMap();
+
+  useEffect(() => {
+    const mobile = window.matchMedia('(max-width: 700px), (pointer: coarse)');
+    const handlers = [map.dragging, map.touchZoom, map.doubleClickZoom, map.boxZoom, map.keyboard, map.tapHold]
+      .filter(Boolean).map(handler => ({ handler, enabled: handler.enabled() }));
+    const update = () => {
+      for (const { handler, enabled } of handlers) {
+        if (mobile.matches || !enabled) handler.disable();
+        else handler.enable();
+      }
+    };
+
+    // Changing MapContainer props after mounting does not update Leaflet handlers.
+    update();
+    mobile.addEventListener('change', update);
+    return () => {
+      mobile.removeEventListener('change', update);
+      for (const { handler, enabled } of handlers) {
+        if (enabled) handler.enable();
+        else handler.disable();
+      }
+    };
+  }, [map]);
+
+  return null;
+}
+
 function formatParam(value) {
   return value
     .split(/[-_]/)
@@ -92,7 +121,7 @@ function MapPopupLink({ href, className, children }) {
   );
 }
 
-export default function CitiesLeafletMap({ cities, hero = false }) {
+export default function CitiesLeafletMap({ cities, hero = false, mobilePageScroll = false }) {
   const MapMarker = hero ? Marker : CircleMarker;
   return (
     <MapContainer
@@ -109,6 +138,7 @@ export default function CitiesLeafletMap({ cities, hero = false }) {
       style={{ height: "100%", width: "100%", background: "#eae8e0" }}
     >
       <MapTileLayer />
+      {mobilePageScroll && <MobilePageScroll />}
       {hero && <AtlasBounds cities={cities} />}
 
       {cities.map(({ cityCode, city, position }) => {

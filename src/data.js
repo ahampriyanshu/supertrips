@@ -842,7 +842,7 @@ export const CITIES = {
     "region": "northern",
     "category": [
       "metro",
-      "base_camp"
+      "in_transit"
     ],
     "must_visit": [
       "Sultanpur Bird Sanctuary",
@@ -914,8 +914,7 @@ export const CITIES = {
     "state": "uttar_pradesh",
     "region": "northern",
     "category": [
-      "forts_palaces",
-      "monuments_museums"
+      "heritage"
     ],
     "must_visit": [
       "Taj Mahal",
@@ -955,8 +954,8 @@ export const CITIES = {
     "region": "northern",
     "category": [
       "pilgrimage",
-      "monuments_museums",
-      "backpacker"
+      "heritage",
+      "in_transit"
     ],
     "must_visit": [
       "Dashashwamedh Ghat",
@@ -998,9 +997,8 @@ export const CITIES = {
     "region": "eastern",
     "category": [
       "metro",
-      "monuments_museums",
-      "backpacker",
-      "base_camp"
+      "heritage",
+      "in_transit"
     ],
     "must_visit": [
       "Victoria Memorial",
@@ -1044,7 +1042,7 @@ export const CITIES = {
     "category": [
       "pilgrimage",
       "coastal",
-      "monuments_museums"
+      "heritage"
     ],
     "must_visit": [
       "Jagannath Temple Puri",
@@ -1121,9 +1119,8 @@ export const CITIES = {
     "region": "northern",
     "category": [
       "metro",
-      "forts_palaces",
-      "monuments_museums",
-      "base_camp"
+      "heritage",
+      "in_transit"
     ],
     "must_visit": [
       "Red Fort",
@@ -1168,8 +1165,7 @@ export const CITIES = {
     "region": "northern",
     "category": [
       "metro",
-      "forts_palaces",
-      "monuments_museums"
+      "heritage"
     ],
     "must_visit": [
       "Amber Fort",
@@ -1211,8 +1207,7 @@ export const CITIES = {
     "state": "rajasthan",
     "region": "northern",
     "category": [
-      "forts_palaces",
-      "monuments_museums"
+      "heritage"
     ],
     "must_visit": [
       "Chittorgarh Fort",
@@ -1251,7 +1246,7 @@ export const CITIES = {
     "state": "rajasthan",
     "region": "northern",
     "category": [
-      "forts_palaces"
+      "heritage"
     ],
     "must_visit": [
       "Lake Pichola",
@@ -1293,7 +1288,7 @@ export const CITIES = {
     "state": "rajasthan",
     "region": "northern",
     "category": [
-      "forts_palaces"
+      "heritage"
     ],
     "must_visit": [
       "Kumbhalgarh Fort",
@@ -1330,7 +1325,7 @@ export const CITIES = {
     "state": "gujarat",
     "region": "western",
     "category": [
-      "monuments_museums"
+      "heritage"
     ],
     "must_visit": [
       "Statue of Unity",
@@ -1369,8 +1364,7 @@ export const CITIES = {
     "region": "western",
     "category": [
       "metro",
-      "in_transit",
-      "base_camp"
+      "in_transit"
     ],
     "must_visit": [
       "Surat Castle",
@@ -1411,9 +1405,8 @@ export const CITIES = {
     "state": "gujarat",
     "region": "western",
     "category": [
-      "forts_palaces",
-      "in_transit",
-      "base_camp"
+      "heritage",
+      "in_transit"
     ],
     "must_visit": [
       "Laxmi Vilas Palace",
@@ -1572,8 +1565,7 @@ export const CITIES = {
     "state": "punjab",
     "region": "northern",
     "category": [
-      "in_transit",
-      "base_camp"
+      "in_transit"
     ],
     "must_visit": [
       "Lodhi Fort",
@@ -1646,8 +1638,7 @@ export const CITIES = {
     "region": "northern",
     "category": [
       "pilgrimage",
-      "forts_palaces",
-      "monuments_museums",
+      "heritage",
       "border_town"
     ],
     "must_visit": [
@@ -1692,8 +1683,7 @@ export const CITIES = {
     "region": "northern",
     "category": [
       "border_town",
-      "in_transit",
-      "base_camp"
+      "in_transit"
     ],
     "must_visit": [
       "Mukteshwar Temple",
@@ -1770,11 +1760,9 @@ export const CITIES = {
     "state": "jammu_kashmir",
     "region": "northern",
     "category": [
-      "forts_palaces",
-      "monuments_museums",
+      "heritage",
       "pilgrimage",
-      "in_transit",
-      "base_camp"
+      "in_transit"
     ],
     "must_visit": [
       "Raghunath Temple",
@@ -1849,9 +1837,9 @@ export const CITIES = {
     "state": "jammu_kashmir",
     "region": "northern",
     "category": [
-      "monuments_museums",
+      "heritage",
       "hill_station",
-      "backpacker"
+      "in_transit"
     ],
     "must_visit": [
       "Dal Lake and Shikara ride",
@@ -1933,7 +1921,7 @@ export const CITIES = {
     "region": "northern",
     "category": [
       "border_town",
-      "monuments_museums"
+      "heritage"
     ],
     "must_visit": [
       "Kargil War Memorial (Dras)",
@@ -1972,10 +1960,9 @@ export const CITIES = {
     "state": "ladakh",
     "region": "northern",
     "category": [
-      "forts_palaces",
-      "monuments_museums",
+      "heritage",
       "pilgrimage",
-      "backpacker"
+      "in_transit"
     ],
     "must_visit": [
       "Leh Palace",
@@ -2055,7 +2042,7 @@ export const CITIES = {
     "region": "northern",
     "category": [
       "hill_station",
-      "backpacker"
+      "in_transit"
     ],
     "must_visit": [
       "Rohtang Pass",
@@ -2135,8 +2122,8 @@ export const CITIES = {
     "state": "chandigarh",
     "region": "northern",
     "category": [
-      "monuments_museums",
-      "base_camp"
+      "heritage",
+      "in_transit"
     ],
     "must_visit": [
       "Rock Garden (Nek Chand)",
@@ -2176,8 +2163,7 @@ export const CITIES = {
     "state": "rajasthan",
     "region": "northern",
     "category": [
-      "forts_palaces",
-      "monuments_museums",
+      "heritage",
       "desert"
     ],
     "must_visit": [
@@ -2255,8 +2241,7 @@ export const CITIES = {
     "state": "rajasthan",
     "region": "northern",
     "category": [
-      "forts_palaces",
-      "monuments_museums",
+      "heritage",
       "desert"
     ],
     "must_visit": [
@@ -2298,8 +2283,7 @@ export const CITIES = {
     "state": "rajasthan",
     "region": "northern",
     "category": [
-      "forts_palaces",
-      "monuments_museums"
+      "heritage"
     ],
     "must_visit": [
       "Mehrangarh Fort",
@@ -2382,7 +2366,7 @@ export const CITIES = {
     "region": "western",
     "category": [
       "metro",
-      "monuments_museums"
+      "heritage"
     ],
     "must_visit": [
       "Sabarmati Ashram",
@@ -2589,8 +2573,7 @@ export const CITIES = {
     "state": "maharashtra",
     "region": "western",
     "category": [
-      "forts_palaces",
-      "monuments_museums"
+      "heritage"
     ],
     "must_visit": [
       "Ellora Caves",
@@ -2630,9 +2613,8 @@ export const CITIES = {
     "region": "western",
     "category": [
       "metro",
-      "forts_palaces",
-      "monuments_museums",
-      "base_camp"
+      "heritage",
+      "in_transit"
     ],
     "must_visit": [
       "Shaniwar Wada",
@@ -2676,7 +2658,7 @@ export const CITIES = {
     "category": [
       "metro",
       "coastal",
-      "base_camp"
+      "in_transit"
     ],
     "must_visit": [
       "Gateway of India",
@@ -2719,9 +2701,8 @@ export const CITIES = {
     "region": "western",
     "category": [
       "coastal",
-      "backpacker",
-      "forts_palaces",
-      "monuments_museums"
+      "in_transit",
+      "heritage"
     ],
     "must_visit": [
       "Calangute and Baga Beach",
@@ -2766,11 +2747,9 @@ export const CITIES = {
     "region": "southern",
     "category": [
       "metro",
-      "forts_palaces",
-      "monuments_museums",
+      "heritage",
       "coastal",
-      "backpacker",
-      "base_camp"
+      "in_transit"
     ],
     "must_visit": [
       "Fort Kochi",
@@ -2813,7 +2792,7 @@ export const CITIES = {
     "state": "kerala",
     "region": "southern",
     "category": [
-      "backpacker",
+      "in_transit",
       "coastal"
     ],
     "must_visit": [
@@ -2858,7 +2837,7 @@ export const CITIES = {
     "region": "southern",
     "category": [
       "coastal",
-      "backpacker",
+      "in_transit",
       "pilgrimage"
     ],
     "must_visit": [
@@ -2946,7 +2925,7 @@ export const CITIES = {
     "region": "southern",
     "category": [
       "hill_station",
-      "backpacker"
+      "in_transit"
     ],
     "must_visit": [
       "Vagamon Meadows",
@@ -2987,8 +2966,7 @@ export const CITIES = {
     "state": "tamil_nadu",
     "region": "southern",
     "category": [
-      "in_transit",
-      "base_camp"
+      "in_transit"
     ],
     "must_visit": [
       "Isha Yoga Centre & Dhyanalinga",
@@ -3073,8 +3051,7 @@ export const CITIES = {
     "state": "karnataka",
     "region": "southern",
     "category": [
-      "forts_palaces",
-      "monuments_museums",
+      "heritage",
       "pilgrimage"
     ],
     "must_visit": [
@@ -3119,7 +3096,7 @@ export const CITIES = {
     "region": "southern",
     "category": [
       "hill_station",
-      "monuments_museums"
+      "heritage"
     ],
     "must_visit": [
       "Edakkal Caves",
@@ -3163,7 +3140,7 @@ export const CITIES = {
     "category": [
       "pilgrimage",
       "coastal",
-      "monuments_museums"
+      "heritage"
     ],
     "must_visit": [
       "Ramanathaswamy Temple",
@@ -3205,8 +3182,7 @@ export const CITIES = {
     "state": "tamil_nadu",
     "region": "southern",
     "category": [
-      "forts_palaces",
-      "monuments_museums",
+      "heritage",
       "pilgrimage"
     ],
     "must_visit": [
@@ -3251,8 +3227,7 @@ export const CITIES = {
     "category": [
       "metro",
       "pilgrimage",
-      "backpacker",
-      "base_camp"
+      "in_transit"
     ],
     "must_visit": [
       "Kamakhya Temple",
@@ -3295,7 +3270,7 @@ export const CITIES = {
     "region": "northeastern",
     "category": [
       "hill_station",
-      "backpacker"
+      "in_transit"
     ],
     "must_visit": [
       "Elephant Falls",
@@ -3338,7 +3313,7 @@ export const CITIES = {
     "state": "meghalaya",
     "region": "northeastern",
     "category": [
-      "backpacker",
+      "in_transit",
       "border_town"
     ],
     "must_visit": [
@@ -3379,10 +3354,8 @@ export const CITIES = {
     "state": "assam",
     "region": "northeastern",
     "category": [
-      "backpacker",
-      "monuments_museums",
       "in_transit",
-      "base_camp"
+      "heritage"
     ],
     "must_visit": [
       "Khaspur Ruins",
@@ -3422,11 +3395,9 @@ export const CITIES = {
     "state": "nagaland",
     "region": "northeastern",
     "category": [
-      "backpacker",
-      "monuments_museums",
-      "border_town",
       "in_transit",
-      "base_camp"
+      "heritage",
+      "border_town"
     ],
     "must_visit": [
       "Kachari Ruins",
@@ -3466,8 +3437,8 @@ export const CITIES = {
     "state": "nagaland",
     "region": "northeastern",
     "category": [
-      "monuments_museums",
-      "backpacker"
+      "heritage",
+      "in_transit"
     ],
     "must_visit": [
       "Kohima War Cemetery",
@@ -3509,7 +3480,7 @@ export const CITIES = {
     "state": "assam",
     "region": "northeastern",
     "category": [
-      "backpacker"
+      "in_transit"
     ],
     "must_visit": [
       "Dibru-Saikhowa National Park",
@@ -3549,9 +3520,8 @@ export const CITIES = {
     "state": "arunachal_pradesh",
     "region": "northeastern",
     "category": [
-      "forts_palaces",
-      "monuments_museums",
-      "backpacker"
+      "heritage",
+      "in_transit"
     ],
     "must_visit": [
       "Ita Fort",
@@ -3635,7 +3605,7 @@ export const CITIES = {
     "region": "eastern",
     "category": [
       "hill_station",
-      "monuments_museums"
+      "heritage"
     ],
     "must_visit": [
       "Tiger Hill sunrise",
@@ -3720,7 +3690,7 @@ export const CITIES = {
     "region": "northeastern",
     "category": [
       "hill_station",
-      "monuments_museums"
+      "heritage"
     ],
     "must_visit": [
       "Rumtek Monastery",
@@ -3762,9 +3732,7 @@ export const CITIES = {
     "state": "west_bengal",
     "region": "eastern",
     "category": [
-      "backpacker",
-      "in_transit",
-      "base_camp"
+      "in_transit"
     ],
     "must_visit": [
       "North Bengal State Zoo (Bengal Safari)",
@@ -3804,7 +3772,7 @@ export const CITIES = {
     "region": "southern",
     "category": [
       "metro",
-      "base_camp"
+      "in_transit"
     ],
     "must_visit": [
       "Cubbon Park",
@@ -3846,7 +3814,7 @@ export const CITIES = {
     "state": "tamil_nadu",
     "region": "southern",
     "category": [
-      "monuments_museums",
+      "heritage",
       "pilgrimage"
     ],
     "must_visit": [
@@ -3970,9 +3938,8 @@ export const CITIES = {
     "region": "southern",
     "category": [
       "metro",
-      "forts_palaces",
-      "monuments_museums",
-      "base_camp"
+      "heritage",
+      "in_transit"
     ],
     "must_visit": [
       "Charminar",
@@ -4014,7 +3981,7 @@ export const CITIES = {
     "state": "karnataka",
     "region": "southern",
     "category": [
-      "forts_palaces"
+      "heritage"
     ],
     "must_visit": [
       "Jog Falls",
@@ -4056,8 +4023,8 @@ export const CITIES = {
     "region": "southern",
     "category": [
       "coastal",
-      "monuments_museums",
-      "backpacker"
+      "heritage",
+      "in_transit"
     ],
     "must_visit": [
       "French Quarter (White Town)",
@@ -4102,9 +4069,8 @@ export const CITIES = {
     "category": [
       "metro",
       "coastal",
-      "forts_palaces",
-      "monuments_museums",
-      "base_camp"
+      "heritage",
+      "in_transit"
     ],
     "must_visit": [
       "Marina Beach",
@@ -4259,8 +4225,7 @@ export const CITIES = {
     "state": "madhya_pradesh",
     "region": "central",
     "category": [
-      "forts_palaces",
-      "monuments_museums"
+      "heritage"
     ],
     "must_visit": [
       "Orchha Fort Complex",
@@ -4300,8 +4265,7 @@ export const CITIES = {
     "state": "madhya_pradesh",
     "region": "central",
     "category": [
-      "forts_palaces",
-      "monuments_museums",
+      "heritage",
       "in_transit"
     ],
     "must_visit": [
@@ -4341,7 +4305,7 @@ export const CITIES = {
     "state": "madhya_pradesh",
     "region": "central",
     "category": [
-      "monuments_museums"
+      "heritage"
     ],
     "must_visit": [
       "Western Temple Group (Kandariya Mahadeva)",
@@ -4382,8 +4346,7 @@ export const CITIES = {
     "region": "northern",
     "category": [
       "pilgrimage",
-      "forts_palaces",
-      "monuments_museums"
+      "heritage"
     ],
     "must_visit": [
       "Triveni Sangam",
@@ -4463,7 +4426,7 @@ export const CITIES = {
     "state": "uttar_pradesh",
     "region": "northern",
     "category": [
-      "monuments_museums"
+      "heritage"
     ],
     "must_visit": [
       "Bara Imambara",
@@ -4504,8 +4467,8 @@ export const CITIES = {
     "region": "eastern",
     "category": [
       "pilgrimage",
-      "monuments_museums",
-      "backpacker"
+      "heritage",
+      "in_transit"
     ],
     "must_visit": [
       "Mahabodhi Temple",
@@ -4588,7 +4551,7 @@ export const CITIES = {
     "region": "eastern",
     "category": [
       "coastal",
-      "backpacker"
+      "in_transit"
     ],
     "must_visit": [
       "Old Digha Beach",
@@ -4628,9 +4591,7 @@ export const CITIES = {
     "state": "west_bengal",
     "region": "eastern",
     "category": [
-      "backpacker",
-      "in_transit",
-      "base_camp"
+      "in_transit"
     ],
     "must_visit": [
       "IIT Kharagpur Campus",
@@ -4669,8 +4630,7 @@ export const CITIES = {
     "state": "odisha",
     "region": "eastern",
     "category": [
-      "forts_palaces",
-      "monuments_museums",
+      "heritage",
       "pilgrimage",
       "in_transit"
     ],
@@ -4715,7 +4675,7 @@ export const CITIES = {
     "category": [
       "coastal",
       "metro",
-      "monuments_museums"
+      "heritage"
     ],
     "must_visit": [
       "RK Beach",
@@ -4757,7 +4717,7 @@ export const CITIES = {
     "region": "southern",
     "category": [
       "hill_station",
-      "monuments_museums"
+      "heritage"
     ],
     "must_visit": [
       "Borra Caves",
@@ -4880,8 +4840,8 @@ export const CITIES = {
     "state": "karnataka",
     "region": "southern",
     "category": [
-      "monuments_museums",
-      "backpacker"
+      "heritage",
+      "in_transit"
     ],
     "must_visit": [
       "Virupaksha Temple",
@@ -4925,7 +4885,7 @@ export const CITIES = {
     "region": "southern",
     "category": [
       "hill_station",
-      "backpacker"
+      "in_transit"
     ],
     "must_visit": [
       "Kodaikanal Lake",
@@ -4969,7 +4929,7 @@ export const CITIES = {
     "region": "southern",
     "category": [
       "hill_station",
-      "backpacker"
+      "in_transit"
     ],
     "must_visit": [
       "Poombarai Village viewpoint",
@@ -5096,7 +5056,7 @@ export const CITIES = {
     "state": "kerala",
     "region": "southern",
     "category": [
-      "monuments_museums",
+      "heritage",
       "pilgrimage"
     ],
     "must_visit": [
@@ -5138,7 +5098,7 @@ export const CITIES = {
     "state": "kerala",
     "region": "southern",
     "category": [
-      "forts_palaces",
+      "heritage",
       "in_transit"
     ],
     "must_visit": [
@@ -5179,8 +5139,7 @@ export const CITIES = {
     "state": "madhya_pradesh",
     "region": "central",
     "category": [
-      "forts_palaces",
-      "monuments_museums",
+      "heritage",
       "in_transit"
     ],
     "must_visit": [
@@ -5222,8 +5181,7 @@ export const CITIES = {
     "region": "central",
     "category": [
       "metro",
-      "in_transit",
-      "base_camp"
+      "in_transit"
     ],
     "must_visit": [
       "Deekshabhoomi",
@@ -5266,7 +5224,7 @@ export const CITIES = {
     "category": [
       "coastal",
       "pilgrimage",
-      "backpacker"
+      "in_transit"
     ],
     "must_visit": [
       "Om Beach",
@@ -5309,8 +5267,7 @@ export const CITIES = {
     "state": "gujarat",
     "region": "western",
     "category": [
-      "forts_palaces",
-      "monuments_museums",
+      "heritage",
       "desert"
     ],
     "must_visit": [
@@ -5352,7 +5309,7 @@ export const CITIES = {
     "state": "gujarat",
     "region": "western",
     "category": [
-      "monuments_museums",
+      "heritage",
       "desert"
     ],
     "must_visit": [
@@ -5394,9 +5351,8 @@ export const CITIES = {
     "region": "central",
     "category": [
       "metro",
-      "monuments_museums",
-      "in_transit",
-      "base_camp"
+      "heritage",
+      "in_transit"
     ],
     "must_visit": [
       "Bhimbetka Rock Shelters",
@@ -5482,7 +5438,7 @@ export const CITIES = {
     "region": "southern",
     "category": [
       "coastal",
-      "monuments_museums",
+      "heritage",
       "metro",
       "in_transit"
     ],
@@ -5527,7 +5483,7 @@ export const CITIES = {
     "region": "southern",
     "category": [
       "coastal",
-      "forts_palaces",
+      "heritage",
       "pilgrimage"
     ],
     "must_visit": [
@@ -5570,9 +5526,9 @@ export const CITIES = {
     "state": "kerala",
     "region": "southern",
     "category": [
-      "monuments_museums",
+      "heritage",
       "coastal",
-      "backpacker"
+      "in_transit"
     ],
     "must_visit": [
       "Kozhikode Beach",
@@ -5654,7 +5610,7 @@ export const CITIES = {
     "category": [
       "hill_station",
       "pilgrimage",
-      "backpacker"
+      "in_transit"
     ],
     "must_visit": [
       "Namgyal Monastery & Tsuglagkhang Complex",
@@ -5694,7 +5650,7 @@ export const CITIES = {
     "state": "himachal_pradesh",
     "region": "northern",
     "category": [
-      "backpacker"
+      "in_transit"
     ],
     "must_visit": [
       "Bir Billing paragliding launch site",
@@ -5735,7 +5691,7 @@ export const CITIES = {
     "region": "southern",
     "category": [
       "hill_station",
-      "monuments_museums"
+      "heritage"
     ],
     "must_visit": [
       "Edakkal Caves",
@@ -5777,7 +5733,7 @@ export const CITIES = {
     "state": "tamil_nadu",
     "region": "southern",
     "category": [
-      "monuments_museums",
+      "heritage",
       "coastal"
     ],
     "must_visit": [
@@ -5821,8 +5777,7 @@ export const CITIES = {
     "state": "tamil_nadu",
     "region": "southern",
     "category": [
-      "forts_palaces",
-      "monuments_museums",
+      "heritage",
       "pilgrimage"
     ],
     "must_visit": [
@@ -5866,8 +5821,7 @@ export const CITIES = {
     "state": "tamil_nadu",
     "region": "southern",
     "category": [
-      "forts_palaces",
-      "monuments_museums",
+      "heritage",
       "pilgrimage",
       "in_transit"
     ],
@@ -5912,7 +5866,7 @@ export const CITIES = {
     "category": [
       "pilgrimage",
       "coastal",
-      "forts_palaces"
+      "heritage"
     ],
     "must_visit": [
       "Vivekananda Rock Memorial",
@@ -5955,7 +5909,7 @@ export const CITIES = {
     "region": "eastern",
     "category": [
       "pilgrimage",
-      "backpacker"
+      "in_transit"
     ],
     "must_visit": [
       "ISKCON Chandrodaya Mandir",
@@ -5995,7 +5949,7 @@ export const CITIES = {
     "region": "eastern",
     "category": [
       "hill_station",
-      "backpacker"
+      "in_transit"
     ],
     "must_visit": [
       "Mirik Lake (Sumendu Lake)",
@@ -6034,8 +5988,8 @@ export const CITIES = {
     "region": "eastern",
     "category": [
       "hill_station",
-      "monuments_museums",
-      "backpacker"
+      "heritage",
+      "in_transit"
     ],
     "must_visit": [
       "Cochrane Place (heritage property)",
@@ -6074,7 +6028,7 @@ export const CITIES = {
     "region": "eastern",
     "category": [
       "hill_station",
-      "monuments_museums",
+      "heritage",
       "pilgrimage"
     ],
     "must_visit": [
@@ -6114,7 +6068,7 @@ export const CITIES = {
     "region": "eastern",
     "category": [
       "hill_station",
-      "backpacker"
+      "in_transit"
     ],
     "must_visit": [
       "Zang Dhok Palri Phodang Monastery",
@@ -6156,9 +6110,9 @@ export const CITIES = {
     "region": "eastern",
     "category": [
       "metro",
-      "monuments_museums",
+      "heritage",
       "pilgrimage",
-      "base_camp"
+      "in_transit"
     ],
     "must_visit": [
       "Golghar",
@@ -6195,22 +6149,36 @@ export const CITIES = {
 };
 
 export const CATEGORIES = {
-  "backpacker": {
-    "label": "Backpacker",
-    "slug": "backpacker",
+  "in_transit": {
+    "label": "In Transit",
+    "slug": "in-transit",
     "cities": [
       "alleppey",
+      "bengaluru",
+      "bhopal",
       "bir",
       "bodh-gaya",
+      "chandigarh",
+      "chennai",
+      "coimbatore",
+      "cuttack",
       "dawki",
+      "delhi",
       "dharamshala-mcleod-ganj",
       "digha",
       "dimapur",
       "goa",
       "gokarna",
+      "gurugram",
       "guwahati",
+      "gwalior",
       "hampi",
+      "hyderabad",
+      "indore",
       "itanagar",
+      "jalandhar",
+      "jammu",
+      "jhansi",
       "kalimpong",
       "kharagpur",
       "kochi",
@@ -6220,16 +6188,30 @@ export const CATEGORIES = {
       "kozhikode",
       "kurseong",
       "leh",
+      "ludhiana",
       "manali",
+      "mangalore",
       "mayapur",
       "mirik",
+      "mumbai",
+      "nagpur",
+      "noida",
+      "palakkad",
+      "pathankot",
+      "patna",
       "pondicherry",
       "poombarai",
+      "pune",
+      "rajkot",
       "shillong",
       "silchar",
       "siliguri",
       "srinagar",
+      "surat",
+      "theni",
       "tinsukia",
+      "tiruchirappalli",
+      "vadodara",
       "vagamon",
       "varanasi",
       "varkala"
@@ -6296,20 +6278,30 @@ export const CATEGORIES = {
       "varanasi"
     ]
   },
-  "forts_palaces": {
-    "label": "Forts and Palaces",
-    "slug": "forts-and-palaces",
+  "heritage": {
+    "label": "Heritage",
+    "slug": "heritage",
     "cities": [
       "agra",
+      "ahmedabad-gandhinagar",
       "amritsar",
+      "araku",
+      "bhopal",
       "bhuj",
       "bikaner",
+      "bodh-gaya",
+      "chandigarh",
       "chennai",
       "chittorgarh",
       "cuttack",
+      "darjeeling",
       "delhi",
+      "dimapur",
+      "gangtok",
+      "ghoom",
       "goa",
       "gwalior",
+      "hampi",
       "hyderabad",
       "itanagar",
       "jaipur",
@@ -6317,23 +6309,46 @@ export const CATEGORIES = {
       "jammu",
       "jhansi",
       "jodhpur",
+      "kanchipuram",
       "kannur",
       "kanyakumari",
+      "kargil",
+      "kevadiya",
+      "khajuraho",
       "kochi",
+      "kohima",
+      "kolkata",
+      "kozhikode",
       "kumbhalgarh",
+      "kurseong",
+      "kutchh",
       "leh",
+      "lucknow",
       "madurai",
+      "mahabalipuram",
+      "mangalore",
       "mysore",
       "orchha",
       "palakkad",
+      "patna",
+      "pondicherry",
       "prayagraj",
       "pune",
+      "puri-konark",
+      "rameshwaram",
       "sambhajinagar",
       "shivamogga",
+      "silchar",
+      "srinagar",
       "thanjavur",
+      "thrissur",
       "tiruchirappalli",
       "udaipur",
-      "vadodara"
+      "vadodara",
+      "varanasi",
+      "visakhapatnam",
+      "wayanad",
+      "wayanad-vyithri"
     ]
   },
   "hill_station": {
@@ -6397,103 +6412,9 @@ export const CATEGORIES = {
       "visakhapatnam"
     ]
   },
-  "in_transit": {
-    "label": "In Transit",
-    "slug": "in-transit",
-    "cities": [
-      "bhopal",
-      "coimbatore",
-      "cuttack",
-      "dimapur",
-      "gwalior",
-      "indore",
-      "jalandhar",
-      "jammu",
-      "jhansi",
-      "kharagpur",
-      "ludhiana",
-      "mangalore",
-      "nagpur",
-      "palakkad",
-      "pathankot",
-      "rajkot",
-      "silchar",
-      "siliguri",
-      "surat",
-      "theni",
-      "tiruchirappalli",
-      "vadodara"
-    ]
-  },
-  "monuments_museums": {
-    "label": "Monuments and Museums",
-    "slug": "monuments-and-museums",
-    "cities": [
-      "agra",
-      "ahmedabad-gandhinagar",
-      "amritsar",
-      "araku",
-      "bhopal",
-      "bhuj",
-      "bikaner",
-      "bodh-gaya",
-      "chandigarh",
-      "chennai",
-      "chittorgarh",
-      "cuttack",
-      "darjeeling",
-      "delhi",
-      "dimapur",
-      "gangtok",
-      "ghoom",
-      "goa",
-      "gwalior",
-      "hampi",
-      "hyderabad",
-      "itanagar",
-      "jaipur",
-      "jaisalmer",
-      "jammu",
-      "jhansi",
-      "jodhpur",
-      "kanchipuram",
-      "kargil",
-      "kevadiya",
-      "khajuraho",
-      "kochi",
-      "kohima",
-      "kolkata",
-      "kozhikode",
-      "kurseong",
-      "kutchh",
-      "leh",
-      "lucknow",
-      "madurai",
-      "mahabalipuram",
-      "mangalore",
-      "mysore",
-      "orchha",
-      "patna",
-      "pondicherry",
-      "prayagraj",
-      "pune",
-      "puri-konark",
-      "rameshwaram",
-      "sambhajinagar",
-      "silchar",
-      "srinagar",
-      "thanjavur",
-      "thrissur",
-      "tiruchirappalli",
-      "varanasi",
-      "visakhapatnam",
-      "wayanad",
-      "wayanad-vyithri"
-    ]
-  },
   "nature": {
-    "label": "Scenic",
-    "slug": "scenic",
+    "label": "Nature",
+    "slug": "nature",
     "cities": [
       "alleppey",
       "araku",
@@ -6538,7 +6459,7 @@ export const CATEGORIES = {
     ]
   },
   "pilgrimage": {
-    "label": "Temple Tour",
+    "label": "Pilgrimage",
     "slug": "temple-tour",
     "cities": [
       "ajmer-pushkar",
@@ -6595,37 +6516,6 @@ export const CATEGORIES = {
       "kargil",
       "pathankot",
       "tawang"
-    ]
-  },
-  "base_camp": {
-    "label": "Base Camp",
-    "slug": "base-camp",
-    "cities": [
-      "bengaluru",
-      "bhopal",
-      "chandigarh",
-      "chennai",
-      "coimbatore",
-      "delhi",
-      "dimapur",
-      "gurugram",
-      "guwahati",
-      "hyderabad",
-      "jammu",
-      "kharagpur",
-      "kochi",
-      "kolkata",
-      "ludhiana",
-      "mumbai",
-      "nagpur",
-      "noida",
-      "pathankot",
-      "patna",
-      "pune",
-      "silchar",
-      "siliguri",
-      "surat",
-      "vadodara"
     ]
   }
 };

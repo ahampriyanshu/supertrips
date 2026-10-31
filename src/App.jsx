@@ -211,7 +211,7 @@ function HeroHeader() {
           shared for anyone planning to backpack through it.
         </p>
       </div>
-      <RouteAtlas interactive={isClientReady} />
+      <RouteAtlas interactive={isClientReady} mobilePageScroll />
     </section>
   );
 }
@@ -344,7 +344,6 @@ function BackpackingSection() {
   return (
     <div className="app-notebook-band"><section id="field-notes" className="app-backpacking-section">
       <div className="app-section-intro">
-        <p className="app-eyebrow">From the notebook</p>
         <h2 className="app-backpacking-title">Backpacking 101</h2>
         <p className="app-backpacking-intro">
           A few things I learned during my backpacking days.
@@ -352,9 +351,9 @@ function BackpackingSection() {
       </div>
 
       <div className="app-backpacking-grid">
-        {BACKPACKING_101.map(({ title, tips }, index) => (
+        {BACKPACKING_101.map(({ title, tips }) => (
           <div key={title} className="app-backpacking-card">
-            <h3 className="app-backpacking-card-title"><span>{String(index + 1).padStart(2, '0')}</span>{title}</h3>
+            <h3 className="app-backpacking-card-title">{title}</h3>
             <ul className="app-backpacking-list">
               {tips.map((tip, i) => <li key={i}>{tip}</li>)}
             </ul>

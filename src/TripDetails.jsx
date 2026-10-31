@@ -317,7 +317,6 @@ export function CityDetails({ city, onBack }) {
             <path d="M14 17L8 11L14 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </button>
-        <div className="td-divider" />
         <div className="td-title-block">
           <div className="td-trip-title">{city.city}</div>
           <div className="td-trip-meta">{fmt(city.state)} · {fmt(city.region)}</div>

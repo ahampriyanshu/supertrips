@@ -4,8 +4,21 @@ import { CITY_COLLECTION_VIEWS } from './cityCollection.js';
 const sources = { state: STATES, region: REGIONS, category: CATEGORIES };
 const directories = { state: 'states', region: 'regions', category: 'categories' };
 
+// Old category codes, URLs and bookmarks still open the merged collection.
+const categoryAliases = {
+  backpacker: 'in_transit',
+  base_camp: 'in_transit',
+  'base-camp': 'in_transit',
+  forts_palaces: 'heritage',
+  'forts-and-palaces': 'heritage',
+  monuments_museums: 'heritage',
+  'monuments-and-museums': 'heritage',
+  scenic: 'nature',
+};
+
 function normalizeSelection(groupBy = 'state', value = 'all') {
   if (!Object.hasOwn(CITY_COLLECTION_VIEWS, groupBy)) groupBy = 'state';
+  if (groupBy === 'category' && Object.hasOwn(categoryAliases, value)) value = categoryAliases[value];
   const slug = sources[groupBy][value]?.slug || value.replace(/_/g, '-');
   const selectedGroup = CITY_COLLECTION_VIEWS[groupBy].groups.some(group => group.slug === slug) ? slug : 'all';
   return { groupBy, selectedGroup };
@@ -34,6 +47,10 @@ export const LEGACY_FIND_ROUTES = [
       destination: getFindHref(groupBy, group.slug),
     }))),
   ]),
+  ...Object.entries(categoryAliases).map(([alias, category]) => ({
+    path: `/categories/${alias}`,
+    destination: getFindHref('category', category),
+  })),
 ];
 
 export function getLegacyFindHref(pathname, search = '', hash = '') {
