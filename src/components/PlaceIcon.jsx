@@ -11,7 +11,7 @@ const drawings = {
   crescent: <><path d="M22 3C10 6 11 23 25 23 14 35-1 19 7 8c-1 11 10 18 18 15M16 10c-5 7-5 10 0 10s5-3 0-10Z" /></>,
   'india-gate': <><path d="M5 29V12h2V7h18v5h2v17M4 12h24M6 7V4h20v3M11 29V19a5 5 0 0 1 10 0v10M2 29h28M11 9h10" /><path d="M8 15v10m16-10v10" /></>,
   jharokha: <><path d="M3 29V15h4v-5h5V6h3V3h2v3h3v4h5v5h4v14H3ZM3 22h26M7 15h18M12 10h8M7 29v-4q2-3 4 0v4m3 0v-4q2-3 4 0v4m3 0v-4q2-3 4 0v4M9 19v-2m7 2v-2m7 2v-2M16 13v-1" /></>,
-  circuit: <><rect x="7" y="7" width="18" height="18" rx="2" /><path d="M12 2v5m8-5v5M12 25v5m8-5v5M2 12h5m-5 8h5m18-8h5m-5 8h5M12 12h8v8h-8z" /></>,
+  laptop: <><rect x="5" y="5" width="22" height="17" rx="2" /><path d="M5 22 2 27h28l-3-5M12 25h8M12 11l-3 3 3 3m8-6 3 3-3 3" /></>,
   flute: <><path d="m5 24 22-13 2 4L7 28zM17 14C9 12 10 4 16 3c7 3 7 10 1 11Z" /><path d="M16 7c-3 2-2 5 1 4M11 22h.1m5-3h.1m5-3h.1M7 25l-4 2" /></>,
   lamp: <><path d="M5 21h22c-2 6-7 8-11 8S7 27 5 21Zm11-3c-7-3-2-8 0-13 1 5 7 9 0 13Z" /><path d="M2 29h28" /></>,
   tram: <><rect x="7" y="8" width="18" height="19" rx="4" /><path d="M11 8 15 3h8M7 18h18m-9-10v10m-5 5h1m8 0h1M10 27l-2 4m14-4 2 4M3 4h26" /></>,

@@ -190,7 +190,7 @@
 .app-notebook-band { background: #e8ebdf; margin-top: 12px; }
 .app-home .app-backpacking-section { border: 0; padding-block: 56px 64px; gap: 44px; }
 .app-home .app-backpacking-list li::marker { color: #829277; }
-.app-home .app-footer,
+.app-home .app-footer { border-top: 0; }
 .app-find-page .app-footer { border-color: var(--color-border); }
 
 /* The standalone index shares the cover's illustrated city collection. */

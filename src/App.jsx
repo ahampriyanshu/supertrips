@@ -301,7 +301,7 @@ function CityCollection({ page = false, collection, onCollectionChange, children
           <JournalSelect key={groupBy} id={`${prefix}-group-filter`} label={view.filterLabel} value={selectedGroup}
             options={[{ value: 'all', label: view.allLabel }, ...view.groups.map(group => ({ value: group.slug, label: group.label }))]}
             onChange={next => setCollection({ groupBy, selectedGroup: next })} />
-          <p className="app-collection-count" role="status" aria-atomic="true">{cityCount} {cityCount === 1 ? 'city' : 'cities'}{selectedGroup === 'all' ? ` across ${view.groups.length} ${view.plural}` : ` · ${groups[0].label}`}</p>
+          {page && <p className="app-collection-count" role="status" aria-atomic="true">{cityCount} {cityCount === 1 ? 'city' : 'cities'}{selectedGroup === 'all' ? ` across ${view.groups.length} ${view.plural}` : ` · ${groups[0].label}`}</p>}
         </div>
       </div>
 

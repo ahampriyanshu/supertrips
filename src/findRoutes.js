@@ -14,6 +14,8 @@ const categoryAliases = {
   monuments_museums: 'heritage',
   'monuments-and-museums': 'heritage',
   scenic: 'nature',
+  'temple-tour': 'pilgrimage',
+  temple_tour: 'pilgrimage',
 };
 
 function normalizeSelection(groupBy = 'state', value = 'all') {

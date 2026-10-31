@@ -63,7 +63,7 @@ const categoryIcons = {
   nature: 'leaf', pilgrimage: 'bell', border_town: 'flag',
 };
 const familyTags = {
-  tech: ['Technology', 'metro'], braj: ['Braj', 'pilgrimage'], marble: ['Architecture', 'heritage'],
+  tech: ['IT Hub', 'metro'], braj: ['Braj', 'pilgrimage'], marble: ['Architecture', 'heritage'],
   ghats: ['Ghats', 'pilgrimage'], bengal: ['Culture', 'heritage'], templeCoast: ['Temple coast', 'coastal'],
   towers: ['City life', 'metro'], desert: ['Desert', 'desert'], snow: ['Himalayas', 'hill_station'],
   forest: ['Nature', 'nature'], coast: ['Coastal', 'coastal'], hills: ['Hill country', 'hill_station'],

@@ -26,7 +26,7 @@ const palettes = {
 };
 
 const families = {
-  tech: { palette: 'circuit', scene: 'tech', icon: 'circuit', motion: 'signal', caption: 'Glass towers & late-night lights', duration: 420 },
+  tech: { palette: 'circuit', scene: 'tech', icon: 'laptop', motion: 'signal', caption: 'Glass towers & late-night lights', duration: 420 },
   braj: { palette: 'marigold', scene: 'braj', icon: 'flute', motion: 'petals', caption: 'Temple bells by the Yamuna', duration: 800 },
   marble: { palette: 'marble', scene: 'dome', icon: 'arch', motion: 'sun', caption: 'A little time, held in stone', duration: 700 },
   ghats: { palette: 'lamplight', scene: 'ghats', icon: 'lamp', motion: 'lamps', caption: 'Kashi evenings, Sarnath stillness', duration: 900 },
