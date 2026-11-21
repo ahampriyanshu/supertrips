@@ -4,7 +4,7 @@ import { Bicycle, Boat, Gopuram, HillHouse, Train, Tree, Water } from './Illustr
 
 const waterSettings = new Set(['river', 'coast', 'river-coast', 'lake', 'snow-lake', 'backwaters']);
 const mountainSettings = new Set(['snow', 'snow-lake', 'bare-mountains', 'mountains', 'pine', 'tea-mountains']);
-const natureKinds = new Set(['cyber-city','empty-towers','mountain-rail','mountain-shrine','shikara','gondola','mountain-village','valley','dune-camp','fishing-nets','houseboat','cliff-beach','meadows','toy-train','rainforest','pamban','waterfall','river-bridge','wetland','arch-bridge','marina','glacier','mountain-camp','beach','station','submarine','coffee-hills','pillar-rocks','terrace-village','tea-hills','cove','salt-rann','paraglider','lake-bridge']);
+const natureKinds = new Set(['cyber-city','empty-towers','mountain-rail','mountain-shrine','shikara','gondola','mountain-village','valley','dune-camp','fishing-nets','houseboat','cliff-beach','meadows','toy-train','rainforest','pamban','waterfall','river-bridge','wetland','arch-bridge','marina','glacier','mountain-camp','beach','station','submarine','coffee-hills','pillar-rocks','terrace-village','tea-hills','cove','salt-rann','paraglider','lake-bridge','umiam-lake']);
 
 function Backdrop({ setting }) {
   const snow = setting.includes('snow') || setting === 'tea-mountains';
@@ -33,7 +33,17 @@ function Skyline({ kind }) {
 
 function FishingNets() {
   return <g data-subject="fishing-nets">
-    {[{x:220,s:1},{x:487,s:.72}].map(({x,s})=><g key={x} transform={`translate(${x} 239) scale(${s})`}><path d="M0 0v-132m-7 132 7-132 7 132M0-132l-130 101L102-57ZM-130-31-83-4 102-57m-232 26L0-56l102-1M0-132 74-77 93-20m-22-55 15 2m-11 7 15 2m-11 7 15 2m-11 7 15 2M-137 0H28" /><path className="art-net" d="m-130-31 47 27L102-57ZM-114-23 87-58m-184 45L65-58m-146 51L43-58m-116 47L21-58m-65 44L-2-57m-18 36-2-34m-17 29-4-27m-18 24-7-18" /></g>)}
+    <path className="place-stone" d="M80 246q260-10 540 0v16H80Z" />
+    <path d="M80 246q260-10 540 0M75 252h550m-545 6h540" />
+    {[{x:235,s:1},{x:475,s:.78}].map(({x,s})=><g key={x} transform={`translate(${x} 242) scale(${s})`}>
+      <path d="M0 0v-132m-8 132 8-132 8 132M0-132l-135 102L105-56ZM-135-30-85-4 105-56m-240 26L0-55l105-1M0-132 75-76 95-20" />
+      <path d="M-85-4v28m15-32v34m15-38v40" />
+      <circle className="place-stone" cx="-85" cy="27" r="5" />
+      <circle className="place-stone" cx="-70" cy="33" r="6" />
+      <circle className="place-stone" cx="-55" cy="38" r="5" />
+      <path className="art-net" d="m-135-30 50 26L105-56ZM-118-22 90-57m-190 44L68-57m-150 50L45-57m-120 46L23-57m-70 43L0-56" />
+      <path d="M-22-132l-12 12m24-12 12 12" />
+    </g>)}
   </g>;
 }
 
@@ -63,7 +73,18 @@ function Bridge({ kind, detail }) {
 }
 
 function Waterfall({ kind, detail }) {
-  const jog=detail==='jog';
+  const jog = detail === 'jog', cascade = detail === 'cascade';
+  if (cascade) {
+    return <g data-subject={kind}>
+      <path className="place-stone" d="M210 236V115l55-25h190l55 25v121Z" />
+      <path d="M210 236V115l55-25h190l55 25v121M225 155h270m-255 42h240" />
+      <path className="art-water-fill" d="M310 90h100l15 38h-130Zm-25 40h150l18 42h-186Zm-30 44h210l22 62h-254Z" />
+      <path className="art-falling-water" d="M315 95v30m30-30v30m30-30v30m30-30v30m-105 15v38m30-38v38m30-38v38m30-38v38m30-38v38m-135 12v55m35-55v55m35-55v55m35-55v55m35-55v55" />
+      <path className="art-water" d="M245 241q115-12 230 0m-210 9q95-8 190 0" />
+      <Tree x={160} y={236} scale={.95} pine />
+      <Tree x={555} y={236} scale={.85} pine />
+    </g>;
+  }
   return <g data-subject={kind}>
     <path className="place-stone" d="M178 236V91l67-17 83 10 26 51 18-51 69-13 88 19v146Z" /><path className="art-water-fill" d={jog?'M268 85h14l-6 151h-15Zm42 3h20l15 148h-32Zm68-5h23l-12 153h-28Zm53-9h12l26 162h-15Z':'M298 84h28l27 51h36l-10 40h29l-24 61h-80l28-61h-28l14-40Z'} />
     <path d="M178 236V91l67-17 83 10 26 51 18-51 69-13 88 19v146M197 117l28-13 23 9m-50 38 52-10m-39 42 35-9m-21 44 19-8M458 111l43 9m-52 24 62 12m-60 21 41 14m-38 24 52 9" />
@@ -77,7 +98,7 @@ function TeaLandscape({ kind, detail }) {
   return <g data-subject={kind}>
     <path className="place-garden" d="M74 242q36-114 157-100 100-103 195-40 112-4 214 140Z" /><path className="art-ridge" d="M74 242q36-114 157-100 100-103 195-40 112-4 214 140" />
     {Array.from({length:6},(_,i)=><path className="art-crop-row" key={i} d={`M${99+i*9} ${236-i*12}q55-${42-i*3} 112-24M${233+i*13} ${211-i*15}q56-51 125-31M${394+i*8} ${234-i*14}q83-24 154 0`} />)}
-    <HillHouse x={513} y={183} scale={detail==='heritage-house'?.72:.55} timber />
+    <HillHouse x={513} y={183} scale={detail==='heritage-house'?.72:.55} timber={!coffee} />
     {kind==='terrace-village' && [231,279,332,379].map((x,i)=><HillHouse key={x} x={x} y={212-i%2*15} scale={.45} timber />)}
     {coffee && <g className="art-coffee"><path d="M169 249v-83m0 30q-40-2-41-34 38 2 41 34Zm0 25q42-5 44-35-38-3-44 35Zm0 17q-33 3-44-18 29-12 44 18Z" />{[0,1,2,3,4].map(i=><circle key={i} cx={177+i%2*8} cy={181+i*11} r="4" />)}</g>}
     {(detail==='train'||kind==='toy-train') && <Train x={375} y={247} scale={.72}/>}
@@ -103,10 +124,117 @@ function NaturalSubject({ art }) {
     case 'glacier': return <g data-subject={kind}><path className="art-snowcap" d="m269 73 32 46 56 26 22 43 63 60H258l28-61-35-40Z"/><path className="art-ridge" d="m269 73 32 46 56 26 22 43 63 60m-163-75 36-20 29 16m-60 15 55-8m-65 34 83-8m-100 29 128-11"/></g>;
     case 'mountain-camp': return <g data-subject={kind}>{[219,326,446].map((x,i)=><g key={x} transform={`translate(${x} ${234-i%2*16})`}><path className="place-stone" d="m-45 0 37-52H9L46 0Z"/><path d="m-45 0 37-52H9L46 0Zm37-52L23 0m-31-52L-16 0M-6-25 8 0H-13Z"/></g>)}</g>;
     case 'dune-camp': return <g data-subject={kind}><path className="place-stone-light" d="m401 222 66-68 66 68Z"/><path d="m401 222 66-68 66 68Zm66-68v68m0-13-19 13m19-13 19 13M400 223h134"/><g transform="translate(213 208)"><path className="place-stone" d="M-43 2q-12-11-7-22 4-8 14-4 5-35 19-24 10 11 18 5 20-20 27 4l12 5 10-33q-3-14 6-16 15-1 18 5-3 6-12 5L55-32q-4 25-19 30l-3 34h-8L21 1H-21l-7 31h-8l3-37Z"/><path d="M-43 2q-12-11-7-22 4-8 14-4 5-35 19-24 10 11 18 5 20-20 27 4l12 5 10-33q-3-14 6-16 15-1 18 5-3 6-12 5L55-32q-4 25-19 30l-3 34h-8L21 1H-21l-7 31h-8l3-37"/></g></g>;
-    case 'cliff-beach': case 'cove': return <g data-subject={kind}><path className="place-stone" d="M93 155q115-25 210 41l-40 41-170 16Zm441-3q49-32 103-13v111l-99-24-36-39Z"/><path d="M93 155q115-25 210 41l-40 41-170 16M118 174l-5 50m30-49-5 48m31-40-5 40m31-33-6 29m32-19-6 19"/><Tree x={200} y={181} scale={.65} palm/><Boat x={415} y={247} scale={.7}/></g>;
+    case 'cove': return <g data-subject={kind}>
+      <path className="place-stone" d="M60 235q75-45 160-5 65-35 155-2 65-45 145 7v10H60Z" />
+      <path d="M60 235q75-45 160-5 65-35 155-2 65-45 145 7" />
+      <path className="place-stone-light" d="M80 242q65-28 140-3 65-24 140-2v12H80Z" />
+      <path d="M80 242q65-28 140-3 65-24 140-2" />
+      <path className="place-stone" d="M225 218v-24h32v24Z" />
+      <path className="art-tile-roof" d="M220 194l18-20 18 20Z" />
+      <path d="M225 218v-24h32v24Zm-5-24 18-20 18 20ZM238 174v-8m0 2 10 3-10 3M220 219h42" />
+      <path className="place-etch" d="M236 218v-12h10v12" />
+      <Tree x={150} y={212} scale={.6} palm />
+      <Tree x={395} y={218} scale={.55} palm />
+      <Boat x={465} y={247} scale={.7} />
+    </g>;
+    case 'cliff-beach': return <g data-subject={kind}>
+      <path className="art-water-fill" d="M40 220q200-14 420-4t260 8v56H40Z" />
+      <path className="art-water" d="M50 232q160-10 320 0t330 0m-630 14q150-8 300 0t310 0m-590 14q140-6 280 0t290 0" />
+      <path className="place-garden" d="M40 180q45-75 130-70t110 50q-40 40-110 35t-130-15Z" />
+      <path d="M40 180q45-75 130-70t110 50" />
+      <path className="place-stone" d="M125 155q-35 35-50 85m40-80q-20 40-25 80m40-75q5 40-5 80m30-75q25 35 35 75m-20-70q35 30 55 70m-110-60q-40 25-65 65" />
+      <path className="place-etch" d="M130 160q-10 40-15 80m45-75q15 35 25 75m-65-55q-25 30-35 60m85-50q25 25 40 55" />
+      <path className="place-garden" d="M440 170q50-70 135-65t115 45q-35 45-110 40t-140-20Z" />
+      <path d="M440 170q50-70 135-65t115 45" />
+      <path className="place-stone" d="M545 150q-35 40-45 88m40-82q-15 40-18 82m38-78q10 40 8 78m28-72q25 35 40 72m-18-68q30 30 55 68m-95-58q-35 25-55 62" />
+      <path className="place-etch" d="M550 156q-10 40-12 82m40-76q12 35 20 74m-55-52q-20 30-30 58m75-48q22 25 35 52" />
+      {[70, 95, 120, 145, 170, 480, 505, 530, 555, 580, 605].map(x => (
+        <path key={x} className="place-etch" d={`M${x} 150v14m4-10v8`} />
+      ))}
+      {[220, 235, 250, 410, 425].map(x => (
+        <path key={x} className="art-tree" d={`M${x} 238q-4-18 0-32m4 32q4-16 0-28`} />
+      ))}
+      <g transform="translate(320 236)">
+        <path className="place-stone" d="M-60 8q30-14 60-14t60 14q-20 8-60 8t-60-8Z" />
+        <path d="M-60 8q30-14 60-14t60 14q-20 8-60 8t-60-8ZM-55 7q28-11 55-11t55 11" />
+        <path className="place-etch" d="M-25 0v10m25-10v10m25-10v10" />
+        <path d="M-15 0v-24q0-6 4-6 5 0 5 6v24m-12-16l15 8" />
+        <circle cx="-10" cy="-33" r="3.5" />
+        <path d="M-22-22l18 38" />
+        <path className="art-water" d="M-50 18q25 4 50 0t50 0" />
+      </g>
+    </g>;
     case 'beach': case 'marina': return <g data-subject={kind}><path className="place-fill" d="M0 225q278-39 527 55H0Z"/><Boat x={420} y={238} scale={.9}/>{kind==='marina'?<g><path className="place-stone-light" d="M194 234V85h31v149Z"/><path d="M194 234V85h31v149m-34-148h37m-33-10h29v10m-30 26h31m-31 25h31m-31 25h31m-31 25h31m-31 25h31"/><path className="art-tile-roof" d="M194 112h31v25h-31Zm0 50h31v25h-31Z"/></g>:<><Tree x={197} y={241} scale={.6} pine/><Tree x={228} y={243} scale={.45} pine/></>}</g>;
     case 'station': return <g data-subject={kind}><path className="place-stone-light" d="M147 190v-53h293v53Z"/><path d="M147 190v-53h293v53M136 137l23-18h269l23 18ZM149 168h289M142 197h442M478 192V102h56v90m-60-90h64l-16-16h-32Z"/><Train x={343} y={241} scale={1.25}/></g>;
-    case 'submarine': return <g data-subject={kind}><path className="place-stone" d="M192 216q-64-9-8-39h112v-37h73v37h149q44 1 55 19-15 22-60 20Z"/><path d="M192 216q-64-9-8-39h112v-37h73v37h149q44 1 55 19-15 22-60 20ZM314 140v-24h12m21 24v-18h12M207 186h286m-283 10h281M220 217v18m295-18v18"/>{[238,273,308,343,378,413,448].map(x=><circle key={x} cx={x} cy="207" r="2"/>)}</g>;
+    case 'submarine': return <g data-subject={kind}>
+      <path className="place-fill-soft" d="M0 210q140-35 280-18t240-22 200 18v22H0Z" />
+      <path className="art-ridge" d="M0 210q140-35 280-18t240-22 200 18" />
+      <path className="art-water-fill" d="M0 212q180-12 360-4t360 4v68H0Z" />
+      <path className="art-water" d="M15 224q170-10 340 0t350 0m-680 14q160-8 320 0t340 0m-650 14q160-6 320 0t310 0m-600 12q150-4 300 0t300 0" />
+      <path className="place-stone" d="M110 232l-25-34 55-14h485l10 48H110Z" />
+      <path d="M110 232l-25-34 55-14h485l10 48H110Z" />
+      <path className="place-stone-light" d="M90 200l50-16h485v8H135l-45 8Z" />
+      <path d="M90 200l50-16h485v8H135l-45 8ZM80 232h560" />
+      <path d="M85 198q30-10 55-14" />
+      <path className="place-etch" d="M140 192h480m-460 8h450m-440 10h430m-410 10h390" />
+      <path className="place-etch" d="M380 184v16m18-16v16m18-16v16" />
+      <g transform="translate(195 182)">
+        <path className="place-stone" d="M-12 0l8-9 8 9m-8-9v9m-14-3h28m-20 3v-4m12 4v-4" />
+        <path d="M-12 0l8-9 8 9m-8-9v9m-14-3h28" />
+      </g>
+      <g transform="translate(265 184)">
+        <path className="place-stone" d="M-10 0l7-8 7 8m-7-8v8m-12-2h24" />
+        <path d="M-10 0l7-8 7 8m-7-8v8m-12-2h24" />
+      </g>
+      <g transform="translate(335 184)">
+        <path className="place-stone" d="M-10 0l7-8 7 8m-7-8v8m-12-2h24" />
+        <path d="M-10 0l7-8 7 8m-7-8v8m-12-2h24" />
+      </g>
+      <g transform="translate(585 186)">
+        <path className="place-stone" d="M-8 0v-8h16v8Zm16-4h10l-4-4Zm-18-4h20m-10 0v-5m-14 0h28" />
+        <path d="M-8 0v-8h16v8Zm16-4h10l-4-4Zm-18-4h20m-10 0v-5m-14 0h28" />
+      </g>
+      <path className="place-stone-light" d="M450 184v-44h78v44Z" />
+      <path d="M450 184v-44h78v44ZM446 184h86M448 140h82" />
+      {[456, 466, 476, 486, 496, 506, 516].map(x => (
+        <path key={x} className="art-window" d={`M${x} 148h6v7h-6Z`} />
+      ))}
+      <path className="place-etch" d="M454 162h70m-70 10h70" />
+      <path className="place-stone" d="M465 140v-22h24v22Zm34 0v-16h22v16Z" />
+      <path d="M465 140v-22h24v22m10 0v-16h22v16ZM460 118h34m6 6h28" />
+      <path className="place-stone-light" d="M470 134l7-10 10 10-7 10Z" />
+      <path d="M477 118V92m-12 10h24m-8-8h16m-8-2v-8m-4 0h8" />
+      <circle cx="477" cy="80" r="3" />
+      <circle cx="510" cy="116" r="3.5" />
+      <path className="place-etch" d="M125 212v8m4-8h6q4 0 4 4t-4 4h-6m6 0l4 4m12-8v12m8-12v12" />
+      <path className="art-water" d="M70 236q30-14 60-4m-75 6q35-10 70-2m490 6q25 4 50-2m-60 8q30 4 60-2" />
+    </g>;
+    case 'umiam-lake': return <g data-subject={kind}>
+      <path className="place-fill-soft" d="M0 160q110-65 240-40t240-30 240 50v140H0Z" />
+      <path className="art-ridge" d="M0 160q110-65 240-40t240-30 240 50" />
+      <path className="place-fill-soft" d="M0 196q140-40 280-15t280-15 160 25v100H0Z" />
+      <path className="art-ridge" d="M0 196q140-40 280-15t280-15 160 25" />
+      {[60, 110, 160, 210, 480, 530, 580, 630].map(x => (
+        <Tree key={x} x={x} y={192} scale={.6} pine />
+      ))}
+      <path className="art-water-fill" d="M0 216q160-18 360-10t360 8v66H0Z" />
+      <path className="art-water" d="M20 228q170-12 340 0t340 0m-660 14q160-8 320 0t320 0m-620 14q150-6 300 0t300 0" />
+      <path className="place-fill-soft" d="M140 240q40-20 90-18t90 18H140Z" />
+      <path className="art-ridge" d="M140 240q40-20 90-18t90 18" />
+      <Tree x={200} y={236} scale={.65} pine />
+      <Tree x={245} y={238} scale={.55} pine />
+      <Tree x={280} y={242} scale={.5} pine />
+      <Tree x={75} y={246} scale={.95} pine />
+      <Tree x={645} y={246} scale={.9} pine />
+      <g transform="translate(450 234)">
+        <path className="place-stone" d="M-28 6q14-8 28-8t28 8q-10 6-28 6t-28-6Z" />
+        <path d="M-28 6q14-8 28-8t28 8M-26 5h52" />
+        <path d="M0 4V-38" />
+        <path className="place-stone-light" d="M0-36l22 28H0ZM0-34l-14 24H0Z" />
+        <path d="M0-36l22 28H0ZM0-34l-14 24H0Z" />
+        <path className="art-water" d="M-20 15q20 3 40 0" />
+      </g>
+    </g>;
     case 'pillar-rocks': return <g data-subject={kind}>{[{x:245,h:131},{x:327,h:157},{x:411,h:141}].map(({x,h})=><g key={x}><path className="place-stone" d={`M${x} 239l-8-${h-31} 13-31 33-5 20 36L${x+48} 239Z`}/><path d={`M${x} 239l-8-${h-31} 13-31 33-5 20 36L${x+48} 239M${x+25} ${245-h}l6 52-7 62`}/></g>)}</g>;
     case 'salt-rann': return <g data-subject={kind}>{[211,421].map((x,i)=><g key={x} transform={`translate(${x} ${210+i*16})`}><path className="place-stone-light" d="M-51 0v-41h102V0Z"/><path className="place-fort-stone" d="m-64-41 64-40 64 40Z"/><path d="M-51 0v-41h102V0Zm-13-41 64-40 64 40ZM-12 0v-23q12-15 24 0V0M-41-27h16v14h-16zm66 0h16v14H25Z"/><path className="place-etch" d="m-45-47 45-29 45 29m-65 16h40"/></g>)}<g className="art-flamingos">{[569,598,631].map((x,i)=><path key={x} d={`M${x} ${205+i%2*9}v24m0-10 10 10m-10-24q-19-8-12-15 9-5 19 3 9-3 8-18-5-8-10-4`}/>)}</g></g>;
     case 'wetland': return <g data-subject={kind}><Boat x={330} y={244}/>{[153,193,521,566].map(x=><path className="art-tree" key={x} d={`M${x} 242v-56m0 56q-24-49-31-44m31 27q16-41 24-42m-24 29-7-21`}/>)}<path className="art-birds" d="M204 118q10-10 20 0 10-10 20 0m188-35q8-8 16 0 8-8 16 0m81 58q8-8 16 0 8-8 16 0"/></g>;
@@ -118,7 +246,13 @@ function NaturalSubject({ art }) {
 function Accents({ art }) {
   const {kind, detail} = art;
   return <g className="art-accents">
-    {['waterfall','cascade'].includes(detail) && kind !== 'waterfall' && <g><path className="place-stone" d="M576 235v-62l17-9h26v71Z"/><path className="art-water-fill" d="M594 166h12l3 69h-17Z"/><path className="art-falling-water" d="M599 174v55"/></g>}
+    {['waterfall','cascade'].includes(detail) && kind !== 'waterfall' && <g>
+      <path className="place-stone" d="M576 235v-62l17-9h26v71Z"/>
+      <path className="art-water-fill" d="M594 166h12l3 69h-17Z"/>
+      <path className="art-falling-water" d="M599 174v55"/>
+      <path className="art-water-fill" d="M570 235q25-6 50 0t-15 15q-25 0-35-15Z" />
+      <path className="art-water" d="M575 238q20-6 40 0m-35 8q15-4 30 0" />
+    </g>}
     {detail==='filigree' && <g transform="translate(557 210)" className="art-etch"><circle r="28"/><circle r="6"/>{[0,45,90,135,180,225,270,315].map(angle=><path key={angle} transform={`rotate(${angle})`} d="M0-6q-16-21 0-20 16-1 0 20Z"/>)}</g>}
     {detail==='chariot' && <g transform="translate(556 238)"><path className="place-stone" d="M-21-10v-29h42v29Zm-26-29 27-26 27 26Z"/><path d="M-21-10v-29h42v29Zm-26-29 27-26 27 26ZM-27-8h54m-41-28v24m14-24v24m14-24v24"/><circle cx="-17" cy="-2" r="7"/><circle cx="17" cy="-2" r="7"/></g>}
     {detail==='church' && kind==='tiled-coast' && <g><path className="place-stone-light" d="M526 235V134h39v101Z"/><path d="M526 235V134h39v101m-44-101 24-27 25 27ZM545 107V91m-7 6h14M537 158v-12q8-12 16 0v12Z"/></g>}
@@ -139,7 +273,7 @@ function Accents({ art }) {
     {detail==='flowers' && [105,130,567,593].map(x=><g key={x}><path d={`M${x-7} 248l-3-14h20l-3 14ZM${x} 234v-22`}/><circle className="art-blossoms" cx={x} cy="209" r="7"/></g>)}
     {detail==='stupa' && <g transform="translate(561 226) scale(.55)"><path className="place-stone-light" d="M-49 0h98v-15H34v-17q0-50-34-50t-34 50v17h-15Z"/><path d="M-49 0h98v-15H34v-17q0-50-34-50t-34 50v17h-15ZM0-82v-30m-12 22h24m-18-8h12"/></g>}
     {detail==='ferry' && <Boat x={561} y={249} scale={.65} roof/>}
-    {detail==='skyline' && <path className="art-ridge" d="M505 166V84h28v82m14 0V61h41v105m-75-67h13m-13 11h13m29-34h27m-27 12h27m-27 12h27m-27 12h27m-27 12h27"/>}
+    {detail==='skyline' && <path className="art-ridge" d="M535 166V84h28v82m14 0V61h41v105m-75-67h13m-13 11h13m29-34h27m-27 12h27m-27 12h27m-27 12h27m-27 12h27"/>}
     {detail==='silk' && <path className="art-etch" d="M94 212h79v32H94Zm0 8h79m-79 16h79m-70-24v32m15-32v32m15-32v32m15-32v32m15-32v32"/>}
     {detail==='suspension' && <path className="art-ridge" d="M58 190h140m-125 24v-60m110 60v-60M73 154q55 63 110 0m-96 14v22m18-10v10m18-7v7m18-7v7m18-11v11m18-20v20"/>}
     {detail==='cable-car' && <g className="art-gondola"><path d="M533 91h90m-45 0v21"/><rect className="place-stone-light" x="560" y="111" width="37" height="29" rx="5"/><path d="M560 127h37m-19-15v15"/></g>}

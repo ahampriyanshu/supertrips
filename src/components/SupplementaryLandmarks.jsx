@@ -63,11 +63,61 @@ function VictoryTower() {
 }
 
 function Statue({ kind }) {
-  return <g data-subject={kind}><path className="place-stone" d="M329 63q-9-30 12-37 20-8 31 10l-4 26 18 20 14 64-17 8-3-35-5 61 4 48h-26l-8-56-9 56h-28l12-59-6-53-9 33-16-5 20-62Z" /><path d="M329 63q-9-30 12-37 20-8 31 10l-4 26 18 20 14 64-17 8-3-35-5 61 4 48h-26l-8-56-9 56h-28l12-59-6-53-9 33-16-5 20-62Zm-9 19 12 22 36-33m-30 33-9 61m25-58 8 61m-43-9h57M298 231h91l13 14H285Z" /><path className="place-etch" d="m315 92 8 18m47-20-11 27m-37 29 49-7m-51 14 50-6M336 46h5m14 0h5m-22 10q7 4 14 0" /></g>;
+  return <g data-subject={kind}>
+    <path className="place-fill-soft" d="M110 234q75-92 165-58t85 19v39H110Z" />
+    <path className="art-ridge" d="M110 234q75-92 165-58t85 19m-100-36q55-32 120-12" />
+    <path className="place-fill-soft" d="M360 195q65-38 145-21t105 60v0H360Z" />
+    <path className="art-ridge" d="M360 195q65-38 145-21t105 60m-80-69q55-22 115-4" />
+    <path className="place-stone" d="M215 244q25-22 60-22h170q35 0 60 22q-75 6-145 5t-145-5Z" />
+    <path d="M215 244q25-22 60-22h170q35 0 60 22M250 233q110-4 220 0" />
+    <path className="place-etch" d="M232 238l23-9h30m150 0h30l23 9M295 240q65-3 130 0" />
+    <path d="M140 236h85m-70 5h65" />
+    <path className="place-etch" d="M160 236v5m15-5v5m15-5v5m15-5v5" />
+    <path className="place-stone-light" d="M305 222l10-14h90l10 14Z" />
+    <path d="M305 222l10-14h90l10 14ZM300 222h120" />
+    <path className="place-stone" d="M325 208l7-22h56l7 22Z" />
+    <path d="M325 208l7-22h56l7 22ZM320 208h80m-72-22h64" />
+    <path className="place-etch" d="M345 186l-2 22m17-22v22m17-22l2 22M338 215h44" />
+    <path className="place-stone" d="M344 186v-4q0-4 5-4h5q4 0 4 4v4Zm18 0v-4q0-4 5-4h5q4 0 4 4v4Z" />
+    <path d="M344 186v-4q0-4 5-4h5q4 0 4 4v4Zm18 0v-4q0-4 5-4h5q4 0 4 4v4ZM342 186h16m5 0h16" />
+    <path className="place-stone" d="M353 52q-6-4-5-13 1-7 12-7 11 0 12 7 1 9-5 13l-1 6 19 6q4 10 3 31t-3 33l-6 0 1-13-1 20q2 19-3 43h-13q1-13 0-33-3-5-6 0-1 20 0 33h-13q-5-24-3-43l-1-20 1 13-6 0q-3-12-3-33t3-31l19-6Z" />
+    <path d="M353 52q-6-4-5-13 1-7 12-7 11 0 12 7 1 9-5 13l-1 6 19 6q4 10 3 31t-3 33l-6 0 1-13-1 20q2 19-3 43h-13q1-13 0-33-3-5-6 0-1 20 0 33h-13q-5-24-3-43l-1-20 1 13-6 0q-3-12-3-33t3-31l19-6ZM346 62q14 8 28 0M344 65q7 27 8 60m24-60q-7 27-8 60M360 135v41" />
+    <path className="place-etch" d="M338 72q4 24 4 48m44-48q-4 24-4 48M348 74q12 8 24 0m-22 12q10 7 20 0M360 67v65m-1-54h2m-2 12h2m-2 12h2m-2 12h2m-2 12h2M358 138v37m4-37v37M343 142q8 4 14 6m-15 11q9 4 15 6m-13 11q8 3 14 5M377 142q-8 4-14 6m15 11q-9 4-15 6m13 11q-8 3-14 5M347 43q-2 3 0 6m26-6q2 3 0 6M354 42q6-1 12 0m-6 0v5l3 1m-7 3h8" />
+  </g>;
 }
 
 function OpenHand() {
-  return <g data-subject="open-hand"><path className="place-stone" d="M354 213V127l-25-25-35-8q-12-9 0-15l36 9-31-33q-7-13 5-13l35 26-7-48q5-16 13-2l15 46 7-47q8-12 12 2l-1 48 17-33q11-6 13 6l-15 45q24-22 31-10 3 11-15 28l-32 25v85Z" /><path d="M354 213V127l-25-25-35-8q-12-9 0-15l36 9-31-33q-7-13 5-13l35 26-7-48q5-16 13-2l15 46 7-47q8-12 12 2l-1 48 17-33q11-6 13 6l-15 45q24-22 31-10 3 11-15 28l-32 25v85M329 214h72m-90 13h108M124 218v-53h139v53m-153-54h168l-14-14H124ZM444 217v-80h142v80m-151-83h161l-8-15H449Z" /><Arcade x={456} y={214} count={5} width={16} height={65} gap={11} /></g>;
+  return <g data-subject="open-hand">
+    <path className="place-fill-soft" d="M30 190q160-55 330-22t330 22v62H30Z" />
+    <path className="art-ridge" d="M30 190q160-55 330-22t330 22" />
+    <path className="place-garden" d="M60 248q140-16 300-16t300 16v32H60Z" />
+    <path d="M50 250h620m-610 8h600" />
+    <path className="art-crop-row" d="M90 236q120-22 240-6m60 0q120-16 240 6m-520 16q130-18 260-4m40 0q130-14 260 4" />
+    {[110, 150, 190, 230, 490, 530, 570, 610].map(x => <circle key={x} className="art-blossoms" cx={x} cy="232" r="5" />)}
+    {[130, 170, 210, 510, 550, 590].map(x => <circle key={x} className="art-blossoms" cx={x} cy="242" r="4" />)}
+    <path className="place-stone" d="M260 248V135q0-55 100-55t100 55v113h-16V135q0-39-84-39t-84 39v113Z" />
+    <path d="M260 248V135q0-55 100-55t100 55v113m-16 0V135q0-39-84-39t-84 39v113M252 248h32m136 0h32" />
+    {[125, 145, 165, 185, 205, 225].map(y => <path key={y} className="place-etch" d={`M260 ${y}h16m168 0h16`} />)}
+    <path className="place-etch" d="M280 115l15-15m-15 0l15 15m130-15l15 15m-15 0l15-15" />
+    {[
+      {x: 268, y: 220}, {x: 272, y: 190}, {x: 266, y: 160}, {x: 280, y: 130},
+      {x: 310, y: 98}, {x: 360, y: 80}, {x: 410, y: 98}, {x: 440, y: 130},
+      {x: 454, y: 160}, {x: 448, y: 190}, {x: 452, y: 220}
+    ].map((pt, i) => (
+      <g key={i}>
+        <circle className="art-blossoms" cx={pt.x} cy={pt.y} r={i === 5 ? 7 : 5} />
+        <circle className="place-garden" cx={pt.x + (i % 2 ? 4 : -4)} cy={pt.y + 3} r="2.5" />
+      </g>
+    ))}
+    <path className="place-stone" d="M335 248v-12h50v12Zm10-12v-16h30v16Zm-20-16h70v-8h-70Zm25-8v-18h20v18Zm-15-18h50v-6h-50Z" />
+    <path d="M335 248v-12h50v12m-40-12v-16h30v16m-45-16h70v-8h-70m25-8v-18h20v18m-15-18h50v-6h-50ZM325 248h70" />
+    <path className="art-falling-water" d="M360 178v-14m0 0q-18 6-24 22m24-22q18 6 24 22m-24-18q-32 10-38 38m38-38q32 10 38 38" />
+    <path className="art-water" d="M330 220q30-6 60 0m-70 16q40-8 80 0" />
+    <path className="place-stone-light" d="M150 248v-45h20v45Zm400 0v-45h20v45Z" />
+    <path d="M150 248v-45h20v45m380 0v-45h20v45M145 203h30m370 0h30" />
+    <circle className="art-blossoms" cx="160" cy="195" r="8" />
+    <circle className="art-blossoms" cx="560" cy="195" r="8" />
+  </g>;
 }
 
 function CarvedTemple({ kind }) {
@@ -100,12 +150,157 @@ export default function SupplementaryLandmark({ kind, detail }) {
     case 'kachari': return <g data-subject={kind}>{[224,308,397,486].map((x,i)=><g key={x}><path className="place-stone" d={`M${x-14} 234v-${76+i%2*31}q-44-7-32-22 46-29 92 0 12 15-32 22v${76+i%2*31}Z`} /><path d={`M${x-14} 234v-${76+i%2*31}q-44-7-32-22 46-29 92 0 12 15-32 22v${76+i%2*31}ZM${x-21} 235h42`} /><path className="place-etch" d={`M${x-6} 225v-54m12 54v-54`}/></g>)}</g>;
     case 'naga-house': return <g data-subject={kind}><path className="place-stone" d="M235 233v-71l125-81 125 81v71Z" /><path className="art-tile-roof" d="m217 164 143-94 143 94-19 8-124-80-124 80Z" /><path d="M235 233v-71l125-81 125 81v71M217 164l143-94 143 94M360 79l-36-45m36 45 36-45m-142 146h212m-142 53v-43h36v43M252 193v30m16-30v30m16-30v30m16-30v30m16-30v30m88 0v-30m16 30v-30m16 30v-30m16 30v-30m16 30v-30" /></g>;
     case 'brick-gate': case 'barabati': return <g data-subject={kind}><path className="place-stone" d="M246 235V117h228v118h-69v-57q-45-43-90 0v57Z" /><path d="M246 235V117h228v118h-69v-57q-45-43-90 0v57ZM238 116h244m-235 15h226M309 235v-59q51-58 102 0v59" /><path className="place-etch" d="M253 143h53m107 0h54m-214 14h46m121 0h47m-214 15h39m135 0h40m-214 15h39m135 0h40m-214 15h39m135 0h40m-214 15h39m135 0h40" /></g>;
-    case 'glasshouse': return <g data-subject={kind}><path className="art-glass" d="M185 234v-80h100v-44q75-67 150 0v44h100v80Z" /><path d="M185 234v-80h100v-44q75-67 150 0v44h100v80M175 235h370M185 166h350M185 189h350M185 212h350M285 110h150m-150 20h150M360 63v171m-50-146v145m25-161v162m50-162v162m25-146v146m-210-67v67m25-67v67m25-67v67m25-67v67m170-67v67m25-67v67m25-67v67m25-67v67" /></g>;
-    case 'tirumala': return <g data-subject={kind}><Gopuram x={228} y={234} scale={.68} tiers={6}/><g className="art-golden-shrine"><Gopuram x={423} y={234} scale={.85} tiers={4}/><Dome x={423} y={116} radius={23}/></g><path d="M180 238h307m-315 7h323" /></g>;
+    case 'glasshouse': return <g data-subject={kind}>
+      <path className="place-garden" d="M120 248q240-12 480 0v32H120Z" />
+      <path d="M110 248h500m-490 6h480" />
+      <path className="place-stone-light" d="M185 234V154h350v80Z" />
+      <path d="M185 234V154h350v80M180 234h360M182 154h356M185 194h350" />
+      <Arcade x={195} y={190} count={6} width={13} height={26} gap={7} />
+      <Arcade x={195} y={230} count={6} width={13} height={28} gap={7} />
+      <Arcade x={415} y={190} count={6} width={13} height={26} gap={7} />
+      <Arcade x={415} y={230} count={6} width={13} height={28} gap={7} />
+      <path d="M182 148h356" />
+      {[188, 240, 290, 430, 480, 532].map(x => (
+        <path key={x} className="place-stone" d={`M${x-4} 148v-8h8v8Z`} />
+      ))}
+      <Chhatri x={190} y={144} size={.9} />
+      <Chhatri x={530} y={144} size={.9} />
+      <path className="place-stone" d="M305 234V146h110v88Z" />
+      <path d="M305 234V146h110v88M300 146h120" />
+      <path className="place-stone-light" d="M302 146l58-22 58 22Z" />
+      <path d="M302 146l58-22 58 22ZM336 142h48" />
+      <circle cx="360" cy="136" r="5" />
+      {[0, 1, 2, 3, 4, 5, 6].map(i => (
+        <path key={i} className="place-etch" d={`M${306 - i * 3} ${202 + i * 5}h${108 + i * 6}`} />
+      ))}
+      <path d="M308 202v32m104-32v32" />
+      {[315, 330, 345, 360, 375, 390, 405].map(x => (
+        <path key={x} d={`M${x} 146v54`} />
+      ))}
+      <path className="place-stone-light" d="M328 124V92h64v32Z" />
+      <path d="M328 124V92h64v32M324 124h72M326 92h68" />
+      {[335, 345, 355, 365, 375, 385].map(x => (
+        <path key={x} className="art-window" d={`M${x-3} 99h6v18h-6Z`} />
+      ))}
+      <Dome x={360} y={92} radius={28} />
+      <path className="art-golden-shrine" d="M354 58h12v-5h-12Zm2-5v-10h8v10Zm-2-10h12l-6-9Z" />
+      <path d="M354 58h12v-5h-12Zm2-5v-10h8v10Zm-2-10h12l-6-9ZM360 34V24" />
+      <Tree x={85} y={238} scale={1.25} />
+      <Tree x={135} y={242} scale={.95} />
+      <Tree x={585} y={242} scale={.95} />
+      <Tree x={635} y={238} scale={1.25} />
+    </g>;
+    case 'tirumala': return <g data-subject={kind}>
+      <path className="place-fill-soft" d="M80 248q120-40 200-90t80-38q80 38 200 90t80 38v32H80Z" />
+      <path className="art-ridge" d="M60 252q130-46 220-102t80-26q80 26 220 102t100 26" />
+      <path className="place-fill-soft" d="M140 252q100-30 170-68t50-20q50 20 170 68t110 20v28H140Z" />
+      <path d="M335 248l15-28-12-24 18-28-10-24 14-20" />
+      {[
+        {x: 334, y: 244}, {x: 342, y: 232}, {x: 346, y: 220},
+        {x: 342, y: 206}, {x: 350, y: 194}, {x: 354, y: 180},
+        {x: 350, y: 168}, {x: 356, y: 154}, {x: 358, y: 142}
+      ].map((pt, i) => (
+        <path key={i} className="place-etch" d={`M${pt.x - 7} ${pt.y}h14`} />
+      ))}
+      <Tree x={120} y={246} scale={.85} />
+      <Tree x={190} y={222} scale={.65} />
+      <Tree x={530} y={222} scale={.65} />
+      <Tree x={600} y={246} scale={.85} />
+      <path className="place-stone-light" d="M290 128h140v8H290Z" />
+      <path d="M285 128h150m-146 8h142" />
+      <path className="art-golden-shrine" d="M298 128V84m-4 0h8m-6-4h4v4m-5 44h6" />
+      <path className="place-stone" d="M312 128V98h96v30Z" />
+      <path d="M312 128V98h96v30M308 128h104M310 98h100" />
+      {[324, 340, 360, 380, 396].map(x => (
+        <path key={x} className="place-etch" d={`M${x} 98v30`} />
+      ))}
+      <path d="M352 128v-18q8-10 16 0v18" />
+      <g className="art-golden-shrine">
+        <path className="place-stone" d="M320 98l8-14h64l8 14Z" />
+        <path d="M320 98l8-14h64l8 14ZM316 98h88M326 84h68" />
+        <path className="place-etch" d="M332 91h56m-50 4h44" />
+        {[332, 346, 360, 374, 388].map(x => (
+          <circle key={x} cx={x} cy="90" r="2.5" />
+        ))}
+        <path className="place-stone" d="M328 84l8-14h48l8 14Z" />
+        <path d="M328 84l8-14h48l8 14ZM326 84h68M334 70h52" />
+        <path className="place-etch" d="M340 77h40" />
+        {[342, 354, 366, 378].map(x => (
+          <circle key={x} cy="76" cx={x} r="2" />
+        ))}
+        <path className="place-stone" d="M336 70l10-12h28l10 12Z" />
+        <path d="M336 70l10-12h28l10 12ZM334 70h52M344 58h32" />
+        <path className="place-stone" d="M346 58q14-12 28 0Z" />
+        <path d="M346 58q14-12 28 0" />
+        <path d="M360 46V32m-4 10h8m-3-6h6m-5 12h4" />
+      </g>
+    </g>;
+    case 'coorg': return <g data-subject={kind}>
+      <path className="place-fill-soft" d="M40 248q90-60 190-30t180-40 180 30 90 40v32H40Z" />
+      <path className="art-ridge" d="M30 252q100-64 200-34t180-40 180 30 100 44" />
+      <path className="place-fill-soft" d="M120 252q110-38 240-20t240 20v28H120Z" />
+      {[170, 210, 250, 450, 490, 530].map(x => (
+        <circle key={x} className="place-garden" cx={x} cy="236" r="6" />
+      ))}
+      <path className="place-fort-stone" d="M140 234V154h55v80Z" />
+      <path d="M140 234V154h55v80M134 234h67M138 154h59" />
+      {[142, 154, 166, 178, 190].map(x => (
+        <path key={x} d={`M${x} 154v-6h6v6`} />
+      ))}
+      <path className="place-etch" d="M145 174h45m-45 18h45m-45 18h45" />
+      <path d="M165 188v12m-3-6h6" />
+      <path className="place-fort-stone" d="M195 234v-56h85v56Z" />
+      <path d="M195 234v-56h85v56M195 178h85" />
+      {[202, 218, 234, 250, 266].map(x => (
+        <path key={x} d={`M${x} 178v-5h7v5`} />
+      ))}
+      <path d="M225 234v-30q12-16 24 0v30" />
+      <path className="art-tile-roof" d="M165 154l25-24h55l25 24Z" />
+      <path d="M165 154l25-24h55l25 24ZM188 130h57" />
+      <path className="place-stone" d="M208 130V96h20v34Z" />
+      <path d="M208 130V96h20v34M205 96h26" />
+      <circle cx="218" cy="106" r="4" />
+      <path d="M218 96l10-12 10 12" />
+      <path className="place-stone-light" d="M430 234v-68h140v68Z" />
+      <path d="M430 234v-68h140v68M424 234h152M428 166h144" />
+      <Arcade x={442} y={230} count={5} width={14} height={34} gap={12} />
+      <path className="art-tile-roof" d="M414 166l18-18h136l18 18Z" />
+      <path d="M414 166l18-18h136l18 18ZM430 148h140" />
+      <path className="place-etch" d="M410 162q14 2 22-8m136 0q8 10 22 8" />
+      <path className="place-stone" d="M448 148v-32h104v32Z" />
+      <path d="M448 148v-32h104v32M444 116h112" />
+      {[462, 482, 502, 522].map(x => (
+        <path key={x} className="art-window" d={`M${x} 124h10v16h-10Z`} />
+      ))}
+      <path className="art-golden-shrine" d="M436 116l16-16h96l16 16Z" />
+      <path d="M436 116l16-16h96l16 16ZM450 100h100" />
+      <g className="art-golden-shrine">
+        <circle cx="500" cy="88" r="7" />
+        <path d="M500 81v14m-7-7h14M500 81V70" />
+        <path d="M486 96q-4-8 2-12l6 4v8Zm28 0q4-8-2-12l-6 4v8Z" />
+      </g>
+      <path className="art-prayer-line" d="M380 135q45 22 80-8" />
+      <g className="place-flags">
+        {[0, 1, 2, 3, 4].map(i => (
+          <path key={i} className="place-stone" d={`M${390 + i * 14} ${140 + Math.sin(i / 4 * Math.PI) * 7}v10l8 2v-10Z`} />
+        ))}
+      </g>
+    </g>;
     case 'shore-temple': return <g data-subject={kind}><Vimana x={400} y={231} scale={.94} tiers={9}/><Vimana x={283} y={231} scale={.7} tiers={7}/><path d="M208 234h273m-280 7h288M214 231v-22h37m202 22v-22h25" /></g>;
     case 'rock-temple': return <g data-subject={kind}><path className="place-stone" d="m194 235 35-79 54-53 69-6 31 46 37 92Z" /><path d="m194 235 35-79 54-53 69-6 31 46 37 92M257 225l24-43-4-29 34-40m-66 92 17-29m76-50 17 27-5 27 24 41" /><path className="place-stone-light" d="M281 107V86h70v21Zm-6-22 16-13h50l15 13Z" /><Gopuram x={524} y={236} scale={.72} tiers={7}/></g>;
     case 'rock-memorial': return <g data-subject={kind}><path className="place-stone" d="m153 235 23-25 23-6 23 11 27-13 26 12 29-13 42 34Zm278 0 22-23 50 7 12 16Z" /><path className="place-stone-light" d="M190 211v-51h122v51Z" /><Arcade x={199} y={207} count={5} width={14} height={30} gap={8}/><Dome x={251} y={156} radius={23}/><path d="M184 160h134M465 217V179l-8-16 6-44q8-13 18 0l7 44-9 16v38m-23-100q-8-23 14-25 17 6 9 25M453 218h37" /></g>;
-    case 'golghar': return <g data-subject={kind}><path className="place-stone-light" d="M256 232q-7-129 104-171 111 42 104 171Z" /><path d="M256 232q-7-129 104-171 111 42 104 171ZM248 235h224M263 228q36-80 97-161m97 161q-36-80-97-161M266 220h15m-8-12h16m-8-12h17m-8-12h17m-8-12h17m-9-12h17m-9-12h17m-9-12h17m-9-12h16m-8-12h15m-7-12h13M345 233v-25q15-20 30 0v25" /></g>;
+    case 'golghar': return <g data-subject={kind}>
+      <path className="place-stone" d="M210 244q150-10 300 0v12H210Z" />
+      <path d="M205 244h310m-315 6h320m-325 6h330" />
+      <path className="place-stone-light" d="M246 234q-7-129 114-171 121 42 114 171Z" />
+      <path d="M246 234q-7-129 114-171 121 42 114 171ZM238 236h244" />
+      <path d="M253 230q36-80 107-161m107 161q-36-80-107-161" />
+      {[0,1,2,3,4,5,6,7,8,9].map(i=><path key={`l${i}`} className="place-etch" d={`M${256+i*9} ${222-i*15}h14`} />)}
+      {[0,1,2,3,4,5,6,7,8,9].map(i=><path key={`r${i}`} className="place-etch" d={`M${450-i*9} ${222-i*15}h14`} />)}
+      <path className="place-stone" d="M346 64v-10h28v10Z" />
+      <path d="M342 64h36m-32-10h28m-14-10v10" />
+      <path d="M348 234v-25q12-20 24 0v25" />
+    </g>;
     default: return null;
   }
 }

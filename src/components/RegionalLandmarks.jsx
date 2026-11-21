@@ -1,5 +1,5 @@
 import SupplementaryLandmark from './SupplementaryLandmarks.jsx';
-import { Arcade, Chhatri, Dome, Gopuram, Shikhara, Tree } from './IllustrationParts.jsx';
+import { Arcade, Boat, Chhatri, Dome, Gopuram, Shikhara, Tree } from './IllustrationParts.jsx';
 
 function Adiyogi() {
   return <g data-subject="adiyogi">
@@ -112,10 +112,40 @@ function Shrine({ kind }) {
 
 function Gateway({ kind }) {
   const rumi = kind === 'rumi';
+  if (rumi) {
+    return <g data-subject={kind}>
+      <path className="place-stone" d="M249 235V127h31V96h160v31h31v108h-52v-61q0-45-59-60-59 15-59 60v61Z" />
+      <path d="M249 235V127h31V96h160v31h31v108h-52v-61q0-45-59-60-59 15-59 60v61ZM242 236h236M249 145h39m143 0h40M273 127h174M280 102h160" />
+      <path d="M310 235v-60q0-34 50-51 50 17 50 51v60M258 160h20v40h-20zm184 0h20v40h-20Z" />
+      <Chhatri x={360} y={67} size={1.2} />
+      <path d="M284 96q16-29 76-29t76 29M306 94q7-15 18-17m72 17q-7-15-18-17" />
+    </g>;
+  }
+
   return <g data-subject={kind}>
-    <path className="place-stone" d="M249 235V127h31V96h160v31h31v108h-52v-61q0-45-59-60-59 15-59 60v61Z" /><path d="M249 235V127h31V96h160v31h31v108h-52v-61q0-45-59-60-59 15-59 60v61ZM242 236h236M249 145h39m143 0h40M273 127h174M280 102h160" />
-    <path d="M310 235v-60q0-34 50-51 50 17 50 51v60M258 160h20v40h-20zm184 0h20v40h-20Z" />
-    {rumi ? <><Chhatri x={360} y={67} size={1.2} /><path d="M284 96q16-29 76-29t76 29M306 94q7-15 18-17m72 17q-7-15-18-17" /></> : <><Chhatri x={272} y={104} /><Chhatri x={448} y={104} /><path d="M322 96V80h76v16m-80-16h84M295 103v21m16-21v21m98-21v21m16-21v21" /></>}
+    <path className="place-stone-light" d="M210 235v12h300v-12Z" />
+    <path d="M200 235h320m-330 6h340m-350 6h360" />
+    <path className="place-stone" d="M245 235V124h32V92h166v32h32v111h-48v-58q0-48-67-62-67 14-67 62v58Z" />
+    <path d="M245 235V124h32V92h166v32h32v111h-48v-58q0-48-67-62-67 14-67 62v58ZM238 236h244M245 142h40m150 0h40M270 124h180M277 98h166" />
+    <path d="M308 235v-56q0-38 52-54 52 16 52 54v56" />
+    <path className="place-etch" d="M316 235v-52q0-32 44-46 44 14 44 46v52" />
+    <path d="M255 158h22v42h-22zm188 0h22v42h-22Z" />
+    <path className="place-etch" d="M259 162h14v34h-14zm188 0h14v34h-14Z" />
+    {[168, 178, 188].map(y => (
+      <path key={y} className="place-etch" d={`M259 ${y}h14m188 0h14`} />
+    ))}
+    <path className="place-etch" d="M277 106h166m-166 6h166" />
+    {[285, 305, 325, 345, 365, 385, 405, 425].map(x => (
+      <path key={x} className="place-etch" d={`M${x} 92v6`} />
+    ))}
+    <Dome x={360} y={80} radius={26} />
+    <path d="M330 92V80h60v12m-66-12h72" />
+    <Chhatri x={261} y={100} size={1.05} />
+    <Chhatri x={459} y={100} size={1.05} />
+    <path d="M251 124V92h20v32m178 0V92h20v32" />
+    <path className="art-water-fill" d="M30 248q220-14 440-4t220 8v28H30Z" />
+    <path className="art-water" d="M50 254q140-8 280 0t290 0m-530 10q130-6 260 0t270 0m-470 8q120-4 240 0t250 0" />
+    <Boat x={150} y={252} scale={.95} roof />
   </g>;
 }
 
