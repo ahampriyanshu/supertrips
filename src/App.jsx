@@ -17,6 +17,8 @@ import { CITY_COLLECTION_VIEWS, getCityCollection } from "./cityCollection.js";
 import { getTripDuration } from "./tripDuration.js";
 
 import { getFindHref, getFindSelection, getLegacyFindHref } from "./findRoutes.js";
+import MagazinePage from "./components/MagazinePage.jsx";
+import FortsSection from "./components/FortsSection.jsx";
 
 const journeyCities = TRIPS.flatMap(trip => trip.cities);
 const journeyStats = [
@@ -88,6 +90,23 @@ function parseRoute(pathname) {
   if (redirect) return { name: "find", path: pathname, redirect };
   if (parts.length === 2 && parts[0] === "cities") {
     return { name: "city", path: pathname, value: parts[1] };
+  }
+  if (parts[0] === "forts") {
+    return {
+      name: "forts",
+      path: pathname,
+      monumentId: parts[1] || undefined,
+    };
+  }
+  if (parts[0] === "magazine") {
+    const fortSlug = parts[2] || (parts[1] !== "forts" ? parts[1] : undefined);
+    const destination = fortSlug ? `/forts/${fortSlug}` : "/forts";
+    return {
+      name: "forts",
+      path: pathname,
+      redirect: destination,
+      monumentId: fortSlug,
+    };
   }
 
   return { name: "not-found", path: pathname };
@@ -191,6 +210,7 @@ function Masthead() {
       <span className="app-masthead-note">A personal travel journal</span>
       <nav className="app-nav" aria-label="Main navigation">
         <Link href="/#routes">Routes</Link>
+        <Link href="/forts">Forts</Link>
         <Link href="/find">Find a city</Link>
         <Link href="/#field-notes">Field notes</Link>
       </nav>
@@ -384,7 +404,10 @@ export default function App({ initialPath, initialHash = "", initialState = null
 
   useEffect(() => {
     if (!route.redirect) return;
-    const destination = getLegacyFindHref(route.path, route.search, route.hash);
+    const destination =
+      typeof route.redirect === "string" && route.redirect.startsWith("/")
+        ? route.redirect
+        : getLegacyFindHref(route.path, route.search, route.hash);
     window.history.replaceState(window.history.state, "", destination);
     window.dispatchEvent(new Event("popstate"));
   }, [route.redirect, route.path, route.search, route.hash]);
@@ -456,6 +479,14 @@ export default function App({ initialPath, initialHash = "", initialState = null
     );
   }
 
+  if (route.name === "forts" || route.name === "magazine") {
+    return (
+      <div className="app-magazine-root">
+        <MagazinePage monumentId={route.monumentId} />
+      </div>
+    );
+  }
+
   if (route.name === "find") {
     return <FindPage search={route.search} hash={route.hash} />;
   }
@@ -493,6 +524,8 @@ export default function App({ initialPath, initialHash = "", initialState = null
             ))}
           </div>
         </section>
+
+        <FortsSection />
 
         <CityCollection />
 

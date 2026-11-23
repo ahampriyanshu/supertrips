@@ -7,6 +7,7 @@ import { createServer } from 'vite';
 
 import { CATEGORIES, CITIES, STATES, TRIPS } from '../src/data.js';
 import { LEGACY_FIND_ROUTES } from '../src/findRoutes.js';
+import { FORTS } from '../src/magazineData.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, '..');
@@ -150,6 +151,27 @@ function buildRoutes() {
     });
   });
 
+  routes.push({
+    path: '/forts',
+    type: 'forts',
+    heading: 'Forts of India',
+    title: 'Forts of India | SuperTrips',
+    description: 'Explore 24 historic Indian fortresses across mountain gorges, desert sands, and coastal waters, illustrated in fine art watercolor.',
+    priority: '0.8',
+  });
+
+  FORTS.forEach((fort) => {
+    routes.push({
+      path: `/forts/${fort.slug}`,
+      type: 'fort',
+      heading: fort.monument,
+      fort,
+      title: `${fort.monument} | Forts of India | SuperTrips`,
+      description: `${fort.monument} in ${fort.location}. ${fort.paragraph}`,
+      priority: '0.7',
+    });
+  });
+
   const seen = new Set();
   return routes
     .map(route => ({ ...route, path: normalizeRoute(route.path) }))
@@ -191,6 +213,8 @@ function getRouteKeywords(route) {
 function getImageAlt(route) {
   if (route.type === 'city') return `${route.city.city} travel notes on ${siteName}`;
   if (route.type === 'trip') return `${route.trip.name} route on ${siteName}`;
+  if (route.type === 'fort') return `${route.fort.monument} watercolor illustration on ${siteName}`;
+  if (route.type === 'forts') return `Forts of India watercolor illustrations on ${siteName}`;
   return `${siteName} travel routes across India`;
 }
 
@@ -487,6 +511,11 @@ async function main() {
     ));
     await Promise.all(LEGACY_FIND_ROUTES.map(route =>
       writeRoute(route, buildFindRedirect(route.destination, siteUrl))
+    ));
+    await writeRoute({ path: '/magazine' }, buildFindRedirect('/forts', siteUrl));
+    await writeRoute({ path: '/magazine/forts' }, buildFindRedirect('/forts', siteUrl));
+    await Promise.all(FORTS.map(fort =>
+      writeRoute({ path: `/magazine/forts/${fort.slug}` }, buildFindRedirect(`/forts/${fort.slug}`, siteUrl))
     ));
     await writeFile(path.join(distDir, 'sitemap.xml'), buildSitemap(routes, siteUrl));
     await writeFile(path.join(distDir, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${siteUrl}/sitemap.xml\n`);

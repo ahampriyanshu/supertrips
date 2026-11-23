@@ -146,6 +146,10 @@
   margin-bottom: 18px;
   border-top: 1px solid var(--color-border);
 }
+.app-city-group:first-child .app-city-group-heading {
+  border-top: 0;
+  padding-top: 0;
+}
 .app-city-group-heading :is(h2, h3) { font: 400 26px/1.2 var(--font-brand); letter-spacing: -.4px; }
 .app-city-postcards {
   display: grid;

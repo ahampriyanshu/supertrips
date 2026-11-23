@@ -1,0 +1,1066 @@
+/* ==========================================================================
+   Short Magazines & Books: Full-Bleed Monograph Spreads
+   Fine Art Wet-on-Wet Liquid Watercolor Transition Engine
+   1. The paper substrate stays 100% pinned (zero sliding).
+   2. Outgoing painting softens into clean water wash & dissolves into the paper grain.
+   3. New fort arrives as rich, wet liquid watercolor paint blooming from the monument focal point.
+   4. Paint settles, fine architectural lines sharpen, and typography dries into negative space.
+   Zero severed cutouts. Zero collision artifacts. Pure watercolor physicality.
+   ========================================================================== */
+
+.app-magazine-root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: #f7f3ec;
+}
+
+.magazine-page {
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  background-color: #f7f3ec;
+  user-select: none;
+}
+
+/* ==========================================================================
+   Regional Theme Inks: Calibrated to each landscape's stone and lighting
+   ========================================================================== */
+.magazine-theme-white {
+  --mag-ink: var(--color-text, #283b31);
+  --mag-muted: var(--color-muted, #62675e);
+  --mag-body: #334439;
+}
+
+.magazine-theme-alpine {
+  --mag-ink: #1c2724;
+  --mag-muted: #51635e;
+  --mag-body: #283934;
+}
+
+.magazine-theme-red {
+  --mag-ink: #2b1812;
+  --mag-muted: #6b4d43;
+  --mag-body: #3b251d;
+}
+
+.magazine-theme-warm-stone {
+  --mag-ink: #28211a;
+  --mag-muted: #665b50;
+  --mag-body: #3b3228;
+}
+
+.magazine-theme-turquoise-gold {
+  --mag-ink: #192728;
+  --mag-muted: #4e6364;
+  --mag-body: #25393a;
+}
+
+.magazine-theme-amber {
+  --mag-ink: #2b2014;
+  --mag-muted: #6e5842;
+  --mag-body: #3d2f1f;
+}
+
+.magazine-theme-desert-gold {
+  --mag-ink: #2c2014;
+  --mag-muted: #6b5742;
+  --mag-body: #3c2e1f;
+}
+
+.magazine-theme-golden-sand {
+  --mag-ink: #2a1f12;
+  --mag-muted: #6d583e;
+  --mag-body: #3b2d1d;
+}
+
+.magazine-theme-mountain-sage {
+  --mag-ink: #1b261f;
+  --mag-muted: #526356;
+  --mag-body: #26382c;
+}
+
+.magazine-theme-volcanic {
+  --mag-ink: #221f1d;
+  --mag-muted: #5e5954;
+  --mag-body: #332f2b;
+}
+
+.magazine-theme-green {
+  --mag-ink: var(--color-text, #283b31);
+  --mag-muted: var(--color-muted, #62675e);
+  --mag-body: #2d3e33;
+}
+
+.magazine-theme-oceanic {
+  --mag-ink: #15222b;
+  --mag-muted: #4d5f6e;
+  --mag-body: #20313e;
+}
+
+.magazine-theme-twilight-granite {
+  --mag-ink: #211c26;
+  --mag-muted: #5a5063;
+  --mag-body: #302838;
+}
+
+.magazine-theme-granite-gold {
+  --mag-ink: #262118;
+  --mag-muted: #635b4c;
+  --mag-body: #383124;
+}
+
+.magazine-theme-riverine {
+  --mag-ink: #1b2628;
+  --mag-muted: #536466;
+  --mag-body: #27383a;
+}
+
+.magazine-theme-ruins-mystic {
+  --mag-ink: #26211d;
+  --mag-muted: #655b52;
+  --mag-body: #38312b;
+}
+
+.magazine-theme-coastal-bastion {
+  --mag-ink: #182329;
+  --mag-muted: #50616b;
+  --mag-body: #26343c;
+}
+
+.magazine-theme-sahyadri-monsoon {
+  --mag-ink: #0f1c14;
+  --mag-muted: #384d3f;
+  --mag-body: #14241a;
+}
+
+.magazine-theme-laterite-ocean {
+  --mag-ink: #2b1d16;
+  --mag-muted: #6c5144;
+  --mag-body: #3c2a21;
+}
+
+.magazine-theme-portuguese-coastal {
+  --mag-ink: #24201b;
+  --mag-muted: #615a51;
+  --mag-body: #363028;
+}
+
+.magazine-theme-kakatiya-granite {
+  --mag-ink: #231f24;
+  --mag-muted: #5e5761;
+  --mag-body: #332d36;
+}
+
+.magazine-theme-blue-white {
+  --mag-ink: #12212f;
+  --mag-muted: #496378;
+  --mag-body: #1e3142;
+}
+
+/* ==========================================================================
+   Full-Bleed Stage
+   ========================================================================== */
+.magazine-stage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+  background-color: #f7f3ec;
+}
+
+/* Heavy cold-press cotton rag paper tooth ground overlay */
+.magazine-paper-tooth {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0.16;
+  mix-blend-mode: multiply;
+  background-image: radial-gradient(#d3cbbd 0.8px, transparent 0.8px);
+  background-size: 16px 16px;
+}
+
+/* Artwork Plate Layers */
+.magazine-plate {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.magazine-painting-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   HARRY POTTER MAGICAL INK DISCLOSURE TRANSITION ENGINE
+   Content disclosed from underneath with organic liquid watercolor ink bloom
+   ========================================================================== */
+.magazine-mask-circle {
+  filter: url(#mag-ink-displace);
+  fill: #ffffff;
+}
+
+.magazine-plate--outgoing {
+  z-index: 1;
+}
+
+.magazine-plate--incoming {
+  z-index: 2;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.magazine-plate--disclosing {
+  mask: url(#mag-disclosure-mask);
+  -webkit-mask: url(#mag-disclosure-mask);
+}
+
+.magazine-plate--settled {
+  z-index: 2;
+  mask: none;
+  -webkit-mask: none;
+  transform: scale(1);
+}
+
+/* ==========================================================================
+   Editorial Content: Quiet, breathable, minimal typography
+   Placed directly in the negative space quadrant with zero background bloat
+   ========================================================================== */
+.magazine-quadrant-text {
+  position: absolute;
+  z-index: 12;
+  width: min(480px, 38vw);
+  max-width: 480px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.magazine-quadrant-text::-webkit-scrollbar {
+  display: none;
+}
+
+/* Fluid Typography Transitions: Zero-Blink Crossfade Engine */
+.magazine-text--settled {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0px);
+}
+
+.magazine-text--outgoing {
+  animation: magazineTextDissolve 190ms cubic-bezier(0.35, 0, 0.75, 0.2) forwards;
+  pointer-events: none;
+}
+
+@keyframes magazineTextDissolve {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-6px);
+    filter: blur(1.5px);
+  }
+}
+
+.magazine-text--incoming {
+  animation: magazineTextEmerge 270ms cubic-bezier(0.16, 1, 0.3, 1) 80ms both;
+}
+
+@keyframes magazineTextEmerge {
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+    filter: blur(1.5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+  }
+}
+
+/* Quadrant Placements */
+.magazine-quadrant--top-left {
+  top: 0;
+  left: 0;
+  padding: clamp(36px, 4.5vw, 68px) clamp(36px, 5vw, 64px) clamp(36px, 4.5vw, 68px) clamp(56px, 7.5vw, 104px);
+}
+
+.magazine-quadrant--top-right {
+  top: 0;
+  right: 0;
+  padding: clamp(36px, 4.5vw, 68px) clamp(56px, 7.5vw, 104px) clamp(36px, 4.5vw, 68px) clamp(36px, 5vw, 64px);
+}
+
+.magazine-quadrant--bottom-left {
+  bottom: 0;
+  left: 0;
+  padding: clamp(44px, 5.5vw, 80px) clamp(36px, 5vw, 64px) clamp(44px, 5.5vw, 80px) clamp(56px, 7.5vw, 104px);
+}
+
+.magazine-quadrant--bottom-right {
+  bottom: 0;
+  right: 0;
+  padding: clamp(44px, 5.5vw, 80px) clamp(56px, 7.5vw, 104px) clamp(44px, 5.5vw, 80px) clamp(36px, 5vw, 64px);
+}
+
+/* Monument Title — perfectly aligned flush with location and paragraph */
+.magazine-title {
+  font-family: var(--font-brand);
+  font-size: clamp(44px, 5vw, 70px);
+  font-weight: 400;
+  line-height: 1.04;
+  letter-spacing: -2.4px;
+  color: var(--mag-ink);
+  margin: 0;
+  padding: 0;
+  text-shadow: 0 1px 18px rgba(247, 243, 236, 0.75), 0 0 8px rgba(247, 243, 236, 0.45);
+}
+
+/* Location — clean, crisp, refined uppercase monospace metadata */
+.magazine-location {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--mag-muted);
+  line-height: 1.4;
+  margin: 14px 0 0 0;
+  padding: 0;
+  opacity: 0.95;
+  text-shadow: 0 1px 16px rgba(247, 243, 236, 0.9), 0 0 8px rgba(247, 243, 236, 0.6);
+}
+
+/* Single crisp paragraph — 2-3 lines of breathable, unbloated reading */
+.magazine-paragraph {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.72;
+  color: var(--mag-body);
+  margin: 18px 0 0 0;
+  padding: 0;
+  text-wrap: pretty;
+  max-width: 440px;
+  text-shadow: 0 1px 16px rgba(247, 243, 236, 0.85), 0 0 8px rgba(247, 243, 236, 0.5);
+  transition: opacity 180ms ease, text-shadow 180ms ease;
+}
+
+/* Accessible description link that activates the 'Read more' Wikipedia cursor */
+.magazine-paragraph-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+  border-radius: 6px;
+  pointer-events: auto;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.magazine-paragraph-link:focus-visible {
+  outline: 2px solid var(--mag-ink, #283b31);
+  outline-offset: 4px;
+}
+
+.magazine-paragraph-link:hover .magazine-paragraph {
+  text-shadow: 0 1px 18px rgba(247, 243, 236, 0.95);
+  opacity: 0.95;
+}
+
+/* ==========================================================================
+   Center Stage Click Zone (Triggers Interactive Map Dialog)
+   ========================================================================== */
+.magazine-center-stage {
+  position: absolute;
+  top: 0;
+  bottom: 24px;
+  left: clamp(100px, 15vw, 190px);
+  right: clamp(100px, 15vw, 190px);
+  z-index: 8;
+  outline: none;
+  user-select: none;
+}
+
+/* ==========================================================================
+   Deckle-Edge Click Zones (Non-Web Editorial Touch)
+   ========================================================================== */
+.magazine-edge-touch {
+  position: absolute;
+  top: 0;
+  bottom: 24px;
+  width: clamp(100px, 15vw, 190px);
+  z-index: 15;
+  outline: none;
+  user-select: none;
+}
+
+.magazine-edge-touch--left {
+  left: 0;
+}
+
+.magazine-edge-touch--right {
+  right: 0;
+}
+
+/* Suppress system cursor on desktop to let animated follower shine */
+@media (hover: hover) and (pointer: fine) {
+  .magazine-page,
+  .magazine-page * {
+    cursor: none !important;
+  }
+}
+
+/* Invisible Top-Left Back-to-Home Hit Zone */
+.magazine-back-home-zone {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: clamp(140px, 16vw, 220px);
+  height: clamp(80px, 13vh, 120px);
+  z-index: 28;
+  outline: none;
+  user-select: none;
+}
+
+/* ==========================================================================
+   Animated Follower Cursor ("Circle Thingy")
+   ========================================================================== */
+.magazine-custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 180ms ease, visibility 180ms ease;
+  will-change: transform;
+}
+
+.magazine-custom-cursor.magazine-cursor--visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.magazine-cursor-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  transition: width 260ms cubic-bezier(0.16, 1, 0.3, 1),
+              height 260ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-radius 260ms cubic-bezier(0.16, 1, 0.3, 1),
+              background 220ms ease,
+              border-color 220ms ease,
+              box-shadow 260ms ease,
+              transform 160ms cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* 1. Default State: Sleek translucent circular ring with center dot */
+.magazine-cursor--default .magazine-cursor-inner {
+  width: 32px;
+  height: 32px;
+  background: rgba(247, 243, 236, 0.45);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1.5px solid var(--mag-ink, #283b31);
+  box-shadow: 0 2px 10px rgba(40, 59, 49, 0.14);
+}
+
+.magazine-cursor-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--mag-ink, #283b31);
+  transition: transform 180ms ease;
+}
+
+/* 2. Navigation States: Refined Editorial Line Arrows (Seamless with site aesthetic) */
+.magazine-cursor--prev .magazine-cursor-inner,
+.magazine-cursor--next .magazine-cursor-inner {
+  width: 48px;
+  height: 48px;
+  background: rgba(247, 245, 239, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(40, 59, 49, 0.22);
+  color: var(--mag-ink, #283b31);
+  box-shadow: 0 8px 24px rgba(40, 59, 49, 0.16), 0 2px 6px rgba(40, 59, 49, 0.06);
+}
+
+.magazine-cursor-arrow-icon {
+  display: block;
+  transition: transform 180ms ease;
+}
+
+.magazine-cursor--prev .magazine-cursor-arrow-icon {
+  transform: translateX(-1px);
+}
+
+.magazine-cursor--next .magazine-cursor-arrow-icon {
+  transform: translateX(1px);
+}
+
+/* 3. Description State: Morph into 'Read more ↗' badge */
+.magazine-cursor--read-more .magazine-cursor-inner {
+  width: 126px;
+  height: 40px;
+  border-radius: 20px;
+  background: var(--mag-ink, #283b31);
+  border: 1px solid rgba(247, 243, 236, 0.35);
+  color: var(--mag-bg, #f7f3ec);
+  box-shadow: 0 10px 28px rgba(40, 59, 49, 0.35);
+  padding: 0 14px;
+}
+
+.magazine-cursor-readmore {
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  user-select: none;
+}
+
+.magazine-cursor-arrow {
+  font-size: 13px;
+  transition: transform 180ms ease;
+}
+
+/* 4. Center Stage State: Morph into 'View on map' badge */
+.magazine-cursor--view-map .magazine-cursor-inner {
+  width: 142px;
+  height: 40px;
+  border-radius: 20px;
+  background: var(--mag-ink, #283b31);
+  border: 1px solid rgba(247, 243, 236, 0.35);
+  color: var(--mag-bg, #f7f3ec);
+  box-shadow: 0 10px 28px rgba(40, 59, 49, 0.32);
+  padding: 0 16px;
+}
+
+.magazine-cursor-badge--map {
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  user-select: none;
+}
+
+/* 5. Bottom Progress Bar Scrub State */
+.magazine-cursor--progress .magazine-cursor-inner {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--mag-ink, #283b31);
+  border: 1.5px solid #f7f3ec;
+  box-shadow: 0 0 8px rgba(40, 59, 49, 0.35);
+}
+
+/* 6. Back Home State: Morph into 'Back to home' badge */
+.magazine-cursor--back-home .magazine-cursor-inner {
+  width: 154px;
+  height: 40px;
+  border-radius: 20px;
+  background: var(--mag-ink, #283b31);
+  border: 1px solid rgba(247, 243, 236, 0.35);
+  color: var(--mag-bg, #f7f3ec);
+  box-shadow: 0 10px 28px rgba(40, 59, 49, 0.35);
+  padding: 0 16px;
+}
+
+.magazine-cursor-badge--back {
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+}
+
+/* Tactile Click Press */
+.magazine-cursor--down .magazine-cursor-inner {
+  transform: translate(-50%, -50%) scale(0.92);
+}
+
+/* ==========================================================================
+   Interactive Map Modal Dialog (Matches SuperTrips Design System)
+   ========================================================================== */
+.magazine-map-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  background: rgba(18, 26, 21, 0.62);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  animation: magFadeIn 220ms ease;
+}
+
+/* Restore system pointers inside modal dialog */
+.magazine-map-overlay,
+.magazine-map-overlay * {
+  cursor: auto !important;
+}
+
+.magazine-map-close-btn,
+.magazine-map-nav-btn,
+.magazine-map-popup-link {
+  cursor: pointer !important;
+}
+
+.magazine-map-leaflet-container,
+.magazine-map-leaflet-container * {
+  cursor: grab !important;
+}
+
+.magazine-map-leaflet-container:active,
+.magazine-map-leaflet-container *:active {
+  cursor: grabbing !important;
+}
+
+.magazine-map-dialog {
+  position: relative;
+  width: 100%;
+  max-width: 1060px;
+  height: 86vh;
+  max-height: 760px;
+  background: var(--td-card, #fbf9f4);
+  border: 1px solid var(--td-border, #e2dacd);
+  border-radius: 14px;
+  box-shadow: 0 28px 70px rgba(18, 28, 22, 0.32), 0 6px 20px rgba(18, 28, 22, 0.14);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: magSlideUp 260ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.magazine-map-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.95rem 1.6rem;
+  border-bottom: 1px solid var(--td-border, #e6ded2);
+  background: #faf8f5;
+  flex-shrink: 0;
+}
+
+.magazine-map-header-left {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.magazine-map-title {
+  font-family: var(--font-brand, Georgia, serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--td-ink, #283b31);
+  margin: 0;
+  line-height: 1;
+  letter-spacing: -0.015em;
+}
+
+.magazine-map-header-index {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.82rem;
+  color: #8c8272;
+  letter-spacing: 0.06em;
+}
+
+.magazine-map-close-btn {
+  background: none;
+  border: none;
+  width: 36px;
+  height: 36px;
+  color: var(--td-ink, #283b31);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  opacity: 0.65;
+  transition: opacity 160ms ease, background 160ms ease;
+  flex-shrink: 0;
+}
+
+.magazine-map-close-btn:hover {
+  opacity: 1;
+  background: rgba(40, 59, 49, 0.06);
+}
+
+.magazine-map-body {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  background: #eae5dc;
+}
+
+.magazine-map-body .leaflet-tile-pane {
+  filter: saturate(0.68) contrast(1.02);
+}
+
+.magazine-map-leaflet-container {
+  width: 100%;
+  height: 100%;
+}
+
+/* Plotted Subcontinent Fort Markers */
+.magazine-atlas-marker {
+  position: relative;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  cursor: pointer !important;
+}
+
+.magazine-atlas-dot {
+  display: block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--color-accent, #a34630);
+  box-shadow: 0 0 0 1.5px #f5f1e7, 0 1px 4px rgba(40, 59, 49, 0.25);
+  transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1), background 180ms ease, box-shadow 180ms ease;
+}
+
+.magazine-atlas-marker:hover .magazine-atlas-dot {
+  transform: scale(1.6);
+  background: #283b31;
+  box-shadow: 0 0 0 3.5px rgba(40, 59, 49, 0.25), 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Active Highlighted Fort Marker */
+.magazine-atlas-marker--active {
+  z-index: 1000 !important;
+}
+
+.magazine-atlas-dot-active {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #a34630;
+  border: 2.5px solid #fff;
+  box-shadow: 0 2px 10px rgba(163, 70, 48, 0.55), 0 0 0 1px rgba(40, 59, 49, 0.2);
+  position: relative;
+  z-index: 2;
+}
+
+.magazine-atlas-pulse {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 2.5px solid #a34630;
+  animation: magPulseRing 2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes magPulseRing {
+  0% { transform: scale(0.6); opacity: 0.95; }
+  60% { transform: scale(2.2); opacity: 0.15; }
+  100% { transform: scale(2.6); opacity: 0; }
+}
+
+.magazine-atlas-badge {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--mag-ink, #283b31);
+  color: #fff;
+  font-family: var(--font-body, system-ui, sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+  padding: 3px 9px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(28, 41, 34, 0.38);
+  pointer-events: none;
+  animation: magBadgePop 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  letter-spacing: 0.02em;
+  z-index: 10;
+}
+
+.magazine-atlas-badge::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid var(--mag-ink, #283b31);
+}
+
+@keyframes magBadgePop {
+  from { opacity: 0; transform: translateX(-50%) translateY(4px) scale(0.9); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
+}
+
+/* Tooltips */
+.magazine-map-tooltip.leaflet-tooltip {
+  background: #fbf9f4;
+  border: 1px solid var(--td-border, #e2dacd);
+  border-radius: 6px;
+  box-shadow: 0 6px 18px rgba(28, 41, 34, 0.2);
+  padding: 4px 8px;
+}
+
+.magazine-map-tooltip.leaflet-tooltip::before {
+  border-top-color: #fbf9f4;
+}
+
+.magazine-map-tooltip-inner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 2px 2px;
+}
+
+.magazine-map-tooltip-num {
+  font-family: var(--font-mono, monospace);
+  font-size: 10px;
+  font-weight: 700;
+  color: #a34630;
+  background: rgba(163, 70, 48, 0.08);
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+.magazine-map-tooltip-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.magazine-map-tooltip-text strong {
+  font-family: var(--font-brand, Georgia, serif);
+  font-size: 12px;
+  font-weight: 700;
+  color: #283b31;
+  line-height: 1.2;
+}
+
+.magazine-map-tooltip-text small {
+  font-family: var(--font-mono, monospace);
+  font-size: 9px;
+  color: #63756b;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Modal Footer: Clean & Tidy without redundant text and border */
+.magazine-map-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1.6rem;
+  border-top: 1px solid var(--td-border, #e6ded2);
+  background: #faf8f5;
+  flex-shrink: 0;
+}
+
+.magazine-map-footer-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 3px;
+  min-width: 0;
+}
+
+.magazine-map-footer-title {
+  font-family: var(--font-brand, Georgia, serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--td-ink, #283b31);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.magazine-map-footer-location {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.74rem;
+  color: #7a7062;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Minimal Arrow Navigation Buttons: No redundant text, no borders */
+.magazine-map-arrow-btn {
+  background: none;
+  border: none;
+  width: 42px;
+  height: 42px;
+  color: var(--td-ink, #283b31);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  opacity: 0.75;
+  transition: opacity 160ms ease, transform 160ms ease, background 160ms ease;
+  flex-shrink: 0;
+}
+
+.magazine-map-arrow-btn:not(:disabled):hover {
+  opacity: 1;
+  background: rgba(40, 59, 49, 0.06);
+  transform: scale(1.12);
+}
+
+.magazine-map-arrow-btn:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+
+@keyframes magFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes magSlideUp {
+  from { opacity: 0; transform: translateY(16px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Disable on touch devices */
+@media (hover: none) or (pointer: coarse) {
+  .magazine-custom-cursor {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   Minimal Monograph Progress Bar (Bottom Edge)
+   ========================================================================== */
+.magazine-progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3.5px;
+  z-index: 25;
+  background: rgba(40, 59, 49, 0.1);
+  cursor: pointer;
+  transition: height 180ms ease, background 180ms ease;
+}
+
+.magazine-progress-bar:hover {
+  height: 6px;
+  background: rgba(40, 59, 49, 0.16);
+}
+
+.magazine-progress-fill {
+  height: 100%;
+  background: var(--mag-ink, #283b31);
+  opacity: 0.8;
+  border-radius: 0 2px 2px 0;
+  transition: width 450ms cubic-bezier(0.16, 1, 0.3, 1), background-color 450ms ease;
+  box-shadow: 0 0 6px rgba(40, 59, 49, 0.2);
+}
+
+.magazine-progress-bar:hover .magazine-progress-fill {
+  opacity: 1;
+}
+
+/* ==========================================================================
+   Responsive Adaptation for Tablets & Mobile Devices
+   ========================================================================== */
+@media (max-width: 980px) {
+  .magazine-page {
+    height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  .magazine-stage {
+    position: relative;
+    width: 100%;
+    height: 52vh;
+    min-height: 380px;
+  }
+
+  .magazine-quadrant-text {
+    position: relative;
+    width: 100%;
+    max-width: none;
+    max-height: none;
+    top: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+    padding: 32px 24px 50px !important;
+    background: #f7f3ec;
+  }
+
+  .magazine-title {
+    font-size: clamp(2.2rem, 7.5vw, 3rem);
+  }
+
+  .magazine-paragraph {
+    max-width: none;
+    font-size: 1.05rem;
+    line-height: 1.76;
+    margin-top: 14px;
+  }
+
+  .magazine-progress-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+  }
+}
