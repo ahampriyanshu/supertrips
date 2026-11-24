@@ -7,7 +7,7 @@ import { createServer } from 'vite';
 
 import { CATEGORIES, CITIES, STATES, TRIPS } from '../src/data.js';
 import { LEGACY_FIND_ROUTES } from '../src/findRoutes.js';
-import { FORTS, PALACES, TOMBS, CHURCHES } from '../src/magazineData.js';
+import { FORTS, PALACES, TOMBS, TEMPLES } from '../src/magazineData.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, '..');
@@ -215,22 +215,22 @@ function buildRoutes() {
   });
 
   routes.push({
-    path: '/churches',
-    type: 'churches',
-    heading: 'Churches & Cathedrals of India',
-    title: 'Churches & Cathedrals of India | SuperTrips',
-    description: 'Explore 15 transcendent historic churches and cathedrals across India, illustrated as surreal charcoal paintings.',
+    path: '/temples',
+    type: 'temples',
+    heading: 'Temples of India',
+    title: 'Temples of India | SuperTrips',
+    description: 'Explore 30 iconic historic temples across India across six circuits, illustrated as fine-art colored pencil architectural sketches.',
     priority: '0.8',
   });
 
-  CHURCHES.forEach((church) => {
+  TEMPLES.forEach((temple) => {
     routes.push({
-      path: `/churches/${church.slug}`,
-      type: 'church',
-      heading: church.monument,
-      church,
-      title: `${church.monument} | Churches & Cathedrals of India | SuperTrips`,
-      description: `${church.monument} in ${church.location}. ${church.paragraph}`,
+      path: `/temples/${temple.slug}`,
+      type: 'temple',
+      heading: temple.monument,
+      temple,
+      title: `${temple.monument} | Temples of India | SuperTrips`,
+      description: `${temple.monument} in ${temple.location}. ${temple.paragraph}`,
       priority: '0.7',
     });
   });
@@ -282,8 +282,8 @@ function getImageAlt(route) {
   if (route.type === 'palaces') return `Palaces of India watercolor illustrations on ${siteName}`;
   if (route.type === 'tomb') return `${route.tomb.monument} architectural colored pencil sketch on ${siteName}`;
   if (route.type === 'tombs') return `Tombs & Mausoleums of India architectural sketches on ${siteName}`;
-  if (route.type === 'church') return `${route.church.monument} surreal charcoal painting on ${siteName}`;
-  if (route.type === 'churches') return `Churches & Cathedrals of India surreal charcoal paintings on ${siteName}`;
+  if (route.type === 'temple') return `${route.temple.monument} architectural colored pencil sketch on ${siteName}`;
+  if (route.type === 'temples') return `Temples of India architectural colored pencil sketches on ${siteName}`;
   return `${siteName} travel routes across India`;
 }
 
@@ -598,14 +598,17 @@ async function main() {
     await Promise.all(TOMBS.map(tomb =>
       writeRoute({ path: `/mausoleums/${tomb.slug}` }, buildFindRedirect(`/tombs/${tomb.slug}`, siteUrl))
     ));
-    await writeRoute({ path: '/church' }, buildFindRedirect('/churches', siteUrl));
-    await writeRoute({ path: '/magazine/churches' }, buildFindRedirect('/churches', siteUrl));
-    await Promise.all(CHURCHES.map(church =>
-      writeRoute({ path: `/magazine/churches/${church.slug}` }, buildFindRedirect(`/churches/${church.slug}`, siteUrl))
+    await writeRoute({ path: '/temple' }, buildFindRedirect('/temples', siteUrl));
+    await writeRoute({ path: '/magazine/temples' }, buildFindRedirect('/temples', siteUrl));
+    await Promise.all(TEMPLES.map(temple =>
+      writeRoute({ path: `/magazine/temples/${temple.slug}` }, buildFindRedirect(`/temples/${temple.slug}`, siteUrl))
     ));
-    await Promise.all(CHURCHES.map(church =>
-      writeRoute({ path: `/church/${church.slug}` }, buildFindRedirect(`/churches/${church.slug}`, siteUrl))
+    await Promise.all(TEMPLES.map(temple =>
+      writeRoute({ path: `/temple/${temple.slug}` }, buildFindRedirect(`/temples/${temple.slug}`, siteUrl))
     ));
+    await writeRoute({ path: '/churches' }, buildFindRedirect('/temples', siteUrl));
+    await writeRoute({ path: '/church' }, buildFindRedirect('/temples', siteUrl));
+    await writeRoute({ path: '/magazine/churches' }, buildFindRedirect('/temples', siteUrl));
     await writeFile(path.join(distDir, 'sitemap.xml'), buildSitemap(routes, siteUrl));
     await writeFile(path.join(distDir, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${siteUrl}/sitemap.xml\n`);
   } finally {

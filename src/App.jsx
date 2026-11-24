@@ -21,7 +21,7 @@ import MagazinePage from "./components/MagazinePage.jsx";
 import FortsSection from "./components/FortsSection.jsx";
 import PalacesSection from "./components/PalacesSection.jsx";
 import TombsSection from "./components/TombsSection.jsx";
-import ChurchesSection from "./components/ChurchesSection.jsx";
+import TemplesSection from "./components/TemplesSection.jsx";
 
 const journeyCities = TRIPS.flatMap(trip => trip.cities);
 const journeyStats = [
@@ -115,9 +115,9 @@ function parseRoute(pathname) {
       monumentId: parts[1] || undefined,
     };
   }
-  if (parts[0] === "churches" || parts[0] === "church") {
+  if (parts[0] === "temples" || parts[0] === "temple") {
     return {
-      name: "churches",
+      name: "temples",
       path: pathname,
       monumentId: parts[1] || undefined,
     };
@@ -237,7 +237,7 @@ function Masthead() {
         <Link href="/forts">Forts</Link>
         <Link href="/palaces">Palaces</Link>
         <Link href="/tombs">Tombs</Link>
-        <Link href="/churches">Churches</Link>
+        <Link href="/temples">Temples</Link>
         <Link href="/find">Find a city</Link>
         <Link href="/#field-notes">Field notes</Link>
       </nav>
@@ -530,10 +530,10 @@ export default function App({ initialPath, initialHash = "", initialState = null
     );
   }
 
-  if (route.name === "churches" || route.name === "church") {
+  if (route.name === "temples" || route.name === "temple") {
     return (
       <div className="app-magazine-root">
-        <MagazinePage topic="churches" monumentId={route.monumentId} />
+        <MagazinePage topic="temples" monumentId={route.monumentId} />
       </div>
     );
   }
@@ -582,7 +582,7 @@ export default function App({ initialPath, initialHash = "", initialState = null
 
         <TombsSection />
 
-        <ChurchesSection />
+        <TemplesSection />
 
         <CityCollection />
 

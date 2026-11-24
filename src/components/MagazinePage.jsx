@@ -281,8 +281,8 @@ export default function MagazinePage({ topic = 'forts', monumentId }) {
           ? 'Palaces of India'
           : topic === 'tombs' || topic === 'mausoleums'
           ? 'Tombs & Mausoleums of India'
-          : topic === 'churches' || topic === 'church'
-          ? 'Churches of India'
+          : topic === 'temples' || topic === 'temple'
+          ? 'Temples of India'
           : 'Forts of India';
       document.title = `${currentEntry.monument} · ${topicTitle} | SuperTrips`;
     }
