@@ -18,7 +18,10 @@ export default function MagazinePage({ topic = 'forts', monumentId }) {
 
   const [currentIndex, setCurrentIndex] = useState(findInitialIndex);
   const currentIndexRef = useRef(currentIndex);
-  currentIndexRef.current = currentIndex;
+
+  useEffect(() => {
+    currentIndexRef.current = currentIndex;
+  }, [currentIndex]);
 
   const [outgoingIndex, setOutgoingIndex] = useState(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
