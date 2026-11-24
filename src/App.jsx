@@ -19,6 +19,7 @@ import { getTripDuration } from "./tripDuration.js";
 import { getFindHref, getFindSelection, getLegacyFindHref } from "./findRoutes.js";
 import MagazinePage from "./components/MagazinePage.jsx";
 import FortsSection from "./components/FortsSection.jsx";
+import PalacesSection from "./components/PalacesSection.jsx";
 
 const journeyCities = TRIPS.flatMap(trip => trip.cities);
 const journeyStats = [
@@ -94,6 +95,13 @@ function parseRoute(pathname) {
   if (parts[0] === "forts") {
     return {
       name: "forts",
+      path: pathname,
+      monumentId: parts[1] || undefined,
+    };
+  }
+  if (parts[0] === "palaces") {
+    return {
+      name: "palaces",
       path: pathname,
       monumentId: parts[1] || undefined,
     };
@@ -482,7 +490,15 @@ export default function App({ initialPath, initialHash = "", initialState = null
   if (route.name === "forts" || route.name === "magazine") {
     return (
       <div className="app-magazine-root">
-        <MagazinePage monumentId={route.monumentId} />
+        <MagazinePage topic="forts" monumentId={route.monumentId} />
+      </div>
+    );
+  }
+
+  if (route.name === "palaces") {
+    return (
+      <div className="app-magazine-root">
+        <MagazinePage topic="palaces" monumentId={route.monumentId} />
       </div>
     );
   }
@@ -526,6 +542,8 @@ export default function App({ initialPath, initialHash = "", initialState = null
         </section>
 
         <FortsSection />
+
+        <PalacesSection />
 
         <CityCollection />
 

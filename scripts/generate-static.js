@@ -7,7 +7,7 @@ import { createServer } from 'vite';
 
 import { CATEGORIES, CITIES, STATES, TRIPS } from '../src/data.js';
 import { LEGACY_FIND_ROUTES } from '../src/findRoutes.js';
-import { FORTS } from '../src/magazineData.js';
+import { FORTS, PALACES } from '../src/magazineData.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, '..');
@@ -172,6 +172,27 @@ function buildRoutes() {
     });
   });
 
+  routes.push({
+    path: '/palaces',
+    type: 'palaces',
+    heading: 'Palaces of India',
+    title: 'Palaces of India | SuperTrips',
+    description: 'Explore 24 historic royal residences across mountain valleys, desert oases, and backwaters, illustrated in fine art watercolor.',
+    priority: '0.8',
+  });
+
+  PALACES.forEach((palace) => {
+    routes.push({
+      path: `/palaces/${palace.slug}`,
+      type: 'palace',
+      heading: palace.monument,
+      palace,
+      title: `${palace.monument} | Palaces of India | SuperTrips`,
+      description: `${palace.monument} in ${palace.location}. ${palace.paragraph}`,
+      priority: '0.7',
+    });
+  });
+
   const seen = new Set();
   return routes
     .map(route => ({ ...route, path: normalizeRoute(route.path) }))
@@ -215,6 +236,8 @@ function getImageAlt(route) {
   if (route.type === 'trip') return `${route.trip.name} route on ${siteName}`;
   if (route.type === 'fort') return `${route.fort.monument} watercolor illustration on ${siteName}`;
   if (route.type === 'forts') return `Forts of India watercolor illustrations on ${siteName}`;
+  if (route.type === 'palace') return `${route.palace.monument} watercolor illustration on ${siteName}`;
+  if (route.type === 'palaces') return `Palaces of India watercolor illustrations on ${siteName}`;
   return `${siteName} travel routes across India`;
 }
 
@@ -516,6 +539,10 @@ async function main() {
     await writeRoute({ path: '/magazine/forts' }, buildFindRedirect('/forts', siteUrl));
     await Promise.all(FORTS.map(fort =>
       writeRoute({ path: `/magazine/forts/${fort.slug}` }, buildFindRedirect(`/forts/${fort.slug}`, siteUrl))
+    ));
+    await writeRoute({ path: '/magazine/palaces' }, buildFindRedirect('/palaces', siteUrl));
+    await Promise.all(PALACES.map(palace =>
+      writeRoute({ path: `/magazine/palaces/${palace.slug}` }, buildFindRedirect(`/palaces/${palace.slug}`, siteUrl))
     ));
     await writeFile(path.join(distDir, 'sitemap.xml'), buildSitemap(routes, siteUrl));
     await writeFile(path.join(distDir, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${siteUrl}/sitemap.xml\n`);

@@ -164,6 +164,151 @@
   --mag-body: #1e3142;
 }
 
+/* Palace specific regional ink calibrations */
+.magazine-theme-trans-himalayan {
+  --mag-ink: #1c2628;
+  --mag-muted: #556669;
+  --mag-body: #28373a;
+}
+
+.magazine-theme-kashmir-garden {
+  --mag-ink: #17241e;
+  --mag-muted: #4e6357;
+  --mag-body: #23362c;
+}
+
+.magazine-theme-sikh-palatial {
+  --mag-ink: #2a1f14;
+  --mag-muted: #6b5843;
+  --mag-body: #3c2d1e;
+}
+
+.magazine-theme-monsoon-water {
+  --mag-ink: #18252a;
+  --mag-muted: #4f636b;
+  --mag-body: #25363c;
+}
+
+.magazine-theme-pink-city {
+  --mag-ink: #2d1816;
+  --mag-muted: #6d4b47;
+  --mag-body: #3e2422;
+}
+
+.magazine-theme-honeycomb-rose {
+  --mag-ink: #2c1719;
+  --mag-muted: #6d494e;
+  --mag-body: #3e2327;
+}
+
+.magazine-theme-lake-oasis {
+  --mag-ink: #1c252a;
+  --mag-muted: #53646d;
+  --mag-body: #28363c;
+}
+
+.magazine-theme-art-deco-gold {
+  --mag-ink: #2b2012;
+  --mag-muted: #6e573d;
+  --mag-body: #3c2e1b;
+}
+
+.magazine-theme-mewar-marble {
+  --mag-ink: #1e2422;
+  --mag-muted: #586360;
+  --mag-body: #2b3532;
+}
+
+.magazine-theme-white-marble-island {
+  --mag-ink: #182329;
+  --mag-muted: #50616b;
+  --mag-body: #26343c;
+}
+
+.magazine-theme-gilded-neoclassical {
+  --mag-ink: #292014;
+  --mag-muted: #6a5742;
+  --mag-body: #3a2e1e;
+}
+
+.magazine-theme-bundela-stone {
+  --mag-ink: #27211a;
+  --mag-muted: #675b50;
+  --mag-body: #383127;
+}
+
+.magazine-theme-sultanate-water {
+  --mag-ink: #1a2528;
+  --mag-muted: #526468;
+  --mag-body: #26373b;
+}
+
+.magazine-theme-saracenic-grandeur {
+  --mag-ink: #281f18;
+  --mag-muted: #68584e;
+  --mag-body: #392d24;
+}
+
+.magazine-theme-persian-durbar {
+  --mag-ink: #211c26;
+  --mag-muted: #5b5163;
+  --mag-body: #312838;
+}
+
+.magazine-theme-italian-marble-sky {
+  --mag-ink: #1a232b;
+  --mag-muted: #51626f;
+  --mag-body: #26333e;
+}
+
+.magazine-theme-tudor-granite {
+  --mag-ink: #202220;
+  --mag-muted: #5b5f5b;
+  --mag-body: #2e322e;
+}
+
+.magazine-theme-royal-illumination {
+  --mag-ink: #2a1e12;
+  --mag-muted: #6d553c;
+  --mag-body: #3d2c1b;
+}
+
+.magazine-theme-dravidian-colonnade {
+  --mag-ink: #24201c;
+  --mag-muted: #615a53;
+  --mag-body: #35302a;
+}
+
+.magazine-theme-maratha-court {
+  --mag-ink: #291e17;
+  --mag-muted: #69574d;
+  --mag-body: #3a2b22;
+}
+
+.magazine-theme-kerala-timber {
+  --mag-ink: #1b241c;
+  --mag-muted: #536254;
+  --mag-body: #273528;
+}
+
+.magazine-theme-travancore-wood {
+  --mag-ink: #241d18;
+  --mag-muted: #62564f;
+  --mag-body: #352c24;
+}
+
+.magazine-theme-doric-river {
+  --mag-ink: #192329;
+  --mag-muted: #51626c;
+  --mag-body: #26343e;
+}
+
+.magazine-theme-neoclassical-lake {
+  --mag-ink: #182428;
+  --mag-muted: #506368;
+  --mag-body: #26353a;
+}
+
 /* ==========================================================================
    Full-Bleed Stage
    ========================================================================== */

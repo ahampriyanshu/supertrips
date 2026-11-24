@@ -120,7 +120,7 @@ export default function MagazinePage({ topic = 'forts', monumentId }) {
 
     // Sync browser URL cleanly without page reload
     if (window.history && window.history.replaceState) {
-      window.history.replaceState(null, '', `/forts/${targetEntry.slug}`);
+      window.history.replaceState(null, '', `/${topic}/${targetEntry.slug}`);
     }
 
     setOutgoingIndex(previousIndex);
@@ -270,12 +270,13 @@ export default function MagazinePage({ topic = 'forts', monumentId }) {
     };
   }, [goNext, goPrev]);
 
-  // Update document title for active fort
+  // Update document title for active monument
   useEffect(() => {
     if (typeof document !== 'undefined' && currentEntry) {
-      document.title = `${currentEntry.monument} · Forts of India | SuperTrips`;
+      const topicTitle = topic === 'palaces' ? 'Palaces of India' : 'Forts of India';
+      document.title = `${currentEntry.monument} · ${topicTitle} | SuperTrips`;
     }
-  }, [currentEntry]);
+  }, [currentEntry, topic]);
 
   const themeClass = `magazine-theme-${currentEntry.theme || 'warm-stone'}`;
   const quadrantClass = `magazine-quadrant--${currentEntry.textQuadrant || 'top-left'}`;
@@ -601,6 +602,7 @@ export default function MagazinePage({ topic = 'forts', monumentId }) {
       {mapOpen && (
         <Suspense fallback={null}>
           <MagazineMapModal
+            topic={topic}
             entries={entries}
             entry={currentEntry}
             currentIndex={currentIndex}

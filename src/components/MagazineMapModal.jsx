@@ -37,6 +37,7 @@ function AtlasFitBounds({ entries }) {
 }
 
 export default function MagazineMapModal({
+  topic = 'forts',
   entries = [],
   entry,
   currentIndex = 0,
@@ -47,6 +48,7 @@ export default function MagazineMapModal({
   onClose,
 }) {
   const currentFort = entry || entries[currentIndex] || {};
+  const topicTitle = topic === 'palaces' ? 'Palaces of India' : 'Forts of India';
 
   // Close on Escape, navigate on Arrow keys
   useEffect(() => {
@@ -96,13 +98,13 @@ export default function MagazineMapModal({
       }}
       role="dialog"
       aria-modal="true"
-      aria-label="Forts of India Map"
+      aria-label={`${topicTitle} Map`}
     >
       <div className="magazine-map-dialog">
-        {/* Minimal Clean Header: ONLY Forts of India & Index */}
+        {/* Minimal Clean Header */}
         <div className="magazine-map-header">
           <div className="magazine-map-header-left">
-            <h2 className="magazine-map-title">Forts of India</h2>
+            <h2 className="magazine-map-title">{topicTitle}</h2>
             <span className="magazine-map-header-index">
               {String(currentIndex + 1).padStart(2, '0')} / {String(totalEntries).padStart(2, '0')}
             </span>
@@ -176,7 +178,7 @@ export default function MagazineMapModal({
             className="magazine-map-arrow-btn"
             onClick={onPrev}
             disabled={currentIndex === 0}
-            aria-label="Previous fort"
+            aria-label="Previous monument"
           >
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
               <path d="M19 12H5M12 19l-7-7 7-7" />
@@ -192,7 +194,7 @@ export default function MagazineMapModal({
             className="magazine-map-arrow-btn"
             onClick={onNext}
             disabled={currentIndex === totalEntries - 1}
-            aria-label="Next fort"
+            aria-label="Next monument"
           >
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
               <path d="M5 12h14M12 5l7 7-7 7" />
