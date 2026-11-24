@@ -219,6 +219,7 @@ function Masthead() {
       <nav className="app-nav" aria-label="Main navigation">
         <Link href="/#routes">Routes</Link>
         <Link href="/forts">Forts</Link>
+        <Link href="/palaces">Palaces</Link>
         <Link href="/find">Find a city</Link>
         <Link href="/#field-notes">Field notes</Link>
       </nav>
