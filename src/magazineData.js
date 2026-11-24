@@ -891,6 +891,224 @@ export const MAGAZINES = {
       },
     ],
   },
+  'churches': {
+    slug: 'churches',
+    title: 'Churches & Cathedrals',
+    kicker: 'Illustrated Monograph Series • Vol. 04',
+    description: 'The Sacred Sanctuary Circuit: Transcendent ecclesiastical architecture across the subcontinent from Portuguese coastal Baroque and French Rococo to soaring Himalayan Gothic spires.',
+    entries: [
+      {
+        id: 'basilica-of-bom-jesus',
+        slug: 'basilica-of-bom-jesus',
+        roman: 'I',
+        monument: 'Basilica of Bom Jesus',
+        location: 'Velha Goa, Goa',
+        theme: 'laterite-baroque',
+        textQuadrant: 'top-left',
+        artworkUrl: '/magazine/basilica-of-bom-jesus-charcoal.svg',
+        wikipediaUrl: 'https://en.wikipedia.org/wiki/Basilica_of_Bom_Jesus',
+        lat: 15.5009,
+        lng: 73.9116,
+        paragraph: 'Consecrated in 1605, this UNESCO World Heritage masterpiece in exposed reddish-black laterite stone is India’s finest example of Jesuit Baroque architecture, revered across Christendom as the resting place of the sacred mortal remains of St. Francis Xavier.',
+      },
+      {
+        id: 'se-cathedral',
+        slug: 'se-cathedral',
+        roman: 'II',
+        monument: 'Se Cathedral',
+        location: 'Velha Goa, Goa',
+        theme: 'manueline-vault',
+        textQuadrant: 'top-left',
+        artworkUrl: '/magazine/se-cathedral-charcoal.svg',
+        wikipediaUrl: 'https://en.wikipedia.org/wiki/Se_Cathedral',
+        lat: 15.5036,
+        lng: 73.9126,
+        paragraph: 'Built over six decades from 1562 to 1619, one of the largest cathedrals in Asia commands the ancient square of Old Goa with its severe Tuscan exterior, monumental Manueline vaulted nave, and the legendary Golden Bell (Sino de Ouro) celebrated for its deep resonant chime.',
+      },
+      {
+        id: 'our-lady-of-the-immaculate-conception',
+        slug: 'our-lady-of-the-immaculate-conception',
+        roman: 'III',
+        monument: 'Our Lady of the Immaculate Conception',
+        location: 'Panaji, Goa',
+        theme: 'baroque-crown',
+        textQuadrant: 'top-left',
+        artworkUrl: '/magazine/our-lady-of-the-immaculate-conception-charcoal.svg',
+        wikipediaUrl: 'https://en.wikipedia.org/wiki/Our_Lady_of_the_Immaculate_Conception_Church,_Goa',
+        lat: 15.4989,
+        lng: 73.8286,
+        paragraph: 'Rising dramatically above Panaji’s municipal square like a radiant white crown, this 1609 Baroque landmark is celebrated worldwide for its monumental symmetrical zigzagging staircases and high belfry housing Goa’s second-largest historic bell.',
+      },
+      {
+        id: 'st-pauls-cathedral-kolkata',
+        slug: 'st-pauls-cathedral-kolkata',
+        roman: 'IV',
+        monument: "St. Paul's Cathedral",
+        location: 'Kolkata, West Bengal',
+        theme: 'indo-gothic',
+        textQuadrant: 'top-left',
+        artworkUrl: '/magazine/st-pauls-cathedral-kolkata-charcoal.svg',
+        wikipediaUrl: "https://en.wikipedia.org/wiki/St._Paul's_Cathedral,_Kolkata",
+        lat: 22.5444,
+        lng: 88.3475,
+        paragraph: 'Completed in 1847 on the southern flank of the Maidan, this pioneering Indo-Gothic cathedral features an epic 201-foot central spire modeled after the Bell Harry Tower of Canterbury Cathedral and magnificent pre-Raphaelite stained-glass windows by Sir Edward Burne-Jones.',
+      },
+      {
+        id: 'san-thome-basilica',
+        slug: 'san-thome-basilica',
+        roman: 'V',
+        monument: 'San Thome Basilica',
+        location: 'Chennai, Tamil Nadu',
+        theme: 'apostolic-gothic',
+        textQuadrant: 'top-left',
+        artworkUrl: '/magazine/san-thome-basilica-charcoal.svg',
+        wikipediaUrl: 'https://en.wikipedia.org/wiki/San_Thome_Basilica',
+        lat: 13.0336,
+        lng: 80.2785,
+        paragraph: 'Standing directly along the coastal sands of Marina Beach, this pristine white Neo-Gothic cathedral is one of only three churches in the world built over the tomb of an apostle of Jesus Christ, featuring soaring 155-foot pinnacles and stained-glass lancet windows depicting St. Thomas.',
+      },
+      {
+        id: 'st-philomenas-cathedral',
+        slug: 'st-philomenas-cathedral',
+        roman: 'VI',
+        monument: "St. Philomena's Cathedral",
+        location: 'Mysuru, Karnataka',
+        theme: 'twin-spires',
+        textQuadrant: 'top-left',
+        artworkUrl: '/magazine/st-philomenas-cathedral-charcoal.svg',
+        wikipediaUrl: "https://en.wikipedia.org/wiki/St._Philomena's_Cathedral,_Mysore",
+        lat: 12.3211,
+        lng: 76.6575,
+        paragraph: 'Designed by French architect Daly and commissioned in 1936 by Maharaja Nalvadi Krishnaraja Wadiyar, this colossal sanctuary was modeled after Germany’s Cologne Cathedral, featuring twin 175-foot spires that pierce the Karnataka sky above an underground catacomb crypt.',
+      },
+      {
+        id: 'mount-mary-basilica',
+        slug: 'mount-mary-basilica',
+        roman: 'VII',
+        monument: 'Mount Mary Basilica',
+        location: 'Bandra, Mumbai',
+        theme: 'maritime-hill',
+        textQuadrant: 'top-left',
+        artworkUrl: '/magazine/mount-mary-basilica-charcoal.svg',
+        wikipediaUrl: 'https://en.wikipedia.org/wiki/Basilica_of_Our_Lady_of_the_Mount,_Bandra',
+        lat: 19.0467,
+        lng: 72.8225,
+        paragraph: 'Perched 80 meters above the roaring waters of the Arabian Sea atop Bandra’s Sunk Rock hillock, this 1904 semi-Gothic coastal sanctuary draws millions during the historic September Bandra Fair to venerate the centuries-old statue of Our Lady of the Mount.',
+      },
+      {
+        id: 'santa-cruz-cathedral-basilica',
+        slug: 'santa-cruz-cathedral-basilica',
+        roman: 'VIII',
+        monument: 'Santa Cruz Cathedral Basilica',
+        location: 'Fort Kochi, Kerala',
+        theme: 'malabar-heritage',
+        textQuadrant: 'top-left',
+        artworkUrl: '/magazine/santa-cruz-cathedral-basilica-charcoal.svg',
+        wikipediaUrl: 'https://en.wikipedia.org/wiki/Santa_Cruz_Cathedral_Basilica,_Kochi',
+        lat: 9.9654,
+        lng: 76.2418,
+        paragraph: 'Originally founded in 1505 by Francisco de Almeida and rebuilt into a grand Gothic basilica in 1905, this historic seat of Malabar Christianity captivates pilgrims with its gleaming twin whitewashed towers, carved wooden pulpit, and Italian fresco ceiling vaults by Antonio Moscheni.',
+      },
+      {
+        id: 'our-lady-of-dolours-basilica',
+        slug: 'our-lady-of-dolours-basilica',
+        roman: 'IX',
+        monument: 'Our Lady of Dolours Basilica',
+        location: 'Thrissur, Kerala',
+        theme: 'colossal-belfry',
+        textQuadrant: 'top-left',
+        artworkUrl: '/magazine/our-lady-of-dolours-basilica-charcoal.svg',
+        wikipediaUrl: 'https://en.wikipedia.org/wiki/Basilica_of_Our_Lady_of_Dolours',
+        lat: 10.5188,
+        lng: 76.2163,
+        paragraph: 'The third-tallest church on the Asian continent, this sprawling 25,000-square-foot Gothic basilica commands Thrissur with its soaring 260-foot central Bible Tower and twin 146-foot facade belfries, sheltering an extraordinary two-tier nave supported by 22 towering pillars.',
+      },
+      {
+        id: 'immaculate-conception-cathedral-puducherry',
+        slug: 'immaculate-conception-cathedral-puducherry',
+        roman: 'X',
+        monument: 'Immaculate Conception Cathedral',
+        location: 'Puducherry',
+        theme: 'french-rococo',
+        textQuadrant: 'top-left',
+        artworkUrl: '/magazine/immaculate-conception-cathedral-puducherry-charcoal.svg',
+        wikipediaUrl: 'https://en.wikipedia.org/wiki/Immaculate_Conception_Cathedral,_Pondicherry',
+        lat: 11.9338,
+        lng: 79.8297,
+        paragraph: 'Consecrated in 1791 over the ruins of earlier French colonial chapels, this sunny golden-and-white cathedral epitomizes French Baroque elegance with fluted Doric and Ionic pilasters, a vaulted nave, eight massive bells shipped from France, and a resplendent gilded high altar.',
+      },
+      {
+        id: 'christ-church-shimla',
+        slug: 'christ-church-shimla',
+        roman: 'XI',
+        monument: 'Christ Church',
+        location: 'Shimla, Himachal Pradesh',
+        theme: 'himalayan-ridge',
+        textQuadrant: 'top-left',
+        artworkUrl: '/magazine/christ-church-shimla-charcoal.svg',
+        wikipediaUrl: 'https://en.wikipedia.org/wiki/Christ_Church,_Shimla',
+        lat: 31.1048,
+        lng: 77.1741,
+        paragraph: 'Crowning The Ridge against panoramic Himalayan vistas since 1857, North India’s second-oldest church is an iconic Neo-Gothic hill station monument renowned for its bright yellow facade, clock tower, and five luminous stained-glass windows embodying the Christian virtues.',
+      },
+      {
+        id: 'st-john-in-the-wilderness',
+        slug: 'st-john-in-the-wilderness',
+        roman: 'XII',
+        monument: 'St. John in the Wilderness',
+        location: 'Dharamshala, Himachal Pradesh',
+        theme: 'cedar-sanctuary',
+        textQuadrant: 'top-left',
+        artworkUrl: '/magazine/st-john-in-the-wilderness-charcoal.svg',
+        wikipediaUrl: 'https://en.wikipedia.org/wiki/St._John_in_the_Wilderness_(Dharamsala)',
+        lat: 32.2415,
+        lng: 76.3142,
+        paragraph: 'Tucked deep within a dense forest of ancient deodar pines on the winding road to McLeod Ganj, this moody 1852 stone Neo-Gothic church survived the catastrophic 1905 Kangra earthquake, celebrated for its Belgian stained-glass windows and historic stone bell tower.',
+      },
+      {
+        id: 'all-saints-cathedral-allahabad',
+        slug: 'all-saints-cathedral-allahabad',
+        roman: 'XIII',
+        monument: 'All Saints Cathedral',
+        location: 'Prayagraj, Uttar Pradesh',
+        theme: 'stone-lantern',
+        textQuadrant: 'top-left',
+        artworkUrl: '/magazine/all-saints-cathedral-allahabad-charcoal.svg',
+        wikipediaUrl: 'https://en.wikipedia.org/wiki/All_Saints_Cathedral,_Prayagraj',
+        lat: 25.4526,
+        lng: 81.8344,
+        paragraph: 'Affectionately known as Patthar Girja (The Stone Church), this colossal 13th-century Gothic masterpiece was designed by Sir William Emerson in 1887, built from fine cream Chunar stone and red sandstone with massive flying buttresses, arcade naves, and a 130-foot lantern tower.',
+      },
+      {
+        id: 'medak-cathedral',
+        slug: 'medak-cathedral',
+        roman: 'XIV',
+        monument: 'Medak Cathedral',
+        location: 'Medak, Telangana',
+        theme: 'granite-gothic',
+        textQuadrant: 'top-left',
+        artworkUrl: '/magazine/medak-cathedral-charcoal.svg',
+        wikipediaUrl: 'https://en.wikipedia.org/wiki/Medak_Cathedral',
+        lat: 18.0487,
+        lng: 78.2618,
+        paragraph: 'Among the largest cathedrals in Asia, this monumental British Wesleyan cathedral consecrated in 1924 rises in pristine grey Telangana granite with a colossal 175-foot bell tower, acoustic sponge-wood ceilings, and breathtaking stained-glass windows recounting the life of Christ.',
+      },
+      {
+        id: 'st-aloysius-chapel',
+        slug: 'st-aloysius-chapel',
+        roman: 'XV',
+        monument: 'St. Aloysius Chapel',
+        location: 'Mangaluru, Karnataka',
+        theme: 'sistine-frescoes',
+        textQuadrant: 'top-left',
+        artworkUrl: '/magazine/st-aloysius-chapel-charcoal.svg',
+        wikipediaUrl: 'https://en.wikipedia.org/wiki/St._Aloysius_Chapel',
+        lat: 12.8732,
+        lng: 74.8436,
+        paragraph: 'Revered as the Sistine Chapel of India, this 1880 Italian Jesuit jewel atop Lighthouse Hill features a serene neoclassical portico sheltering an awe-inspiring sanctuary completely covered in masterwork frescoes and oil paintings created by Italian Jesuit master Antonio Moscheni.',
+      },
+    ],
+  },
   'forts-and-palaces': {
     slug: 'forts-and-palaces',
     title: 'Forts & Palaces',
@@ -916,6 +1134,7 @@ export const MAGAZINES = {
 };
 
 MAGAZINES['mausoleums'] = MAGAZINES['tombs'];
+MAGAZINES['church'] = MAGAZINES['churches'];
 
 export const FORTS_OF_INDIA = MAGAZINES['forts'];
 export const FORTS = MAGAZINES['forts'].entries;
@@ -925,6 +1144,9 @@ export const PALACES = MAGAZINES['palaces'].entries;
 
 export const TOMBS_OF_INDIA = MAGAZINES['tombs'];
 export const TOMBS = MAGAZINES['tombs'].entries;
+
+export const CHURCHES_OF_INDIA = MAGAZINES['churches'];
+export const CHURCHES = MAGAZINES['churches'].entries;
 
 export function getForts() {
   return MAGAZINES['forts'].entries;
@@ -948,6 +1170,14 @@ export function getTombs() {
 
 export function getTombBySlug(slug) {
   return MAGAZINES['tombs'].entries.find(t => t.slug === slug || t.id === slug);
+}
+
+export function getChurches() {
+  return MAGAZINES['churches'].entries;
+}
+
+export function getChurchBySlug(slug) {
+  return MAGAZINES['churches'].entries.find(c => c.slug === slug || c.id === slug);
 }
 
 export function getMagazine(slug = 'forts') {

@@ -53,6 +53,8 @@ export default function MagazineMapModal({
       ? 'Palaces of India'
       : topic === 'tombs' || topic === 'mausoleums'
       ? 'Tombs & Mausoleums of India'
+      : topic === 'churches' || topic === 'church'
+      ? 'Churches of India'
       : 'Forts of India';
 
   // Close on Escape, navigate on Arrow keys
