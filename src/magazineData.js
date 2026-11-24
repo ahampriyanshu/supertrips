@@ -1418,6 +1418,82 @@ export const TOMBS = MAGAZINES['tombs'].entries;
 export const TEMPLES_OF_INDIA = MAGAZINES['temples'];
 export const TEMPLES = MAGAZINES['temples'].entries;
 
+export const TEMPLE_CIRCUITS = [
+  {
+    id: 'east',
+    slug: 'temples-of-the-east',
+    roman: 'Circuit I',
+    title: 'Temples of the East',
+    region: 'Odisha, Bengal, Assam, Bihar',
+    description: 'Conceived as colossal stone sun chariots, soaring deula spires, sacred Shakta shrines, and riverfront Navaratna sanctuaries.',
+    entries: TEMPLES.slice(0, 5),
+  },
+  {
+    id: 'south',
+    slug: 'temples-of-the-south',
+    roman: 'Circuit II',
+    title: 'Temples of the South',
+    region: 'Tamil Nadu, Kerala, Karnataka, Andhra, Telangana',
+    description: 'Chola granite vimanas, polychrome Nayak gopurams, endless pillared maritime corridors, and Hoysala soapstone filigree.',
+    entries: TEMPLES.slice(5, 10),
+  },
+  {
+    id: 'north',
+    slug: 'temples-of-the-north',
+    roman: 'Circuit III',
+    title: 'Temples of the North',
+    region: 'UP, MP, Bihar, Rajasthan',
+    description: 'Mountain-spire Nagara peaks imitating Mount Kailash, holy Ganga riverfront sanctuaries, and cliffside fortress mandapas.',
+    entries: TEMPLES.slice(10, 15),
+  },
+  {
+    id: 'west',
+    slug: 'temples-of-the-west',
+    roman: 'Circuit IV',
+    title: 'Temples of the West',
+    region: 'Gujarat, Rajasthan, Maharashtra',
+    description: 'Solanki solar architecture, seaside Jyotirlingas, 1,444 uniquely carved pillars, and impossible translucent marble lace.',
+    entries: TEMPLES.slice(15, 20),
+  },
+  {
+    id: 'ancient',
+    slug: 'ancient-architecture',
+    roman: 'Circuit V',
+    title: 'Ancient Architecture',
+    region: 'Rock-Cut, Monoliths & Cave Temples',
+    description: 'Colossal top-down volcanic cliff excavations, coastal granite boulders enduring 1,300 years of waves, and subterranean divine caverns.',
+    entries: TEMPLES.slice(20, 25),
+  },
+  {
+    id: 'modern',
+    slug: 'modern-marvels',
+    roman: 'Circuit VI',
+    title: 'Modern Marvels',
+    region: '20th & 21st Century Temples',
+    description: 'Monumental hand-carved Rajasthani sandstone and Carrara marble palaces of devotion, blooming marble lotuses, and golden meditation spheres.',
+    entries: TEMPLES.slice(25, 30),
+  },
+];
+
+TEMPLE_CIRCUITS.forEach(c => {
+  MAGAZINES[c.slug] = {
+    slug: c.slug,
+    title: c.title,
+    kicker: `Temples Series • ${c.roman}`,
+    description: `${c.region}: ${c.description}`,
+    entries: c.entries,
+  };
+  MAGAZINES[`temples/${c.id}`] = MAGAZINES[c.slug];
+});
+
+export function getTempleCircuits() {
+  return TEMPLE_CIRCUITS;
+}
+
+export function getTempleCircuitById(id) {
+  return TEMPLE_CIRCUITS.find(c => c.id === id || c.slug === id);
+}
+
 export function getForts() {
   return MAGAZINES['forts'].entries;
 }

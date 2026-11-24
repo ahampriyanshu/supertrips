@@ -1,33 +1,141 @@
 /* ==========================================================================
-   Temples Of India: Home Page Horizontal Single Row Postcards
+   Temples Of India: Six Sacred Architectural Circuits (Home Page)
    ========================================================================== */
 
-.app-temples-section {
+.app-temples-series-container {
   width: min(1120px, calc(100% - 96px));
   margin-inline: auto;
-  padding-block: 46px 64px;
+  padding-block: 56px 72px;
   border-top: 1px solid var(--color-border, #d8d9ca);
   scroll-margin-top: 28px;
 }
 
+/* Master Series Header */
+.app-temples-series-header {
+  margin-bottom: 48px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(216, 217, 202, 0.6);
+}
+
+.app-temples-series-kicker {
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-accent, #914b36);
+  margin-bottom: 12px;
+}
+
+.app-temples-series-title {
+  font: 400 clamp(36px, 4.4vw, 52px)/1.1 var(--font-brand, Georgia, serif);
+  letter-spacing: -1.2px;
+  color: var(--color-text, #34463c);
+  margin: 0 0 16px 0;
+}
+
+.app-temples-series-desc {
+  font: 400 16px/1.65 var(--font-body, Georgia, serif);
+  color: var(--color-muted, #5f6356);
+  max-width: 780px;
+  margin: 0 0 28px 0;
+}
+
+/* Quick Navigation Pills for the 6 Subsets */
+.app-temples-circuits-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.app-temples-circuit-nav-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  background-color: rgba(250, 245, 236, 0.85);
+  border: 1px solid rgba(145, 75, 54, 0.2);
+  color: var(--color-text, #34463c);
+  text-decoration: none;
+  font-family: var(--font-mono, monospace);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  transition: all 180ms ease;
+}
+
+.app-temples-circuit-nav-pill:hover {
+  background-color: #914b36;
+  color: #faf5ec;
+  border-color: #914b36;
+  transform: translateY(-1px);
+}
+
+.app-temples-circuit-pill-badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+
+/* ==========================================================================
+   Individual Circuit Subset Blocks
+   ========================================================================== */
+
+.app-temples-circuits-list {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.app-temples-circuit-block {
+  scroll-margin-top: 48px;
+  padding-top: 8px;
+}
+
 .app-temples-heading {
   display: flex;
-  align-items: baseline;
+  align-items: flex-end;
   justify-content: space-between;
   gap: 24px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
+}
+
+.app-temples-heading-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.app-temple-circuit-kicker {
+  font-family: var(--font-mono, monospace);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--color-accent, #914b36);
 }
 
 .app-temples-title {
-  font: 400 clamp(32px, 3.8vw, 42px)/1.15 var(--font-brand, Georgia, serif);
-  letter-spacing: -0.8px;
+  font: 400 clamp(26px, 3.2vw, 34px)/1.15 var(--font-brand, Georgia, serif);
+  letter-spacing: -0.6px;
   color: var(--color-text, #34463c);
   margin: 0;
 }
 
+.app-temple-circuit-region {
+  font-family: var(--font-body, Georgia, serif);
+  font-size: 14px;
+  font-style: italic;
+  color: var(--color-muted, #6a7061);
+  margin-top: 2px;
+}
+
 .app-temples-view-all {
   color: var(--color-accent, #914b36);
-  font: 400 16px/1.3 var(--font-brand, Georgia, serif);
+  font: 400 15px/1.3 var(--font-brand, Georgia, serif);
   text-decoration: none;
   border-bottom: 1px solid currentColor;
   padding-bottom: 2px;
@@ -41,7 +149,7 @@
 }
 
 /* ==========================================================================
-   Single Horizontal Row Track
+   Horizontal Postcard Row Track for each Circuit
    ========================================================================== */
 
 .app-temples-row-wrap {
@@ -67,7 +175,7 @@
   display: none;
 }
 
-/* Temple Postcard: Clean thumbnail + name */
+/* Temple Postcard */
 .app-temple-postcard {
   flex: 0 0 280px;
   width: 280px;
@@ -77,7 +185,7 @@
 .app-temple-postcard-link {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
   text-decoration: none;
   color: inherit;
   outline: none;
@@ -111,11 +219,24 @@
   filter: contrast(1.04);
 }
 
+.app-temple-postcard-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
 .app-temple-postcard-name {
-  font: 400 18px/1.3 var(--font-brand, Georgia, serif);
+  font: 400 17px/1.3 var(--font-brand, Georgia, serif);
   color: var(--color-text, #34463c);
   letter-spacing: -0.2px;
   transition: color 180ms ease;
+}
+
+.app-temple-postcard-location {
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  color: var(--color-muted, #727768);
+  letter-spacing: 0.4px;
 }
 
 .app-temple-postcard-link:hover .app-temple-postcard-name {
@@ -124,7 +245,7 @@
 
 /* Responsive adjustments */
 @media (max-width: 900px) {
-  .app-temples-section {
+  .app-temples-series-container {
     width: calc(100% - 48px);
   }
   .app-temple-postcard {
@@ -134,16 +255,21 @@
 }
 
 @media (max-width: 600px) {
-  .app-temples-section {
+  .app-temples-series-container {
     width: calc(100% - 32px);
-    padding-block: 36px 48px;
+    padding-block: 36px 56px;
+  }
+  .app-temples-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
   }
   .app-temple-postcard {
     flex: 0 0 210px;
     width: 210px;
   }
   .app-temple-postcard-name {
-    font-size: 16px;
+    font-size: 15px;
   }
 }
 

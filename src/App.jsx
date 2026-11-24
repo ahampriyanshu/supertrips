@@ -116,10 +116,47 @@ function parseRoute(pathname) {
     };
   }
   if (parts[0] === "temples" || parts[0] === "temple") {
+    const circuitFirstMonument = {
+      east: "konark-sun-temple",
+      south: "brihadisvara-temple",
+      north: "kandariya-mahadeva-temple",
+      west: "somnath-temple",
+      ancient: "kailasa-temple-ellora",
+      modern: "akshardham-delhi",
+      "temples-of-the-east": "konark-sun-temple",
+      "temples-of-the-south": "brihadisvara-temple",
+      "temples-of-the-north": "kandariya-mahadeva-temple",
+      "temples-of-the-west": "somnath-temple",
+      "ancient-architecture": "kailasa-temple-ellora",
+      "modern-marvels": "akshardham-delhi",
+    };
+    const monumentId = circuitFirstMonument[parts[1]] || parts[1] || undefined;
     return {
       name: "temples",
       path: pathname,
-      monumentId: parts[1] || undefined,
+      monumentId,
+    };
+  }
+  if (
+    parts[0] === "temples-of-the-east" ||
+    parts[0] === "temples-of-the-south" ||
+    parts[0] === "temples-of-the-north" ||
+    parts[0] === "temples-of-the-west" ||
+    parts[0] === "ancient-architecture" ||
+    parts[0] === "modern-marvels"
+  ) {
+    const circuitFirstMonument = {
+      "temples-of-the-east": "konark-sun-temple",
+      "temples-of-the-south": "brihadisvara-temple",
+      "temples-of-the-north": "kandariya-mahadeva-temple",
+      "temples-of-the-west": "somnath-temple",
+      "ancient-architecture": "kailasa-temple-ellora",
+      "modern-marvels": "akshardham-delhi",
+    };
+    return {
+      name: "temples",
+      path: pathname,
+      monumentId: circuitFirstMonument[parts[0]],
     };
   }
   if (parts[0] === "magazine") {

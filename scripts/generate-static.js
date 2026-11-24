@@ -7,7 +7,7 @@ import { createServer } from 'vite';
 
 import { CATEGORIES, CITIES, STATES, TRIPS } from '../src/data.js';
 import { LEGACY_FIND_ROUTES } from '../src/findRoutes.js';
-import { FORTS, PALACES, TOMBS, TEMPLES } from '../src/magazineData.js';
+import { FORTS, PALACES, TOMBS, TEMPLES, TEMPLE_CIRCUITS } from '../src/magazineData.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, '..');
@@ -221,6 +221,25 @@ function buildRoutes() {
     title: 'Temples of India | SuperTrips',
     description: 'Explore 30 iconic historic temples across India across six circuits, illustrated as fine-art colored pencil architectural sketches.',
     priority: '0.8',
+  });
+
+  TEMPLE_CIRCUITS.forEach((circuit) => {
+    routes.push({
+      path: `/temples/${circuit.id}`,
+      type: 'temples',
+      heading: `${circuit.title} (${circuit.region})`,
+      title: `${circuit.title} | Temples of India | SuperTrips`,
+      description: `${circuit.title} (${circuit.region}). ${circuit.description}`,
+      priority: '0.75',
+    });
+    routes.push({
+      path: `/${circuit.slug}`,
+      type: 'temples',
+      heading: `${circuit.title} (${circuit.region})`,
+      title: `${circuit.title} | Temples of India | SuperTrips`,
+      description: `${circuit.title} (${circuit.region}). ${circuit.description}`,
+      priority: '0.7',
+    });
   });
 
   TEMPLES.forEach((temple) => {

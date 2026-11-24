@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback, lazy, Suspense } from 'react';
 import '../Magazine.css';
-import { getMagazine } from '../magazineData.js';
+import { getMagazine, TEMPLE_CIRCUITS } from '../magazineData.js';
 import { navigateTo } from '../nav.js';
 
 const MagazineMapModal = lazy(() => import('./MagazineMapModal.jsx'));
@@ -313,6 +313,31 @@ export default function MagazinePage({ topic = 'forts', monumentId }) {
         }}
       />
 
+      {/* Floating Circuit / Subset Navigation (Temples Series) */}
+      {(topic === 'temples' || topic === 'temple') && (
+        <nav className="magazine-circuit-nav" aria-label="Temples circuits navigation">
+          {TEMPLE_CIRCUITS.map((c) => {
+            const isCircuitActive = currentEntry.circuit === c.title;
+            return (
+              <button
+                key={c.id}
+                type="button"
+                className={`magazine-circuit-pill ${isCircuitActive ? 'is-active' : ''}`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  const targetIdx = entries.findIndex((ent) => ent.id === c.entries[0].id);
+                  if (targetIdx >= 0 && targetIdx !== currentIndex) {
+                    goTo(targetIdx, targetIdx > currentIndex ? 1 : -1);
+                  }
+                }}
+              >
+                {c.title.replace('Temples of the ', '')}
+              </button>
+            );
+          })}
+        </nav>
+      )}
+
       {/* SVG Definitions for Harry Potter Magical Ink Disclosure Mask */}
       <svg
         className="magazine-magic-defs"
@@ -423,6 +448,12 @@ export default function MagazinePage({ topic = 'forts', monumentId }) {
           isTransitioning ? 'magazine-text--incoming' : 'magazine-text--settled'
         }`}
       >
+        {currentEntry.circuit && (
+          <div className="magazine-circuit-badge">
+            <span className="magazine-circuit-kicker">{currentEntry.circuit}</span>
+          </div>
+        )}
+
         <h1 id="magazine-monument-title" className="magazine-title">
           {currentEntry.monument}
         </h1>
