@@ -1,0 +1,168 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="100%" height="100%">
+<defs>
+      <filter id="pencil-jitter" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.14" numOctaves="2" result="noise" />
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.4" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+      <pattern id="hatch-shadow" width="5" height="5" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse">
+        <line x1="0" y1="0" x2="0" y2="5" stroke="#2b201d" stroke-width="0.95" opacity="0.45" />
+      </pattern>
+      <pattern id="hatch-water" width="14" height="7" patternUnits="userSpaceOnUse">
+        <path d="M 0,3.5 Q 3.5,1.5 7,3.5 T 14,3.5" fill="none" stroke="#3d6360" stroke-width="0.75" opacity="0.4" />
+      </pattern>
+      
+      <pattern id="hatch-yellow" width="7" height="7" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse">
+        <line x1="0" y1="0" x2="0" y2="7" stroke="#997033" stroke-width="0.75" opacity="0.38" />
+      </pattern>
+      <linearGradient id="sky-wash" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#b0cce0" stop-opacity="0.85" />
+        <stop offset="60%" stop-color="#e8eff5" stop-opacity="0.5" />
+        <stop offset="100%" stop-color="#faf5ec" stop-opacity="0.9" />
+      </linearGradient>
+      <radialGradient id="fluted-dome" cx="35%" cy="30%" r="70%">
+        <stop offset="0%" stop-color="#fff2d6" />
+        <stop offset="60%" stop-color="#e0c289" />
+        <stop offset="100%" stop-color="#997c45" />
+      </radialGradient>
+      <linearGradient id="yellow-sandstone" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#cf9c48" />
+        <stop offset="50%" stop-color="#e6b460" />
+        <stop offset="100%" stop-color="#ba8634" />
+      </linearGradient>
+    
+    </defs>
+<rect width="1600" height="900" fill="#faf4e8" />
+<rect width="1600" height="580" fill="url(#sky-wash)" />
+<rect x="0" y="590" width="1600" height="310" fill="#756d56" />
+<g filter="url(#pencil-jitter)">
+<rect x="610" y="415" width="380" height="175" fill="url(#yellow-sandstone)" stroke="#261b0d" stroke-width="2.2" />
+<rect x="610" y="415" width="380" height="175" fill="url(#hatch-yellow)" />
+<path d="M 618,590 L 618,450 Q 657,427 697,450 L 697,590 Z" fill="#241a0d" stroke="#120c06" stroke-width="1.4" />
+<rect x="626" y="485" width="63" height="105" fill="#8c7a65" stroke="#e8d8c3" stroke-width="1.0" />
+<path d="M 713,590 L 713,450 Q 752,427 792,450 L 792,590 Z" fill="#241a0d" stroke="#120c06" stroke-width="1.4" />
+<rect x="721" y="485" width="63" height="105" fill="#8c7a65" stroke="#e8d8c3" stroke-width="1.0" />
+<path d="M 808,590 L 808,450 Q 847,427 887,450 L 887,590 Z" fill="#241a0d" stroke="#120c06" stroke-width="1.4" />
+<rect x="816" y="485" width="63" height="105" fill="#8c7a65" stroke="#e8d8c3" stroke-width="1.0" />
+<path d="M 903,590 L 903,450 Q 942,427 982,450 L 982,590 Z" fill="#241a0d" stroke="#120c06" stroke-width="1.4" />
+<rect x="911" y="485" width="63" height="105" fill="#8c7a65" stroke="#e8d8c3" stroke-width="1.0" />
+<polygon points="544,590 586,590 584,320 546,320" fill="url(#yellow-sandstone)" stroke="#261b0d" stroke-width="1.8" />
+<path d="M 530,592 C 524,580 606,574 600,566" stroke="#261b0d" stroke-width="2.2" fill="none" />
+<line x1="530" y1="592" x2="544" y2="592" stroke="#261b0d" stroke-width="1.6" />
+<line x1="600" y1="566" x2="586" y2="566" stroke="#261b0d" stroke-width="1.6" />
+<path d="M 530,573 C 524,561 606,555 600,547" stroke="#261b0d" stroke-width="2.2" fill="none" />
+<line x1="530" y1="573" x2="544" y2="573" stroke="#261b0d" stroke-width="1.6" />
+<line x1="600" y1="547" x2="586" y2="547" stroke="#261b0d" stroke-width="1.6" />
+<path d="M 530,554 C 524,542 606,536 600,528" stroke="#261b0d" stroke-width="2.2" fill="none" />
+<line x1="530" y1="554" x2="544" y2="554" stroke="#261b0d" stroke-width="1.6" />
+<line x1="600" y1="528" x2="586" y2="528" stroke="#261b0d" stroke-width="1.6" />
+<path d="M 530,535 C 524,523 606,517 600,509" stroke="#261b0d" stroke-width="2.2" fill="none" />
+<line x1="530" y1="535" x2="544" y2="535" stroke="#261b0d" stroke-width="1.6" />
+<line x1="600" y1="509" x2="586" y2="509" stroke="#261b0d" stroke-width="1.6" />
+<path d="M 530,516 C 524,504 606,498 600,490" stroke="#261b0d" stroke-width="2.2" fill="none" />
+<line x1="530" y1="516" x2="544" y2="516" stroke="#261b0d" stroke-width="1.6" />
+<line x1="600" y1="490" x2="586" y2="490" stroke="#261b0d" stroke-width="1.6" />
+<path d="M 530,497 C 524,485 606,479 600,471" stroke="#261b0d" stroke-width="2.2" fill="none" />
+<line x1="530" y1="497" x2="544" y2="497" stroke="#261b0d" stroke-width="1.6" />
+<line x1="600" y1="471" x2="586" y2="471" stroke="#261b0d" stroke-width="1.6" />
+<path d="M 530,478 C 524,466 606,460 600,452" stroke="#261b0d" stroke-width="2.2" fill="none" />
+<line x1="530" y1="478" x2="544" y2="478" stroke="#261b0d" stroke-width="1.6" />
+<line x1="600" y1="452" x2="586" y2="452" stroke="#261b0d" stroke-width="1.6" />
+<path d="M 530,459 C 524,447 606,441 600,433" stroke="#261b0d" stroke-width="2.2" fill="none" />
+<line x1="530" y1="459" x2="544" y2="459" stroke="#261b0d" stroke-width="1.6" />
+<line x1="600" y1="433" x2="586" y2="433" stroke="#261b0d" stroke-width="1.6" />
+<path d="M 530,440 C 524,428 606,422 600,414" stroke="#261b0d" stroke-width="2.2" fill="none" />
+<line x1="530" y1="440" x2="544" y2="440" stroke="#261b0d" stroke-width="1.6" />
+<line x1="600" y1="414" x2="586" y2="414" stroke="#261b0d" stroke-width="1.6" />
+<path d="M 530,421 C 524,409 606,403 600,395" stroke="#261b0d" stroke-width="2.2" fill="none" />
+<line x1="530" y1="421" x2="544" y2="421" stroke="#261b0d" stroke-width="1.6" />
+<line x1="600" y1="395" x2="586" y2="395" stroke="#261b0d" stroke-width="1.6" />
+<path d="M 530,402 C 524,390 606,384 600,376" stroke="#261b0d" stroke-width="2.2" fill="none" />
+<line x1="530" y1="402" x2="544" y2="402" stroke="#261b0d" stroke-width="1.6" />
+<line x1="600" y1="376" x2="586" y2="376" stroke="#261b0d" stroke-width="1.6" />
+<path d="M 530,383 C 524,371 606,365 600,357" stroke="#261b0d" stroke-width="2.2" fill="none" />
+<line x1="530" y1="383" x2="544" y2="383" stroke="#261b0d" stroke-width="1.6" />
+<line x1="600" y1="357" x2="586" y2="357" stroke="#261b0d" stroke-width="1.6" />
+<path d="M 530,364 C 524,352 606,346 600,338" stroke="#261b0d" stroke-width="2.2" fill="none" />
+<line x1="530" y1="364" x2="544" y2="364" stroke="#261b0d" stroke-width="1.6" />
+<line x1="600" y1="338" x2="586" y2="338" stroke="#261b0d" stroke-width="1.6" />
+<path d="M 530,345 C 524,333 606,327 600,319" stroke="#261b0d" stroke-width="2.2" fill="none" />
+<line x1="530" y1="345" x2="544" y2="345" stroke="#261b0d" stroke-width="1.6" />
+<line x1="600" y1="319" x2="586" y2="319" stroke="#261b0d" stroke-width="1.6" />
+<path d="M 540,320 Q 565,292 590,320 Z" fill="url(#fluted-dome)" stroke="#261b0d" stroke-width="1.4" />
+<line x1="565" y1="292" x2="565" y2="278" stroke="#261b0d" stroke-width="1.4" />
+<polygon points="1014,590 1056,590 1054,320 1016,320" fill="url(#yellow-sandstone)" stroke="#261b0d" stroke-width="1.8" />
+<path d="M 1000,592 C 994,580 1076,574 1070,566" stroke="#261b0d" stroke-width="2.2" fill="none" />
+<line x1="1000" y1="592" x2="1014" y2="592" stroke="#261b0d" stroke-width="1.6" />
+<line x1="1070" y1="566" x2="1056" y2="566" stroke="#261b0d" stroke-width="1.6" />
+<path d="M 1000,573 C 994,561 1076,555 1070,547" stroke="#261b0d" stroke-width="2.2" fill="none" />
+<line x1="1000" y1="573" x2="1014" y2="573" stroke="#261b0d" stroke-width="1.6" />
+<line x1="1070" y1="547" x2="1056" y2="547" stroke="#261b0d" stroke-width="1.6" />
+<path d="M 1000,554 C 994,542 1076,536 1070,528" stroke="#261b0d" stroke-width="2.2" fill="none" />
+<line x1="1000" y1="554" x2="1014" y2="554" stroke="#261b0d" stroke-width="1.6" />
+<line x1="1070" y1="528" x2="1056" y2="528" stroke="#261b0d" stroke-width="1.6" />
+<path d="M 1000,535 C 994,523 1076,517 1070,509" stroke="#261b0d" stroke-width="2.2" fill="none" />
+<line x1="1000" y1="535" x2="1014" y2="535" stroke="#261b0d" stroke-width="1.6" />
+<line x1="1070" y1="509" x2="1056" y2="509" stroke="#261b0d" stroke-width="1.6" />
+<path d="M 1000,516 C 994,504 1076,498 1070,490" stroke="#261b0d" stroke-width="2.2" fill="none" />
+<line x1="1000" y1="516" x2="1014" y2="516" stroke="#261b0d" stroke-width="1.6" />
+<line x1="1070" y1="490" x2="1056" y2="490" stroke="#261b0d" stroke-width="1.6" />
+<path d="M 1000,497 C 994,485 1076,479 1070,471" stroke="#261b0d" stroke-width="2.2" fill="none" />
+<line x1="1000" y1="497" x2="1014" y2="497" stroke="#261b0d" stroke-width="1.6" />
+<line x1="1070" y1="471" x2="1056" y2="471" stroke="#261b0d" stroke-width="1.6" />
+<path d="M 1000,478 C 994,466 1076,460 1070,452" stroke="#261b0d" stroke-width="2.2" fill="none" />
+<line x1="1000" y1="478" x2="1014" y2="478" stroke="#261b0d" stroke-width="1.6" />
+<line x1="1070" y1="452" x2="1056" y2="452" stroke="#261b0d" stroke-width="1.6" />
+<path d="M 1000,459 C 994,447 1076,441 1070,433" stroke="#261b0d" stroke-width="2.2" fill="none" />
+<line x1="1000" y1="459" x2="1014" y2="459" stroke="#261b0d" stroke-width="1.6" />
+<line x1="1070" y1="433" x2="1056" y2="433" stroke="#261b0d" stroke-width="1.6" />
+<path d="M 1000,440 C 994,428 1076,422 1070,414" stroke="#261b0d" stroke-width="2.2" fill="none" />
+<line x1="1000" y1="440" x2="1014" y2="440" stroke="#261b0d" stroke-width="1.6" />
+<line x1="1070" y1="414" x2="1056" y2="414" stroke="#261b0d" stroke-width="1.6" />
+<path d="M 1000,421 C 994,409 1076,403 1070,395" stroke="#261b0d" stroke-width="2.2" fill="none" />
+<line x1="1000" y1="421" x2="1014" y2="421" stroke="#261b0d" stroke-width="1.6" />
+<line x1="1070" y1="395" x2="1056" y2="395" stroke="#261b0d" stroke-width="1.6" />
+<path d="M 1000,402 C 994,390 1076,384 1070,376" stroke="#261b0d" stroke-width="2.2" fill="none" />
+<line x1="1000" y1="402" x2="1014" y2="402" stroke="#261b0d" stroke-width="1.6" />
+<line x1="1070" y1="376" x2="1056" y2="376" stroke="#261b0d" stroke-width="1.6" />
+<path d="M 1000,383 C 994,371 1076,365 1070,357" stroke="#261b0d" stroke-width="2.2" fill="none" />
+<line x1="1000" y1="383" x2="1014" y2="383" stroke="#261b0d" stroke-width="1.6" />
+<line x1="1070" y1="357" x2="1056" y2="357" stroke="#261b0d" stroke-width="1.6" />
+<path d="M 1000,364 C 994,352 1076,346 1070,338" stroke="#261b0d" stroke-width="2.2" fill="none" />
+<line x1="1000" y1="364" x2="1014" y2="364" stroke="#261b0d" stroke-width="1.6" />
+<line x1="1070" y1="338" x2="1056" y2="338" stroke="#261b0d" stroke-width="1.6" />
+<path d="M 1000,345 C 994,333 1076,327 1070,319" stroke="#261b0d" stroke-width="2.2" fill="none" />
+<line x1="1000" y1="345" x2="1014" y2="345" stroke="#261b0d" stroke-width="1.6" />
+<line x1="1070" y1="319" x2="1056" y2="319" stroke="#261b0d" stroke-width="1.6" />
+<path d="M 1010,320 Q 1035,292 1060,320 Z" fill="url(#fluted-dome)" stroke="#261b0d" stroke-width="1.4" />
+<line x1="1035" y1="292" x2="1035" y2="278" stroke="#261b0d" stroke-width="1.4" />
+<path d="
+      M 697,415
+      C 667,367 719.5,297 800,275
+      C 880.5,297 933,367 903,415
+      Z
+    " fill="url(#fluted-dome)" stroke="#261b0d" stroke-width="2.4" />
+<path d="
+      M 697,415
+      C 667,367 719.5,297 800,275
+      C 880.5,297 933,367 903,415
+      Z
+    " fill="url(#hatch-yellow)" />
+<path d="M 725,415 Q 747.5,345 800,275" stroke="#73501f" stroke-width="1.1" fill="none" />
+<path d="M 743,415 Q 760.1,345 800,275" stroke="#73501f" stroke-width="1.1" fill="none" />
+<path d="M 761,415 Q 772.6999999999999,345 800,275" stroke="#73501f" stroke-width="1.1" fill="none" />
+<path d="M 779,415 Q 785.3,345 800,275" stroke="#73501f" stroke-width="1.1" fill="none" />
+<path d="M 797,415 Q 797.9,345 800,275" stroke="#73501f" stroke-width="1.1" fill="none" />
+<path d="M 815,415 Q 810.5,345 800,275" stroke="#73501f" stroke-width="1.1" fill="none" />
+<path d="M 833,415 Q 823.0999999999999,345 800,275" stroke="#73501f" stroke-width="1.1" fill="none" />
+<path d="M 851,415 Q 835.6999999999999,345 800,275" stroke="#73501f" stroke-width="1.1" fill="none" />
+<path d="M 869,415 Q 848.3,345 800,275" stroke="#73501f" stroke-width="1.1" fill="none" />
+<line x1="800" y1="275" x2="800" y2="221" stroke="#261b0d" stroke-width="2.0" />
+<circle cx="800" cy="253" r="7" fill="#d9ad52" stroke="#261b0d" stroke-width="1.2" />
+</g>
+<g font-family="'Cinzel', 'Playfair Display', 'Georgia', serif" fill="#2b1e0f">
+      <rect x="55" y="805" width="410" height="60" fill="#faf4e8" opacity="0.9" stroke="#5c4121" stroke-width="0.75" />
+      <text x="75" y="828" font-size="14" font-weight="700" letter-spacing="2.5" fill="#1c1309">MAHABAT MAQBARA COMPLEX</text>
+      <text x="75" y="848" font-size="10" font-weight="500" letter-spacing="1.5" fill="#5e411f">JUNAGADH, GUJARAT · NAWABS OF JUNAGADH (1892 AD)</text>
+      <line x1="75" y1="834" x2="380" y2="834" stroke="#805b2f" stroke-width="0.5" opacity="0.7" />
+    </g>
+</svg>

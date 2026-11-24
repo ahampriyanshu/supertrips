@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="100%" height="100%">
+<defs>
+      <filter id="pencil-jitter" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.14" numOctaves="2" result="noise" />
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.4" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+      <pattern id="hatch-shadow" width="5" height="5" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse">
+        <line x1="0" y1="0" x2="0" y2="5" stroke="#2b201d" stroke-width="0.95" opacity="0.45" />
+      </pattern>
+      <pattern id="hatch-water" width="14" height="7" patternUnits="userSpaceOnUse">
+        <path d="M 0,3.5 Q 3.5,1.5 7,3.5 T 14,3.5" fill="none" stroke="#3d6360" stroke-width="0.75" opacity="0.4" />
+      </pattern>
+      
+      <pattern id="hatch-basalt" width="6" height="6" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse">
+        <line x1="0" y1="0" x2="0" y2="6" stroke="#423b37" stroke-width="0.8" opacity="0.4" />
+      </pattern>
+      <linearGradient id="sky-wash" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#b5cde0" stop-opacity="0.85" />
+        <stop offset="60%" stop-color="#e9f1f5" stop-opacity="0.5" />
+        <stop offset="100%" stop-color="#faf5ec" stop-opacity="0.9" />
+      </linearGradient>
+      <linearGradient id="basalt-wall" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#544c47" />
+        <stop offset="45%" stop-color="#695f59" />
+        <stop offset="80%" stop-color="#544c47" />
+        <stop offset="100%" stop-color="#3d3733" />
+      </linearGradient>
+    
+    </defs>
+<rect width="1600" height="900" fill="#f8f4ec" />
+<rect width="1600" height="580" fill="url(#sky-wash)" />
+<rect x="0" y="590" width="1600" height="310" fill="#6e685a" />
+<rect x="560" y="630" width="480" height="180" fill="#385452" stroke="#1d2e2d" stroke-width="1.6" />
+<rect x="560" y="630" width="480" height="180" fill="url(#hatch-water)" />
+<g filter="url(#pencil-jitter)">
+<rect x="490" y="545" width="620" height="45" fill="#47413d" stroke="#1f1c19" stroke-width="2.0" />
+<rect x="590" y="395" width="420" height="150" fill="url(#basalt-wall)" stroke="#1f1c19" stroke-width="2.2" />
+<rect x="590" y="395" width="420" height="150" fill="url(#hatch-basalt)" />
+<path d="M 596,545 L 596,425 Q 632,407 668,425 L 668,545 Z" fill="#211d1a" stroke="#0f0d0b" stroke-width="1.4" />
+<path d="M 680,545 L 680,425 Q 716,407 752,425 L 752,545 Z" fill="#211d1a" stroke="#0f0d0b" stroke-width="1.4" />
+<path d="M 764,545 L 764,425 Q 800,407 836,425 L 836,545 Z" fill="#211d1a" stroke="#0f0d0b" stroke-width="1.4" />
+<path d="M 848,545 L 848,425 Q 884,407 920,425 L 920,545 Z" fill="#211d1a" stroke="#0f0d0b" stroke-width="1.4" />
+<path d="M 932,545 L 932,425 Q 968,407 1004,425 L 1004,545 Z" fill="#211d1a" stroke="#0f0d0b" stroke-width="1.4" />
+<polygon points="555,395 1045,395 1035,383 565,383" fill="#3d3733" stroke="#1f1c19" stroke-width="1.8" />
+<line x1="575" y1="395" x2="575" y2="423" stroke="#211d1a" stroke-width="1.2" stroke-dasharray="3 2" />
+<line x1="610" y1="395" x2="610" y2="423" stroke="#211d1a" stroke-width="1.2" stroke-dasharray="3 2" />
+<line x1="645" y1="395" x2="645" y2="423" stroke="#211d1a" stroke-width="1.2" stroke-dasharray="3 2" />
+<line x1="680" y1="395" x2="680" y2="423" stroke="#211d1a" stroke-width="1.2" stroke-dasharray="3 2" />
+<line x1="715" y1="395" x2="715" y2="423" stroke="#211d1a" stroke-width="1.2" stroke-dasharray="3 2" />
+<line x1="750" y1="395" x2="750" y2="423" stroke="#211d1a" stroke-width="1.2" stroke-dasharray="3 2" />
+<line x1="785" y1="395" x2="785" y2="423" stroke="#211d1a" stroke-width="1.2" stroke-dasharray="3 2" />
+<line x1="820" y1="395" x2="820" y2="423" stroke="#211d1a" stroke-width="1.2" stroke-dasharray="3 2" />
+<line x1="855" y1="395" x2="855" y2="423" stroke="#211d1a" stroke-width="1.2" stroke-dasharray="3 2" />
+<line x1="890" y1="395" x2="890" y2="423" stroke="#211d1a" stroke-width="1.2" stroke-dasharray="3 2" />
+<line x1="925" y1="395" x2="925" y2="423" stroke="#211d1a" stroke-width="1.2" stroke-dasharray="3 2" />
+<line x1="960" y1="395" x2="960" y2="423" stroke="#211d1a" stroke-width="1.2" stroke-dasharray="3 2" />
+<line x1="995" y1="395" x2="995" y2="423" stroke="#211d1a" stroke-width="1.2" stroke-dasharray="3 2" />
+<line x1="1030" y1="395" x2="1030" y2="423" stroke="#211d1a" stroke-width="1.2" stroke-dasharray="3 2" />
+<rect x="570" y="315" width="24" height="230" fill="url(#basalt-wall)" stroke="#1f1c19" stroke-width="1.8" />
+<path d="M 568,315 Q 582,291 596,315 Z" fill="#695f59" stroke="#1f1c19" stroke-width="1.4" />
+<line x1="582" y1="291" x2="582" y2="275" stroke="#1f1c19" stroke-width="1.4" />
+<rect x="1006" y="315" width="24" height="230" fill="url(#basalt-wall)" stroke="#1f1c19" stroke-width="1.8" />
+<path d="M 1004,315 Q 1018,291 1032,315 Z" fill="#695f59" stroke="#1f1c19" stroke-width="1.4" />
+<line x1="1018" y1="291" x2="1018" y2="275" stroke="#1f1c19" stroke-width="1.4" />
+<path d="M 700,381 Q 800,391 900,381 Z" fill="#3d3733" stroke="#1f1c19" stroke-width="1.4" />
+<path d="
+      M 702,381
+      C 672,330 723.0,276 800,251
+      C 877.0,276 928,330 898,381
+      Z
+    " fill="url(#basalt-wall)" stroke="#1f1c19" stroke-width="2.2" />
+<path d="
+      M 702,381
+      C 672,330 723.0,276 800,251
+      C 877.0,276 928,330 898,381
+      Z
+    " fill="url(#hatch-basalt)" />
+<line x1="800" y1="251" x2="800" y2="203" stroke="#1f1c19" stroke-width="2.0" />
+</g>
+<g font-family="'Cinzel', 'Playfair Display', 'Georgia', serif" fill="#241e1b">
+      <rect x="55" y="805" width="410" height="60" fill="#f8f4ec" opacity="0.9" stroke="#524640" stroke-width="0.75" />
+      <text x="75" y="828" font-size="14" font-weight="700" letter-spacing="2.5" fill="#171311">IBRAHIM RAUZA</text>
+      <text x="75" y="848" font-size="10" font-weight="500" letter-spacing="1.5" fill="#574943">VIJAYAPURA, KARNATAKA · ADIL SHAHI DYNASTY (1633 AD)</text>
+      <line x1="75" y1="834" x2="380" y2="834" stroke="#7a675e" stroke-width="0.5" opacity="0.7" />
+    </g>
+</svg>

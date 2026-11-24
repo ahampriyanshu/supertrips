@@ -48,7 +48,12 @@ export default function MagazineMapModal({
   onClose,
 }) {
   const currentFort = entry || entries[currentIndex] || {};
-  const topicTitle = topic === 'palaces' ? 'Palaces of India' : 'Forts of India';
+  const topicTitle =
+    topic === 'palaces'
+      ? 'Palaces of India'
+      : topic === 'tombs' || topic === 'mausoleums'
+      ? 'Tombs & Mausoleums of India'
+      : 'Forts of India';
 
   // Close on Escape, navigate on Arrow keys
   useEffect(() => {

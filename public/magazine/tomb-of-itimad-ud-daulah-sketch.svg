@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="100%" height="100%">
+<defs>
+      <filter id="pencil-jitter" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.14" numOctaves="2" result="noise" />
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.4" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+      <pattern id="hatch-shadow" width="5" height="5" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse">
+        <line x1="0" y1="0" x2="0" y2="5" stroke="#2b201d" stroke-width="0.95" opacity="0.45" />
+      </pattern>
+      <pattern id="hatch-water" width="14" height="7" patternUnits="userSpaceOnUse">
+        <path d="M 0,3.5 Q 3.5,1.5 7,3.5 T 14,3.5" fill="none" stroke="#3d6360" stroke-width="0.75" opacity="0.4" />
+      </pattern>
+      
+      <pattern id="hatch-marble" width="6" height="6" patternTransform="rotate(-45 0 0)" patternUnits="userSpaceOnUse">
+        <line x1="0" y1="0" x2="0" y2="6" stroke="#877d74" stroke-width="0.65" opacity="0.32" />
+      </pattern>
+      <linearGradient id="sky-wash" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#bad1e0" stop-opacity="0.85" />
+        <stop offset="60%" stop-color="#ebf1f5" stop-opacity="0.5" />
+        <stop offset="100%" stop-color="#faf5ec" stop-opacity="0.9" />
+      </linearGradient>
+      <linearGradient id="ivory-marble" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#eee6d8" />
+        <stop offset="35%" stop-color="#ffffff" />
+        <stop offset="70%" stop-color="#f5eee2" />
+        <stop offset="100%" stop-color="#ddd2bf" />
+      </linearGradient>
+      <linearGradient id="red-plinth" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#b5432d" />
+        <stop offset="50%" stop-color="#cc5a43" />
+        <stop offset="100%" stop-color="#993320" />
+      </linearGradient>
+    
+    </defs>
+<rect width="1600" height="900" fill="#faf6ee" />
+<rect width="1600" height="580" fill="url(#sky-wash)" />
+<rect x="0" y="590" width="1600" height="310" fill="#597048" />
+<g filter="url(#pencil-jitter)">
+<rect x="460" y="550" width="680" height="40" fill="url(#red-plinth)" stroke="#26130d" stroke-width="2.0" />
+<rect x="475" y="558" width="650" height="24" fill="none" stroke="#fcf9f2" stroke-width="2.5" />
+<rect x="590" y="400" width="420" height="150" fill="url(#ivory-marble)" stroke="#261b15" stroke-width="2.2" />
+<rect x="590" y="400" width="420" height="150" fill="url(#hatch-marble)" />
+<rect x="638" y="420" width="64" height="110" rx="3" fill="#291e19" stroke="#877569" stroke-width="1.2" />
+<path d="M 670,435 Q 660,470 670,515 Q 680,470 670,435 Z" fill="#4d613e" stroke="#212b1a" stroke-width="0.8" />
+<rect x="898" y="420" width="64" height="110" rx="3" fill="#291e19" stroke="#877569" stroke-width="1.2" />
+<path d="M 930,435 Q 920,470 930,515 Q 940,470 930,435 Z" fill="#4d613e" stroke="#212b1a" stroke-width="0.8" />
+<path d="M 753,550 L 753,466 Q 800,435 847,466 L 847,550 Z" fill="#241a15" stroke="#120c09" stroke-width="1.6" />
+<path d="M 753,550 L 753,466 Q 800,435 847,466 L 847,550 Z" fill="url(#hatch-shadow)" />
+<rect x="566" y="340" width="48" height="210" fill="url(#ivory-marble)" stroke="#261b15" stroke-width="1.8" />
+<rect x="566" y="340" width="48" height="210" fill="url(#hatch-marble)" />
+<path d="M 566,365 L 590,357 L 614,365" stroke="#785c49" stroke-width="1.0" fill="none" />
+<path d="M 566,390 L 590,382 L 614,390" stroke="#785c49" stroke-width="1.0" fill="none" />
+<path d="M 566,415 L 590,407 L 614,415" stroke="#785c49" stroke-width="1.0" fill="none" />
+<path d="M 566,440 L 590,432 L 614,440" stroke="#785c49" stroke-width="1.0" fill="none" />
+<path d="M 566,465 L 590,457 L 614,465" stroke="#785c49" stroke-width="1.0" fill="none" />
+<path d="M 566,490 L 590,482 L 614,490" stroke="#785c49" stroke-width="1.0" fill="none" />
+<path d="M 566,515 L 590,507 L 614,515" stroke="#785c49" stroke-width="1.0" fill="none" />
+<path d="M 566,540 L 590,532 L 614,540" stroke="#785c49" stroke-width="1.0" fill="none" />
+<polygon points="560,352 620,352 614,362 566,362" fill="#e6dcce" stroke="#261b15" stroke-width="1.2" />
+<path d="M 566,340 Q 590,312 614,340 Z" fill="#ffffff" stroke="#261b15" stroke-width="1.4" />
+<line x1="590" y1="312" x2="590" y2="300" stroke="#261b15" stroke-width="1.2" />
+<rect x="986" y="340" width="48" height="210" fill="url(#ivory-marble)" stroke="#261b15" stroke-width="1.8" />
+<rect x="986" y="340" width="48" height="210" fill="url(#hatch-marble)" />
+<path d="M 986,365 L 1010,357 L 1034,365" stroke="#785c49" stroke-width="1.0" fill="none" />
+<path d="M 986,390 L 1010,382 L 1034,390" stroke="#785c49" stroke-width="1.0" fill="none" />
+<path d="M 986,415 L 1010,407 L 1034,415" stroke="#785c49" stroke-width="1.0" fill="none" />
+<path d="M 986,440 L 1010,432 L 1034,440" stroke="#785c49" stroke-width="1.0" fill="none" />
+<path d="M 986,465 L 1010,457 L 1034,465" stroke="#785c49" stroke-width="1.0" fill="none" />
+<path d="M 986,490 L 1010,482 L 1034,490" stroke="#785c49" stroke-width="1.0" fill="none" />
+<path d="M 986,515 L 1010,507 L 1034,515" stroke="#785c49" stroke-width="1.0" fill="none" />
+<path d="M 986,540 L 1010,532 L 1034,540" stroke="#785c49" stroke-width="1.0" fill="none" />
+<polygon points="980,352 1040,352 1034,362 986,362" fill="#e6dcce" stroke="#261b15" stroke-width="1.2" />
+<path d="M 986,340 Q 1010,312 1034,340 Z" fill="#ffffff" stroke="#261b15" stroke-width="1.4" />
+<line x1="1010" y1="312" x2="1010" y2="300" stroke="#261b15" stroke-width="1.2" />
+<rect x="715" y="340" width="170" height="60" fill="url(#ivory-marble)" stroke="#261b15" stroke-width="1.8" />
+<path d="M 725,400 L 725,358 Q 735,348 745,358 L 745,400 Z" fill="#261b15" stroke="#120c09" stroke-width="1.0" />
+<path d="M 757,400 L 757,358 Q 767,348 777,358 L 777,400 Z" fill="#261b15" stroke="#120c09" stroke-width="1.0" />
+<path d="M 789,400 L 789,358 Q 799,348 809,358 L 809,400 Z" fill="#261b15" stroke="#120c09" stroke-width="1.0" />
+<path d="M 821,400 L 821,358 Q 831,348 841,358 L 841,400 Z" fill="#261b15" stroke="#120c09" stroke-width="1.0" />
+<path d="M 853,400 L 853,358 Q 863,348 873,358 L 873,400 Z" fill="#261b15" stroke="#120c09" stroke-width="1.0" />
+<path d="M 703,340 Q 800,316 897,340 Z" fill="#f7f2e9" stroke="#261b15" stroke-width="1.6" />
+<line x1="800" y1="316" x2="800" y2="302" stroke="#261b15" stroke-width="1.4" />
+</g>
+<g font-family="'Cinzel', 'Playfair Display', 'Georgia', serif" fill="#302018">
+      <rect x="55" y="805" width="410" height="60" fill="#faf6ee" opacity="0.9" stroke="#614436" stroke-width="0.75" />
+      <text x="75" y="828" font-size="14" font-weight="700" letter-spacing="2.5" fill="#24150d">TOMB OF I'TIMAD-UD-DAULAH</text>
+      <text x="75" y="848" font-size="10" font-weight="500" letter-spacing="1.5" fill="#694634">AGRA, UTTAR PRADESH · MUGHAL EMPIRE (1628 AD)</text>
+      <line x1="75" y1="834" x2="380" y2="834" stroke="#8c614b" stroke-width="0.5" opacity="0.7" />
+    </g>
+</svg>

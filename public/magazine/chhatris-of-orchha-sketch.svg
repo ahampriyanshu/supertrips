@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="100%" height="100%">
+<defs>
+      <filter id="pencil-jitter" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.14" numOctaves="2" result="noise" />
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.4" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+      <pattern id="hatch-shadow" width="5" height="5" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse">
+        <line x1="0" y1="0" x2="0" y2="5" stroke="#2b201d" stroke-width="0.95" opacity="0.45" />
+      </pattern>
+      <pattern id="hatch-water" width="14" height="7" patternUnits="userSpaceOnUse">
+        <path d="M 0,3.5 Q 3.5,1.5 7,3.5 T 14,3.5" fill="none" stroke="#3d6360" stroke-width="0.75" opacity="0.4" />
+      </pattern>
+      
+      <pattern id="hatch-sandstone" width="8" height="8" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse">
+        <line x1="0" y1="0" x2="0" y2="8" stroke="#87573d" stroke-width="0.8" opacity="0.38" />
+      </pattern>
+      <linearGradient id="sky-wash" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#b5cee0" stop-opacity="0.85" />
+        <stop offset="60%" stop-color="#e8f0f5" stop-opacity="0.5" />
+        <stop offset="100%" stop-color="#f7ede1" stop-opacity="0.9" />
+      </linearGradient>
+      <linearGradient id="water-wash" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#4d7370" />
+        <stop offset="100%" stop-color="#264543" />
+      </linearGradient>
+      <linearGradient id="sandstone-spire" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#b56f48" />
+        <stop offset="50%" stop-color="#cc885e" />
+        <stop offset="100%" stop-color="#995733" />
+      </linearGradient>
+    
+    </defs>
+<rect width="1600" height="900" fill="#f8f2e7" />
+<rect width="1600" height="520" fill="url(#sky-wash)" />
+<rect x="0" y="520" width="1600" height="380" fill="url(#water-wash)" />
+<rect x="0" y="520" width="1600" height="380" fill="url(#hatch-water)" />
+<ellipse cx="160" cy="680" rx="75" ry="30" fill="#3b3734" stroke="#1c1a19" stroke-width="1.6" />
+<ellipse cx="280" cy="740" rx="95" ry="35" fill="#3b3734" stroke="#1c1a19" stroke-width="1.6" />
+<ellipse cx="820" cy="710" rx="110" ry="42" fill="#3b3734" stroke="#1c1a19" stroke-width="1.6" />
+<ellipse cx="1240" cy="690" rx="85" ry="32" fill="#3b3734" stroke="#1c1a19" stroke-width="1.6" />
+<ellipse cx="1420" cy="750" rx="90" ry="36" fill="#3b3734" stroke="#1c1a19" stroke-width="1.6" />
+<g filter="url(#pencil-jitter)">
+<rect x="312" y="495" width="256" height="25" fill="#7a462b" stroke="#26130a" stroke-width="1.8" />
+<rect x="332" y="412" width="216" height="108" fill="url(#sandstone-spire)" stroke="#26130a" stroke-width="2.0" />
+<rect x="332" y="412" width="216" height="108" fill="url(#hatch-sandstone)" />
+<path d="M 336,495 L 336,437 Q 357,422 371,437 L 371,495 Z" fill="#24130a" stroke="#120804" stroke-width="1.2" />
+<path d="M 379,495 L 379,437 Q 400,422 414,437 L 414,495 Z" fill="#24130a" stroke="#120804" stroke-width="1.2" />
+<path d="M 422,495 L 422,437 Q 443,422 457,437 L 457,495 Z" fill="#24130a" stroke="#120804" stroke-width="1.2" />
+<path d="M 465,495 L 465,437 Q 486,422 500,437 L 500,495 Z" fill="#24130a" stroke="#120804" stroke-width="1.2" />
+<path d="M 508,495 L 508,437 Q 529,422 543,437 L 543,495 Z" fill="#24130a" stroke="#120804" stroke-width="1.2" />
+<path d="
+          M 377,412
+          C 377,298.6 430,243 440,223
+          C 450,243 503,298.6 503,412
+          Z
+        " fill="url(#sandstone-spire)" stroke="#26130a" stroke-width="2.2" />
+<path d="
+          M 377,412
+          C 377,298.6 430,243 440,223
+          C 450,243 503,298.6 503,412
+          Z
+        " fill="url(#hatch-sandstone)" />
+<ellipse cx="440" cy="223" rx="18" ry="7" fill="#8a4d2e" stroke="#26130a" stroke-width="1.4" />
+<line x1="440" y1="223" x2="440" y2="195" stroke="#26130a" stroke-width="1.8" />
+<rect x="335" y="387" width="24" height="25" fill="#cc885e" stroke="#26130a" stroke-width="1.0" />
+<path d="M 332,387 Q 347,370 362,387 Z" fill="#b56f48" stroke="#26130a" stroke-width="1.2" />
+<rect x="521" y="387" width="24" height="25" fill="#cc885e" stroke="#26130a" stroke-width="1.0" />
+<path d="M 518,387 Q 533,370 548,387 Z" fill="#b56f48" stroke="#26130a" stroke-width="1.2" />
+<rect x="642" y="495" width="316" height="25" fill="#7a462b" stroke="#26130a" stroke-width="1.8" />
+<rect x="662" y="382" width="276" height="138" fill="url(#sandstone-spire)" stroke="#26130a" stroke-width="2.0" />
+<rect x="662" y="382" width="276" height="138" fill="url(#hatch-sandstone)" />
+<path d="M 666,495 L 666,407 Q 693,392 713,407 L 713,495 Z" fill="#24130a" stroke="#120804" stroke-width="1.2" />
+<path d="M 721,495 L 721,407 Q 748,392 768,407 L 768,495 Z" fill="#24130a" stroke="#120804" stroke-width="1.2" />
+<path d="M 776,495 L 776,407 Q 803,392 823,407 L 823,495 Z" fill="#24130a" stroke="#120804" stroke-width="1.2" />
+<path d="M 831,495 L 831,407 Q 858,392 878,407 L 878,495 Z" fill="#24130a" stroke="#120804" stroke-width="1.2" />
+<path d="M 886,495 L 886,407 Q 913,392 933,407 L 933,495 Z" fill="#24130a" stroke="#120804" stroke-width="1.2" />
+<path d="
+          M 720,382
+          C 720,237.4 790,161 800,141
+          C 810,161 880,237.4 880,382
+          Z
+        " fill="url(#sandstone-spire)" stroke="#26130a" stroke-width="2.2" />
+<path d="
+          M 720,382
+          C 720,237.4 790,161 800,141
+          C 810,161 880,237.4 880,382
+          Z
+        " fill="url(#hatch-sandstone)" />
+<ellipse cx="800" cy="141" rx="23" ry="9" fill="#8a4d2e" stroke="#26130a" stroke-width="1.4" />
+<line x1="800" y1="141" x2="800" y2="105" stroke="#26130a" stroke-width="1.8" />
+<rect x="665" y="357" width="24" height="25" fill="#cc885e" stroke="#26130a" stroke-width="1.0" />
+<path d="M 662,357 Q 677,340 692,357 Z" fill="#b56f48" stroke="#26130a" stroke-width="1.2" />
+<rect x="911" y="357" width="24" height="25" fill="#cc885e" stroke="#26130a" stroke-width="1.0" />
+<path d="M 908,357 Q 923,340 938,357 Z" fill="#b56f48" stroke="#26130a" stroke-width="1.2" />
+<rect x="1032" y="495" width="256" height="25" fill="#7a462b" stroke="#26130a" stroke-width="1.8" />
+<rect x="1052" y="412" width="216" height="108" fill="url(#sandstone-spire)" stroke="#26130a" stroke-width="2.0" />
+<rect x="1052" y="412" width="216" height="108" fill="url(#hatch-sandstone)" />
+<path d="M 1056,495 L 1056,437 Q 1077,422 1091,437 L 1091,495 Z" fill="#24130a" stroke="#120804" stroke-width="1.2" />
+<path d="M 1099,495 L 1099,437 Q 1120,422 1134,437 L 1134,495 Z" fill="#24130a" stroke="#120804" stroke-width="1.2" />
+<path d="M 1142,495 L 1142,437 Q 1163,422 1177,437 L 1177,495 Z" fill="#24130a" stroke="#120804" stroke-width="1.2" />
+<path d="M 1185,495 L 1185,437 Q 1206,422 1220,437 L 1220,495 Z" fill="#24130a" stroke="#120804" stroke-width="1.2" />
+<path d="M 1228,495 L 1228,437 Q 1249,422 1263,437 L 1263,495 Z" fill="#24130a" stroke="#120804" stroke-width="1.2" />
+<path d="
+          M 1097,412
+          C 1097,298.6 1150,243 1160,223
+          C 1170,243 1223,298.6 1223,412
+          Z
+        " fill="url(#sandstone-spire)" stroke="#26130a" stroke-width="2.2" />
+<path d="
+          M 1097,412
+          C 1097,298.6 1150,243 1160,223
+          C 1170,243 1223,298.6 1223,412
+          Z
+        " fill="url(#hatch-sandstone)" />
+<ellipse cx="1160" cy="223" rx="18" ry="7" fill="#8a4d2e" stroke="#26130a" stroke-width="1.4" />
+<line x1="1160" y1="223" x2="1160" y2="195" stroke="#26130a" stroke-width="1.8" />
+<rect x="1055" y="387" width="24" height="25" fill="#cc885e" stroke="#26130a" stroke-width="1.0" />
+<path d="M 1052,387 Q 1067,370 1082,387 Z" fill="#b56f48" stroke="#26130a" stroke-width="1.2" />
+<rect x="1241" y="387" width="24" height="25" fill="#cc885e" stroke="#26130a" stroke-width="1.0" />
+<path d="M 1238,387 Q 1253,370 1268,387 Z" fill="#b56f48" stroke="#26130a" stroke-width="1.2" />
+</g>
+<g font-family="'Cinzel', 'Playfair Display', 'Georgia', serif" fill="#301f16">
+      <rect x="55" y="805" width="410" height="60" fill="#f8f2e7" opacity="0.9" stroke="#633e2b" stroke-width="0.75" />
+      <text x="75" y="828" font-size="14" font-weight="700" letter-spacing="2.5" fill="#24140a">CHHATRIS OF ORCHHA</text>
+      <text x="75" y="848" font-size="10" font-weight="500" letter-spacing="1.5" fill="#693e27">ORCHHA, MADHYA PRADESH · BUNDELA RAJPUTS (17th C.)</text>
+      <line x1="75" y1="834" x2="380" y2="834" stroke="#8a5235" stroke-width="0.5" opacity="0.7" />
+    </g>
+</svg>

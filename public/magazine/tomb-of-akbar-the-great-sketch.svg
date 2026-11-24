@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="100%" height="100%">
+<defs>
+      <filter id="pencil-jitter" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.14" numOctaves="2" result="noise" />
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.4" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+      <pattern id="hatch-shadow" width="5" height="5" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse">
+        <line x1="0" y1="0" x2="0" y2="5" stroke="#2b201d" stroke-width="0.95" opacity="0.45" />
+      </pattern>
+      <pattern id="hatch-water" width="14" height="7" patternUnits="userSpaceOnUse">
+        <path d="M 0,3.5 Q 3.5,1.5 7,3.5 T 14,3.5" fill="none" stroke="#3d6360" stroke-width="0.75" opacity="0.4" />
+      </pattern>
+      
+      <pattern id="hatch-red" width="8" height="8" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse">
+        <line x1="0" y1="0" x2="0" y2="8" stroke="#a33d28" stroke-width="0.8" opacity="0.38" />
+      </pattern>
+      <pattern id="hatch-marble" width="6" height="6" patternTransform="rotate(-45 0 0)" patternUnits="userSpaceOnUse">
+        <line x1="0" y1="0" x2="0" y2="6" stroke="#80756d" stroke-width="0.65" opacity="0.3" />
+      </pattern>
+      <linearGradient id="sky-wash" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#bcd3e3" stop-opacity="0.85" />
+        <stop offset="60%" stop-color="#ebf2f5" stop-opacity="0.5" />
+        <stop offset="100%" stop-color="#fcf6ec" stop-opacity="0.9" />
+      </linearGradient>
+      <linearGradient id="red-sandstone" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#ad412b" />
+        <stop offset="50%" stop-color="#c4563d" />
+        <stop offset="100%" stop-color="#96331e" />
+      </linearGradient>
+    
+    </defs>
+<rect width="1600" height="900" fill="#faf5ea" />
+<rect width="1600" height="600" fill="url(#sky-wash)" />
+<rect x="0" y="610" width="1600" height="290" fill="#5e7549" />
+<ellipse cx="240" cy="680" rx="16" ry="10" fill="#2b1a12" />
+<line x1="230" y1="688" x2="228" y2="704" stroke="#2b1a12" stroke-width="1.8" />
+<line x1="250" y1="688" x2="252" y2="704" stroke="#2b1a12" stroke-width="1.8" />
+<path d="M 252,674 L 260,664 L 264,666" stroke="#2b1a12" stroke-width="2.0" fill="none" />
+<ellipse cx="310" cy="695" rx="16" ry="10" fill="#2b1a12" />
+<line x1="300" y1="703" x2="298" y2="719" stroke="#2b1a12" stroke-width="1.8" />
+<line x1="320" y1="703" x2="322" y2="719" stroke="#2b1a12" stroke-width="1.8" />
+<path d="M 322,689 L 330,679 L 334,681" stroke="#2b1a12" stroke-width="2.0" fill="none" />
+<ellipse cx="1280" cy="685" rx="16" ry="10" fill="#2b1a12" />
+<line x1="1270" y1="693" x2="1268" y2="709" stroke="#2b1a12" stroke-width="1.8" />
+<line x1="1290" y1="693" x2="1292" y2="709" stroke="#2b1a12" stroke-width="1.8" />
+<path d="M 1292,679 L 1300,669 L 1304,671" stroke="#2b1a12" stroke-width="2.0" fill="none" />
+<ellipse cx="1350" cy="700" rx="16" ry="10" fill="#2b1a12" />
+<line x1="1340" y1="708" x2="1338" y2="724" stroke="#2b1a12" stroke-width="1.8" />
+<line x1="1360" y1="708" x2="1362" y2="724" stroke="#2b1a12" stroke-width="1.8" />
+<path d="M 1362,694 L 1370,684 L 1374,686" stroke="#2b1a12" stroke-width="2.0" fill="none" />
+<g filter="url(#pencil-jitter)">
+<rect x="410" y="515" width="780" height="95" fill="url(#red-sandstone)" stroke="#2b1610" stroke-width="2.2" />
+<rect x="410" y="515" width="780" height="95" fill="url(#hatch-red)" />
+<rect x="710" y="495" width="180" height="115" fill="url(#red-sandstone)" stroke="#2b1610" stroke-width="2.0" />
+<polygon points="720,610 720,505 880,505 880,610" fill="none" stroke="#fcf9f2" stroke-width="3.5" />
+<path d="M 745,610 L 745,555 Q 800,520 855,555 L 855,610 Z" fill="#24110b" stroke="#120604" stroke-width="1.6" />
+<rect x="500" y="460" width="600" height="55" fill="url(#red-sandstone)" stroke="#2b1610" stroke-width="1.8" />
+<line x1="515" y1="460" x2="515" y2="515" stroke="#fcf9f2" stroke-width="1.4" />
+<line x1="543" y1="460" x2="543" y2="515" stroke="#fcf9f2" stroke-width="1.4" />
+<line x1="571" y1="460" x2="571" y2="515" stroke="#fcf9f2" stroke-width="1.4" />
+<line x1="599" y1="460" x2="599" y2="515" stroke="#fcf9f2" stroke-width="1.4" />
+<line x1="627" y1="460" x2="627" y2="515" stroke="#fcf9f2" stroke-width="1.4" />
+<line x1="655" y1="460" x2="655" y2="515" stroke="#fcf9f2" stroke-width="1.4" />
+<line x1="683" y1="460" x2="683" y2="515" stroke="#fcf9f2" stroke-width="1.4" />
+<line x1="711" y1="460" x2="711" y2="515" stroke="#fcf9f2" stroke-width="1.4" />
+<line x1="739" y1="460" x2="739" y2="515" stroke="#fcf9f2" stroke-width="1.4" />
+<line x1="767" y1="460" x2="767" y2="515" stroke="#fcf9f2" stroke-width="1.4" />
+<line x1="795" y1="460" x2="795" y2="515" stroke="#fcf9f2" stroke-width="1.4" />
+<line x1="823" y1="460" x2="823" y2="515" stroke="#fcf9f2" stroke-width="1.4" />
+<line x1="851" y1="460" x2="851" y2="515" stroke="#fcf9f2" stroke-width="1.4" />
+<line x1="879" y1="460" x2="879" y2="515" stroke="#fcf9f2" stroke-width="1.4" />
+<line x1="907" y1="460" x2="907" y2="515" stroke="#fcf9f2" stroke-width="1.4" />
+<line x1="935" y1="460" x2="935" y2="515" stroke="#fcf9f2" stroke-width="1.4" />
+<line x1="963" y1="460" x2="963" y2="515" stroke="#fcf9f2" stroke-width="1.4" />
+<line x1="991" y1="460" x2="991" y2="515" stroke="#fcf9f2" stroke-width="1.4" />
+<line x1="1019" y1="460" x2="1019" y2="515" stroke="#fcf9f2" stroke-width="1.4" />
+<line x1="1047" y1="460" x2="1047" y2="515" stroke="#fcf9f2" stroke-width="1.4" />
+<line x1="1075" y1="460" x2="1075" y2="515" stroke="#fcf9f2" stroke-width="1.4" />
+<rect x="570" y="415" width="460" height="45" fill="url(#red-sandstone)" stroke="#2b1610" stroke-width="1.6" />
+<line x1="585" y1="415" x2="585" y2="460" stroke="#2b1610" stroke-width="1.4" />
+<line x1="611" y1="415" x2="611" y2="460" stroke="#2b1610" stroke-width="1.4" />
+<line x1="637" y1="415" x2="637" y2="460" stroke="#2b1610" stroke-width="1.4" />
+<line x1="663" y1="415" x2="663" y2="460" stroke="#2b1610" stroke-width="1.4" />
+<line x1="689" y1="415" x2="689" y2="460" stroke="#2b1610" stroke-width="1.4" />
+<line x1="715" y1="415" x2="715" y2="460" stroke="#2b1610" stroke-width="1.4" />
+<line x1="741" y1="415" x2="741" y2="460" stroke="#2b1610" stroke-width="1.4" />
+<line x1="767" y1="415" x2="767" y2="460" stroke="#2b1610" stroke-width="1.4" />
+<line x1="793" y1="415" x2="793" y2="460" stroke="#2b1610" stroke-width="1.4" />
+<line x1="819" y1="415" x2="819" y2="460" stroke="#2b1610" stroke-width="1.4" />
+<line x1="845" y1="415" x2="845" y2="460" stroke="#2b1610" stroke-width="1.4" />
+<line x1="871" y1="415" x2="871" y2="460" stroke="#2b1610" stroke-width="1.4" />
+<line x1="897" y1="415" x2="897" y2="460" stroke="#2b1610" stroke-width="1.4" />
+<line x1="923" y1="415" x2="923" y2="460" stroke="#2b1610" stroke-width="1.4" />
+<line x1="949" y1="415" x2="949" y2="460" stroke="#2b1610" stroke-width="1.4" />
+<line x1="975" y1="415" x2="975" y2="460" stroke="#2b1610" stroke-width="1.4" />
+<line x1="1001" y1="415" x2="1001" y2="460" stroke="#2b1610" stroke-width="1.4" />
+<line x1="1027" y1="415" x2="1027" y2="460" stroke="#2b1610" stroke-width="1.4" />
+<rect x="630" y="375" width="340" height="40" fill="url(#red-sandstone)" stroke="#2b1610" stroke-width="1.5" />
+<rect x="685" y="325" width="230" height="50" fill="#fcf9f2" stroke="#241a15" stroke-width="2.0" />
+<rect x="685" y="325" width="230" height="50" fill="url(#hatch-marble)" />
+<rect x="697" y="333" width="16" height="34" fill="#2d221b" stroke="#e8dfd3" stroke-width="1.0" />
+<rect x="719" y="333" width="16" height="34" fill="#2d221b" stroke="#e8dfd3" stroke-width="1.0" />
+<rect x="741" y="333" width="16" height="34" fill="#2d221b" stroke="#e8dfd3" stroke-width="1.0" />
+<rect x="763" y="333" width="16" height="34" fill="#2d221b" stroke="#e8dfd3" stroke-width="1.0" />
+<rect x="785" y="333" width="16" height="34" fill="#2d221b" stroke="#e8dfd3" stroke-width="1.0" />
+<rect x="807" y="333" width="16" height="34" fill="#2d221b" stroke="#e8dfd3" stroke-width="1.0" />
+<rect x="829" y="333" width="16" height="34" fill="#2d221b" stroke="#e8dfd3" stroke-width="1.0" />
+<rect x="851" y="333" width="16" height="34" fill="#2d221b" stroke="#e8dfd3" stroke-width="1.0" />
+<rect x="873" y="333" width="16" height="34" fill="#2d221b" stroke="#e8dfd3" stroke-width="1.0" />
+<rect x="895" y="333" width="16" height="34" fill="#2d221b" stroke="#e8dfd3" stroke-width="1.0" />
+<path d="M 686,325 Q 700,301 714,325 Z" fill="#ffffff" stroke="#241a15" stroke-width="1.4" />
+<line x1="700" y1="301" x2="700" y2="291" stroke="#241a15" stroke-width="1.2" />
+<path d="M 886,325 Q 900,301 914,325 Z" fill="#ffffff" stroke="#241a15" stroke-width="1.4" />
+<line x1="900" y1="301" x2="900" y2="291" stroke="#241a15" stroke-width="1.2" />
+<path d="M 505,515 Q 520,489 535,515 Z" fill="#d9755b" stroke="#2b1610" stroke-width="1.4" />
+<path d="M 1065,515 Q 1080,489 1095,515 Z" fill="#d9755b" stroke="#2b1610" stroke-width="1.4" />
+<path d="M 570,515 Q 585,489 600,515 Z" fill="#d9755b" stroke="#2b1610" stroke-width="1.4" />
+<path d="M 1000,515 Q 1015,489 1030,515 Z" fill="#d9755b" stroke="#2b1610" stroke-width="1.4" />
+</g>
+<g font-family="'Cinzel', 'Playfair Display', 'Georgia', serif" fill="#301f16">
+      <rect x="55" y="805" width="410" height="60" fill="#faf5ea" opacity="0.9" stroke="#633e2d" stroke-width="0.75" />
+      <text x="75" y="828" font-size="14" font-weight="700" letter-spacing="2.5" fill="#24140b">TOMB OF AKBAR THE GREAT</text>
+      <text x="75" y="848" font-size="10" font-weight="500" letter-spacing="1.5" fill="#693e2a">SIKANDRA, AGRA · MUGHAL EMPIRE (1613 AD)</text>
+      <line x1="75" y1="834" x2="380" y2="834" stroke="#8a533b" stroke-width="0.5" opacity="0.7" />
+    </g>
+</svg>

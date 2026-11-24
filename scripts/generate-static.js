@@ -7,7 +7,7 @@ import { createServer } from 'vite';
 
 import { CATEGORIES, CITIES, STATES, TRIPS } from '../src/data.js';
 import { LEGACY_FIND_ROUTES } from '../src/findRoutes.js';
-import { FORTS, PALACES } from '../src/magazineData.js';
+import { FORTS, PALACES, TOMBS } from '../src/magazineData.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, '..');
@@ -193,6 +193,27 @@ function buildRoutes() {
     });
   });
 
+  routes.push({
+    path: '/tombs',
+    type: 'tombs',
+    heading: 'Tombs & Mausoleums of India',
+    title: 'Tombs & Mausoleums of India | SuperTrips',
+    description: 'Explore 15 historic imperial mausoleums and royal cenotaphs across India, illustrated as architectural colored pencil sketches.',
+    priority: '0.8',
+  });
+
+  TOMBS.forEach((tomb) => {
+    routes.push({
+      path: `/tombs/${tomb.slug}`,
+      type: 'tomb',
+      heading: tomb.monument,
+      tomb,
+      title: `${tomb.monument} | Tombs & Mausoleums of India | SuperTrips`,
+      description: `${tomb.monument} in ${tomb.location}. ${tomb.paragraph}`,
+      priority: '0.7',
+    });
+  });
+
   const seen = new Set();
   return routes
     .map(route => ({ ...route, path: normalizeRoute(route.path) }))
@@ -238,6 +259,8 @@ function getImageAlt(route) {
   if (route.type === 'forts') return `Forts of India watercolor illustrations on ${siteName}`;
   if (route.type === 'palace') return `${route.palace.monument} watercolor illustration on ${siteName}`;
   if (route.type === 'palaces') return `Palaces of India watercolor illustrations on ${siteName}`;
+  if (route.type === 'tomb') return `${route.tomb.monument} architectural colored pencil sketch on ${siteName}`;
+  if (route.type === 'tombs') return `Tombs & Mausoleums of India architectural sketches on ${siteName}`;
   return `${siteName} travel routes across India`;
 }
 
@@ -543,6 +566,14 @@ async function main() {
     await writeRoute({ path: '/magazine/palaces' }, buildFindRedirect('/palaces', siteUrl));
     await Promise.all(PALACES.map(palace =>
       writeRoute({ path: `/magazine/palaces/${palace.slug}` }, buildFindRedirect(`/palaces/${palace.slug}`, siteUrl))
+    ));
+    await writeRoute({ path: '/mausoleums' }, buildFindRedirect('/tombs', siteUrl));
+    await writeRoute({ path: '/magazine/tombs' }, buildFindRedirect('/tombs', siteUrl));
+    await Promise.all(TOMBS.map(tomb =>
+      writeRoute({ path: `/magazine/tombs/${tomb.slug}` }, buildFindRedirect(`/tombs/${tomb.slug}`, siteUrl))
+    ));
+    await Promise.all(TOMBS.map(tomb =>
+      writeRoute({ path: `/mausoleums/${tomb.slug}` }, buildFindRedirect(`/tombs/${tomb.slug}`, siteUrl))
     ));
     await writeFile(path.join(distDir, 'sitemap.xml'), buildSitemap(routes, siteUrl));
     await writeFile(path.join(distDir, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${siteUrl}/sitemap.xml\n`);

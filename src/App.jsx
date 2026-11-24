@@ -20,6 +20,7 @@ import { getFindHref, getFindSelection, getLegacyFindHref } from "./findRoutes.j
 import MagazinePage from "./components/MagazinePage.jsx";
 import FortsSection from "./components/FortsSection.jsx";
 import PalacesSection from "./components/PalacesSection.jsx";
+import TombsSection from "./components/TombsSection.jsx";
 
 const journeyCities = TRIPS.flatMap(trip => trip.cities);
 const journeyStats = [
@@ -102,6 +103,13 @@ function parseRoute(pathname) {
   if (parts[0] === "palaces") {
     return {
       name: "palaces",
+      path: pathname,
+      monumentId: parts[1] || undefined,
+    };
+  }
+  if (parts[0] === "tombs" || parts[0] === "mausoleums") {
+    return {
+      name: "tombs",
       path: pathname,
       monumentId: parts[1] || undefined,
     };
@@ -220,6 +228,7 @@ function Masthead() {
         <Link href="/#routes">Routes</Link>
         <Link href="/forts">Forts</Link>
         <Link href="/palaces">Palaces</Link>
+        <Link href="/tombs">Tombs</Link>
         <Link href="/find">Find a city</Link>
         <Link href="/#field-notes">Field notes</Link>
       </nav>
@@ -504,6 +513,14 @@ export default function App({ initialPath, initialHash = "", initialState = null
     );
   }
 
+  if (route.name === "tombs" || route.name === "mausoleums") {
+    return (
+      <div className="app-magazine-root">
+        <MagazinePage topic="tombs" monumentId={route.monumentId} />
+      </div>
+    );
+  }
+
   if (route.name === "find") {
     return <FindPage search={route.search} hash={route.hash} />;
   }
@@ -545,6 +562,8 @@ export default function App({ initialPath, initialHash = "", initialState = null
         <FortsSection />
 
         <PalacesSection />
+
+        <TombsSection />
 
         <CityCollection />
 

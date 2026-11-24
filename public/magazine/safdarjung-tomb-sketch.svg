@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="100%" height="100%">
+<defs>
+      <filter id="pencil-jitter" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.14" numOctaves="2" result="noise" />
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.4" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+      <pattern id="hatch-shadow" width="5" height="5" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse">
+        <line x1="0" y1="0" x2="0" y2="5" stroke="#2b201d" stroke-width="0.95" opacity="0.45" />
+      </pattern>
+      <pattern id="hatch-water" width="14" height="7" patternUnits="userSpaceOnUse">
+        <path d="M 0,3.5 Q 3.5,1.5 7,3.5 T 14,3.5" fill="none" stroke="#3d6360" stroke-width="0.75" opacity="0.4" />
+      </pattern>
+      
+      <pattern id="hatch-buff" width="8" height="8" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse">
+        <line x1="0" y1="0" x2="0" y2="8" stroke="#a36040" stroke-width="0.8" opacity="0.38" />
+      </pattern>
+      <pattern id="hatch-white" width="6" height="6" patternTransform="rotate(-45 0 0)" patternUnits="userSpaceOnUse">
+        <line x1="0" y1="0" x2="0" y2="6" stroke="#80756d" stroke-width="0.65" opacity="0.3" />
+      </pattern>
+      <linearGradient id="sky-wash" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#b8cfe0" stop-opacity="0.85" />
+        <stop offset="60%" stop-color="#e8f0f5" stop-opacity="0.5" />
+        <stop offset="100%" stop-color="#faf5ec" stop-opacity="0.9" />
+      </linearGradient>
+      <radialGradient id="marble-dome" cx="35%" cy="30%" r="70%">
+        <stop offset="0%" stop-color="#ffffff" />
+        <stop offset="60%" stop-color="#ede6da" />
+        <stop offset="100%" stop-color="#c2b4a3" />
+      </radialGradient>
+      <linearGradient id="buff-sandstone" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#ba6645" />
+        <stop offset="45%" stop-color="#d47f5b" />
+        <stop offset="80%" stop-color="#ba6645" />
+        <stop offset="100%" stop-color="#994d30" />
+      </linearGradient>
+    
+    </defs>
+<rect width="1600" height="900" fill="#faf6ed" />
+<rect width="1600" height="600" fill="url(#sky-wash)" />
+<rect x="0" y="610" width="1600" height="290" fill="#5c7348" />
+<polygon points="770,610 830,610 940,900 660,900" fill="#4a6e6b" stroke="#1d302f" stroke-width="1.4" />
+<g filter="url(#pencil-jitter)">
+<rect x="430" y="550" width="740" height="60" fill="url(#buff-sandstone)" stroke="#26150e" stroke-width="2.0" />
+<path d="M 450,610 L 450,568 Q 464,558 478,568 L 478,610 Z" fill="#24120a" stroke="#120704" stroke-width="1.0" />
+<path d="M 492,610 L 492,568 Q 506,558 520,568 L 520,610 Z" fill="#24120a" stroke="#120704" stroke-width="1.0" />
+<path d="M 534,610 L 534,568 Q 548,558 562,568 L 562,610 Z" fill="#24120a" stroke="#120704" stroke-width="1.0" />
+<path d="M 576,610 L 576,568 Q 590,558 604,568 L 604,610 Z" fill="#24120a" stroke="#120704" stroke-width="1.0" />
+<path d="M 618,610 L 618,568 Q 632,558 646,568 L 646,610 Z" fill="#24120a" stroke="#120704" stroke-width="1.0" />
+<path d="M 660,610 L 660,568 Q 674,558 688,568 L 688,610 Z" fill="#24120a" stroke="#120704" stroke-width="1.0" />
+<path d="M 702,610 L 702,568 Q 716,558 730,568 L 730,610 Z" fill="#24120a" stroke="#120704" stroke-width="1.0" />
+<path d="M 744,610 L 744,568 Q 758,558 772,568 L 772,610 Z" fill="#24120a" stroke="#120704" stroke-width="1.0" />
+<path d="M 786,610 L 786,568 Q 800,558 814,568 L 814,610 Z" fill="#24120a" stroke="#120704" stroke-width="1.0" />
+<path d="M 828,610 L 828,568 Q 842,558 856,568 L 856,610 Z" fill="#24120a" stroke="#120704" stroke-width="1.0" />
+<path d="M 870,610 L 870,568 Q 884,558 898,568 L 898,610 Z" fill="#24120a" stroke="#120704" stroke-width="1.0" />
+<path d="M 912,610 L 912,568 Q 926,558 940,568 L 940,610 Z" fill="#24120a" stroke="#120704" stroke-width="1.0" />
+<path d="M 954,610 L 954,568 Q 968,558 982,568 L 982,610 Z" fill="#24120a" stroke="#120704" stroke-width="1.0" />
+<path d="M 996,610 L 996,568 Q 1010,558 1024,568 L 1024,610 Z" fill="#24120a" stroke="#120704" stroke-width="1.0" />
+<path d="M 1038,610 L 1038,568 Q 1052,558 1066,568 L 1066,610 Z" fill="#24120a" stroke="#120704" stroke-width="1.0" />
+<path d="M 1080,610 L 1080,568 Q 1094,558 1108,568 L 1108,610 Z" fill="#24120a" stroke="#120704" stroke-width="1.0" />
+<path d="M 1122,610 L 1122,568 Q 1136,558 1150,568 L 1150,610 Z" fill="#24120a" stroke="#120704" stroke-width="1.0" />
+<rect x="560" y="375" width="480" height="175" fill="url(#buff-sandstone)" stroke="#26150e" stroke-width="2.2" />
+<rect x="560" y="375" width="480" height="175" fill="url(#hatch-buff)" />
+<rect x="715" y="350" width="170" height="200" fill="url(#buff-sandstone)" stroke="#26150e" stroke-width="2.0" />
+<rect x="725" y="360" width="150" height="190" fill="none" stroke="#fcf9f2" stroke-width="3.5" />
+<path d="M 745,550 L 745,410 Q 800,370 855,410 L 855,550 Z" fill="#1f0e08" stroke="#0f0603" stroke-width="1.8" />
+<rect x="553" y="320" width="34" height="230" fill="url(#buff-sandstone)" stroke="#26150e" stroke-width="1.8" />
+<path d="M 550,320 Q 570,294 590,320 Z" fill="#ffffff" stroke="#26150e" stroke-width="1.4" />
+<line x1="570" y1="294" x2="570" y2="282" stroke="#26150e" stroke-width="1.2" />
+<rect x="1013" y="320" width="34" height="230" fill="url(#buff-sandstone)" stroke="#26150e" stroke-width="1.8" />
+<path d="M 1010,320 Q 1030,294 1050,320 Z" fill="#ffffff" stroke="#26150e" stroke-width="1.4" />
+<line x1="1030" y1="294" x2="1030" y2="282" stroke="#26150e" stroke-width="1.2" />
+<path d="
+      M 695,350
+      C 665,305 710.0,240 800,220
+      C 890.0,240 935,305 905,350
+      Z
+    " fill="url(#marble-dome)" stroke="#26150e" stroke-width="2.2" />
+<path d="
+      M 695,350
+      C 665,305 710.0,240 800,220
+      C 890.0,240 935,305 905,350
+      Z
+    " fill="url(#hatch-white)" />
+<path d="M 725,350 Q 755.0,285 800,220" stroke="#6e6259" stroke-width="1.0" fill="none" />
+<path d="M 743,350 Q 765.8,285 800,220" stroke="#6e6259" stroke-width="1.0" fill="none" />
+<path d="M 761,350 Q 776.5999999999999,285 800,220" stroke="#6e6259" stroke-width="1.0" fill="none" />
+<path d="M 779,350 Q 787.4,285 800,220" stroke="#6e6259" stroke-width="1.0" fill="none" />
+<path d="M 797,350 Q 798.2,285 800,220" stroke="#6e6259" stroke-width="1.0" fill="none" />
+<path d="M 815,350 Q 809.0,285 800,220" stroke="#6e6259" stroke-width="1.0" fill="none" />
+<path d="M 833,350 Q 819.8,285 800,220" stroke="#6e6259" stroke-width="1.0" fill="none" />
+<path d="M 851,350 Q 830.5999999999999,285 800,220" stroke="#6e6259" stroke-width="1.0" fill="none" />
+<path d="M 869,350 Q 841.4,285 800,220" stroke="#6e6259" stroke-width="1.0" fill="none" />
+<line x1="800" y1="220" x2="800" y2="170" stroke="#26150e" stroke-width="2.0" />
+</g>
+<g font-family="'Cinzel', 'Playfair Display', 'Georgia', serif" fill="#301f16">
+      <rect x="55" y="805" width="410" height="60" fill="#faf6ed" opacity="0.9" stroke="#663e2c" stroke-width="0.75" />
+      <text x="75" y="828" font-size="14" font-weight="700" letter-spacing="2.5" fill="#24140b">SAFDARJUNG TOMB</text>
+      <text x="75" y="848" font-size="10" font-weight="500" letter-spacing="1.5" fill="#693d2a">NEW DELHI · LATE MUGHAL EMPIRE (1754 AD)</text>
+      <line x1="75" y1="834" x2="380" y2="834" stroke="#8c5339" stroke-width="0.5" opacity="0.7" />
+    </g>
+</svg>
