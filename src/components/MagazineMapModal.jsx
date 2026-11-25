@@ -2,6 +2,7 @@ import { useEffect, useMemo } from 'react';
 import { MapContainer, Marker, Tooltip, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import MapTileLayer from './MapTileLayer.jsx';
+import { getMagazine } from '../magazineData.js';
 
 function AtlasFitBounds({ entries }) {
   const map = useMap();
@@ -48,14 +49,15 @@ export default function MagazineMapModal({
   onClose,
 }) {
   const currentFort = entry || entries[currentIndex] || {};
+  const mag = getMagazine(topic);
   const topicTitle =
-    topic === 'palaces'
+    topic === 'forts'
+      ? 'Forts of India'
+      : topic === 'palaces'
       ? 'Palaces of India'
       : topic === 'tombs' || topic === 'mausoleums'
       ? 'Tombs & Mausoleums of India'
-      : topic === 'temples' || topic === 'temple'
-      ? 'Temples of India'
-      : 'Forts of India';
+      : mag?.title || 'Monographs of India';
 
   // Close on Escape, navigate on Arrow keys
   useEffect(() => {

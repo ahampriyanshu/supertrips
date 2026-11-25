@@ -18,10 +18,12 @@ import { getTripDuration } from "./tripDuration.js";
 
 import { getFindHref, getFindSelection, getLegacyFindHref } from "./findRoutes.js";
 import MagazinePage from "./components/MagazinePage.jsx";
+import { ADDITIONAL_MONOGRAPH_SLUGS, MONOGRAPH_ALIASES } from "./magazineData.js";
 import FortsSection from "./components/FortsSection.jsx";
 import PalacesSection from "./components/PalacesSection.jsx";
 import TombsSection from "./components/TombsSection.jsx";
 import TemplesSection from "./components/TemplesSection.jsx";
+import MonographSeriesSections from "./components/MonographSection.jsx";
 
 const journeyCities = TRIPS.flatMap(trip => trip.cities);
 const journeyStats = [
@@ -159,7 +161,33 @@ function parseRoute(pathname) {
       monumentId: circuitFirstMonument[parts[0]],
     };
   }
+  const matchedTopic = ADDITIONAL_MONOGRAPH_SLUGS.includes(parts[0])
+    ? parts[0]
+    : MONOGRAPH_ALIASES[parts[0]];
+  if (matchedTopic) {
+    return {
+      name: matchedTopic,
+      path: pathname,
+      monumentId: parts[1] || undefined,
+    };
+  }
   if (parts[0] === "magazine") {
+    const rawSub = parts[1];
+    const resolvedTopic =
+      ['forts', 'palaces', 'tombs', 'temples'].includes(rawSub)
+        ? rawSub
+        : ADDITIONAL_MONOGRAPH_SLUGS.includes(rawSub)
+        ? rawSub
+        : MONOGRAPH_ALIASES[rawSub] || (rawSub === 'mausoleums' ? 'tombs' : rawSub === 'temple' ? 'temples' : null);
+    if (resolvedTopic) {
+      const slug = parts[2];
+      return {
+        name: resolvedTopic,
+        path: pathname,
+        redirect: slug ? `/${resolvedTopic}/${slug}` : `/${resolvedTopic}`,
+        monumentId: slug,
+      };
+    }
     const fortSlug = parts[2] || (parts[1] !== "forts" ? parts[1] : undefined);
     const destination = fortSlug ? `/forts/${fortSlug}` : "/forts";
     return {
@@ -275,6 +303,7 @@ function Masthead() {
         <Link href="/palaces">Palaces</Link>
         <Link href="/tombs">Tombs</Link>
         <Link href="/temples">Temples</Link>
+        <Link href="/#monographs">Archives</Link>
         <Link href="/find">Find a city</Link>
         <Link href="/#field-notes">Field notes</Link>
       </nav>
@@ -575,6 +604,14 @@ export default function App({ initialPath, initialHash = "", initialState = null
     );
   }
 
+  if (ADDITIONAL_MONOGRAPH_SLUGS.includes(route.name)) {
+    return (
+      <div className="app-magazine-root">
+        <MagazinePage topic={route.name} monumentId={route.monumentId} />
+      </div>
+    );
+  }
+
   if (route.name === "find") {
     return <FindPage search={route.search} hash={route.hash} />;
   }
@@ -620,6 +657,8 @@ export default function App({ initialPath, initialHash = "", initialState = null
         <TombsSection />
 
         <TemplesSection />
+
+        <MonographSeriesSections />
 
         <CityCollection />
 

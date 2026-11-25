@@ -276,17 +276,18 @@ export default function MagazinePage({ topic = 'forts', monumentId }) {
   // Update document title for active monument
   useEffect(() => {
     if (typeof document !== 'undefined' && currentEntry) {
+      const magTitle = magazine?.title || 'Monographs of India';
       const topicTitle =
-        topic === 'palaces'
+        topic === 'forts'
+          ? 'Forts of India'
+          : topic === 'palaces'
           ? 'Palaces of India'
           : topic === 'tombs' || topic === 'mausoleums'
           ? 'Tombs & Mausoleums of India'
-          : topic === 'temples' || topic === 'temple'
-          ? 'Temples of India'
-          : 'Forts of India';
+          : magTitle;
       document.title = `${currentEntry.monument} · ${topicTitle} | SuperTrips`;
     }
-  }, [currentEntry, topic]);
+  }, [currentEntry, magazine, topic]);
 
   const themeClass = `magazine-theme-${currentEntry.theme || 'warm-stone'}`;
   const quadrantClass = `magazine-quadrant--${currentEntry.textQuadrant || 'top-left'}`;

@@ -7,7 +7,15 @@ import { createServer } from 'vite';
 
 import { CATEGORIES, CITIES, STATES, TRIPS } from '../src/data.js';
 import { LEGACY_FIND_ROUTES } from '../src/findRoutes.js';
-import { FORTS, PALACES, TOMBS, TEMPLES, TEMPLE_CIRCUITS } from '../src/magazineData.js';
+import {
+  FORTS,
+  PALACES,
+  TOMBS,
+  TEMPLES,
+  TEMPLE_CIRCUITS,
+  ADDITIONAL_MONOGRAPHS,
+  MONOGRAPH_ALIASES,
+} from '../src/magazineData.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, '..');
@@ -254,6 +262,31 @@ function buildRoutes() {
     });
   });
 
+  ADDITIONAL_MONOGRAPHS.forEach((vol) => {
+    routes.push({
+      path: `/${vol.slug}`,
+      type: 'monograph',
+      heading: vol.title,
+      vol,
+      title: `${vol.title} | SuperTrips`,
+      description: vol.seoDesc || vol.description,
+      priority: '0.8',
+    });
+
+    vol.entries.forEach((entry) => {
+      routes.push({
+        path: `/${vol.slug}/${entry.slug}`,
+        type: 'monograph-entry',
+        heading: entry.monument,
+        vol,
+        entry,
+        title: `${entry.monument} | ${vol.title} | SuperTrips`,
+        description: `${entry.monument} in ${entry.location}. ${entry.paragraph}`,
+        priority: '0.7',
+      });
+    });
+  });
+
   const seen = new Set();
   return routes
     .map(route => ({ ...route, path: normalizeRoute(route.path) }))
@@ -303,6 +336,8 @@ function getImageAlt(route) {
   if (route.type === 'tombs') return `Tombs & Mausoleums of India architectural sketches on ${siteName}`;
   if (route.type === 'temple') return `${route.temple.monument} architectural colored pencil sketch on ${siteName}`;
   if (route.type === 'temples') return `Temples of India architectural colored pencil sketches on ${siteName}`;
+  if (route.type === 'monograph-entry') return `${route.entry.monument} colored pencil sketch on ${siteName}`;
+  if (route.type === 'monograph') return `${route.vol.title} colored pencil sketches on ${siteName}`;
   return `${siteName} travel routes across India`;
 }
 
@@ -625,9 +660,15 @@ async function main() {
     await Promise.all(TEMPLES.map(temple =>
       writeRoute({ path: `/temple/${temple.slug}` }, buildFindRedirect(`/temples/${temple.slug}`, siteUrl))
     ));
-    await writeRoute({ path: '/churches' }, buildFindRedirect('/temples', siteUrl));
-    await writeRoute({ path: '/church' }, buildFindRedirect('/temples', siteUrl));
-    await writeRoute({ path: '/magazine/churches' }, buildFindRedirect('/temples', siteUrl));
+    await Promise.all(Object.entries(MONOGRAPH_ALIASES).map(([alias, target]) =>
+      writeRoute({ path: `/${alias}` }, buildFindRedirect(`/${target}`, siteUrl))
+    ));
+    await Promise.all(ADDITIONAL_MONOGRAPHS.flatMap((vol) => [
+      writeRoute({ path: `/magazine/${vol.slug}` }, buildFindRedirect(`/${vol.slug}`, siteUrl)),
+      ...vol.entries.map((entry) =>
+        writeRoute({ path: `/magazine/${vol.slug}/${entry.slug}` }, buildFindRedirect(`/${vol.slug}/${entry.slug}`, siteUrl))
+      ),
+    ]));
     await writeFile(path.join(distDir, 'sitemap.xml'), buildSitemap(routes, siteUrl));
     await writeFile(path.join(distDir, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${siteUrl}/sitemap.xml\n`);
   } finally {
