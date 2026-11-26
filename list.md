@@ -149,9 +149,18 @@ Each collection is arranged in a dedicated **Grand Geographic & Architectural Se
 |---|--------|----------|---------------|--------------------------|
 | 26 | **Swaminarayan Akshardham** | New Delhi | 2005 AD · BAPS Swaminarayan | Modern pink sandstone & Carrara marble masterpiece with 234 pillars & 9 domes |
 | 27 | **Lotus Temple** | New Delhi | 1986 AD · Fariborz Sahba | Bahá'í House of Worship shaped as a blooming lotus with 27 Pentelic marble petals |
-| 28 | **Birla Mandir** | Jaipur, Rajasthan | 1988 AD · B.M. Birla Foundation | Luminous white Makrana marble sanctuary beneath Moti Dungri Fort |
-| 29 | **Matrimandir** | Auroville, Tamil Nadu | 1971–2008 AD · Mirra Alfassa / Roger Anger | Golden geodesic sphere with 1,415 discs & crystal-prism meditation chamber |
-| 30 | **Prem Mandir** | Vrindavan, Uttar Pradesh | 2001–2012 AD · Jagadguru Kripalu Parishat | 125-ft Italian Carrara marble temple of divine love with exquisite lila reliefs |
+| 28 | **Matrimandir** | Auroville, Tamil Nadu | 1971–2008 AD · Mirra Alfassa / Roger Anger | Golden geodesic sphere with 1,415 discs & crystal-prism meditation chamber |
+| 29 | **Belur Math** | Howrah, West Bengal | 1938 AD · Ramakrishna Mission | Visionary architectural confluence uniting Hindu, Buddhist, Christian & Islamic motifs on the Hooghly |
+| 30 | **Shri Vishwanath Mandir (BHU)** | Varanasi, Uttar Pradesh | 1931–1966 AD · Birla / BHU | 253-ft marble temple spire rising among the tallest temple towers in the world on the BHU campus |
+| 31 | **Global Vipassana Pagoda** | Gorai, Mumbai, Maharashtra | 2000–2009 AD · Pillarless Stone Dome | World's largest pillarless interlocking sandstone dome housing 8,000 meditators beneath a golden spire |
+| 32 | **Deekshabhoomi** | Nagpur, Maharashtra | 1956–2001 AD · Sheo Dan Mal | World's largest hollow Buddhist stupa dome crafted in Dholpur sandstone and Italian marble |
+| 33 | **ISKCON Sri Radha Krishna Temple** | Bengaluru, Karnataka | 1997 AD · Neo-Vedic Architecture | Monumental blue glass-and-granite contemporary temple atop Hare Krishna Hill |
+| 34 | **ISKCON Mayapur (Temple of the Vedic Planetarium)** | Mayapur, West Bengal | 21st C. · Chandrodaya Mandir | World's largest temple complex crowned by a colossal turquoise-blue and gold ribbed Vedic dome |
+| 35 | **ISKCON Delhi (Radha Parthasarathi Mandir)** | New Delhi | 1998 AD · Achyut Kanvinde | Iconic brick-and-stone brutalist-modernist shikhara spires rising dramatically in East of Kailash |
+| 36 | **ISKCON Vrindavan (Krishna Balaram Mandir)** | Vrindavan, Uttar Pradesh | 1975 AD · Marble Courtyard | Pure white carved-marble sacred courtyard sanctum at Raman Reti anchored by sculptural arches |
+| 37 | **Ram Mandir (Shri Ram Janmabhoomi)** | Ayodhya, Uttar Pradesh | 2020–2024 AD · Chandrakant Sompura | Three-storey Nagara sandstone revival engineered with interlocked Bansi Paharpur stone & zero iron/steel |
+| 38 | **Adiyogi & Dhyanalinga Sanctuary** | Coimbatore, Tamil Nadu | 1999 / 2017 AD · Isha Foundation | 112-ft steel Adiyogi bust at Velliangiri foothills paired with a pillarless stabilized-earth meditation dome |
+| 39 | **Sri Lakshmi Narayani Golden Temple** | Sripuram, Vellore, Tamil Nadu | 2007 AD · Sripuram Trust | Intricate gold-gilded sanctum veiled in pure gold foil at the core of a cosmic star-shaped Sri Chakra park |
 
 
 

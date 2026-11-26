@@ -227,7 +227,7 @@ function buildRoutes() {
     type: 'temples',
     heading: 'Temples of India',
     title: 'Temples of India | SuperTrips',
-    description: 'Explore 30 iconic historic temples across India across six circuits, illustrated as fine-art colored pencil architectural sketches.',
+    description: `Explore ${TEMPLES.length} iconic historic and modern temples across India across six circuits, illustrated as fine-art colored pencil architectural sketches.`,
     priority: '0.8',
   });
 
