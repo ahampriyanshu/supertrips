@@ -334,7 +334,7 @@ function getImageAlt(route) {
   if (route.type === 'palaces') return `Palaces of India watercolor illustrations on ${siteName}`;
   if (route.type === 'tomb') return `${route.tomb.monument} architectural colored pencil sketch on ${siteName}`;
   if (route.type === 'tombs') return `Tombs & Mausoleums of India architectural sketches on ${siteName}`;
-  if (route.type === 'temple') return `${route.temple.monument} architectural colored pencil sketch on ${siteName}`;
+  if (route.type === 'temple') return `${route.temple.monument} ${route.temple.artworkUrl?.endsWith('-watercolor.jpg') ? 'watercolor illustration' : 'architectural colored pencil sketch'} on ${siteName}`;
   if (route.type === 'temples') return `Temples of India architectural colored pencil sketches on ${siteName}`;
   if (route.type === 'monograph-entry') return `${route.entry.monument} colored pencil sketch on ${siteName}`;
   if (route.type === 'monograph') return `${route.vol.title} colored pencil sketches on ${siteName}`;
